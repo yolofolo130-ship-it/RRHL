@@ -2,7 +2,7 @@ import type { StaffMember } from "./types";
 
 // Placeholder league staff — replace names/roles/discord handles at any time.
 export const staff: StaffMember[] = [
-  { id: "s1", name: "Marcus Whitfield", role: "Commissioner", category: "Commissioner", discord: "@mwhitfield" },
+  { id: "s1", name: "Chrisx", role: "Commissioner", category: "Commissioner", discord: "@mwhitfield" },
 
   { id: "s2", name: "Dana Kessler", role: "Assistant Commissioner", category: "League Management", discord: "@dkessler" },
   { id: "s3", name: "Ryan O'Malley", role: "Franchise Relations", category: "League Management", discord: "@romalley" },
