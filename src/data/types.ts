@@ -68,3 +68,10 @@ export interface StaffMember {
   discord: string;
   avatar?: string;
 }
+
+export interface Accolade {
+  id: string;
+  name: string;
+  /** Display name of the winning player, team, or coach. Empty until awarded. */
+  winner?: string;
+}

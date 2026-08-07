@@ -9,6 +9,7 @@ const NAV_LINKS = [
   { label: "TEAMS", to: "/teams" },
   { label: "STATS", to: "/stats" },
   { label: "STAFF", to: "/staff" },
+  { label: "ACCOLADES", to: "/accolades" },
 ];
 
 export default function Navbar() {

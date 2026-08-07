@@ -10,6 +10,7 @@ import Teams from "@/pages/Teams";
 import TeamDetail from "@/pages/TeamDetail";
 import Stats from "@/pages/Stats";
 import Staff from "@/pages/Staff";
+import Accolades from "@/pages/Accolades";
 import NotFound from "@/pages/NotFound";
 
 function Layout() {
@@ -29,7 +30,7 @@ function Layout() {
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
@@ -39,6 +40,7 @@ export default function App() {
           <Route path="/teams/:teamId" element={<TeamDetail />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/staff" element={<Staff />} />
+          <Route path="/accolades" element={<Accolades />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
