@@ -35,7 +35,7 @@ export const skaters: Skater[] = [
   { id: "uta-4", name: "Ryder James", teamId: "utah-mammoths", position: "D", number: 25, gp: 5, goals: 1, assists: 3, pim: 0 },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "C", number: 77, gp: 3, goals: 5, assists: 1, pim: 2 },
-  { id: "vgk-2", name: "TGOD", teamId: "vegas-golden-knights", position: "LW", number: 18, gp: 5, goals: 6, assists: 5, pim: 0 },
+  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 18, gp: 5, goals: 6, assists: 5, pim: 0 },
   { id: "vgk-3", name: "Twizzy", teamId: "vegas-golden-knights", position: "D", number: 6, gp: 5, goals: 2, assists: 8, pim: 2 },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "D", number: 28, gp: 5, goals: 1, assists: 5, pim: 6 },
 
@@ -62,7 +62,7 @@ export const goalies: Goalie[] = [
   { id: "bos-g1", name: "Andre Simms", teamId: "boston-bruins", number: 29, gp: 5, wins: 4, losses: 0, otLosses: 1, saves: 145, goalsAgainst: 9 },
   { id: "nyr-g1", name: "Marco Feld", teamId: "new-york-rangers", number: 1, gp: 5, wins: 0, losses: 3, otLosses: 2, saves: 112, goalsAgainst: 20 },
   { id: "uta-g1", name: "Preston Wade", teamId: "utah-mammoths", number: 33, gp: 5, wins: 2, losses: 2, otLosses: 1, saves: 122, goalsAgainst: 15 },
-  { id: "vgk-g1", name: "Elliot Frost", teamId: "vegas-golden-knights", number: 37, gp: 5, wins: 5, losses: 0, otLosses: 0, saves: 128, goalsAgainst: 11 },
+  { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 37, gp: 5, wins: 5, losses: 0, otLosses: 0, saves: 128, goalsAgainst: 11 },
   { id: "stl-g1", name: "Tanner Ives", teamId: "st-louis-blues", number: 40, gp: 5, wins: 2, losses: 3, otLosses: 0, saves: 116, goalsAgainst: 18 },
   { id: "lak-g1", name: "Wyatt Cross", teamId: "los-angeles-kings", number: 32, gp: 5, wins: 1, losses: 4, otLosses: 0, saves: 108, goalsAgainst: 22 },
   { id: "dal-g1", name: "Xavier Holt", teamId: "dallas-stars", number: 39, gp: 5, wins: 2, losses: 1, otLosses: 2, saves: 120, goalsAgainst: 14 },
