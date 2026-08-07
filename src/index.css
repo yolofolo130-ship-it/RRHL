@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Barlow Condensed", "Oswald", sans-serif;
+  --font-sans: "Oswald", system-ui, sans-serif;
+
+  --color-bg-0: #050505;
+  --color-bg-1: #080808;
+  --color-bg-2: #0d0d0d;
+  --color-bg-3: #111111;
+  --color-bg-4: #161616;
+
+  --color-ink-0: #ffffff;
+  --color-ink-1: #d7d7d7;
+  --color-ink-2: #999999;
+  --color-ink-3: #666666;
+
+  --color-line: rgba(255, 255, 255, 0.1);
+  --color-line-strong: rgba(255, 255, 255, 0.18);
+
+  --animate-fade-up: fade-up 0.6s cubic-bezier(0.16, 1, 0.3, 1) both;
+  --animate-fade-in: fade-in 0.4s ease both;
+  --animate-live-pulse: live-pulse 1.6s ease-in-out infinite;
+
+  @keyframes fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(18px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes fade-in {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes live-pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.35;
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: var(--color-bg-0);
+  color: var(--color-ink-1);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg-0);
+}
+::-webkit-scrollbar-thumb {
+  background: #262626;
+  border-radius: 6px;
+  border: 2px solid var(--color-bg-0);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333333;
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.text-balance {
+  text-wrap: balance;
+}

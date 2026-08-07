@@ -1,0 +1,93 @@
+import type { Goalie, Skater } from "./types";
+
+// Placeholder rosters — replace with real players at any time. Points,
+// save percentage, and GAA are always calculated, never stored, so editing
+// goals/assists/saves here is enough to keep every table in sync.
+export const skaters: Skater[] = [
+  { id: "car-1", name: "Ethan Cole", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 5, goals: 3, assists: 4, pim: 2 },
+  { id: "car-2", name: "Marcus Webb", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 5, goals: 2, assists: 3, pim: 4 },
+  { id: "car-3", name: "Owen Price", teamId: "carolina-hurricanes", position: "D", number: 55, gp: 5, goals: 1, assists: 5, pim: 6 },
+  { id: "car-4", name: "Kyle Santos", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 5, goals: 0, assists: 2, pim: 8 },
+
+  { id: "pit-1", name: "Jordan Blake", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 5, goals: 4, assists: 5, pim: 2 },
+  { id: "pit-2", name: "Derek Nash", teamId: "pittsburgh-penguins", position: "RW", number: 17, gp: 5, goals: 3, assists: 4, pim: 10 },
+  { id: "pit-3", name: "Trevor Lang", teamId: "pittsburgh-penguins", position: "D", number: 6, gp: 5, goals: 1, assists: 6, pim: 4 },
+  { id: "pit-4", name: "Sam Rooney", teamId: "pittsburgh-penguins", position: "D", number: 23, gp: 5, goals: 1, assists: 2, pim: 12 },
+
+  { id: "tbl-1", name: "Nathan Voss", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 5, goals: 6, assists: 7, pim: 2 },
+  { id: "tbl-2", name: "Bryce Talon", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 5, goals: 5, assists: 5, pim: 6 },
+  { id: "tbl-3", name: "Miles Carter", teamId: "tampa-bay-lightning", position: "D", number: 8, gp: 5, goals: 2, assists: 6, pim: 4 },
+  { id: "tbl-4", name: "Adrian Cole", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 5, goals: 1, assists: 3, pim: 8 },
+
+  { id: "bos-1", name: "Wesley Hart", teamId: "boston-bruins", position: "C", number: 12, gp: 5, goals: 7, assists: 6, pim: 4 },
+  { id: "bos-2", name: "Grant Foley", teamId: "boston-bruins", position: "RW", number: 27, gp: 5, goals: 5, assists: 4, pim: 6 },
+  { id: "bos-3", name: "Connor Blake", teamId: "boston-bruins", position: "D", number: 5, gp: 5, goals: 2, assists: 7, pim: 2 },
+  { id: "bos-4", name: "Liam Odom", teamId: "boston-bruins", position: "D", number: 44, gp: 5, goals: 1, assists: 4, pim: 10 },
+
+  { id: "nyr-1", name: "Tyler Munro", teamId: "new-york-rangers", position: "C", number: 10, gp: 5, goals: 2, assists: 3, pim: 6 },
+  { id: "nyr-2", name: "Dana Ruiz", teamId: "new-york-rangers", position: "LW", number: 22, gp: 5, goals: 2, assists: 2, pim: 4 },
+  { id: "nyr-3", name: "Blake Osgood", teamId: "new-york-rangers", position: "D", number: 7, gp: 5, goals: 0, assists: 3, pim: 8 },
+  { id: "nyr-4", name: "Corey Vance", teamId: "new-york-rangers", position: "D", number: 24, gp: 5, goals: 1, assists: 1, pim: 12 },
+
+  { id: "uta-1", name: "Silas Roth", teamId: "utah-mammoths", position: "C", number: 16, gp: 5, goals: 4, assists: 5, pim: 2 },
+  { id: "uta-2", name: "Beckett Snow", teamId: "utah-mammoths", position: "RW", number: 20, gp: 5, goals: 3, assists: 4, pim: 6 },
+  { id: "uta-3", name: "Cole Marsh", teamId: "utah-mammoths", position: "D", number: 2, gp: 5, goals: 1, assists: 5, pim: 4 },
+  { id: "uta-4", name: "Ryder James", teamId: "utah-mammoths", position: "D", number: 25, gp: 5, goals: 1, assists: 3, pim: 10 },
+
+  { id: "vgk-1", name: "August Reyes", teamId: "vegas-golden-knights", position: "C", number: 13, gp: 5, goals: 8, assists: 6, pim: 4 },
+  { id: "vgk-2", name: "Dominic Shaw", teamId: "vegas-golden-knights", position: "LW", number: 18, gp: 5, goals: 6, assists: 5, pim: 8 },
+  { id: "vgk-3", name: "Miles Trent", teamId: "vegas-golden-knights", position: "D", number: 6, gp: 5, goals: 2, assists: 8, pim: 2 },
+  { id: "vgk-4", name: "Harper Voss", teamId: "vegas-golden-knights", position: "D", number: 28, gp: 5, goals: 1, assists: 5, pim: 6 },
+
+  { id: "stl-1", name: "Nolan Ashby", teamId: "st-louis-blues", position: "C", number: 14, gp: 5, goals: 3, assists: 4, pim: 4 },
+  { id: "stl-2", name: "Peyton Cruz", teamId: "st-louis-blues", position: "RW", number: 21, gp: 5, goals: 2, assists: 3, pim: 6 },
+  { id: "stl-3", name: "Quinn Baxter", teamId: "st-louis-blues", position: "D", number: 4, gp: 5, goals: 1, assists: 4, pim: 8 },
+  { id: "stl-4", name: "Reese Hollis", teamId: "st-louis-blues", position: "D", number: 34, gp: 5, goals: 0, assists: 3, pim: 10 },
+
+  { id: "lak-1", name: "Grady Nolan", teamId: "los-angeles-kings", position: "C", number: 9, gp: 5, goals: 2, assists: 3, pim: 6 },
+  { id: "lak-2", name: "Sawyer Finch", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 5, goals: 2, assists: 2, pim: 8 },
+  { id: "lak-3", name: "Colton Reese", teamId: "los-angeles-kings", position: "D", number: 5, gp: 5, goals: 1, assists: 2, pim: 10 },
+  { id: "lak-4", name: "Emerson Dale", teamId: "los-angeles-kings", position: "D", number: 26, gp: 5, goals: 0, assists: 2, pim: 12 },
+
+  { id: "dal-1", name: "Landon Pierce", teamId: "dallas-stars", position: "C", number: 11, gp: 5, goals: 4, assists: 5, pim: 4 },
+  { id: "dal-2", name: "Hudson Vance", teamId: "dallas-stars", position: "RW", number: 19, gp: 5, goals: 3, assists: 3, pim: 6 },
+  { id: "dal-3", name: "Carter Doyle", teamId: "dallas-stars", position: "D", number: 8, gp: 5, goals: 1, assists: 5, pim: 4 },
+  { id: "dal-4", name: "Griffin Moss", teamId: "dallas-stars", position: "D", number: 3, gp: 5, goals: 1, assists: 3, pim: 8 },
+];
+
+export const goalies: Goalie[] = [
+  { id: "car-g1", name: "Reid Palmer", teamId: "carolina-hurricanes", number: 30, gp: 5, wins: 2, losses: 3, otLosses: 0, saves: 131, goalsAgainst: 13 },
+  { id: "pit-g1", name: "Casey Boone", teamId: "pittsburgh-penguins", number: 35, gp: 5, wins: 3, losses: 2, otLosses: 0, saves: 140, goalsAgainst: 16 },
+  { id: "tbl-g1", name: "Julian Marsh", teamId: "tampa-bay-lightning", number: 31, gp: 5, wins: 4, losses: 1, otLosses: 0, saves: 132, goalsAgainst: 13 },
+  { id: "bos-g1", name: "Andre Simms", teamId: "boston-bruins", number: 29, gp: 5, wins: 4, losses: 0, otLosses: 1, saves: 145, goalsAgainst: 9 },
+  { id: "nyr-g1", name: "Marco Feld", teamId: "new-york-rangers", number: 1, gp: 5, wins: 0, losses: 3, otLosses: 2, saves: 112, goalsAgainst: 20 },
+  { id: "uta-g1", name: "Preston Wade", teamId: "utah-mammoths", number: 33, gp: 5, wins: 2, losses: 2, otLosses: 1, saves: 122, goalsAgainst: 15 },
+  { id: "vgk-g1", name: "Elliot Frost", teamId: "vegas-golden-knights", number: 37, gp: 5, wins: 5, losses: 0, otLosses: 0, saves: 128, goalsAgainst: 11 },
+  { id: "stl-g1", name: "Tanner Ives", teamId: "st-louis-blues", number: 40, gp: 5, wins: 2, losses: 3, otLosses: 0, saves: 116, goalsAgainst: 18 },
+  { id: "lak-g1", name: "Wyatt Cross", teamId: "los-angeles-kings", number: 32, gp: 5, wins: 1, losses: 4, otLosses: 0, saves: 108, goalsAgainst: 22 },
+  { id: "dal-g1", name: "Xavier Holt", teamId: "dallas-stars", number: 39, gp: 5, wins: 2, losses: 1, otLosses: 2, saves: 120, goalsAgainst: 14 },
+];
+
+export const skaterPoints = (skater: Skater): number => skater.goals + skater.assists;
+
+export const goalieShotsAgainst = (goalie: Goalie): number => goalie.saves + goalie.goalsAgainst;
+
+export const goalieSavePct = (goalie: Goalie): number =>
+  goalieShotsAgainst(goalie) === 0 ? 0 : goalie.saves / goalieShotsAgainst(goalie);
+
+// Approximate GAA as goals-against per game played (rec-league games, not
+// tracked by minutes played).
+export const goalieGaa = (goalie: Goalie): number =>
+  goalie.gp === 0 ? 0 : goalie.goalsAgainst / goalie.gp;
+
+export const topByGoals = (count: number): Skater[] =>
+  [...skaters].sort((a, b) => b.goals - a.goals).slice(0, count);
+
+export const topByAssists = (count: number): Skater[] =>
+  [...skaters].sort((a, b) => b.assists - a.assists).slice(0, count);
+
+export const topByPoints = (count: number): Skater[] =>
+  [...skaters].sort((a, b) => skaterPoints(b) - skaterPoints(a)).slice(0, count);
+
+export const topBySaves = (count: number): Goalie[] =>
+  [...goalies].sort((a, b) => b.saves - a.saves).slice(0, count);

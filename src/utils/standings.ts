@@ -1,0 +1,90 @@
+import type { Conference, Game, Team } from "@/data/types";
+
+export const PLAYOFF_SPOTS_PER_CONFERENCE = 4;
+
+export interface TeamStanding {
+  team: Team;
+  gp: number;
+  w: number;
+  l: number;
+  otl: number;
+  gf: number;
+  ga: number;
+  diff: number;
+  pts: number;
+}
+
+/**
+ * Standings are derived entirely from final games + overtime flags, using
+ * standard rec-hockey scoring: win = 2 pts, OT/SO loss = 1 pt, loss = 0 pts.
+ * Nothing here is hand-entered — update schedule.ts and this recalculates.
+ *
+ * `teams` must be the full league roster, not a conference subset — cross-
+ * conference games need both sides resolvable or they're silently dropped.
+ * Filter by conference on the returned array instead (see
+ * `standingsForConference`).
+ */
+export function computeStandings(teams: Team[], games: Game[]): TeamStanding[] {
+  const byId = new Map<string, TeamStanding>(
+    teams.map((team) => [
+      team.id,
+      { team, gp: 0, w: 0, l: 0, otl: 0, gf: 0, ga: 0, diff: 0, pts: 0 },
+    ]),
+  );
+
+  for (const game of games) {
+    if (game.status !== "final" || game.homeScore == null || game.awayScore == null) {
+      continue;
+    }
+    const home = byId.get(game.homeTeamId);
+    const away = byId.get(game.awayTeamId);
+    if (!home || !away) continue;
+
+    home.gp += 1;
+    away.gp += 1;
+    home.gf += game.homeScore;
+    home.ga += game.awayScore;
+    away.gf += game.awayScore;
+    away.ga += game.homeScore;
+
+    if (game.homeScore > game.awayScore) {
+      home.w += 1;
+      if (game.overtime) away.otl += 1;
+      else away.l += 1;
+    } else {
+      away.w += 1;
+      if (game.overtime) home.otl += 1;
+      else home.l += 1;
+    }
+  }
+
+  for (const standing of byId.values()) {
+    standing.diff = standing.gf - standing.ga;
+    standing.pts = standing.w * 2 + standing.otl;
+  }
+
+  return teams.map((team) => byId.get(team.id)!);
+}
+
+export function sortStandings(standings: TeamStanding[]): TeamStanding[] {
+  return [...standings].sort(
+    (a, b) => b.pts - a.pts || b.diff - a.diff || b.gf - a.gf,
+  );
+}
+
+export function isPlayoffPosition(rankWithinConference: number): boolean {
+  return rankWithinConference <= PLAYOFF_SPOTS_PER_CONFERENCE;
+}
+
+/**
+ * Computes standings against the full league (so cross-conference games are
+ * credited correctly) and returns just one conference, sorted.
+ */
+export function standingsForConference(
+  conference: Conference,
+  allTeams: Team[],
+  games: Game[],
+): TeamStanding[] {
+  const full = computeStandings(allTeams, games);
+  return sortStandings(full.filter((s) => s.team.conference === conference));
+}
