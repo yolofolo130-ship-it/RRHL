@@ -1,6 +1,8 @@
 import type { Accolade } from "./types";
 
-// League end-of-season awards. `winner` is left blank until assigned.
+// League end-of-season awards. `winner` is left blank until assigned — add
+// it directly to an entry once decided, e.g.:
+// { id: "hart-memorial-trophy", name: "Hart Memorial Trophy", winner: "Chrisx" },
 export const accolades: Accolade[] = [
   { id: "stanley-cup-mvp", name: "Stanley Cup MVP" },
   { id: "stanley-cup-losing-mvp", name: "Stanley Cup Losing MVP" },

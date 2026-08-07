@@ -2,14 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
-import { skaterHistoryFor, goalieHistoryFor } from "@/data/playerHistory";
+import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor } from "@/data/playerHistory";
 import { accolades } from "@/data/accolades";
-import { useAccoladeWinners } from "@/hooks/useAccoladeWinners";
 
 export default function PlayerDetail() {
   const { playerId } = useParams<{ playerId: string }>();
   const player = playerId ? getPlayerById(playerId) : undefined;
-  const { winners } = useAccoladeWinners();
 
   if (!player) {
     return (
@@ -28,9 +26,20 @@ export default function PlayerDetail() {
   }
 
   const team = getTeamById(player.teamId);
-  const wonAccolades = accolades.filter((a) => winners[a.id] === player.name);
   const skaterHistory = skaterHistoryFor(player.name);
   const goalieHistory = goalieHistoryFor(player.name);
+
+  const currentAccolades = accolades
+    .filter((a) => a.winner === player.name)
+    .map((a) => ({ id: a.id, name: a.name, season: "Season 23" }));
+  const pastAccolades = pastAccoladesFor(player.name).map((a) => ({
+    id: a.id,
+    name: a.accoladeName,
+    season: a.season,
+  }));
+  const allAccolades = [...currentAccolades, ...pastAccolades].sort((a, b) =>
+    b.season.localeCompare(a.season),
+  );
 
   return (
     <>
@@ -122,13 +131,14 @@ export default function PlayerDetail() {
         <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">
           ACCOLADES
         </p>
-        {wonAccolades.length > 0 ? (
+        {allAccolades.length > 0 ? (
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {wonAccolades.map((accolade) => (
+            {allAccolades.map((accolade) => (
               <div key={accolade.id} className="border border-line bg-bg-2 p-5">
                 <p className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                   {accolade.name}
                 </p>
+                <p className="mt-1 text-xs text-ink-2">{accolade.season}</p>
               </div>
             ))}
           </div>

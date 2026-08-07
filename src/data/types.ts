@@ -112,3 +112,13 @@ export interface SeasonGoalieStats {
   saves: number;
   goalsAgainst: number;
 }
+
+// Awards won in past seasons. Separate from Accolade (which is only ever
+// the current season's not-yet-decided awards) — `playerName` links back
+// to a roster entry the same way the season stats above do.
+export interface SeasonAccolade {
+  id: string;
+  season: string; // e.g. "Season 22"
+  accoladeName: string; // e.g. "Hart Memorial Trophy"
+  playerName: string;
+}
