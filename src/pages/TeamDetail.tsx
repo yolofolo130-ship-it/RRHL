@@ -5,7 +5,7 @@ import Tabs from "@/components/Tabs";
 import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
-import { skaters, goalies, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
+import { skaters, goalies, coaches, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
 import { standingsForConference, isPlayoffPosition } from "@/utils/standings";
 import { formatLongDate } from "@/utils/format";
 
@@ -58,6 +58,9 @@ export default function TeamDetail() {
   const nextGame = teamGames.find((g) => g.status === "upcoming" || g.status === "live");
   const roster = skaters.filter((s) => s.teamId === team.id);
   const goalie = goalies.find((g) => g.teamId === team.id);
+  const teamCoaches = coaches.filter((c) => c.teamId === team.id);
+  const headCoaches = teamCoaches.filter((c) => c.role === "Head Coach");
+  const assistantCoaches = teamCoaches.filter((c) => c.role === "Assistant Coach");
 
   return (
     <>
@@ -200,6 +203,24 @@ export default function TeamDetail() {
                 </tbody>
               </table>
             </div>
+
+            {teamCoaches.length > 0 && (
+              <div className="border-t border-line p-6">
+                <p className="text-xs font-semibold tracking-[0.2em] text-ink-2">
+                  COACHING STAFF
+                </p>
+                <div className="mt-4 grid gap-4 sm:grid-cols-2">
+                  {[...headCoaches, ...assistantCoaches].map((coach) => (
+                    <div key={coach.id}>
+                      <p className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                        {coach.name}
+                      </p>
+                      <p className="text-xs text-ink-2">{coach.role}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         )}
 

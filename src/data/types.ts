@@ -53,6 +53,15 @@ export interface Goalie {
   goalsAgainst: number;
 }
 
+export type CoachRole = "Head Coach" | "Assistant Coach";
+
+export interface Coach {
+  id: string;
+  name: string;
+  teamId: string;
+  role: CoachRole;
+}
+
 export type StaffCategory =
   | "Commissioner"
   | "League Management"

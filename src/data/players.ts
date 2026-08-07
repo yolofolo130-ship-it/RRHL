@@ -1,4 +1,4 @@
-import type { Goalie, Skater } from "./types";
+import type { Coach, Goalie, Skater } from "./types";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -67,6 +67,10 @@ export const goalies: Goalie[] = [
   { id: "lak-g1", name: "Wyatt Cross", teamId: "los-angeles-kings", number: 32, gp: 5, wins: 1, losses: 4, otLosses: 0, saves: 108, goalsAgainst: 22 },
   { id: "dal-g1", name: "Xavier Holt", teamId: "dallas-stars", number: 39, gp: 5, wins: 2, losses: 1, otLosses: 2, saves: 120, goalsAgainst: 14 },
 ];
+
+// Coaching staff per team. Empty until filled in — add entries like:
+// { id: "car-hc", name: "Full Name", teamId: "carolina-hurricanes", role: "Head Coach" },
+export const coaches: Coach[] = [];
 
 export const skaterPoints = (skater: Skater): number => skater.goals + skater.assists;
 
