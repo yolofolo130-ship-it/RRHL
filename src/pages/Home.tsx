@@ -140,28 +140,42 @@ function FeaturedMatchup({ gameId }: { gameId: string }) {
   if (!home || !away) return null;
 
   return (
-    <div className="relative mt-8 overflow-hidden border border-line bg-bg-2 px-6 py-14 sm:px-14">
+    <div className="relative mt-8">
       <div
-        className="pointer-events-none absolute inset-0 opacity-[0.08]"
+        className="pointer-events-none absolute -inset-4 animate-glow-spin rounded-[2px] opacity-70 blur-2xl"
         style={{
-          background: `radial-gradient(circle at 15% 20%, ${away.color}, transparent 45%), radial-gradient(circle at 85% 80%, ${home.color}, transparent 45%)`,
+          background: `conic-gradient(from 0deg, ${away.color}, transparent 30%, transparent 70%, ${home.color}, ${away.color})`,
         }}
         aria-hidden
       />
-      <div className="relative flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
-        <TeamBlock team={away} />
+      <div className="relative overflow-hidden border border-line-strong bg-bg-2 px-6 py-14 sm:px-14">
+        <div
+          className="pointer-events-none absolute inset-x-0 top-0 h-[3px]"
+          style={{ background: `linear-gradient(90deg, ${away.color}, ${home.color})` }}
+          aria-hidden
+        />
+        <div
+          className="pointer-events-none absolute inset-0 animate-glow-pulse"
+          style={{
+            background: `radial-gradient(circle at 15% 20%, ${away.color}, transparent 45%), radial-gradient(circle at 85% 80%, ${home.color}, transparent 45%)`,
+          }}
+          aria-hidden
+        />
+        <div className="relative flex flex-col items-center gap-8 sm:flex-row sm:justify-between">
+          <TeamBlock team={away} />
 
-        <div className="flex flex-col items-center gap-3 shrink-0">
-          <span className="font-display text-2xl font-bold uppercase tracking-widest text-ink-3">
-            VS
-          </span>
-          <span className="text-xs font-semibold tracking-[0.2em] text-ink-2">
-            {formatLongDate(game.date)}
-          </span>
-          <span className="text-xs text-ink-3">{game.time}</span>
+          <div className="flex flex-col items-center gap-3 shrink-0">
+            <span className="font-display text-2xl font-bold uppercase tracking-widest text-ink-3">
+              VS
+            </span>
+            <span className="text-xs font-semibold tracking-[0.2em] text-ink-2">
+              {formatLongDate(game.date)}
+            </span>
+            <span className="text-xs text-ink-3">{game.time}</span>
+          </div>
+
+          <TeamBlock team={home} reverse />
         </div>
-
-        <TeamBlock team={home} reverse />
       </div>
     </div>
   );
