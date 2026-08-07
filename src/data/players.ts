@@ -62,7 +62,7 @@ export const goalies: Goalie[] = [
   { id: "bos-g1", name: "Andre Simms", teamId: "boston-bruins", number: 29, gp: 5, wins: 4, losses: 0, otLosses: 1, saves: 145, goalsAgainst: 9 },
   { id: "nyr-g1", name: "Marco Feld", teamId: "new-york-rangers", number: 1, gp: 5, wins: 0, losses: 3, otLosses: 2, saves: 112, goalsAgainst: 20 },
   { id: "uta-g1", name: "Preston Wade", teamId: "utah-mammoths", number: 33, gp: 5, wins: 2, losses: 2, otLosses: 1, saves: 122, goalsAgainst: 15 },
-  { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 37, gp: 5, wins: 5, losses: 0, otLosses: 0, saves: 128, goalsAgainst: 11 },
+  { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 37, gp: 3, wins: 3, losses: 0, otLosses: 0, saves: 51, goalsAgainst: 4 },
   { id: "stl-g1", name: "Tanner Ives", teamId: "st-louis-blues", number: 40, gp: 5, wins: 2, losses: 3, otLosses: 0, saves: 116, goalsAgainst: 18 },
   { id: "lak-g1", name: "Wyatt Cross", teamId: "los-angeles-kings", number: 32, gp: 5, wins: 1, losses: 4, otLosses: 0, saves: 108, goalsAgainst: 22 },
   { id: "dal-g1", name: "Xavier Holt", teamId: "dallas-stars", number: 39, gp: 5, wins: 2, losses: 1, otLosses: 2, saves: 120, goalsAgainst: 14 },
