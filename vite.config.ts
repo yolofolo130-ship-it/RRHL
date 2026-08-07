@@ -5,7 +5,7 @@ import path from 'node:path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/test/',
+  base: '/RRHL/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
