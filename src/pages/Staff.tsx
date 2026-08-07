@@ -22,12 +22,21 @@ export default function Staff() {
                       key={member.id}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
-                        {member.name
-                          .split(" ")
-                          .map((part) => part[0])
-                          .join("")}
-                      </div>
+                      {member.avatar ? (
+                        <img
+                          src={member.avatar}
+                          alt={member.name}
+                          loading="lazy"
+                          className="h-14 w-14 shrink-0 border border-line object-cover"
+                        />
+                      ) : (
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
+                          {member.name
+                            .split(" ")
+                            .map((part) => part[0])
+                            .join("")}
+                        </div>
+                      )}
                       <div className="min-w-0">
                         <p className="truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           {member.name}
