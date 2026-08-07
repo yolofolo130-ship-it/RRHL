@@ -85,3 +85,30 @@ export interface Accolade {
   /** Display name of the winning player, team, or coach. Empty until awarded. */
   winner?: string;
 }
+
+// Past-season stats. `playerName` links back to a current roster entry in
+// players.ts by name — skater/goalie ids reset every season, names don't.
+export interface SeasonSkaterStats {
+  id: string;
+  playerName: string;
+  season: string; // e.g. "Season 22"
+  teamId: string;
+  position: Exclude<Position, "G">;
+  gp: number;
+  goals: number;
+  assists: number;
+  pim: number;
+}
+
+export interface SeasonGoalieStats {
+  id: string;
+  playerName: string;
+  season: string;
+  teamId: string;
+  gp: number;
+  wins: number;
+  losses: number;
+  otLosses: number;
+  saves: number;
+  goalsAgainst: number;
+}

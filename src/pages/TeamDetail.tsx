@@ -177,7 +177,11 @@ export default function TeamDetail() {
                       key={player.id}
                       className="border-b border-line/60 last:border-b-0 hover:bg-white/[0.03]"
                     >
-                      <td className="px-4 py-3 font-medium text-ink-0">{player.name}</td>
+                      <td className="px-4 py-3 font-medium text-ink-0">
+                        <Link to={`/players/${player.id}`} className="hover:text-white">
+                          {player.name}
+                        </Link>
+                      </td>
                       <td className="px-3 py-3 text-center text-ink-2">{player.position}</td>
                       <td className="px-3 py-3 text-center text-ink-2">{player.number}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{player.goals}</td>
@@ -189,7 +193,11 @@ export default function TeamDetail() {
                   ))}
                   {teamGoalies.map((goalie) => (
                     <tr key={goalie.id} className="hover:bg-white/[0.03]">
-                      <td className="px-4 py-3 font-medium text-ink-0">{goalie.name}</td>
+                      <td className="px-4 py-3 font-medium text-ink-0">
+                        <Link to={`/players/${goalie.id}`} className="hover:text-white">
+                          {goalie.name}
+                        </Link>
+                      </td>
                       <td className="px-3 py-3 text-center text-ink-2">G</td>
                       <td className="px-3 py-3 text-center text-ink-2">{goalie.number}</td>
                       <td className="px-3 py-3 text-center text-ink-2" colSpan={2}>

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import Tabs from "@/components/Tabs";
 import TeamLogo from "@/components/TeamLogo";
@@ -53,7 +54,11 @@ export default function Stats() {
                       className="border-b border-line/60 last:border-b-0 hover:bg-white/[0.03]"
                     >
                       <td className="px-4 py-3 text-ink-3">{index + 1}</td>
-                      <td className="px-4 py-3 font-medium text-ink-0">{player.name}</td>
+                      <td className="px-4 py-3 font-medium text-ink-0">
+                        <Link to={`/players/${player.id}`} className="hover:text-white">
+                          {player.name}
+                        </Link>
+                      </td>
                       <td className="px-3 py-3">
                         {team && (
                           <span className="inline-flex items-center gap-2 text-ink-2">
@@ -100,7 +105,11 @@ export default function Stats() {
                       className="border-b border-line/60 last:border-b-0 hover:bg-white/[0.03]"
                     >
                       <td className="px-4 py-3 text-ink-3">{index + 1}</td>
-                      <td className="px-4 py-3 font-medium text-ink-0">{goalie.name}</td>
+                      <td className="px-4 py-3 font-medium text-ink-0">
+                        <Link to={`/players/${goalie.id}`} className="hover:text-white">
+                          {goalie.name}
+                        </Link>
+                      </td>
                       <td className="px-3 py-3">
                         {team && (
                           <span className="inline-flex items-center gap-2 text-ink-2">

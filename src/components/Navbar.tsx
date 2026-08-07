@@ -8,6 +8,7 @@ const NAV_LINKS = [
   { label: "SCHEDULE", to: "/schedule" },
   { label: "TEAMS", to: "/teams" },
   { label: "STATS", to: "/stats" },
+  { label: "PLAYERS", to: "/players" },
   { label: "STAFF", to: "/staff" },
   { label: "ACCOLADES", to: "/accolades" },
 ];

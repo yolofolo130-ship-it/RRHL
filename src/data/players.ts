@@ -133,3 +133,15 @@ export const topByPoints = (count: number): Skater[] =>
 
 export const topBySaves = (count: number): Goalie[] =>
   [...goalies].sort((a, b) => b.saves - a.saves).slice(0, count);
+
+// Skater and goalie ids never collide (goalie ids always end in "g<n>"), so
+// a single lookup can serve both /players/:id and /players list links.
+export type Player = ({ kind: "skater" } & Skater) | ({ kind: "goalie" } & Goalie);
+
+export const getPlayerById = (id: string): Player | undefined => {
+  const skater = skaters.find((s) => s.id === id);
+  if (skater) return { kind: "skater", ...skater };
+  const goalie = goalies.find((g) => g.id === id);
+  if (goalie) return { kind: "goalie", ...goalie };
+  return undefined;
+};

@@ -9,6 +9,8 @@ import Schedule from "@/pages/Schedule";
 import Teams from "@/pages/Teams";
 import TeamDetail from "@/pages/TeamDetail";
 import Stats from "@/pages/Stats";
+import Players from "@/pages/Players";
+import PlayerDetail from "@/pages/PlayerDetail";
 import Staff from "@/pages/Staff";
 import Accolades from "@/pages/Accolades";
 import NotFound from "@/pages/NotFound";
@@ -39,6 +41,8 @@ export default function App() {
           <Route path="/teams" element={<Teams />} />
           <Route path="/teams/:teamId" element={<TeamDetail />} />
           <Route path="/stats" element={<Stats />} />
+          <Route path="/players" element={<Players />} />
+          <Route path="/players/:playerId" element={<PlayerDetail />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/accolades" element={<Accolades />} />
           <Route path="*" element={<NotFound />} />
