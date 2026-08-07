@@ -15,10 +15,14 @@ export const skaters: Skater[] = [
   { id: "pit-3", name: "Trevor Lang", teamId: "pittsburgh-penguins", position: "D", number: 6, gp: 5, goals: 1, assists: 6, pim: 4 },
   { id: "pit-4", name: "Sam Rooney", teamId: "pittsburgh-penguins", position: "D", number: 23, gp: 5, goals: 1, assists: 2, pim: 12 },
 
-  { id: "tbl-1", name: "Nathan Voss", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 5, goals: 6, assists: 7, pim: 2 },
-  { id: "tbl-2", name: "Bryce Talon", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 5, goals: 5, assists: 5, pim: 6 },
-  { id: "tbl-3", name: "Miles Carter", teamId: "tampa-bay-lightning", position: "D", number: 8, gp: 5, goals: 2, assists: 6, pim: 4 },
-  { id: "tbl-4", name: "Adrian Cole", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 5, goals: 1, assists: 3, pim: 8 },
+  { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 2, goals: 4, assists: 5, pim: 0 },
+  { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 3, goals: 8, assists: 3, pim: 0 },
+  { id: "tbl-3", name: "Snickers", teamId: "tampa-bay-lightning", position: "C", number: 8, gp: 2, goals: 0, assists: 0, pim: 0 },
+  { id: "tbl-4", name: "KindSnack000", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "tbl-5", name: "LillianTheGreat", teamId: "tampa-bay-lightning", position: "D", number: 6, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "tbl-6", name: "UncNotFrog", teamId: "tampa-bay-lightning", position: "D", number: 4, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "tbl-7", name: "Ehhabhd", teamId: "tampa-bay-lightning", position: "D", number: 75, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "tbl-8", name: "GeorgePigs", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "bos-1", name: "Wesley Hart", teamId: "boston-bruins", position: "C", number: 12, gp: 5, goals: 7, assists: 6, pim: 4 },
   { id: "bos-2", name: "Grant Foley", teamId: "boston-bruins", position: "RW", number: 27, gp: 5, goals: 5, assists: 4, pim: 6 },
