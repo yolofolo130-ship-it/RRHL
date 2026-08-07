@@ -57,7 +57,7 @@ export default function TeamDetail() {
   const recentGames = teamGames.filter((g) => g.status === "final").slice(-3).reverse();
   const nextGame = teamGames.find((g) => g.status === "upcoming" || g.status === "live");
   const roster = skaters.filter((s) => s.teamId === team.id);
-  const goalie = goalies.find((g) => g.teamId === team.id);
+  const teamGoalies = goalies.filter((g) => g.teamId === team.id);
   const teamCoaches = coaches.filter((c) => c.teamId === team.id);
   const headCoaches = teamCoaches.filter((c) => c.role === "Head Coach");
   const assistantCoaches = teamCoaches.filter((c) => c.role === "Assistant Coach");
@@ -187,8 +187,8 @@ export default function TeamDetail() {
                       </td>
                     </tr>
                   ))}
-                  {goalie && (
-                    <tr className="hover:bg-white/[0.03]">
+                  {teamGoalies.map((goalie) => (
+                    <tr key={goalie.id} className="hover:bg-white/[0.03]">
                       <td className="px-4 py-3 font-medium text-ink-0">{goalie.name}</td>
                       <td className="px-3 py-3 text-center text-ink-2">G</td>
                       <td className="px-3 py-3 text-center text-ink-2">{goalie.number}</td>
@@ -199,7 +199,7 @@ export default function TeamDetail() {
                         {(goalieSavePct(goalie) * 100).toFixed(1)}%
                       </td>
                     </tr>
-                  )}
+                  ))}
                 </tbody>
               </table>
             </div>
@@ -257,14 +257,16 @@ export default function TeamDetail() {
                   </p>
                 </div>
               ))}
-            {goalie && (
-              <div className="border border-line bg-bg-2 p-5 text-center">
+            {teamGoalies.map((goalie) => (
+              <div key={goalie.id} className="border border-line bg-bg-2 p-5 text-center">
                 <p className="font-display text-3xl font-semibold text-ink-0">
                   {goalieGaa(goalie).toFixed(2)}
                 </p>
-                <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-ink-3">GAA</p>
+                <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-ink-3">
+                  {goalie.name.toUpperCase()} GAA
+                </p>
               </div>
-            )}
+            ))}
           </div>
         )}
       </section>
