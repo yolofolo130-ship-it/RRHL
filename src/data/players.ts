@@ -36,11 +36,12 @@ export const skaters: Skater[] = [
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2 },
   { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0 },
-  { id: "vgk-3", name: "Twizzy", teamId: "vegas-golden-knights", position: "C", number: 8, gp: 3, goals: 2, assists: 1, pim: 2 },
+  { id: "vgk-3", name: "Twizzy", teamId: "vegas-golden-knights", position: "C", number: 8, gp: 3, goals: 2, assists: 0, pim: 2 },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "C", number: 16, gp: 3, goals: 0, assists: 0, pim: 0 }, 
-  { id: "vgk-5", name: "Caleb", teamId: "vegas-golden-knights", position: "D", number: 9, gp: 3, goals: 1, assists: 0, pim: 0 },
+  { id: "vgk-5", name: "Caleb", teamId: "vegas-golden-knights", position: "D", number: 9, gp: 3, goals: 1, assists: 3, pim: 0 },
   { id: "vgk-6", name: "Sidedeer", teamId: "vegas-golden-knights", position: "LW", number: 38 , gp: 2, goals: 1, assists: 0, pim: 0 }, 
   { id: "vgk-7", name: "Drago", teamId: "vegas-golden-knights", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0},
+  { id: "vgk-8", name: "MadMax", teamId: "vegas-golden-knights", position: "D", number: 56, gp: 0, goals: 0, assists: 0, pim: 0},
 
   { id: "stl-1", name: "Nolan Ashby", teamId: "st-louis-blues", position: "C", number: 14, gp: 5, goals: 3, assists: 4, pim: 4 },
   { id: "stl-2", name: "Peyton Cruz", teamId: "st-louis-blues", position: "RW", number: 21, gp: 5, goals: 2, assists: 3, pim: 6 },
