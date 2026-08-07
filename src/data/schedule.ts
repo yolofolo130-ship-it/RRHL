@@ -4,7 +4,7 @@ import type { Game } from "./types";
 // list (see src/utils/standings.ts) rather than duplicated as static numbers.
 export const games: Game[] = [
   // ---------- Week 1 ----------
-  { id: "g01", week: 1, date: "2026-07-01", time: "7:00 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "pittsburgh-penguins", homeScore: 4, awayScore: 2, status: "final" },
+  { id: "g01", week: 1, date: "2026-07-01", time: "8:00 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "pittsburgh-penguins", homeScore: 4, awayScore: 2, status: "final" },
   { id: "g02", week: 1, date: "2026-07-01", time: "9:00 PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "carolina-hurricanes", homeScore: 5, awayScore: 3, status: "final" },
   { id: "g03", week: 1, date: "2026-07-02", time: "8:00 PM", homeTeamId: "utah-mammoths", awayTeamId: "vegas-golden-knights", homeScore: 3, awayScore: 5, status: "final" },
   { id: "g04", week: 1, date: "2026-07-03", time: "7:30 PM", homeTeamId: "st-louis-blues", awayTeamId: "utah-mammoths", homeScore: 2, awayScore: 4, status: "final" },
