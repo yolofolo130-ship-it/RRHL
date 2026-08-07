@@ -4,7 +4,7 @@ import { staff, staffCategoryOrder } from "@/data/staff";
 export default function Staff() {
   return (
     <>
-      <PageHeader eyebrow="BEHIND THE LEAGUE" title="Staff" />
+      <PageHeader eyebrow="RRHL STAFF TEAM" title="Staff" />
 
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         <div className="flex flex-col gap-14">
