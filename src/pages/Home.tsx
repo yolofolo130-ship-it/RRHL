@@ -9,6 +9,8 @@ import { teams, getTeamById } from "@/data/teams";
 import { games, featuredGameId } from "@/data/schedule";
 import { standingsForConference } from "@/utils/standings";
 import {
+  skaters,
+  goalies,
   skaterPoints,
   topByGoals,
   topByAssists,
@@ -67,7 +69,7 @@ export default function Home() {
 
       {featuredGame && (
         <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
-          <SectionHeader eyebrow="DON'T MISS IT" title="Featured Matchup" />
+          <SectionHeader eyebrow="DON'T MISS IT" title="Main Event" />
           <FeaturedMatchup gameId={featuredGame.id} />
         </section>
       )}
@@ -172,6 +174,13 @@ function TeamBlock({
   team: NonNullable<ReturnType<typeof getTeamById>>;
   reverse?: boolean;
 }) {
+  const leadingScorer = skaters
+    .filter((s) => s.teamId === team.id)
+    .sort((a, b) => skaterPoints(b) - skaterPoints(a))[0];
+  const leadingGoalie = goalies
+    .filter((g) => g.teamId === team.id)
+    .sort((a, b) => b.wins - a.wins || b.gp - a.gp)[0];
+
   return (
     <Link
       to={`/teams/${team.id}`}
@@ -187,6 +196,22 @@ function TeamBlock({
         <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
           {team.conference === "east" ? "EASTERN CONFERENCE" : "WESTERN CONFERENCE"}
         </p>
+        {(leadingScorer || leadingGoalie) && (
+          <div className="mt-3 flex flex-col gap-1">
+            {leadingScorer && (
+              <p className="text-xs text-ink-2">
+                <span className="text-ink-3">LEADING SCORER </span>
+                {leadingScorer.name} ({skaterPoints(leadingScorer)} PTS)
+              </p>
+            )}
+            {leadingGoalie && (
+              <p className="text-xs text-ink-2">
+                <span className="text-ink-3">GOALIE </span>
+                {leadingGoalie.name}
+              </p>
+            )}
+          </div>
+        )}
       </div>
     </Link>
   );
