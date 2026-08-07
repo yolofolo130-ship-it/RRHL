@@ -4,7 +4,9 @@
 // Users) into this list for BackendsMan and yolofolo130-ship-it.
 //
 // This is a client-side convenience check only — the real enforcement is
-// the Firestore security rule, which must list the same UIDs.
+// the Firestore security rule in firestore.rules, which must list the same
+// UIDs (that file deploys automatically on push via
+// .github/workflows/firestore-rules.yml).
 export const AUTHORIZED_UIDS: string[] = [
   // "uid-for-BackendsMan",
   // "uid-for-yolofolo130-ship-it",
