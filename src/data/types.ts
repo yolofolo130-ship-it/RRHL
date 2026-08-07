@@ -57,6 +57,7 @@ export type StaffCategory =
   | "Commissioner"
   | "League Management"
   | "Game Operations"
+  | "Board of Directors"
   | "Media"
   | "Moderation";
 

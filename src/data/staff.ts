@@ -14,7 +14,7 @@ export const staff: StaffMember[] = [
   { id: "s8", name: "Cron", role: "Head of Board of Directors", category: "Game Operations", discord: "@lazy_cron" },
  
   { id: "s9", name: "Sword", role: "Board of Director", category: "Board of Directors", discord: "@swordtsu" },
-  { id: "s10", name: "Nickel", role: "Board of Director", category: "Board of Director", discord: "@nickelplated9" },
+  { id: "s10", name: "Nickel", role: "Board of Director", category: "Board of Directors", discord: "@nickelplated9" },
 
   { id: "s11", name: "lilballerjimmy", role: "Staff Team", category: "Moderation", discord: "@lilballerjimmy" },
   { id: "s12", name: "Full", role: "Staff Team", category: "Moderation", discord: "@dkaine" },
@@ -25,6 +25,6 @@ export const staffCategoryOrder = [
   "Commissioner",
   "League Management",
   "Game Operations",
-  "Board of Director",
+  "Board of Directors",
   "Moderation",
 ] as const;
