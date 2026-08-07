@@ -24,18 +24,18 @@ export const skaters: Skater[] = [
   { id: "bos-3", name: "Connor Blake", teamId: "boston-bruins", position: "D", number: 5, gp: 5, goals: 2, assists: 7, pim: 2 },
   { id: "bos-4", name: "Liam Odom", teamId: "boston-bruins", position: "D", number: 44, gp: 5, goals: 1, assists: 4, pim: 10 },
 
-  { id: "nyr-1", name: "Tyler Munro", teamId: "new-york-rangers", position: "C", number: 10, gp: 5, goals: 2, assists: 3, pim: },
-  { id: "nyr-2", name: "Dana Ruiz", teamId: "new-york-rangers", position: "LW", number: 22, gp: 5, goals: 2, assists: 2, pim: },
-  { id: "nyr-3", name: "Blake Osgood", teamId: "new-york-rangers", position: "D", number: 7, gp: 5, goals: 0, assists: 3, pim: },
-  { id: "nyr-4", name: "Corey Vance", teamId: "new-york-rangers", position: "D", number: 24, gp: 5, goals: 1, assists: 1, pim: },
+  { id: "nyr-1", name: "Tyler Munro", teamId: "new-york-rangers", position: "C", number: 10, gp: 5, goals: 2, assists: 3, pim: 0 },
+  { id: "nyr-2", name: "Dana Ruiz", teamId: "new-york-rangers", position: "LW", number: 22, gp: 5, goals: 2, assists: 2, pim: 0 },
+  { id: "nyr-3", name: "Blake Osgood", teamId: "new-york-rangers", position: "D", number: 7, gp: 5, goals: 0, assists: 3, pim: 0 },
+  { id: "nyr-4", name: "Corey Vance", teamId: "new-york-rangers", position: "D", number: 24, gp: 5, goals: 1, assists: 1, pim: 0 },
 
-  { id: "uta-1", name: "Silas Roth", teamId: "utah-mammoths", position: "C", number: 16, gp: 5, goals: 4, assists: 5, pim: },
-  { id: "uta-2", name: "Beckett Snow", teamId: "utah-mammoths", position: "RW", number: 20, gp: 5, goals: 3, assists: 4, pim: },
-  { id: "uta-3", name: "Cole Marsh", teamId: "utah-mammoths", position: "D", number: 2, gp: 5, goals: 1, assists: 5, pim: },
-  { id: "uta-4", name: "Ryder James", teamId: "utah-mammoths", position: "D", number: 25, gp: 5, goals: 1, assists: 3, pim: },
+  { id: "uta-1", name: "Silas Roth", teamId: "utah-mammoths", position: "C", number: 16, gp: 5, goals: 4, assists: 5, pim: 0 },
+  { id: "uta-2", name: "Beckett Snow", teamId: "utah-mammoths", position: "RW", number: 20, gp: 5, goals: 3, assists: 4, pim: 0 },
+  { id: "uta-3", name: "Cole Marsh", teamId: "utah-mammoths", position: "D", number: 2, gp: 5, goals: 1, assists: 5, pim: 0 },
+  { id: "uta-4", name: "Ryder James", teamId: "utah-mammoths", position: "D", number: 25, gp: 5, goals: 1, assists: 3, pim: 0 },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "C", number: 77, gp: 3, goals: 5, assists: 1, pim: 2 },
-  { id: "vgk-2", name: "TGOD", teamId: "vegas-golden-knights", position: "G", number: 18, gp: 5, goals: 6, assists: 5, pim: },
+  { id: "vgk-2", name: "TGOD", teamId: "vegas-golden-knights", position: "LW", number: 18, gp: 5, goals: 6, assists: 5, pim: 0 },
   { id: "vgk-3", name: "Twizzy", teamId: "vegas-golden-knights", position: "D", number: 6, gp: 5, goals: 2, assists: 8, pim: 2 },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "D", number: 28, gp: 5, goals: 1, assists: 5, pim: 6 },
 
