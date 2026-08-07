@@ -53,10 +53,12 @@ export const skaters: Skater[] = [
   { id: "stl-3", name: "Quinn Baxter", teamId: "st-louis-blues", position: "D", number: 4, gp: 5, goals: 1, assists: 4, pim: 8 },
   { id: "stl-4", name: "Reese Hollis", teamId: "st-louis-blues", position: "D", number: 34, gp: 5, goals: 0, assists: 3, pim: 10 },
 
-  { id: "lak-1", name: "Grady Nolan", teamId: "los-angeles-kings", position: "C", number: 9, gp: 5, goals: 2, assists: 3, pim: 6 },
-  { id: "lak-2", name: "Sawyer Finch", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 5, goals: 2, assists: 2, pim: 8 },
-  { id: "lak-3", name: "Colton Reese", teamId: "los-angeles-kings", position: "D", number: 5, gp: 5, goals: 1, assists: 2, pim: 10 },
-  { id: "lak-4", name: "Emerson Dale", teamId: "los-angeles-kings", position: "D", number: 26, gp: 5, goals: 0, assists: 2, pim: 12 },
+  { id: "lak-1", name: "MVP", teamId: "los-angeles-kings", position: "C", number: 9, gp: 1, goals: 9, assists: 0, pim: 0 },
+  { id: "lak-2", name: "Gabriel", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 1, goals: 1, assists: 0, pim: 0 },
+  { id: "lak-3", name: "Adam Cole", teamId: "los-angeles-kings", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "lak-4", name: "2Tone", teamId: "los-angeles-kings", position: "D", number: 26, gp: 1, goals: 0, assists: 0, pim: 0 },
+  { id: "lak-5", name: "Duck", teamId: "los-angeles-kings", position: "D", number: 27, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "dal-1", name: "Landon Pierce", teamId: "dallas-stars", position: "C", number: 11, gp: 5, goals: 4, assists: 5, pim: 4 },
   { id: "dal-2", name: "Hudson Vance", teamId: "dallas-stars", position: "RW", number: 19, gp: 5, goals: 3, assists: 3, pim: 6 },
@@ -65,18 +67,20 @@ export const skaters: Skater[] = [
 ];
 
 export const goalies: Goalie[] = [
-  { id: "car-g1", name: "Reid Palmer", teamId: "carolina-hurricanes", number: 30, gp: 5, wins: 2, losses: 3, otLosses: 0, saves: 131, goalsAgainst: 13 },
-  { id: "pit-g1", name: "Casey Boone", teamId: "pittsburgh-penguins", number: 35, gp: 5, wins: 3, losses: 2, otLosses: 0, saves: 140, goalsAgainst: 16 },
-  { id: "tbl-g1", name: "Julian Marsh", teamId: "tampa-bay-lightning", number: 31, gp: 5, wins: 4, losses: 1, otLosses: 0, saves: 132, goalsAgainst: 13 },
-  { id: "bos-g1", name: "Andre Simms", teamId: "boston-bruins", number: 29, gp: 5, wins: 4, losses: 0, otLosses: 1, saves: 145, goalsAgainst: 9 },
-  { id: "nyr-g1", name: "Marco Feld", teamId: "new-york-rangers", number: 1, gp: 5, wins: 0, losses: 3, otLosses: 2, saves: 112, goalsAgainst: 20 },
+  { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 30, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
+  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 28, goalsAgainst: 3 },
+  { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 31, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
+  { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
+  { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3 },
+  { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 5, wins: 1, losses: 1, otLosses: 1, saves: 40, goalsAgainst: 5 },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 21, goalsAgainst: 3 },
   { id: "uta-g2", name: "Baseball3122", teamId: "utah-mammoths", number: 24, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 4, goalsAgainst: 0 },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 3, wins: 3, losses: 0, otLosses: 0, saves: 51, goalsAgainst: 1 },
   { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, wins: 3, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
-  { id: "stl-g1", name: "Tanner Ives", teamId: "st-louis-blues", number: 40, gp: 5, wins: 2, losses: 3, otLosses: 0, saves: 116, goalsAgainst: 18 },
-  { id: "lak-g1", name: "Wyatt Cross", teamId: "los-angeles-kings", number: 32, gp: 5, wins: 1, losses: 4, otLosses: 0, saves: 108, goalsAgainst: 22 },
-  { id: "dal-g1", name: "Xavier Holt", teamId: "dallas-stars", number: 39, gp: 5, wins: 2, losses: 1, otLosses: 2, saves: 120, goalsAgainst: 14 },
+  { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 2, otLosses: 0, saves: 6, goalsAgainst: 8 },
+  { id: "lak-g1", name: "Riptide", teamId: "los-angeles-kings", number: 32, gp: 1, wins: 1, losses: 2, otLosses: 0, saves: 1, goalsAgainst: 5 },
+  { id: "lak-g2", name: "TheHolyHippo", teamId: "los-angeles-kings", number: 22, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
+  { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 1, wins: 0, losses: 3, otLosses: 0, saves: 0, goalsAgainst: 2 },
 ];
 
 export const coaches: Coach[] = [
