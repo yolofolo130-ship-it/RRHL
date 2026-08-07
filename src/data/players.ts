@@ -29,10 +29,14 @@ export const skaters: Skater[] = [
   { id: "nyr-3", name: "Blake Osgood", teamId: "new-york-rangers", position: "D", number: 7, gp: 5, goals: 0, assists: 3, pim: 0 },
   { id: "nyr-4", name: "Corey Vance", teamId: "new-york-rangers", position: "D", number: 24, gp: 5, goals: 1, assists: 1, pim: 0 },
 
-  { id: "uta-1", name: "Silas Roth", teamId: "utah-mammoths", position: "C", number: 16, gp: 5, goals: 4, assists: 5, pim: 0 },
-  { id: "uta-2", name: "Beckett Snow", teamId: "utah-mammoths", position: "RW", number: 20, gp: 5, goals: 3, assists: 4, pim: 0 },
-  { id: "uta-3", name: "Cole Marsh", teamId: "utah-mammoths", position: "D", number: 2, gp: 5, goals: 1, assists: 5, pim: 0 },
-  { id: "uta-4", name: "Ryder James", teamId: "utah-mammoths", position: "D", number: 25, gp: 5, goals: 1, assists: 3, pim: 0 },
+  { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 3, goals: 4, assists: 0, pim: 0 },
+  { id: "uta-2", name: "Rennu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "uta-3", name: "lilballerjimmy", teamId: "utah-mammoths", position: "C", number: 2, gp: 3, goals: 3, assists: 0, pim: 0 },
+  { id: "uta-4", name: "Reject", teamId: "utah-mammoths", position: "LW", number: 25, gp: 2, goals: 2, assists: 1, pim: 0 },
+  { id: "uta-5", name: "Jazzmir", teamId: "utah-mammoths", position: "D", number: 31, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "uta-6", name: "5starmax", teamId: "utah-mammoths", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "uta-7", name: "Randomcrazynoob", teamId: "utah-mammoths", position: "LW", number: 98, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "uta-8", name: "Twin", teamId: "utah-mammoths", position: "C", number: 67, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2 },
   { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0 },
