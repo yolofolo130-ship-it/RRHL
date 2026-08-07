@@ -24,7 +24,7 @@ export const staff: StaffMember[] = [
 
   { id: "s5", name: "Vengeanace", role: "League Manager", category: "Game Operations", discord: "@im_vengeance", avatar: vengeanaceAvatar },
   { id: "s6", name: "Boolit", role: "League Manager", category: "Game Operations", discord: "@hornyhoodironynigga12", avatar: boolitAvatar },
-  { id: "s7", name: "Sparkles", role: "Head of Board of Directors", category: "Game Operations", discord: "@randyiskewl", avatar: sparklesAvatar },
+  { id: "s7", name: "Sparkles", role: "League Manager", category: "Game Operations", discord: "@randyiskewl", avatar: sparklesAvatar },
   { id: "s8", name: "Cron", role: "Head of Board of Directors", category: "Game Operations", discord: "@lazy_cron", avatar: cronAvatar },
 
   { id: "s9", name: "Sword", role: "Board of Director", category: "Board of Directors", discord: "@swordtsu", avatar: swordAvatar },
