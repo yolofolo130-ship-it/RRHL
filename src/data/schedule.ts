@@ -26,8 +26,8 @@ export const games: Game[] = [
 
   // ---------- Week 4 ----------
   { id: "g16", week: 4, date: "2026-08-07", time: "7:35 PM", homeTeamId: "los-angeles-kings", awayTeamId: "st-louis-blues", status: "upcoming" },
-  { id: "g17", week: 4, date: "2026-08-07", time: "8:40 PM", homeTeamId: "pittsburgh-penguins", awayTeamId: "tampa-bay-lightning", status: "upcoming" },
-  { id: "g18", week: 4, date: "2026-08-08", time: "7:05 PM", homeTeamId: "dallas-stars", awayTeamId: "new-york-rangers", status: "upcoming" },
+  { id: "g17", week: 4, date: "2026-08-07", time: "8:50 PM", homeTeamId: "pittsburgh-penguins", awayTeamId: "tampa-bay-lightning", status: "upcoming" },
+  { id: "g18", week: 4, date: "2026-08-08", time: "9:30 PM", homeTeamId: "dallas-stars", awayTeamId: "new-york-rangers", status: "upcoming" },
   { id: "g19", week: 4, date: "2026-08-08", time: "8:10 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "boston-bruins", status: "upcoming" },
   { id: "g20", week: 4, date: "2026-08-08", time: "9:05 PM", homeTeamId: "utah-mammoths", awayTeamId: "vegas-golden-knights", status: "upcoming" },
 ];
