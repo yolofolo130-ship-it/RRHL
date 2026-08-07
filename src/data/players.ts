@@ -68,9 +68,37 @@ export const goalies: Goalie[] = [
   { id: "dal-g1", name: "Xavier Holt", teamId: "dallas-stars", number: 39, gp: 5, wins: 2, losses: 1, otLosses: 2, saves: 120, goalsAgainst: 14 },
 ];
 
-// Coaching staff per team. Empty until filled in — add entries like:
-// { id: "car-hc", name: "Full Name", teamId: "carolina-hurricanes", role: "Head Coach" },
-export const coaches: Coach[] = [];
+export const coaches: Coach[] = [
+  { id: "car-hc", name: "BNA", teamId: "carolina-hurricanes", role: "Head Coach" },
+  { id: "car-ac", name: "Full", teamId: "carolina-hurricanes", role: "Assistant Coach" },
+
+  { id: "pit-hc", name: "Chrisx", teamId: "pittsburgh-penguins", role: "Head Coach" },
+  { id: "pit-ac", name: "Carterthegawd", teamId: "pittsburgh-penguins", role: "Assistant Coach" },
+
+  { id: "tbl-hc", name: "Swordtsu", teamId: "tampa-bay-lightning", role: "Head Coach" },
+  { id: "tbl-ac", name: "Cron", teamId: "tampa-bay-lightning", role: "Assistant Coach" },
+
+  { id: "bos-hc", name: "Kdog2020", teamId: "boston-bruins", role: "Head Coach" },
+  { id: "bos-ac", name: "Boolit", teamId: "boston-bruins", role: "Assistant Coach" },
+
+  { id: "nyr-hc", name: "Bungee", teamId: "new-york-rangers", role: "Head Coach" },
+  { id: "nyr-ac", name: "DDino", teamId: "new-york-rangers", role: "Assistant Coach" },
+
+  { id: "uta-hc", name: "MJ", teamId: "utah-mammoths", role: "Head Coach" },
+  { id: "uta-ac", name: "Renuu", teamId: "utah-mammoths", role: "Assistant Coach" },
+
+  { id: "vgk-hc", name: "Siah", teamId: "vegas-golden-knights", role: "Head Coach" },
+  { id: "vgk-ac", name: "TGOD", teamId: "vegas-golden-knights", role: "Assistant Coach" },
+
+  { id: "stl-hc", name: "TDLMarcus", teamId: "st-louis-blues", role: "Head Coach" },
+  { id: "stl-ac", name: "Hogeye", teamId: "st-louis-blues", role: "Assistant Coach" },
+
+  { id: "lak-hc", name: "Gabriel", teamId: "los-angeles-kings", role: "Head Coach" },
+  { id: "lak-ac", name: "Duck", teamId: "los-angeles-kings", role: "Assistant Coach" },
+
+  { id: "dal-hc", name: "Santi", teamId: "dallas-stars", role: "Head Coach" },
+  { id: "dal-ac", name: "PKPlis", teamId: "dallas-stars", role: "Assistant Coach" },
+];
 
 export const skaterPoints = (skater: Skater): number => skater.goals + skater.assists;
 
