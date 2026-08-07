@@ -6,6 +6,7 @@ import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
 import { skaters, goalies, coaches, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
+import { honorsForTeam } from "@/data/teamHistory";
 import { standingsForConference, isPlayoffPosition } from "@/utils/standings";
 import { formatLongDate } from "@/utils/format";
 
@@ -14,6 +15,7 @@ const TAB_OPTIONS = [
   { value: "roster", label: "ROSTER" },
   { value: "schedule", label: "SCHEDULE" },
   { value: "stats", label: "STATS" },
+  { value: "history", label: "HISTORY" },
 ];
 
 export default function TeamDetail() {
@@ -61,6 +63,7 @@ export default function TeamDetail() {
   const teamCoaches = coaches.filter((c) => c.teamId === team.id);
   const headCoaches = teamCoaches.filter((c) => c.role === "Head Coach");
   const assistantCoaches = teamCoaches.filter((c) => c.role === "Assistant Coach");
+  const teamHonors = honorsForTeam(team.id);
 
   return (
     <>
@@ -275,6 +278,27 @@ export default function TeamDetail() {
                 </p>
               </div>
             ))}
+          </div>
+        )}
+
+        {tab === "history" && (
+          <div className="mt-8">
+            {teamHonors.length > 0 ? (
+              <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {teamHonors.map((honor) => (
+                  <div key={honor.id} className="border border-line bg-bg-2 p-5">
+                    <p className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                      {honor.honor}
+                    </p>
+                    <p className="mt-1 text-xs text-ink-2">{honor.season}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
+                No team honors on record yet.
+              </p>
+            )}
           </div>
         )}
       </section>

@@ -2,7 +2,12 @@ import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
-import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor } from "@/data/playerHistory";
+import {
+  skaterHistoryFor,
+  goalieHistoryFor,
+  pastAccoladesFor,
+  byNewestSeason,
+} from "@/data/playerHistory";
 import { accolades } from "@/data/accolades";
 
 export default function PlayerDetail() {
@@ -25,7 +30,7 @@ export default function PlayerDetail() {
     );
   }
 
-  const team = getTeamById(player.teamId);
+  const team = player.kind !== "former" ? getTeamById(player.teamId) : undefined;
   const skaterHistory = skaterHistoryFor(player.name);
   const goalieHistory = goalieHistoryFor(player.name);
 
@@ -37,9 +42,7 @@ export default function PlayerDetail() {
     name: a.accoladeName,
     season: a.season,
   }));
-  const allAccolades = [...currentAccolades, ...pastAccolades].sort((a, b) =>
-    b.season.localeCompare(a.season),
-  );
+  const allAccolades = [...currentAccolades, ...pastAccolades].sort(byNewestSeason);
 
   return (
     <>
@@ -68,13 +71,17 @@ export default function PlayerDetail() {
               {player.name}
             </h1>
             <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
-              {player.kind === "skater" ? player.position : "GOALIE"} &middot; #{player.number}
+              {player.kind === "former"
+                ? "FORMER PLAYER"
+                : `${player.kind === "skater" ? player.position : "GOALIE"} · #${player.number}`}
             </p>
           </div>
         </div>
       </div>
 
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+        {player.kind !== "former" && (
+          <>
         <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">SEASON 23</p>
         <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {player.kind === "skater" ? (
@@ -127,6 +134,8 @@ export default function PlayerDetail() {
             </>
           )}
         </div>
+          </>
+        )}
 
         <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">
           ACCOLADES
@@ -151,26 +160,20 @@ export default function PlayerDetail() {
         <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">
           SEASON HISTORY
         </p>
-        {player.kind === "skater" ? (
-          skaterHistory.length > 0 ? (
-            <HistoryTable
-              rows={skaterHistory.map((h) => ({
-                season: h.season,
-                teamId: h.teamId,
-                stats: [
-                  ["GP", h.gp],
-                  ["G", h.goals],
-                  ["A", h.assists],
-                  ["PTS", h.goals + h.assists],
-                  ["PIM", h.pim],
-                ] as const,
-              }))}
-            />
-          ) : (
-            <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
-              No prior season history yet.
-            </p>
-          )
+        {skaterHistory.length > 0 ? (
+          <HistoryTable
+            rows={skaterHistory.map((h) => ({
+              season: h.season,
+              teamId: h.teamId,
+              stats: [
+                ["GP", h.gp],
+                ["G", h.goals],
+                ["A", h.assists],
+                ["PTS", h.goals + h.assists],
+                ["PIM", h.pim],
+              ] as const,
+            }))}
+          />
         ) : goalieHistory.length > 0 ? (
           <HistoryTable
             rows={goalieHistory.map((h) => ({

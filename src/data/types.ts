@@ -122,3 +122,21 @@ export interface SeasonAccolade {
   accoladeName: string; // e.g. "Hart Memorial Trophy"
   playerName: string;
 }
+
+// A person who appears in league history (season stats and/or accolades)
+// but isn't on a current team roster. Gets its own page like a current
+// player, minus a current-team header and Season 23 stats.
+export interface FormerPlayer {
+  id: string;
+  name: string;
+}
+
+// Team-level honors won in past seasons (Stanley Cup champion, President's
+// Trophy, etc.) — separate from SeasonAccolade, which is per-player. More
+// than one team can share the same honor/season (e.g. co-champions).
+export interface TeamSeasonHonor {
+  id: string;
+  season: string; // e.g. "Season 1"
+  teamId: string;
+  honor: string; // e.g. "Stanley Cup Champion", "President's Trophy"
+}

@@ -1,4 +1,7 @@
 import type { SeasonAccolade, SeasonGoalieStats, SeasonSkaterStats } from "./types";
+import { byNewestSeason } from "@/utils/season";
+
+export { byNewestSeason };
 
 // Past-season stats, shown on a player's page below their current Season 23
 // numbers. Empty until filled in — add entries like:
@@ -11,19 +14,44 @@ export const seasonGoalieStats: SeasonGoalieStats[] = [];
 // Awards won in past seasons (Season 23's awards live in accolades.ts once
 // decided). Empty until filled in — add entries like:
 // { id: "s22-hart", season: "Season 22", accoladeName: "Hart Memorial Trophy", playerName: "Chrisx" },
-export const seasonAccolades: SeasonAccolade[] = [];
+export const seasonAccolades: SeasonAccolade[] = [
+  {
+    id: "s1-stanley-cup-mvp",
+    season: "Season 1",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Carsonreeves",
+  },
+  {
+    id: "s1-stanley-cup-losing-mvp",
+    season: "Season 1",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Krampuz",
+  },
+  {
+    id: "s1-conn-smythe-trophy",
+    season: "Season 1",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "MiniSneaki",
+  },
+  {
+    id: "s1-vezina-trophy",
+    season: "Season 1",
+    accoladeName: "Vezina Trophy",
+    playerName: "Landorito",
+  },
+  {
+    id: "s1-jack-adams-trophy",
+    season: "Season 1",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "BakedLasgna",
+  },
+];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
-  seasonSkaterStats
-    .filter((s) => s.playerName === playerName)
-    .sort((a, b) => b.season.localeCompare(a.season));
+  seasonSkaterStats.filter((s) => s.playerName === playerName).sort(byNewestSeason);
 
 export const goalieHistoryFor = (playerName: string): SeasonGoalieStats[] =>
-  seasonGoalieStats
-    .filter((g) => g.playerName === playerName)
-    .sort((a, b) => b.season.localeCompare(a.season));
+  seasonGoalieStats.filter((g) => g.playerName === playerName).sort(byNewestSeason);
 
 export const pastAccoladesFor = (playerName: string): SeasonAccolade[] =>
-  seasonAccolades
-    .filter((a) => a.playerName === playerName)
-    .sort((a, b) => b.season.localeCompare(a.season));
+  seasonAccolades.filter((a) => a.playerName === playerName).sort(byNewestSeason);

@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import TeamLogo from "@/components/TeamLogo";
 import { teams } from "@/data/teams";
 import { skaters, goalies, skaterPoints } from "@/data/players";
+import { formerPlayers } from "@/data/formerPlayers";
 
 export default function Players() {
   return (
@@ -67,6 +68,32 @@ export default function Players() {
               </div>
             );
           })}
+
+          {formerPlayers.length > 0 && (
+            <div>
+              <div className="flex items-center gap-3 border-b border-line pb-4">
+                <p className="text-xs font-semibold tracking-[0.28em] text-ink-2">
+                  FORMER PLAYERS
+                </p>
+              </div>
+              <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                {formerPlayers.map((player) => (
+                  <Link
+                    key={player.id}
+                    to={`/players/${player.id}`}
+                    className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
+                  >
+                    <div className="min-w-0">
+                      <p className="truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                        {player.name}
+                      </p>
+                      <p className="truncate text-xs text-ink-2">Former player</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </div>
+          )}
         </div>
       </section>
     </>
