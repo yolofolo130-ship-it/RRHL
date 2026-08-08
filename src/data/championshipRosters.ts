@@ -12,6 +12,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s1-champ-hockeyboi", season: "Season 1", playerName: "Hockey Boi" },
   { id: "s1-champ-adamcole", season: "Season 1", playerName: "Adam Cole" },
   { id: "s1-champ-carsonreeves", season: "Season 1", playerName: "Carsonreeves" },
+  { id: "s1-champ-minisneaki", season: "Season 1", playerName: "MiniSneaki" },
 
   // Season 2 — Chicago Blackhawks
   { id: "s2-champ-swordtsu", season: "Season 2", playerName: "Swordtsu" },
@@ -68,6 +69,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s8-champ-pechs", season: "Season 8", playerName: "Pechs" },
   { id: "s8-champ-mvp", season: "Season 8", playerName: "MVP" },
   { id: "s8-champ-b3nn3tt1", season: "Season 8", playerName: "B3NN3TT1" },
+  { id: "s8-champ-carber", season: "Season 8", playerName: "Carber" },
 
   // Season 9 — Pittsburgh Penguins
   { id: "s9-champ-chrisx", season: "Season 9", playerName: "Chrisx" },
@@ -78,6 +80,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s9-champ-carsonreeves", season: "Season 9", playerName: "Carsonreeves" },
   { id: "s9-champ-carterthegawd", season: "Season 9", playerName: "Carterthegawd" },
   { id: "s9-champ-ricey", season: "Season 9", playerName: "Ricey" },
+  { id: "s9-champ-carber", season: "Season 9", playerName: "Carber" },
 
   // Season 10 — St. Louis Blues
   { id: "s10-champ-luhdj", season: "Season 10", playerName: "Luh DJ" },
@@ -88,6 +91,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s10-champ-rennu", season: "Season 10", playerName: "Rennu" },
   { id: "s10-champ-dxrk", season: "Season 10", playerName: "Dxrk" },
   { id: "s10-champ-ricey", season: "Season 10", playerName: "Ricey" },
+  { id: "s10-champ-carber", season: "Season 10", playerName: "Carber" },
 
   // Season 11 — Pittsburgh Penguins
   { id: "s11-champ-chrisx", season: "Season 11", playerName: "Chrisx" },
@@ -110,6 +114,16 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s12-champ-aj", season: "Season 12", playerName: "AJ" },
   { id: "s12-champ-tidy", season: "Season 12", playerName: "Tidy" },
   { id: "s12-champ-swizzy", season: "Season 12", playerName: "Swizzy" },
+
+  // Season 13 — Colorado Avalanche
+  { id: "s13-champ-therupist", season: "Season 13", playerName: "therupist" },
+  { id: "s13-champ-snickers", season: "Season 13", playerName: "Snickers" },
+  { id: "s13-champ-flaganoid", season: "Season 13", playerName: "Flaganoid" },
+  { id: "s13-champ-repent", season: "Season 13", playerName: "Repent" },
+  { id: "s13-champ-beasty", season: "Season 13", playerName: "Beasty" },
+  { id: "s13-champ-duck", season: "Season 13", playerName: "Duck" },
+  { id: "s13-champ-eli", season: "Season 13", playerName: "Eli" },
+  { id: "s13-champ-b3nn3tt1", season: "Season 13", playerName: "B3NN3TT1" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
