@@ -33,7 +33,7 @@ export default function StarBadge({ name, size = "sm" }: StarBadgeProps) {
           name={name}
           icon={ability.icon}
           description={ability.description}
-          tierLabel="STAR ABILITY"
+          tierLabel="STARS ABILITY"
           onClose={() => setIsOpen(false)}
         />
       )}
