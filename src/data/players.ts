@@ -119,7 +119,7 @@ export const goalies: Goalie[] = [
   { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 3, otLosses: 0, saves: 6, goalsAgainst: 8 },
   { id: "lak-g1", name: "Riptide", teamId: "los-angeles-kings", number: 32, gp: 1, wins: 1, losses: 2, otLosses: 0, saves: 1, goalsAgainst: 5 },
   { id: "lak-g2", name: "TheHolyHippo", teamId: "los-angeles-kings", number: 22, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
-  { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 1, wins: 0, losses: 3, otLosses: 1, saves: 0, goalsAgainst: 2 },
+  { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 2, wins: 0, losses: 3, otLosses: 1, saves: 0, goalsAgainst: 6 },
 ];
 
 export const coaches: Coach[] = [
