@@ -48,7 +48,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s6-champ-siah", season: "Season 6", playerName: "Siah" },
   { id: "s6-champ-snickers", season: "Season 6", playerName: "Snickers" },
   { id: "s6-champ-flaganoid", season: "Season 6", playerName: "Flaganoid" },
-  { id: "s6-champ-calebisgod", season: "Season 6", playerName: "Calebisgod" },
+  { id: "s6-champ-caleb", season: "Season 6", playerName: "Caleb" },
   { id: "s6-champ-tgod", season: "Season 6", playerName: "TGOD" },
   { id: "s6-champ-airdawg", season: "Season 6", playerName: "Airdawg" },
   { id: "s6-champ-mvp", season: "Season 6", playerName: "MVP" },
