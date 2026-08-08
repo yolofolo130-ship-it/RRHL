@@ -53,6 +53,14 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s6-champ-airdawg", season: "Season 6", playerName: "Airdawg" },
   { id: "s6-champ-mvp", season: "Season 6", playerName: "MVP" },
   { id: "s6-champ-carterthegawd", season: "Season 6", playerName: "Carterthegawd" },
+
+  // Season 7 — Pittsburgh Penguins
+  { id: "s7-champ-vengeance", season: "Season 7", playerName: "Vengeance" },
+  { id: "s7-champ-chrisx", season: "Season 7", playerName: "Chrisx" },
+  { id: "s7-champ-snickers", season: "Season 7", playerName: "Snickers" },
+  { id: "s7-champ-badmilk", season: "Season 7", playerName: "Badmilk" },
+  { id: "s7-champ-tgod", season: "Season 7", playerName: "TGOD" },
+  { id: "s7-champ-carterthegawd", season: "Season 7", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
