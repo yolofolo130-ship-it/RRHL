@@ -123,6 +123,15 @@ export interface SeasonAccolade {
   playerName: string;
 }
 
+// A player who was on a Stanley Cup-winning roster that season. Drives the
+// champion badge next to their name — separate from SeasonAccolade since
+// most of a championship roster never won an individual award.
+export interface ChampionshipRosterEntry {
+  id: string;
+  season: string; // e.g. "Season 22"
+  playerName: string;
+}
+
 // A person who appears in league history (season stats and/or accolades)
 // but isn't on a current team roster. Gets its own page like a current
 // player, minus a current-team header and Season 23 stats.

@@ -4,13 +4,8 @@ import TrophyCard from "@/components/TrophyCard";
 import ChampionBadge from "@/components/ChampionBadge";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
-import {
-  skaterHistoryFor,
-  goalieHistoryFor,
-  pastAccoladesFor,
-  stanleyCupMvpCount,
-  byNewestSeason,
-} from "@/data/playerHistory";
+import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } from "@/data/playerHistory";
+import { championshipCount } from "@/data/championshipRosters";
 import { accolades } from "@/data/accolades";
 
 export default function PlayerDetail() {
@@ -46,7 +41,7 @@ export default function PlayerDetail() {
     season: a.season,
   }));
   const allAccolades = [...currentAccolades, ...pastAccolades].sort(byNewestSeason);
-  const mvpCount = stanleyCupMvpCount(player.name);
+  const champCount = championshipCount(player.name);
 
   return (
     <>
@@ -73,7 +68,7 @@ export default function PlayerDetail() {
             )}
             <h1 className="flex flex-wrap items-center justify-center gap-3 font-display text-5xl font-bold uppercase tracking-wide text-ink-0 sm:text-6xl lg:justify-start">
               {player.name}
-              <ChampionBadge count={mvpCount} size="lg" />
+              <ChampionBadge count={champCount} size="lg" />
             </h1>
             <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
               {player.kind === "former"

@@ -1,5 +1,5 @@
 interface ChampionBadgeProps {
-  /** Number of Stanley Cup MVP wins. Renders nothing if 0. */
+  /** Number of championships won. Renders nothing if 0. */
   count: number;
   size?: "sm" | "lg";
 }
@@ -13,7 +13,7 @@ export default function ChampionBadge({ count, size = "sm" }: ChampionBadgeProps
   return (
     <span
       className="relative inline-flex shrink-0 items-center gap-1"
-      title={`${count}x Stanley Cup MVP`}
+      title={`${count}x Stanley Cup champion`}
     >
       <span className="relative inline-flex items-center justify-center">
         <span
@@ -26,8 +26,13 @@ export default function ChampionBadge({ count, size = "sm" }: ChampionBadgeProps
           className={`relative ${dims} text-amber-300 drop-shadow-[0_0_6px_rgba(251,191,36,0.8)]`}
           aria-hidden
         >
-          <path d="M3 18h18l-1.4-8.4-4.6 3.6-3-6-3 6-4.6-3.6L3 18z" />
-          <rect x="3" y="19" width="18" height="2" rx="0.5" />
+          {/* mini Stanley Cup silhouette */}
+          <path d="M7 3h10v2a5 5 0 0 1-5 5 5 5 0 0 1-5-5V3z" />
+          <path d="M7 4H4.5a2.8 2.8 0 0 0 2.8 4.6A5 5 0 0 1 7 4z" />
+          <path d="M17 4h2.5a2.8 2.8 0 0 1-2.8 4.6A5 5 0 0 0 17 4z" />
+          <rect x="11" y="10" width="2" height="4" />
+          <rect x="9" y="14" width="6" height="1.4" rx="0.4" />
+          <rect x="7" y="15.6" width="10" height="2.2" rx="0.5" />
         </svg>
       </span>
       {count > 1 && (
