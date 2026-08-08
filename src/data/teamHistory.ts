@@ -293,6 +293,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "pittsburgh-penguins",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s12-scc-vgk",
+    season: "Season 12",
+    teamId: "vegas-golden-knights",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "ft-florida-panthers",
+    seriesScore: "3-0",
+  },
+  {
+    id: "s12-pt-fla",
+    season: "Season 12",
+    teamId: "ft-florida-panthers",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s12-csc-vgk",
+    season: "Season 12",
+    teamId: "vegas-golden-knights",
+    honor: "Clarence S. Campbell Trophy",
+  },
+  {
+    id: "s12-pow-fla",
+    season: "Season 12",
+    teamId: "ft-florida-panthers",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
