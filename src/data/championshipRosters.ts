@@ -147,6 +147,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s15-champ-moon", season: "Season 15", playerName: "Moon" },
   { id: "s15-champ-huddawg", season: "Season 15", playerName: "Huddawg" },
   { id: "s15-champ-vengeance", season: "Season 15", playerName: "Vengeance" },
+  { id: "s15-champ-reject", season: "Season 15", playerName: "Reject" },
 
   // Season 16 — Columbus Blue Jackets
   { id: "s16-champ-boolit", season: "Season 16", playerName: "Boolit" },
