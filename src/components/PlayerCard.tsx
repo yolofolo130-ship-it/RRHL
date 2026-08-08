@@ -19,15 +19,15 @@ interface Tier {
   glow?: boolean;
 }
 
-// Mirrors an NHL-video-game-style rating tier: hotter color the higher the
-// overall, topping out in the same fire treatment as OverallBadge's 95+.
+// Mirrors an NHL-video-game-style rating tier, topping out in the same
+// icy-blue diamond shimmer as OverallBadge's 95+.
 const tierFor = (overall: number): Tier => {
   if (overall >= 95)
     return {
       label: "DIAMOND",
-      border: "border-orange-400/60",
-      wash: "from-orange-500/15",
-      accent: "text-orange-300",
+      border: "border-cyan-300/60",
+      wash: "from-cyan-400/15",
+      accent: "text-cyan-200",
       glow: true,
     };
   if (overall >= 90)
@@ -69,7 +69,7 @@ export default function PlayerCard({
     >
       {tier.glow && (
         <span
-          className="pointer-events-none absolute -inset-6 animate-fire-flicker rounded-full bg-gradient-to-t from-red-600/40 via-orange-500/30 to-amber-300/20 blur-2xl"
+          className="pointer-events-none absolute -inset-6 animate-diamond-shimmer rounded-full bg-gradient-to-t from-blue-500/40 via-cyan-300/35 to-white/30 blur-2xl"
           aria-hidden
         />
       )}

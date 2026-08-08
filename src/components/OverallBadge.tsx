@@ -3,17 +3,17 @@ interface OverallBadgeProps {
   size?: "sm" | "lg";
 }
 
-// 95+ overalls get a flickering fire glow behind the number.
+// 95+ overalls get a shimmering icy-blue diamond glow behind the number.
 export default function OverallBadge({ overall, size = "sm" }: OverallBadgeProps) {
   const isElite = overall >= 95;
   const padding = size === "lg" ? "px-4 py-2" : "px-3 py-1.5";
   const numberSize = size === "lg" ? "text-2xl" : "text-base";
   const labelSize = size === "lg" ? "text-[10px]" : "text-[9px]";
 
-  const borderColor = isElite ? "border-orange-400/50" : "border-sky-400/40";
-  const bgColor = isElite ? "bg-orange-500/10" : "bg-sky-500/10";
-  const numberColor = isElite ? "text-orange-300" : "text-sky-300";
-  const labelColor = isElite ? "text-orange-400/80" : "text-sky-400/80";
+  const borderColor = isElite ? "border-cyan-300/60" : "border-sky-400/40";
+  const bgColor = isElite ? "bg-cyan-500/10" : "bg-sky-500/10";
+  const numberColor = isElite ? "text-cyan-200" : "text-sky-300";
+  const labelColor = isElite ? "text-cyan-300/80" : "text-sky-400/80";
 
   return (
     <span
@@ -22,7 +22,7 @@ export default function OverallBadge({ overall, size = "sm" }: OverallBadgeProps
     >
       {isElite && (
         <span
-          className="pointer-events-none absolute -inset-2 animate-fire-flicker rounded-full bg-gradient-to-t from-red-600/70 via-orange-500/60 to-amber-300/50 blur-md"
+          className="pointer-events-none absolute -inset-2 animate-diamond-shimmer rounded-full bg-gradient-to-t from-blue-500/70 via-cyan-300/60 to-white/50 blur-md"
           aria-hidden
         />
       )}

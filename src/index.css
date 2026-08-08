@@ -24,7 +24,7 @@
   --animate-glow-spin: glow-spin 8s linear infinite;
   --animate-glow-pulse: glow-pulse 3.5s ease-in-out infinite;
   --animate-confetti-fall: confetti-fall 2.2s ease-in both;
-  --animate-fire-flicker: fire-flicker 1.4s ease-in-out infinite;
+  --animate-diamond-shimmer: diamond-shimmer 1.4s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -83,7 +83,7 @@
       opacity: 0;
     }
   }
-  @keyframes fire-flicker {
+  @keyframes diamond-shimmer {
     0%,
     100% {
       opacity: 0.35;
