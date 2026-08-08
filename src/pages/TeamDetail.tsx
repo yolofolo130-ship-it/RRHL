@@ -2,6 +2,7 @@ import { useMemo, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import Tabs from "@/components/Tabs";
+import TrophyCard from "@/components/TrophyCard";
 import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
@@ -286,12 +287,7 @@ export default function TeamDetail() {
             {teamHonors.length > 0 ? (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                 {teamHonors.map((honor) => (
-                  <div key={honor.id} className="border border-line bg-bg-2 p-5">
-                    <p className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
-                      {honor.honor}
-                    </p>
-                    <p className="mt-1 text-xs text-ink-2">{honor.season}</p>
-                  </div>
+                  <TrophyCard key={honor.id} name={honor.honor} subtitle={honor.season} />
                 ))}
               </div>
             ) : (
