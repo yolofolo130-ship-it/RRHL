@@ -90,6 +90,7 @@ export const skaters: Skater[] = [
   { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "lak-7", name: "Kranky", teamId: "los-angeles-kings", position: "RW", number: 89, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "lak-8", name: "StefonB", teamId: "los-angeles-kings", position: "RW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "lak-9", name: "Evv-76", teamId: "los-angeles-kings", position: "D", number: 1, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "dal-1", name: "Santi", teamId: "dallas-stars", position: "C", number: 1, gp: 4, goals: 1, assists: 3, pim: 0 },
   { id: "dal-2", name: "Uzi", teamId: "dallas-stars", position: "RW", number: 19, gp: 0, goals: 0, assists: 0, pim: 0 },
