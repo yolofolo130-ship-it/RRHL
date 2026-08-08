@@ -198,6 +198,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s19-champ-evv76", season: "Season 19", playerName: "Evv-76" },
   { id: "s19-champ-pechs", season: "Season 19", playerName: "Pechs" },
   { id: "s19-champ-zac", season: "Season 19", playerName: "Zac" },
+
+  // Season 20 — Pittsburgh Penguins
+  { id: "s20-champ-chrisx", season: "Season 20", playerName: "Chrisx" },
+  { id: "s20-champ-sfgoofy", season: "Season 20", playerName: "Sfgoofy" },
+  { id: "s20-champ-siah", season: "Season 20", playerName: "Siah" },
+  { id: "s20-champ-josuxrr", season: "Season 20", playerName: "JosuxRR" },
+  { id: "s20-champ-bna", season: "Season 20", playerName: "BNA" },
+  { id: "s20-champ-kingpenguin", season: "Season 20", playerName: "KingPenguin" },
+  { id: "s20-champ-tgod", season: "Season 20", playerName: "TGOD" },
+  { id: "s20-champ-evantheguy", season: "Season 20", playerName: "EvanTheGuy" },
+  { id: "s20-champ-arri", season: "Season 20", playerName: "Arri" },
+  { id: "s20-champ-carterthegawd", season: "Season 20", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
