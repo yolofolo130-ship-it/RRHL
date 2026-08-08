@@ -41,6 +41,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s5-champ-tgod", season: "Season 5", playerName: "TGOD" },
   { id: "s5-champ-hockeyboi", season: "Season 5", playerName: "Hockey Boi" },
   { id: "s5-champ-siah", season: "Season 5", playerName: "Siah" },
+
+  // Season 6 — Pittsburgh Penguins
+  { id: "s6-champ-chrisx", season: "Season 6", playerName: "Chrisx" },
+  { id: "s6-champ-huddawg", season: "Season 6", playerName: "Huddawg" },
+  { id: "s6-champ-siah", season: "Season 6", playerName: "Siah" },
+  { id: "s6-champ-snickers", season: "Season 6", playerName: "Snickers" },
+  { id: "s6-champ-flaganoid", season: "Season 6", playerName: "Flaganoid" },
+  { id: "s6-champ-calebisgod", season: "Season 6", playerName: "Calebisgod" },
+  { id: "s6-champ-tgod", season: "Season 6", playerName: "TGOD" },
+  { id: "s6-champ-airdawg", season: "Season 6", playerName: "Airdawg" },
+  { id: "s6-champ-mvp", season: "Season 6", playerName: "MVP" },
+  { id: "s6-champ-carterthegawd", season: "Season 6", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
