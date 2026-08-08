@@ -147,6 +147,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s15-champ-moon", season: "Season 15", playerName: "Moon" },
   { id: "s15-champ-huddawg", season: "Season 15", playerName: "Huddawg" },
   { id: "s15-champ-vengeance", season: "Season 15", playerName: "Vengeance" },
+
+  // Season 16 — Columbus Blue Jackets
+  { id: "s16-champ-boolit", season: "Season 16", playerName: "Boolit" },
+  { id: "s16-champ-hogeye", season: "Season 16", playerName: "Hogeye" },
+  { id: "s16-champ-emoine", season: "Season 16", playerName: "Emoine" },
+  { id: "s16-champ-blaze", season: "Season 16", playerName: "Blaze" },
+  { id: "s16-champ-cakelocks", season: "Season 16", playerName: "Cakelocks" },
+  { id: "s16-champ-david", season: "Season 16", playerName: "David" },
+  { id: "s16-champ-evv76", season: "Season 16", playerName: "Evv-76" },
+  { id: "s16-champ-augy", season: "Season 16", playerName: "Augy" },
+  { id: "s16-champ-snugthepug", season: "Season 16", playerName: "SnugThePug" },
+  { id: "s16-champ-ddino", season: "Season 16", playerName: "DDino" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
