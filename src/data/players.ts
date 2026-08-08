@@ -178,6 +178,22 @@ export const topByPoints = (count: number): Skater[] =>
 export const topBySaves = (count: number): Goalie[] =>
   [...goalies].sort((a, b) => b.saves - a.saves).slice(0, count);
 
+// Goalies who haven't faced a shot yet shouldn't headline a rate-stat
+// leaderboard (an untested goalie's 0.00 GAA isn't a "best" GAA).
+const hasFacedShots = (goalie: Goalie): boolean => goalieShotsAgainst(goalie) > 0;
+
+export const topBySavePct = (count: number): Goalie[] =>
+  [...goalies]
+    .filter(hasFacedShots)
+    .sort((a, b) => goalieSavePct(b) - goalieSavePct(a))
+    .slice(0, count);
+
+export const topByGaa = (count: number): Goalie[] =>
+  [...goalies]
+    .filter(hasFacedShots)
+    .sort((a, b) => goalieGaa(a) - goalieGaa(b))
+    .slice(0, count);
+
 // League-wide rank in a stat (1 = leader), or undefined if the player has
 // none of that stat yet — drives the "#4th in Assists" banner on a
 // player's page. Ties resolve by array order, same as the leaderboards.
@@ -218,6 +234,24 @@ export const savesRankFor = (goalieId: string): number | undefined => {
   if (!goalie || goalie.saves === 0) return undefined;
   return rankIn(
     [...goalies].sort((a, b) => b.saves - a.saves),
+    goalieId,
+  );
+};
+
+export const savePctRankFor = (goalieId: string): number | undefined => {
+  const goalie = goalies.find((g) => g.id === goalieId);
+  if (!goalie || !hasFacedShots(goalie)) return undefined;
+  return rankIn(
+    [...goalies].filter(hasFacedShots).sort((a, b) => goalieSavePct(b) - goalieSavePct(a)),
+    goalieId,
+  );
+};
+
+export const gaaRankFor = (goalieId: string): number | undefined => {
+  const goalie = goalies.find((g) => g.id === goalieId);
+  if (!goalie || !hasFacedShots(goalie)) return undefined;
+  return rankIn(
+    [...goalies].filter(hasFacedShots).sort((a, b) => goalieGaa(a) - goalieGaa(b)),
     goalieId,
   );
 };

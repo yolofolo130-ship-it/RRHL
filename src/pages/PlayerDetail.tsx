@@ -17,6 +17,8 @@ import {
   assistsRankFor,
   pointsRankFor,
   savesRankFor,
+  savePctRankFor,
+  gaaRankFor,
 } from "@/data/players";
 import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } from "@/data/playerHistory";
 import { championshipSeasonsFor } from "@/data/championshipRosters";
@@ -69,7 +71,11 @@ export default function PlayerDetail() {
     if (assistsRank !== undefined && assistsRank <= 10) leaderRanks.push({ label: "Assists", rank: assistsRank });
   } else if (player.kind === "goalie") {
     const savesRank = savesRankFor(player.id);
+    const savePctRank = savePctRankFor(player.id);
+    const gaaRank = gaaRankFor(player.id);
     if (savesRank !== undefined && savesRank <= 10) leaderRanks.push({ label: "Saves", rank: savesRank });
+    if (savePctRank !== undefined && savePctRank <= 10) leaderRanks.push({ label: "SV%", rank: savePctRank });
+    if (gaaRank !== undefined && gaaRank <= 10) leaderRanks.push({ label: "GAA", rank: gaaRank });
   }
 
   return (

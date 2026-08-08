@@ -12,10 +12,14 @@ import {
   skaters,
   goalies,
   skaterPoints,
+  goalieSavePct,
+  goalieGaa,
   topByGoals,
   topByAssists,
   topByPoints,
   topBySaves,
+  topBySavePct,
+  topByGaa,
 } from "@/data/players";
 import { formatLongDate } from "@/utils/format";
 
@@ -89,7 +93,7 @@ export default function Home() {
           title="League Leaders"
           action={{ label: "VIEW FULL STATS", to: "/stats" }}
         />
-        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           <LeaderCard
             label="GOALS"
             rows={topByGoals(4).map((s) => ({
@@ -124,6 +128,24 @@ export default function Home() {
               teamId: g.teamId,
               name: g.name,
               value: g.saves,
+            }))}
+          />
+          <LeaderCard
+            label="SV%"
+            rows={topBySavePct(4).map((g) => ({
+              id: g.id,
+              teamId: g.teamId,
+              name: g.name,
+              value: `${(goalieSavePct(g) * 100).toFixed(1)}%`,
+            }))}
+          />
+          <LeaderCard
+            label="GAA"
+            rows={topByGaa(4).map((g) => ({
+              id: g.id,
+              teamId: g.teamId,
+              name: g.name,
+              value: goalieGaa(g).toFixed(2),
             }))}
           />
         </div>
@@ -236,7 +258,7 @@ function LeaderCard({
   rows,
 }: {
   label: string;
-  rows: { id: string; teamId: string; name: string; value: number }[];
+  rows: { id: string; teamId: string; name: string; value: number | string }[];
 }) {
   return (
     <div className="border border-line bg-bg-2 p-5">
