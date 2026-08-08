@@ -5,9 +5,9 @@ import pittsburghLogo from "@/assets/logos/pittsburgh-penguins.png";
 import tampaBayLogo from "@/assets/logos/tampa-bay-lightning.png";
 import bostonLogo from "@/assets/logos/boston-bruins.png";
 import newYorkLogo from "@/assets/logos/new-york-rangers.png";
-import utahLogo from "@/assets/logos/utah-mammoths.png";
+import utahLogo from "@/assets/logos/Utah-Mammoth.png";
 import vegasLogo from "@/assets/logos/vegas-golden-knights.png";
-import stLouisLogo from "@/assets/logos/st-louis-blues.png";
+import stLouisLogo from "@/assets/logos/St-Louis-Blue.png";
 import losAngelesLogo from "@/assets/logos/los-angeles-kings.png";
 import dallasLogo from "@/assets/logos/dallas-stars.png";
 

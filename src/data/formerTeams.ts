@@ -1,28 +1,28 @@
 import type { FormerTeam } from "./types";
 
-import buffaloSabresLogo from "@/assets/logos/buffalo-sabres.png";
-import detroitRedWingsLogo from "@/assets/logos/detroit-red-wings.png";
+import buffaloSabresLogo from "@/assets/logos/Buffalo-Sabres-Logo.png";
+import detroitRedWingsLogo from "@/assets/logos/detroit-red-wings-logo.png";
 import floridaPanthersLogo from "@/assets/logos/florida-panthers.png";
-import montrealCanadiensLogo from "@/assets/logos/montreal-canadiens.png";
-import ottawaSenatorsLogo from "@/assets/logos/ottawa-senators.png";
-import torontoMapleLeafsLogo from "@/assets/logos/toronto-maple-leafs.png";
+import montrealCanadiensLogo from "@/assets/logos/montreal-canadiens-logo.png";
+import ottawaSenatorsLogo from "@/assets/logos/ottawa-senators-logo.png";
+import torontoMapleLeafsLogo from "@/assets/logos/toronto-maple-leafs-logo.png";
 import columbusBlueJacketsLogo from "@/assets/logos/columbus-blue-jackets.png";
 import newJerseyDevilsLogo from "@/assets/logos/new-jersey-devils.png";
 import newYorkIslandersLogo from "@/assets/logos/new-york-islanders.png";
-import philadelphiaFlyersLogo from "@/assets/logos/philadelphia-flyers.png";
+import philadelphiaFlyersLogo from "@/assets/logos/philadelphia-flyers-logo.png";
 import washingtonCapitalsLogo from "@/assets/logos/washington-capitals.png";
-import chicagoBlackhawksLogo from "@/assets/logos/chicago-blackhawks.png";
+import chicagoBlackhawksLogo from "@/assets/logos/chicago-blackhawks-logo.png";
 import coloradoAvalancheLogo from "@/assets/logos/colorado-avalanche.png";
-import minnesotaWildLogo from "@/assets/logos/minnesota-wild.png";
+import minnesotaWildLogo from "@/assets/logos/minnesota-wild-logo.png";
 import nashvillePredatorsLogo from "@/assets/logos/nashville-predators.png";
 import winnipegJetsLogo from "@/assets/logos/winnipeg-jets.png";
 import anaheimDucksLogo from "@/assets/logos/anaheim-ducks.png";
-import calgaryFlamesLogo from "@/assets/logos/calgary-flames.png";
-import edmontonOilersLogo from "@/assets/logos/edmonton-oilers.png";
+import calgaryFlamesLogo from "@/assets/logos/calgary-flames-logo.png";
+import edmontonOilersLogo from "@/assets/logos/edmonton-oilers-logo.png";
 import sanJoseSharksLogo from "@/assets/logos/san-jose-sharks.png";
-import seattleKrakenLogo from "@/assets/logos/seattle-kraken.png";
-import vancouverCanucksLogo from "@/assets/logos/vancouver-canucks.png";
-import arizonaCoyotesLogo from "@/assets/logos/arizona-coyotes.png";
+import seattleKrakenLogo from "@/assets/logos/Seattle-Kraken-Logo.png";
+import vancouverCanucksLogo from "@/assets/logos/vancouver-canucks-logo.png";
+import arizonaCoyotesLogo from "@/assets/logos/arizona-coyotes-logo.png";
 
 // Franchises that no longer exist (folded, not any of the current 10 teams).
 // Add an entry here before pointing a TeamSeasonHonor's teamId at it.
