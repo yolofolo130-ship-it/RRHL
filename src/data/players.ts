@@ -1,4 +1,4 @@
-import type { Coach, Goalie, Skater } from "./types";
+import type { Coach, FormerPlayer, Goalie, Skater } from "./types";
 import { getFormerPlayerById, getFormerPlayerByName } from "./formerPlayers";
 
 // Placeholder rosters — replace with real players at any time. Points,
@@ -183,7 +183,7 @@ export const topBySaves = (count: number): Goalie[] =>
 export type Player =
   | ({ kind: "skater" } & Skater)
   | ({ kind: "goalie" } & Goalie)
-  | { kind: "former"; id: string; name: string };
+  | ({ kind: "former" } & FormerPlayer);
 
 export const getPlayerById = (id: string): Player | undefined => {
   const skater = skaters.find((s) => s.id === id);

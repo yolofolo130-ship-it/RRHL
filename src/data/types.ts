@@ -150,6 +150,12 @@ export interface ChampionshipRosterEntry {
 export interface FormerPlayer {
   id: string;
   name: string;
+  /** NHL-video-game-style overall rating, 0-99. Omit until assigned. */
+  overall?: number;
+  /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
+  xFactor?: string;
+  /** Country/flag name, looked up in data/flags.ts for its icon. */
+  flag?: string;
 }
 
 // Team-level honors won in past seasons (Stanley Cup champion, President's

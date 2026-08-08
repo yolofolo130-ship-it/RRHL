@@ -28,7 +28,7 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-sane", name: "Sane" },
   { id: "fp-nicklas", name: "Nicklas" },
   { id: "fp-airdawg", name: "Airdawg" },
-  { id: "fp-pechs", name: "Pechs" },
+  { id: "fp-pechs", name: "Pechs", overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "fp-luh-dj", name: "Luh DJ" },
   { id: "fp-jj", name: "JJ" },
   { id: "fp-birbman", name: "Birbman" },

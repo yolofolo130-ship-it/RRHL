@@ -79,15 +79,14 @@ export default function PlayerDetail() {
                 ? "FORMER PLAYER"
                 : `${player.kind === "skater" ? player.position : "GOALIE"} · #${player.number}`}
             </p>
-            {player.kind !== "former" &&
-              (player.overall !== undefined || player.xFactor || player.flag) && (
-                <div className="flex items-center gap-3 pt-1">
-                  {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}
-                  {player.xFactor && <XFactorBadge name={player.xFactor} size="lg" />}
-                  {player.flag && <FlagBadge name={player.flag} size="lg" />}
-                  {player.xFactor && <XFactorLogo size="lg" />}
-                </div>
-              )}
+            {(player.overall !== undefined || player.xFactor || player.flag) && (
+              <div className="flex items-center gap-3 pt-1">
+                {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}
+                {player.xFactor && <XFactorBadge name={player.xFactor} size="lg" />}
+                {player.flag && <FlagBadge name={player.flag} size="lg" />}
+                {player.xFactor && <XFactorLogo size="lg" />}
+              </div>
+            )}
           </div>
         </div>
       </div>
