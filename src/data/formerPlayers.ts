@@ -10,7 +10,7 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-landorito", name: "Landorito" },
   { id: "fp-bakedlasgna", name: "BakedLasgna" },
   { id: "fp-b3nn3tt1", name: "B3NN3TT1" },
-  { id: "fp-flaganoid", name: "Flaganoid" },
+  { id: "fp-flaganoid", name: "Flaganoid", overall: 88, star: "One-T", flag: "USA" },
   { id: "fp-max00x", name: "Max00x" },
   { id: "fp-alexomegavr", name: "ALEXOMEGAVR" },
   { id: "fp-carber", name: "Carber" },
