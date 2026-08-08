@@ -108,6 +108,7 @@ export default function Stats() {
                   <th className="px-3 py-3 text-center font-semibold">W</th>
                   <th className="px-3 py-3 text-center font-semibold">L</th>
                   <th className="px-3 py-3 text-center font-semibold">SV</th>
+                  <th className="px-3 py-3 text-center font-semibold">GA</th>
                   <th className="px-3 py-3 text-center font-semibold">SV%</th>
                   <th className="px-4 py-3 text-center font-semibold">GAA</th>
                 </tr>
@@ -138,6 +139,7 @@ export default function Stats() {
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.wins}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.losses}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.saves}</td>
+                      <td className="px-3 py-3 text-center text-ink-1">{goalie.goalsAgainst}</td>
                       <td className="px-3 py-3 text-center font-semibold text-ink-0">
                         {(goalieSavePct(goalie) * 100).toFixed(1)}%
                       </td>

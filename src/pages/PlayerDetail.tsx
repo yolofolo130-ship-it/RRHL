@@ -160,6 +160,7 @@ export default function PlayerDetail() {
                   ["L", player.losses],
                   ["OTL", player.otLosses],
                   ["SAVES", player.saves],
+                  ["GA", player.goalsAgainst],
                 ] as const
               ).map(([label, value]) => (
                 <div key={label} className="border border-line bg-bg-2 p-5 text-center">
@@ -230,6 +231,7 @@ export default function PlayerDetail() {
                 ["L", h.losses],
                 ["OTL", h.otLosses],
                 ["SV", h.saves],
+                ["GA", h.goalsAgainst],
               ] as const,
             }))}
           />
