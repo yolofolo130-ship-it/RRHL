@@ -182,15 +182,25 @@ export const topBySaves = (count: number): Goalie[] =>
 // leaderboard (an untested goalie's 0.00 GAA isn't a "best" GAA).
 const hasFacedShots = (goalie: Goalie): boolean => goalieShotsAgainst(goalie) > 0;
 
+// A goalie needs at least half as many GP as the current games-played
+// leader to qualify for the SV%/GAA leaderboards — otherwise a one-game
+// perfect sheet could sit at #1 all season without ever being challenged
+// again. The bar rises automatically as the season goes on.
+const qualifyingGoalieGp = (): number =>
+  Math.max(1, Math.ceil(Math.max(0, ...goalies.map((g) => g.gp)) / 2));
+
+export const isQualifiedGoalie = (goalie: Goalie): boolean =>
+  hasFacedShots(goalie) && goalie.gp >= qualifyingGoalieGp();
+
 export const topBySavePct = (count: number): Goalie[] =>
   [...goalies]
-    .filter(hasFacedShots)
+    .filter(isQualifiedGoalie)
     .sort((a, b) => goalieSavePct(b) - goalieSavePct(a))
     .slice(0, count);
 
 export const topByGaa = (count: number): Goalie[] =>
   [...goalies]
-    .filter(hasFacedShots)
+    .filter(isQualifiedGoalie)
     .sort((a, b) => goalieGaa(a) - goalieGaa(b))
     .slice(0, count);
 
@@ -240,18 +250,18 @@ export const savesRankFor = (goalieId: string): number | undefined => {
 
 export const savePctRankFor = (goalieId: string): number | undefined => {
   const goalie = goalies.find((g) => g.id === goalieId);
-  if (!goalie || !hasFacedShots(goalie)) return undefined;
+  if (!goalie || !isQualifiedGoalie(goalie)) return undefined;
   return rankIn(
-    [...goalies].filter(hasFacedShots).sort((a, b) => goalieSavePct(b) - goalieSavePct(a)),
+    [...goalies].filter(isQualifiedGoalie).sort((a, b) => goalieSavePct(b) - goalieSavePct(a)),
     goalieId,
   );
 };
 
 export const gaaRankFor = (goalieId: string): number | undefined => {
   const goalie = goalies.find((g) => g.id === goalieId);
-  if (!goalie || !hasFacedShots(goalie)) return undefined;
+  if (!goalie || !isQualifiedGoalie(goalie)) return undefined;
   return rankIn(
-    [...goalies].filter(hasFacedShots).sort((a, b) => goalieGaa(a) - goalieGaa(b)),
+    [...goalies].filter(isQualifiedGoalie).sort((a, b) => goalieGaa(a) - goalieGaa(b)),
     goalieId,
   );
 };

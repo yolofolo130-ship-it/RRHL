@@ -5,7 +5,14 @@ import Tabs from "@/components/Tabs";
 import TeamLogo from "@/components/TeamLogo";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
-import { skaters, goalies, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
+import {
+  skaters,
+  goalies,
+  skaterPoints,
+  goalieSavePct,
+  goalieGaa,
+  isQualifiedGoalie,
+} from "@/data/players";
 import { computeStandings, sortStandings } from "@/utils/standings";
 
 const TAB_OPTIONS = [
@@ -17,9 +24,12 @@ const TAB_OPTIONS = [
 const skaterRows = [...skaters].sort((a, b) => skaterPoints(b) - skaterPoints(a));
 // Ranked by actual performance (SV%, then GAA, then save volume as
 // tiebreakers) rather than wins, so a goalie's record doesn't inflate their
-// rank when their underlying numbers don't back it up.
+// rank when their underlying numbers don't back it up. Qualified goalies
+// (enough GP to matter) sort ahead of everyone else, so a one-game perfect
+// sheet can't camp at #1 all season.
 const goalieRows = [...goalies].sort(
   (a, b) =>
+    Number(isQualifiedGoalie(b)) - Number(isQualifiedGoalie(a)) ||
     goalieSavePct(b) - goalieSavePct(a) ||
     goalieGaa(a) - goalieGaa(b) ||
     b.saves - a.saves,
