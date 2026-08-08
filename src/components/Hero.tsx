@@ -34,8 +34,8 @@ export default function Hero() {
           Rec Room Hockey League
         </h1>
         <p className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-ink-2 sm:text-base">
-          Ten clubs. One cup. Follow every faceoff, track the standings, and
-          watch your squad chase the Frozen Crown.
+          Ten teams. One winner. Follow every faceoff, track the standings,
+          and watch your favorite team chase the Stanley Cup.
         </p>
 
         <div className="mt-9 flex flex-col gap-3 sm:flex-row">
