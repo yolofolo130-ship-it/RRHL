@@ -102,7 +102,7 @@ export const skaters: Skater[] = [
   { id: "dal-7", name: "MrSmallEyes", teamId: "dallas-stars", position: "D", number: 28, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "dal-8", name: "Salva", teamId: "dallas-stars", position: "C", number: 31, gp: 1, goals: 3, assists: 0, pim: 0 },
   { id: "dal-9", name: "PKPlis", teamId: "dallas-stars", position: "D", number: 18, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "dal-10", name: "test", teamId: "dallas-stars", position: "D", number: 18, gp: 0, goals: 0, assists: 0, pim: 0 }
+  
 ];
 
 export const goalies: Goalie[] = [
