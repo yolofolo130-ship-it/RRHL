@@ -173,6 +173,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s17-champ-augy", season: "Season 17", playerName: "Augy" },
   { id: "s17-champ-snugthepug", season: "Season 17", playerName: "SnugThePug" },
   { id: "s17-champ-carterthegawd", season: "Season 17", playerName: "Carterthegawd" },
+
+  // Season 18 — Pittsburgh Penguins
+  { id: "s18-champ-arri", season: "Season 18", playerName: "Arri" },
+  { id: "s18-champ-sparkles", season: "Season 18", playerName: "Sparkles" },
+  { id: "s18-champ-chrisx", season: "Season 18", playerName: "Chrisx" },
+  { id: "s18-champ-rennu", season: "Season 18", playerName: "Rennu" },
+  { id: "s18-champ-sid", season: "Season 18", playerName: "Sid" },
+  { id: "s18-champ-alex", season: "Season 18", playerName: "Alex" },
+  { id: "s18-champ-full", season: "Season 18", playerName: "Full" },
+  { id: "s18-champ-swordtsu", season: "Season 18", playerName: "Swordtsu" },
+  { id: "s18-champ-king", season: "Season 18", playerName: "King" },
+  { id: "s18-champ-carterthegawd", season: "Season 18", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
