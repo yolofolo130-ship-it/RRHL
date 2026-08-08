@@ -116,7 +116,7 @@ export const formerTeams: FormerTeam[] = [
     id: "ft-edmonton-oilers",
     name: "Edmonton Oilers",
     logo: edmontonOilersLogo,
-    color: "#00205B",
+    color: "#FF4C00",
   },
   { id: "ft-san-jose-sharks", name: "San Jose Sharks", logo: sanJoseSharksLogo, color: "#006D75" },
   { id: "ft-seattle-kraken", name: "Seattle Kraken", logo: seattleKrakenLogo, color: "#57dedc" },
