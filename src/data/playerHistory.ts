@@ -880,6 +880,12 @@ export const seasonAccolades: SeasonAccolade[] = [
     playerName: "Rennu",
   },
   {
+    id: "s16-calder-trophy",
+    season: "Season 16",
+    accoladeName: "Calder Trophy",
+    playerName: "Fellow",
+  },
+  {
     id: "s16-jack-adams-trophy",
     season: "Season 16",
     accoladeName: "Jack Adams Trophy",
