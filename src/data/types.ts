@@ -1,5 +1,12 @@
 export type Conference = "east" | "west";
 
+// An X-Factor or Star ability's icon plus a description shown when its
+// badge is clicked on a player's page.
+export interface AbilityInfo {
+  icon: string;
+  description: string;
+}
+
 export interface Team {
   id: string;
   name: string;
@@ -42,6 +49,9 @@ export interface Skater {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Star ability name (a tier below X-Factor, typically ~88-93 OVR),
+   * looked up in data/stars.ts for its icon. */
+  star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
 }
@@ -61,6 +71,9 @@ export interface Goalie {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Star ability name (a tier below X-Factor, typically ~88-93 OVR),
+   * looked up in data/stars.ts for its icon. */
+  star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
 }
@@ -154,6 +167,9 @@ export interface FormerPlayer {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Star ability name (a tier below X-Factor, typically ~88-93 OVR),
+   * looked up in data/stars.ts for its icon. */
+  star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
 }

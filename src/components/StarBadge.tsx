@@ -1,21 +1,22 @@
 import { useState } from "react";
-import { xFactorAbilities } from "@/data/xfactors";
+import { starAbilities } from "@/data/stars";
 import AbilityDetailModal from "@/components/AbilityDetailModal";
 
-interface XFactorBadgeProps {
+interface StarBadgeProps {
   name: string;
   size?: "sm" | "lg";
 }
 
 // Renders nothing if the ability has no icon registered yet in
-// data/xfactors.ts, so setting `xFactor` on a player is safe before the
-// image has been added. Click the icon to see the ability's description.
-export default function XFactorBadge({ name, size = "sm" }: XFactorBadgeProps) {
+// data/stars.ts, so setting `star` on a player is safe before the image
+// has been added. Sized a step below XFactorBadge — Star is the tier
+// beneath X-Factor. Click the icon to see the ability's description.
+export default function StarBadge({ name, size = "sm" }: StarBadgeProps) {
   const [isOpen, setIsOpen] = useState(false);
-  const ability = xFactorAbilities[name];
+  const ability = starAbilities[name];
   if (!ability) return null;
 
-  const dims = size === "lg" ? "h-16 w-16" : "h-9 w-9";
+  const dims = size === "lg" ? "h-12 w-12" : "h-7 w-7";
 
   return (
     <>
@@ -32,7 +33,7 @@ export default function XFactorBadge({ name, size = "sm" }: XFactorBadgeProps) {
           name={name}
           icon={ability.icon}
           description={ability.description}
-          tierLabel="X-FACTOR ABILITY"
+          tierLabel="STAR ABILITY"
           onClose={() => setIsOpen(false)}
         />
       )}

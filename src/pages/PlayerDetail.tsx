@@ -6,6 +6,7 @@ import OverallBadge from "@/components/OverallBadge";
 import XFactorBadge from "@/components/XFactorBadge";
 import XFactorLogo from "@/components/XFactorLogo";
 import FlagBadge from "@/components/FlagBadge";
+import StarBadge from "@/components/StarBadge";
 import LeaderBadge from "@/components/LeaderBadge";
 import { getTeamById } from "@/data/teams";
 import {
@@ -117,10 +118,11 @@ export default function PlayerDetail() {
                 ))}
               </div>
             )}
-            {(player.overall !== undefined || player.xFactor || player.flag) && (
+            {(player.overall !== undefined || player.xFactor || player.star || player.flag) && (
               <div className="flex items-center gap-3 pt-1">
                 {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}
                 {player.xFactor && <XFactorBadge name={player.xFactor} size="lg" />}
+                {player.star && <StarBadge name={player.star} size="lg" />}
                 {player.flag && <FlagBadge name={player.flag} size="lg" />}
                 {player.xFactor && <XFactorLogo size="lg" />}
               </div>
