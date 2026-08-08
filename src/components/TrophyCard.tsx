@@ -52,7 +52,7 @@ export default function TrophyCard({
       />
       <div className="relative flex items-start gap-3">
         {logo ? (
-          <TeamLogo team={{ name: subtitle, logo }} className="h-7 w-7 shrink-0" />
+          <TeamLogo team={{ name: subtitle, logo }} className="h-10 w-10 shrink-0" />
         ) : (
           <svg
             viewBox="0 0 24 24"

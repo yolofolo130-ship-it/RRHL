@@ -119,7 +119,7 @@ export const formerTeams: FormerTeam[] = [
     color: "#00205B",
   },
   { id: "ft-san-jose-sharks", name: "San Jose Sharks", logo: sanJoseSharksLogo, color: "#006D75" },
-  { id: "ft-seattle-kraken", name: "Seattle Kraken", logo: seattleKrakenLogo, color: "#001628" },
+  { id: "ft-seattle-kraken", name: "Seattle Kraken", logo: seattleKrakenLogo, color: "#57dedc" },
   {
     id: "ft-vancouver-canucks",
     name: "Vancouver Canucks",

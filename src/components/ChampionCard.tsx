@@ -72,10 +72,10 @@ export default function ChampionCard({
             {champion.logo ? (
               <TeamLogo
                 team={{ name: champion.name, logo: champion.logo }}
-                className="h-10 w-10 shrink-0"
+                className="h-14 w-14 shrink-0"
               />
             ) : (
-              <div className="h-10 w-10 shrink-0 border border-[var(--accent)]/40 bg-bg-3" />
+              <div className="h-14 w-14 shrink-0 border border-[var(--accent)]/40 bg-bg-3" />
             )}
             <span className="truncate font-display text-base font-semibold uppercase leading-tight text-ink-0">
               {champion.name}
@@ -90,10 +90,10 @@ export default function ChampionCard({
             {opponent.logo ? (
               <TeamLogo
                 team={{ name: opponent.name, logo: opponent.logo }}
-                className="h-8 w-8 shrink-0 opacity-70"
+                className="h-11 w-11 shrink-0 opacity-70"
               />
             ) : (
-              <div className="h-8 w-8 shrink-0 border border-line bg-bg-3" />
+              <div className="h-11 w-11 shrink-0 border border-line bg-bg-3" />
             )}
             <span className="truncate text-xs text-ink-2">{opponent.name}</span>
           </div>
