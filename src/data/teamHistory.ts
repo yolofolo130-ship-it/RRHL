@@ -33,6 +33,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "carolina-hurricanes",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s2-scc-chi",
+    season: "Season 2",
+    teamId: "ft-chicago-blackhawks",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "boston-bruins",
+    seriesScore: "2-0",
+  },
+  {
+    id: "s2-pt-sea",
+    season: "Season 2",
+    teamId: "ft-seattle-kraken",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s2-pow-pit",
+    season: "Season 2",
+    teamId: "pittsburgh-penguins",
+    honor: "Prince Of Wales Trophy",
+  },
+  {
+    id: "s2-pow-chi",
+    season: "Season 2",
+    teamId: "ft-chicago-blackhawks",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
