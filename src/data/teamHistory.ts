@@ -345,6 +345,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "ft-colorado-avalanche",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s14-scc-stl",
+    season: "Season 14",
+    teamId: "st-louis-blues",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "carolina-hurricanes",
+    seriesScore: "4-1",
+  },
+  {
+    id: "s14-pt-nyi",
+    season: "Season 14",
+    teamId: "ft-new-york-islanders",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s14-csc-stl",
+    season: "Season 14",
+    teamId: "st-louis-blues",
+    honor: "Clarence S. Campbell Trophy",
+  },
+  {
+    id: "s14-pow-car",
+    season: "Season 14",
+    teamId: "carolina-hurricanes",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
