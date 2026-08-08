@@ -279,6 +279,66 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Carber",
   },
+  {
+    id: "s7-stanley-cup-mvp",
+    season: "Season 7",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Flaganoid",
+  },
+  {
+    id: "s7-stanley-cup-losing-mvp",
+    season: "Season 7",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Huddawg",
+  },
+  {
+    id: "s7-conn-smythe-trophy",
+    season: "Season 7",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Flaganoid",
+  },
+  {
+    id: "s7-vezina-trophy",
+    season: "Season 7",
+    accoladeName: "Vezina Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s7-ted-lindsay-trophy",
+    season: "Season 7",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "B3NN3TT1",
+  },
+  {
+    id: "s7-rrhl-foundation-trophy",
+    season: "Season 7",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Flaganoid",
+  },
+  {
+    id: "s7-james-norris-trophy",
+    season: "Season 7",
+    accoladeName: "James Norris Trophy",
+    playerName: "Kranky",
+  },
+  {
+    id: "s7-hart-memorial-trophy",
+    season: "Season 7",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Huddawg",
+  },
+  {
+    id: "s7-calder-trophy",
+    season: "Season 7",
+    accoladeName: "Calder Trophy",
+    playerName: "GeorgePigs",
+  },
+  {
+    id: "s7-jack-adams-trophy",
+    season: "Season 7",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Kranky",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
