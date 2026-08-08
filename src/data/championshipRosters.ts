@@ -77,6 +77,15 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s9-champ-tgod", season: "Season 9", playerName: "TGOD" },
   { id: "s9-champ-carsonreeves", season: "Season 9", playerName: "Carsonreeves" },
   { id: "s9-champ-carterthegawd", season: "Season 9", playerName: "Carterthegawd" },
+
+  // Season 10 — St. Louis Blues
+  { id: "s10-champ-luhdj", season: "Season 10", playerName: "Luh DJ" },
+  { id: "s10-champ-jj", season: "Season 10", playerName: "JJ" },
+  { id: "s10-champ-44worthy", season: "Season 10", playerName: "44worthy" },
+  { id: "s10-champ-birbman", season: "Season 10", playerName: "Birbman" },
+  { id: "s10-champ-swordtsu", season: "Season 10", playerName: "Swordtsu" },
+  { id: "s10-champ-rennu", season: "Season 10", playerName: "Rennu" },
+  { id: "s10-champ-dxrk", season: "Season 10", playerName: "Dxrk" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
