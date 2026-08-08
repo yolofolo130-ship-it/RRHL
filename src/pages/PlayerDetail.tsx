@@ -10,7 +10,7 @@ import StarBadge from "@/components/StarBadge";
 import LeaderBadge from "@/components/LeaderBadge";
 import { getTeamById } from "@/data/teams";
 import {
-  getPlayerById,
+  getPlayerBySlug,
   skaterPoints,
   goalieSavePct,
   goalieGaa,
@@ -26,8 +26,8 @@ import { championshipSeasonsFor } from "@/data/championshipRosters";
 import { accolades } from "@/data/accolades";
 
 export default function PlayerDetail() {
-  const { playerId } = useParams<{ playerId: string }>();
-  const player = playerId ? getPlayerById(playerId) : undefined;
+  const { playerSlug } = useParams<{ playerSlug: string }>();
+  const player = playerSlug ? getPlayerBySlug(playerSlug) : undefined;
 
   if (!player) {
     return (

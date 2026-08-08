@@ -4,7 +4,7 @@ import ChampionCard from "@/components/ChampionCard";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
-import { getPlayerIdByName } from "@/data/players";
+import { getPlayerSlugByName } from "@/data/players";
 
 interface DisplayHonor {
   id: string;
@@ -26,8 +26,8 @@ function playerHonorsForSeason(season: string): DisplayHonor[] {
           .map((a) => ({ id: a.id, name: a.accoladeName, winner: a.playerName }));
 
   return entries.map(({ id, name, winner }) => {
-    const playerId = getPlayerIdByName(winner);
-    return { id, name, subtitle: winner, to: playerId ? `/players/${playerId}` : undefined };
+    const slug = getPlayerSlugByName(winner);
+    return { id, name, subtitle: winner, to: slug ? `/players/${slug}` : undefined };
   });
 }
 

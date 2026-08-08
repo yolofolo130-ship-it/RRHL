@@ -3,7 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import TeamLogo from "@/components/TeamLogo";
 import ChampionBadge from "@/components/ChampionBadge";
 import { teams } from "@/data/teams";
-import { skaters, goalies, skaterPoints } from "@/data/players";
+import { skaters, goalies, skaterPoints, playerSlug } from "@/data/players";
 import { formerPlayers } from "@/data/formerPlayers";
 import { championshipSeasonsFor } from "@/data/championshipRosters";
 
@@ -31,7 +31,7 @@ export default function Players() {
                   {teamSkaters.map((player) => (
                     <Link
                       key={player.id}
-                      to={`/players/${player.id}`}
+                      to={`/players/${playerSlug(player.name)}`}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
                       <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
@@ -51,7 +51,7 @@ export default function Players() {
                   {teamGoalies.map((goalie) => (
                     <Link
                       key={goalie.id}
-                      to={`/players/${goalie.id}`}
+                      to={`/players/${playerSlug(goalie.name)}`}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
                       <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
@@ -84,7 +84,7 @@ export default function Players() {
                 {formerPlayers.map((player) => (
                   <Link
                     key={player.id}
-                    to={`/players/${player.id}`}
+                    to={`/players/${playerSlug(player.name)}`}
                     className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                   >
                     <div className="min-w-0">

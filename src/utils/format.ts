@@ -38,6 +38,14 @@ export const formatOrdinal = (n: number): string => {
   }
 };
 
+// "Carsonreeves" -> "carsonreeves", "Adam Cole" -> "adam-cole"
+export const slugify = (value: string): string =>
+  value
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
 export const isSameDate = (iso: string, date: Date): boolean => {
   const parsed = parseIsoDate(iso);
   return (

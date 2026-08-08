@@ -18,6 +18,7 @@ import {
   topByAssists,
   topByPoints,
   topBySaves,
+  playerSlug,
   topBySavePct,
   topByGaa,
 } from "@/data/players";
@@ -271,7 +272,7 @@ function LeaderCard({
           return (
             <li key={row.id}>
               <Link
-                to={`/players/${row.id}`}
+                to={`/players/${playerSlug(row.name)}`}
                 className="flex items-center justify-between gap-3 transition-colors hover:text-white"
               >
                 <div className="flex items-center gap-2.5 min-w-0">

@@ -12,6 +12,7 @@ import {
   goalieSavePct,
   goalieGaa,
   isQualifiedGoalie,
+  playerSlug,
 } from "@/data/players";
 import { computeStandings, sortStandings } from "@/utils/standings";
 
@@ -71,7 +72,7 @@ export default function Stats() {
                     >
                       <td className="px-4 py-3 text-ink-3">{index + 1}</td>
                       <td className="px-4 py-3 font-medium text-ink-0">
-                        <Link to={`/players/${player.id}`} className="hover:text-white">
+                        <Link to={`/players/${playerSlug(player.name)}`} className="hover:text-white">
                           {player.name}
                         </Link>
                       </td>
@@ -123,7 +124,7 @@ export default function Stats() {
                     >
                       <td className="px-4 py-3 text-ink-3">{index + 1}</td>
                       <td className="px-4 py-3 font-medium text-ink-0">
-                        <Link to={`/players/${goalie.id}`} className="hover:text-white">
+                        <Link to={`/players/${playerSlug(goalie.name)}`} className="hover:text-white">
                           {goalie.name}
                         </Link>
                       </td>

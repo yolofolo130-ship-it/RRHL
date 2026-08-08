@@ -1,5 +1,6 @@
 import type { Coach, FormerPlayer, Goalie, Skater } from "./types";
-import { getFormerPlayerById, getFormerPlayerByName } from "./formerPlayers";
+import { getFormerPlayerByName, getFormerPlayerBySlug } from "./formerPlayers";
+import { slugify } from "@/utils/format";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -266,30 +267,33 @@ export const gaaRankFor = (goalieId: string): number | undefined => {
   );
 };
 
-// Skater, goalie, and former-player ids never collide (goalie ids always
-// end in "g<n>", former-player ids always start with "fp-"), so a single
-// lookup can serve both /players/:id and /players list links.
 export type Player =
   | ({ kind: "skater" } & Skater)
   | ({ kind: "goalie" } & Goalie)
   | ({ kind: "former" } & FormerPlayer);
 
-export const getPlayerById = (id: string): Player | undefined => {
-  const skater = skaters.find((s) => s.id === id);
+// Name-based URL slug for a player's page (e.g. "Adam Cole" -> "adam-cole")
+// instead of an internal id like "lak-3". Player names are kept unique
+// (see formerPlayers.ts) so this can't collide.
+export const playerSlug = (name: string): string => slugify(name);
+
+export const getPlayerBySlug = (slug: string): Player | undefined => {
+  const skater = skaters.find((s) => playerSlug(s.name) === slug);
   if (skater) return { kind: "skater", ...skater };
-  const goalie = goalies.find((g) => g.id === id);
+  const goalie = goalies.find((g) => playerSlug(g.name) === slug);
   if (goalie) return { kind: "goalie", ...goalie };
-  const former = getFormerPlayerById(id);
+  const former = getFormerPlayerBySlug(slug);
   if (former) return { kind: "former", ...former };
   return undefined;
 };
 
-// Resolves a name (as stored on a SeasonAccolade) to a /players/:id route,
-// checking current rosters first, then the former-player registry.
-export const getPlayerIdByName = (name: string): string | undefined => {
+// Resolves a name (as stored on a SeasonAccolade) to a /players/:slug
+// route, checking current rosters first, then the former-player registry.
+export const getPlayerSlugByName = (name: string): string | undefined => {
   const skater = skaters.find((s) => s.name === name);
-  if (skater) return skater.id;
+  if (skater) return playerSlug(skater.name);
   const goalie = goalies.find((g) => g.name === name);
-  if (goalie) return goalie.id;
-  return getFormerPlayerByName(name)?.id;
+  if (goalie) return playerSlug(goalie.name);
+  const former = getFormerPlayerByName(name);
+  return former ? playerSlug(former.name) : undefined;
 };

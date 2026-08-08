@@ -7,7 +7,15 @@ import ChampionCard from "@/components/ChampionCard";
 import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
-import { skaters, goalies, coaches, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
+import {
+  skaters,
+  goalies,
+  coaches,
+  skaterPoints,
+  goalieSavePct,
+  goalieGaa,
+  playerSlug,
+} from "@/data/players";
 import { honorsForTeam, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { standingsForConference, isPlayoffPosition } from "@/utils/standings";
 import { formatLongDate } from "@/utils/format";
@@ -183,7 +191,7 @@ export default function TeamDetail() {
                       className="border-b border-line/60 last:border-b-0 hover:bg-white/[0.03]"
                     >
                       <td className="px-4 py-3 font-medium text-ink-0">
-                        <Link to={`/players/${player.id}`} className="hover:text-white">
+                        <Link to={`/players/${playerSlug(player.name)}`} className="hover:text-white">
                           {player.name}
                         </Link>
                       </td>
@@ -199,7 +207,7 @@ export default function TeamDetail() {
                   {teamGoalies.map((goalie) => (
                     <tr key={goalie.id} className="hover:bg-white/[0.03]">
                       <td className="px-4 py-3 font-medium text-ink-0">
-                        <Link to={`/players/${goalie.id}`} className="hover:text-white">
+                        <Link to={`/players/${playerSlug(goalie.name)}`} className="hover:text-white">
                           {goalie.name}
                         </Link>
                       </td>

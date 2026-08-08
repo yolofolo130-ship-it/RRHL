@@ -43,7 +43,7 @@ export default function App() {
           <Route path="/teams/:teamId" element={<TeamDetail />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/players" element={<Players />} />
-          <Route path="/players/:playerId" element={<PlayerDetail />} />
+          <Route path="/players/:playerSlug" element={<PlayerDetail />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/accolades" element={<Accolades />} />
           <Route path="/history" element={<History />} />

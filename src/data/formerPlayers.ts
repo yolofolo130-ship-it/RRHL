@@ -1,4 +1,5 @@
 import type { FormerPlayer } from "./types";
+import { slugify } from "@/utils/format";
 
 // People who appear in season history/accolades but aren't on a current
 // roster (players.ts). Add an entry here before referencing their name in
@@ -12,10 +13,8 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-flaganoid", name: "Flaganoid" },
   { id: "fp-max00x", name: "Max00x" },
   { id: "fp-alexomegavr", name: "ALEXOMEGAVR" },
-  { id: "fp-stefonb", name: "StefonB" },
   { id: "fp-carber", name: "Carber" },
   { id: "fp-ricey", name: "Ricey" },
-  { id: "fp-zac", name: "Zac" },
   { id: "fp-swizzy", name: "Swizzy" },
   { id: "fp-narcissist", name: "Narcissist" },
   { id: "fp-saxophone", name: "Saxophone" },
@@ -50,8 +49,8 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-evelyn", name: "Evelyn" },
 ];
 
-export const getFormerPlayerById = (id: string): FormerPlayer | undefined =>
-  formerPlayers.find((p) => p.id === id);
-
 export const getFormerPlayerByName = (name: string): FormerPlayer | undefined =>
   formerPlayers.find((p) => p.name === name);
+
+export const getFormerPlayerBySlug = (slug: string): FormerPlayer | undefined =>
+  formerPlayers.find((p) => slugify(p.name) === slug);
