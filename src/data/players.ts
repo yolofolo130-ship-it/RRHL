@@ -1,5 +1,5 @@
 import type { Coach, Goalie, Skater } from "./types";
-import { getFormerPlayerById } from "./formerPlayers";
+import { getFormerPlayerById, getFormerPlayerByName } from "./formerPlayers";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -187,4 +187,14 @@ export const getPlayerById = (id: string): Player | undefined => {
   const former = getFormerPlayerById(id);
   if (former) return { kind: "former", ...former };
   return undefined;
+};
+
+// Resolves a name (as stored on a SeasonAccolade) to a /players/:id route,
+// checking current rosters first, then the former-player registry.
+export const getPlayerIdByName = (name: string): string | undefined => {
+  const skater = skaters.find((s) => s.name === name);
+  if (skater) return skater.id;
+  const goalie = goalies.find((g) => g.name === name);
+  if (goalie) return goalie.id;
+  return getFormerPlayerByName(name)?.id;
 };

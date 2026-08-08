@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { label: "PLAYERS", to: "/players" },
   { label: "STAFF", to: "/staff" },
   { label: "ACCOLADES", to: "/accolades" },
+  { label: "HISTORY", to: "/history" },
 ];
 
 export default function Navbar() {

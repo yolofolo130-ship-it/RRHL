@@ -1,4 +1,6 @@
 import type { TeamSeasonHonor } from "./types";
+import { getTeamById } from "./teams";
+import { getFormerTeamById } from "./formerTeams";
 import { byNewestSeason } from "@/utils/season";
 
 // Team-level honors won in past seasons, shown on a team's History tab.
@@ -33,3 +35,11 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
   teamSeasonHonors.filter((h) => h.teamId === teamId).sort(byNewestSeason);
+
+// Resolves a TeamSeasonHonor's teamId to a display name and, if it's a
+// current team, a route to link to (defunct teams have no page).
+export const resolveHonorTeam = (teamId: string): { name: string; href?: string } => {
+  const team = getTeamById(teamId);
+  if (team) return { name: team.name, href: `/teams/${team.id}` };
+  return { name: getFormerTeamById(teamId)?.name ?? "Unknown Team" };
+};

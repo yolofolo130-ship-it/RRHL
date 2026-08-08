@@ -13,6 +13,7 @@ import Players from "@/pages/Players";
 import PlayerDetail from "@/pages/PlayerDetail";
 import Staff from "@/pages/Staff";
 import Accolades from "@/pages/Accolades";
+import History from "@/pages/History";
 import NotFound from "@/pages/NotFound";
 
 function Layout() {
@@ -45,6 +46,7 @@ export default function App() {
           <Route path="/players/:playerId" element={<PlayerDetail />} />
           <Route path="/staff" element={<Staff />} />
           <Route path="/accolades" element={<Accolades />} />
+          <Route path="/history" element={<History />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

@@ -140,3 +140,11 @@ export interface TeamSeasonHonor {
   teamId: string;
   honor: string; // e.g. "Stanley Cup Champion", "President's Trophy"
 }
+
+// A franchise that appears in league history but no longer exists (folded,
+// not one of the current 10 teams in any form). `teamId` on a
+// TeamSeasonHonor can point here instead of teams.ts.
+export interface FormerTeam {
+  id: string;
+  name: string;
+}

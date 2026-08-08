@@ -1,11 +1,15 @@
+import { Link } from "react-router-dom";
+
 interface TrophyCardProps {
   name: string;
   subtitle: string;
   /** For not-yet-decided awards — plain, no gold treatment. */
   muted?: boolean;
+  /** If set, the card links there (e.g. the winner's or team's page). */
+  to?: string;
 }
 
-export default function TrophyCard({ name, subtitle, muted = false }: TrophyCardProps) {
+export default function TrophyCard({ name, subtitle, muted = false, to }: TrophyCardProps) {
   if (muted) {
     return (
       <div className="border border-line bg-bg-2 p-5">
@@ -17,8 +21,11 @@ export default function TrophyCard({ name, subtitle, muted = false }: TrophyCard
     );
   }
 
-  return (
-    <div className="group relative overflow-hidden border border-amber-400/30 bg-gradient-to-br from-amber-500/[0.08] via-bg-2 to-bg-2 p-5 shadow-[0_0_20px_-8px_rgba(251,191,36,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-[0_0_30px_-6px_rgba(251,191,36,0.45)]">
+  const className =
+    "group relative block overflow-hidden border border-amber-400/30 bg-gradient-to-br from-amber-500/[0.08] via-bg-2 to-bg-2 p-5 shadow-[0_0_20px_-8px_rgba(251,191,36,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-[0_0_30px_-6px_rgba(251,191,36,0.45)]";
+
+  const content = (
+    <>
       <div
         className="pointer-events-none absolute -inset-10 animate-glow-pulse rounded-full bg-amber-400/25 blur-3xl transition-colors duration-300 group-hover:bg-amber-400/40"
         aria-hidden
@@ -55,6 +62,16 @@ export default function TrophyCard({ name, subtitle, muted = false }: TrophyCard
           </p>
         </div>
       </div>
-    </div>
+    </>
   );
+
+  if (to) {
+    return (
+      <Link to={to} className={className}>
+        {content}
+      </Link>
+    );
+  }
+
+  return <div className={className}>{content}</div>;
 }

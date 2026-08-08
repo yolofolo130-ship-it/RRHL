@@ -12,3 +12,6 @@ export const formerPlayers: FormerPlayer[] = [
 
 export const getFormerPlayerById = (id: string): FormerPlayer | undefined =>
   formerPlayers.find((p) => p.id === id);
+
+export const getFormerPlayerByName = (name: string): FormerPlayer | undefined =>
+  formerPlayers.find((p) => p.name === name);
