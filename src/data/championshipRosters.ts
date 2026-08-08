@@ -11,6 +11,11 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s1-champ-hockeyboi", season: "Season 1", playerName: "Hockey Boi" },
   { id: "s1-champ-adamcole", season: "Season 1", playerName: "Adam Cole" },
   { id: "s1-champ-carsonreeves", season: "Season 1", playerName: "Carsonreeves" },
+
+  // Season 2 — Chicago Blackhawks
+  { id: "s2-champ-swordtsu", season: "Season 2", playerName: "Swordtsu" },
+  { id: "s2-champ-b3nn3tt1", season: "Season 2", playerName: "B3NN3TT1" },
+  { id: "s2-champ-sane", season: "Season 2", playerName: "Sane" },
 ];
 
 export const championshipCount = (playerName: string): number =>
