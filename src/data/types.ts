@@ -42,6 +42,8 @@ export interface Skater {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Country/flag name, looked up in data/flags.ts for its icon. */
+  flag?: string;
 }
 
 export interface Goalie {
@@ -59,6 +61,8 @@ export interface Goalie {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Country/flag name, looked up in data/flags.ts for its icon. */
+  flag?: string;
 }
 
 export type CoachRole = "Head Coach" | "Assistant Coach";
