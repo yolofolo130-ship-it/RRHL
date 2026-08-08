@@ -397,6 +397,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "boston-bruins",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s16-scc-cbj",
+    season: "Season 16",
+    teamId: "ft-columbus-blue-jackets",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "dallas-stars",
+    seriesScore: "4-1",
+  },
+  {
+    id: "s16-pt-nyr",
+    season: "Season 16",
+    teamId: "new-york-rangers",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s16-csc-dal",
+    season: "Season 16",
+    teamId: "dallas-stars",
+    honor: "Clarence S. Campbell Trophy",
+  },
+  {
+    id: "s16-pow-cbj",
+    season: "Season 16",
+    teamId: "ft-columbus-blue-jackets",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
