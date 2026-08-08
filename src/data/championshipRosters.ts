@@ -61,6 +61,13 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s7-champ-badmilk", season: "Season 7", playerName: "Badmilk" },
   { id: "s7-champ-tgod", season: "Season 7", playerName: "TGOD" },
   { id: "s7-champ-carterthegawd", season: "Season 7", playerName: "Carterthegawd" },
+
+  // Season 8 — Nashville Predators
+  { id: "s8-champ-ricey", season: "Season 8", playerName: "Ricey" },
+  { id: "s8-champ-huddawg", season: "Season 8", playerName: "Huddawg" },
+  { id: "s8-champ-pechs", season: "Season 8", playerName: "Pechs" },
+  { id: "s8-champ-mvp", season: "Season 8", playerName: "MVP" },
+  { id: "s8-champ-b3nn3tt1", season: "Season 8", playerName: "B3NN3TT1" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
