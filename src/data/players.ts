@@ -43,7 +43,7 @@ export const skaters: Skater[] = [
   { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 10, gp: 3, goals: 6, assists: 2, pim: 0 },
-  { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 22, gp: 3, goals: 2, assists: 4, pim: 0 },
+  { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 22, gp: 4, goals: 5, assists: 5, pim: 0 },
   { id: "nyr-3", name: "Eli", teamId: "new-york-rangers", position: "LW", number: 7, gp: 2, goals: 1, assists: 0, pim: 0 },
   { id: "nyr-4", name: "Sfgoofy", teamId: "new-york-rangers", position: "D", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "nyr-5", name: "Darkness", teamId: "new-york-rangers", position: "RW", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -86,25 +86,25 @@ export const skaters: Skater[] = [
   { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "lak-7", name: "Kranky", teamId: "los-angeles-kings", position: "RW", number: 89, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "dal-1", name: "Santi", teamId: "dallas-stars", position: "C", number: 1, gp: 3, goals: 1, assists: 1, pim: 0 },
+  { id: "dal-1", name: "Santi", teamId: "dallas-stars", position: "C", number: 1, gp: 4, goals: 1, assists: 3, pim: 0 },
   { id: "dal-2", name: "Uzi", teamId: "dallas-stars", position: "RW", number: 19, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "dal-3", name: "TickleTimmy", teamId: "dallas-stars", position: "LW", number: 16, gp: 1, goals: 1, assists: 1, pim: 0 },
   { id: "dal-4", name: "Alex", teamId: "dallas-stars", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "dal-5", name: "Courtney", teamId: "dallas-stars", position: "D", number: 68, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "dal-6", name: "Zyler", teamId: "dallas-stars", position: "RW", number: 62, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "dal-7", name: "MrSmallEyes", teamId: "dallas-stars", position: "D", number: 28, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "dal-8", name: "Salva", teamId: "dallas-stars", position: "C", number: 31, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "dal-8", name: "Salva", teamId: "dallas-stars", position: "C", number: 31, gp: 1, goals: 3, assists: 0, pim: 0 },
   { id: "dal-9", name: "PKPlis", teamId: "dallas-stars", position: "D", number: 18, gp: 0, goals: 0, assists: 0, pim: 0 },
 ];
 
 export const goalies: Goalie[] = [
-  { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 30, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
+  { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 31, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
   { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3 },
-  { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 3, wins: 1, losses: 1, otLosses: 1, saves: 40, goalsAgainst: 5 },
+  { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 4, wins: 2, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8 },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 21, goalsAgainst: 3 },
   { id: "uta-g2", name: "Baseball3122", teamId: "utah-mammoths", number: 24, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 4, goalsAgainst: 0 },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 3, wins: 3, losses: 0, otLosses: 0, saves: 51, goalsAgainst: 1 },
