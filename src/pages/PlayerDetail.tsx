@@ -5,7 +5,7 @@ import ChampionBadge from "@/components/ChampionBadge";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
 import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } from "@/data/playerHistory";
-import { championshipCount } from "@/data/championshipRosters";
+import { championshipSeasonsFor } from "@/data/championshipRosters";
 import { accolades } from "@/data/accolades";
 
 export default function PlayerDetail() {
@@ -41,7 +41,7 @@ export default function PlayerDetail() {
     season: a.season,
   }));
   const allAccolades = [...currentAccolades, ...pastAccolades].sort(byNewestSeason);
-  const champCount = championshipCount(player.name);
+  const champSeasons = championshipSeasonsFor(player.name);
 
   return (
     <>
@@ -68,7 +68,7 @@ export default function PlayerDetail() {
             )}
             <h1 className="flex flex-wrap items-center justify-center gap-3 font-display text-5xl font-bold uppercase tracking-wide text-ink-0 sm:text-6xl lg:justify-start">
               {player.name}
-              <ChampionBadge count={champCount} size="lg" />
+              <ChampionBadge seasons={champSeasons} size="lg" />
             </h1>
             <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
               {player.kind === "former"

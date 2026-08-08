@@ -1,4 +1,5 @@
 import type { ChampionshipRosterEntry } from "./types";
+import { byOldestSeason } from "@/utils/season";
 
 // Everyone on a Stanley Cup-winning roster that season — drives the
 // champion badge next to a player's name. Empty until filled in; add
@@ -18,7 +19,12 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s2-champ-sane", season: "Season 2", playerName: "Sane" },
 ];
 
-export const championshipCount = (playerName: string): number =>
-  new Set(
-    championshipRosters.filter((c) => c.playerName === playerName).map((c) => c.season),
-  ).size;
+// Every season this player was on a Stanley Cup-winning roster, oldest
+// first — drives the champion badge (which shows the season(s) directly
+// rather than just a count).
+export const championshipSeasonsFor = (playerName: string): string[] =>
+  Array.from(
+    new Set(
+      championshipRosters.filter((c) => c.playerName === playerName).map((c) => c.season),
+    ),
+  ).sort((a, b) => byOldestSeason({ season: a }, { season: b }));

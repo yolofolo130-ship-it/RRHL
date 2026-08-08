@@ -5,7 +5,7 @@ import ChampionBadge from "@/components/ChampionBadge";
 import { teams } from "@/data/teams";
 import { skaters, goalies, skaterPoints } from "@/data/players";
 import { formerPlayers } from "@/data/formerPlayers";
-import { championshipCount } from "@/data/championshipRosters";
+import { championshipSeasonsFor } from "@/data/championshipRosters";
 
 export default function Players() {
   return (
@@ -40,7 +40,7 @@ export default function Players() {
                       <div className="min-w-0">
                         <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           {player.name}
-                          <ChampionBadge count={championshipCount(player.name)} />
+                          <ChampionBadge seasons={championshipSeasonsFor(player.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
                           {player.position} &middot; {skaterPoints(player)} PTS
@@ -60,7 +60,7 @@ export default function Players() {
                       <div className="min-w-0">
                         <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           {goalie.name}
-                          <ChampionBadge count={championshipCount(goalie.name)} />
+                          <ChampionBadge seasons={championshipSeasonsFor(goalie.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
                           G &middot; {goalie.wins}-{goalie.losses}-{goalie.otLosses}
@@ -90,7 +90,7 @@ export default function Players() {
                     <div className="min-w-0">
                       <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                         {player.name}
-                        <ChampionBadge count={championshipCount(player.name)} />
+                        <ChampionBadge seasons={championshipSeasonsFor(player.name)} />
                       </p>
                       <p className="truncate text-xs text-ink-2">Former player</p>
                     </div>

@@ -1,29 +1,33 @@
 interface ChampionBadgeProps {
-  /** Number of championships won. Renders nothing if 0. */
-  count: number;
+  /** Seasons won, e.g. ["Season 1", "Season 6"]. Renders nothing if empty. */
+  seasons: string[];
   size?: "sm" | "lg";
 }
 
-export default function ChampionBadge({ count, size = "sm" }: ChampionBadgeProps) {
-  if (count === 0) return null;
+// "Season 1" -> "S1"
+const shortSeason = (season: string): string => `S${season.replace(/\D/g, "")}`;
 
-  const dims = size === "lg" ? "h-8 w-8" : "h-4 w-4";
-  const glowInset = size === "lg" ? "-inset-2" : "-inset-1";
+export default function ChampionBadge({ seasons, size = "sm" }: ChampionBadgeProps) {
+  if (seasons.length === 0) return null;
+
+  const dims = size === "lg" ? "h-5 w-5" : "h-3.5 w-3.5";
+  const textSize = size === "lg" ? "text-sm" : "text-[10px]";
+  const padding = size === "lg" ? "px-3 py-1.5" : "px-2 py-1";
 
   return (
     <span
-      className="relative inline-flex shrink-0 items-center gap-1"
-      title={`${count}x Stanley Cup champion`}
+      className={`relative inline-flex shrink-0 items-center gap-1.5 whitespace-nowrap border border-amber-400/40 bg-amber-500/10 ${padding} shadow-[0_0_16px_-6px_rgba(251,191,36,0.6)]`}
+      title={`Stanley Cup champion: ${seasons.join(", ")}`}
     >
-      <span className="relative inline-flex items-center justify-center">
+      <span className="relative inline-flex shrink-0 items-center justify-center">
         <span
-          className={`pointer-events-none absolute ${glowInset} animate-glow-pulse rounded-full bg-amber-400/50 blur-md`}
+          className="pointer-events-none absolute -inset-1 animate-glow-pulse rounded-full bg-amber-400/50 blur-md"
           aria-hidden
         />
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
-          className={`relative ${dims} text-amber-300 drop-shadow-[0_0_6px_rgba(251,191,36,0.8)]`}
+          className={`relative ${dims} text-amber-300`}
           aria-hidden
         >
           {/* mini Stanley Cup silhouette */}
@@ -35,9 +39,9 @@ export default function ChampionBadge({ count, size = "sm" }: ChampionBadgeProps
           <rect x="7" y="15.6" width="10" height="2.2" rx="0.5" />
         </svg>
       </span>
-      {count > 1 && (
-        <span className="font-display text-sm font-bold text-amber-300">×{count}</span>
-      )}
+      <span className={`font-display font-bold uppercase tracking-wide text-amber-300 ${textSize}`}>
+        {seasons.map(shortSeason).join(", ")} Champion
+      </span>
     </span>
   );
 }
