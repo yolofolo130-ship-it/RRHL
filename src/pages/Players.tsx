@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import TeamLogo from "@/components/TeamLogo";
+import ChampionBadge from "@/components/ChampionBadge";
 import { teams } from "@/data/teams";
 import { skaters, goalies, skaterPoints } from "@/data/players";
 import { formerPlayers } from "@/data/formerPlayers";
+import { stanleyCupMvpCount } from "@/data/playerHistory";
 
 export default function Players() {
   return (
@@ -36,8 +38,9 @@ export default function Players() {
                         {player.number}
                       </div>
                       <div className="min-w-0">
-                        <p className="truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                        <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           {player.name}
+                          <ChampionBadge count={stanleyCupMvpCount(player.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
                           {player.position} &middot; {skaterPoints(player)} PTS
@@ -55,8 +58,9 @@ export default function Players() {
                         {goalie.number}
                       </div>
                       <div className="min-w-0">
-                        <p className="truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                        <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           {goalie.name}
+                          <ChampionBadge count={stanleyCupMvpCount(goalie.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
                           G &middot; {goalie.wins}-{goalie.losses}-{goalie.otLosses}
@@ -84,8 +88,9 @@ export default function Players() {
                     className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                   >
                     <div className="min-w-0">
-                      <p className="truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                      <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                         {player.name}
+                        <ChampionBadge count={stanleyCupMvpCount(player.name)} />
                       </p>
                       <p className="truncate text-xs text-ink-2">Former player</p>
                     </div>

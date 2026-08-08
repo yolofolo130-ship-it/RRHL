@@ -1,4 +1,5 @@
 import type { SeasonAccolade, SeasonGoalieStats, SeasonSkaterStats } from "./types";
+import { accolades } from "./accolades";
 import { byNewestSeason, byOldestSeason } from "@/utils/season";
 
 export { byNewestSeason, byOldestSeason };
@@ -1309,3 +1310,18 @@ export const goalieHistoryFor = (playerName: string): SeasonGoalieStats[] =>
 
 export const pastAccoladesFor = (playerName: string): SeasonAccolade[] =>
   seasonAccolades.filter((a) => a.playerName === playerName).sort(byNewestSeason);
+
+// How many times this player has been named Stanley Cup MVP — past seasons
+// plus the current season, once decided. Drives the champion badge shown
+// next to their name.
+export const stanleyCupMvpCount = (playerName: string): number => {
+  const past = seasonAccolades.filter(
+    (a) => a.accoladeName === "Stanley Cup MVP" && a.playerName === playerName,
+  ).length;
+  const current = accolades.some(
+    (a) => a.name === "Stanley Cup MVP" && a.winner === playerName,
+  )
+    ? 1
+    : 0;
+  return past + current;
+};

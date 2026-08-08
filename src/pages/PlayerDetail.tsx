@@ -1,12 +1,14 @@
 import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import TrophyCard from "@/components/TrophyCard";
+import ChampionBadge from "@/components/ChampionBadge";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
 import {
   skaterHistoryFor,
   goalieHistoryFor,
   pastAccoladesFor,
+  stanleyCupMvpCount,
   byNewestSeason,
 } from "@/data/playerHistory";
 import { accolades } from "@/data/accolades";
@@ -44,6 +46,7 @@ export default function PlayerDetail() {
     season: a.season,
   }));
   const allAccolades = [...currentAccolades, ...pastAccolades].sort(byNewestSeason);
+  const mvpCount = stanleyCupMvpCount(player.name);
 
   return (
     <>
@@ -68,8 +71,9 @@ export default function PlayerDetail() {
                 {team.name.toUpperCase()}
               </Link>
             )}
-            <h1 className="font-display text-5xl font-bold uppercase tracking-wide text-ink-0 sm:text-6xl">
+            <h1 className="flex flex-wrap items-center justify-center gap-3 font-display text-5xl font-bold uppercase tracking-wide text-ink-0 sm:text-6xl lg:justify-start">
               {player.name}
+              <ChampionBadge count={mvpCount} size="lg" />
             </h1>
             <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
               {player.kind === "former"
