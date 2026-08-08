@@ -135,6 +135,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s14-champ-adamcole", season: "Season 14", playerName: "Adam Cole" },
   { id: "s14-champ-nexo", season: "Season 14", playerName: "Nexo" },
   { id: "s14-champ-ehhabhd", season: "Season 14", playerName: "Ehhabhd" },
+
+  // Season 15 — Seattle Kraken
+  { id: "s15-champ-sleepy", season: "Season 15", playerName: "Sleepy" },
+  { id: "s15-champ-josuxrr", season: "Season 15", playerName: "JosuxRR" },
+  { id: "s15-champ-rennu", season: "Season 15", playerName: "Rennu" },
+  { id: "s15-champ-boa", season: "Season 15", playerName: "Boa" },
+  { id: "s15-champ-alex", season: "Season 15", playerName: "Alex" },
+  { id: "s15-champ-jazzmir", season: "Season 15", playerName: "Jazzmir" },
+  { id: "s15-champ-claymore", season: "Season 15", playerName: "Claymore" },
+  { id: "s15-champ-moon", season: "Season 15", playerName: "Moon" },
+  { id: "s15-champ-huddawg", season: "Season 15", playerName: "Huddawg" },
+  { id: "s15-champ-vengeance", season: "Season 15", playerName: "Vengeance" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
