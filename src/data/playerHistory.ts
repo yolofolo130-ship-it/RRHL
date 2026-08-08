@@ -627,6 +627,72 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Calder Trophy",
     playerName: "Mood",
   },
+  {
+    id: "s13-stanley-cup-mvp",
+    season: "Season 13",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Snickers",
+  },
+  {
+    id: "s13-stanley-cup-losing-mvp",
+    season: "Season 13",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "ALEXOMEGAVR",
+  },
+  {
+    id: "s13-conn-smythe-trophy",
+    season: "Season 13",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Snickers",
+  },
+  {
+    id: "s13-vezina-trophy",
+    season: "Season 13",
+    accoladeName: "Vezina Trophy",
+    playerName: "Sparkles",
+  },
+  {
+    id: "s13-ted-lindsay-trophy",
+    season: "Season 13",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s13-rrhl-foundation-trophy",
+    season: "Season 13",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Sid",
+  },
+  {
+    id: "s13-james-norris-trophy",
+    season: "Season 13",
+    accoladeName: "James Norris Trophy",
+    playerName: "Duck",
+  },
+  {
+    id: "s13-hart-memorial-trophy",
+    season: "Season 13",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Flaganoid",
+  },
+  {
+    id: "s13-maurice-rocket-richard-trophy",
+    season: "Season 13",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "Flaganoid",
+  },
+  {
+    id: "s13-calder-trophy",
+    season: "Season 13",
+    accoladeName: "Calder Trophy",
+    playerName: "Saxophone",
+  },
+  {
+    id: "s13-jack-adams-trophy",
+    season: "Season 13",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Siah",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
