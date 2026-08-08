@@ -2,7 +2,7 @@ import PageHeader from "@/components/PageHeader";
 import TrophyCard from "@/components/TrophyCard";
 import ChampionCard from "@/components/ChampionCard";
 import { accolades } from "@/data/accolades";
-import { seasonAccolades, byNewestSeason } from "@/data/playerHistory";
+import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { getPlayerIdByName } from "@/data/players";
 
@@ -11,6 +11,8 @@ interface DisplayHonor {
   name: string;
   subtitle: string;
   to?: string;
+  logo?: string;
+  color?: string;
 }
 
 function playerHonorsForSeason(season: string): DisplayHonor[] {
@@ -33,8 +35,8 @@ function teamHonorsForSeason(season: string): DisplayHonor[] {
   return teamSeasonHonors
     .filter((h) => h.season === season && !isChampionshipHonor(h))
     .map((h) => {
-      const { name, href } = resolveTeamRef(h.teamId);
-      return { id: h.id, name: h.honor, subtitle: name, to: href };
+      const { name, href, logo, color } = resolveTeamRef(h.teamId);
+      return { id: h.id, name: h.honor, subtitle: name, to: href, logo, color };
     });
 }
 
@@ -49,7 +51,7 @@ export default function History() {
       ...teamSeasonHonors.map((h) => h.season),
       ...(accolades.some((a) => a.winner) ? ["Season 23"] : []),
     ]),
-  ).sort((a, b) => byNewestSeason({ season: a }, { season: b }));
+  ).sort((a, b) => byOldestSeason({ season: a }, { season: b }));
 
   return (
     <>
@@ -89,6 +91,8 @@ export default function History() {
                         name={honor.name}
                         subtitle={honor.subtitle}
                         to={honor.to}
+                        logo={honor.logo}
+                        color={honor.color}
                       />
                     ))}
                   </div>

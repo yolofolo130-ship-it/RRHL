@@ -5,3 +5,6 @@ const seasonNumber = (season: string): number => parseInt(season.replace(/\D/g, 
 
 export const byNewestSeason = <T extends { season: string }>(a: T, b: T): number =>
   seasonNumber(b.season) - seasonNumber(a.season);
+
+export const byOldestSeason = <T extends { season: string }>(a: T, b: T): number =>
+  seasonNumber(a.season) - seasonNumber(b.season);

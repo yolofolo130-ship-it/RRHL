@@ -38,7 +38,7 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     season: "Season 2",
     teamId: "ft-chicago-blackhawks",
     honor: "Stanley Cup Champion",
-    opponentTeamId: "boston-bruins",
+    opponentTeamId: "pittsburgh-penguins",
     seriesScore: "2-0",
   },
   {

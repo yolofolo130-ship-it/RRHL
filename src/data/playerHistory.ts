@@ -1,7 +1,7 @@
 import type { SeasonAccolade, SeasonGoalieStats, SeasonSkaterStats } from "./types";
-import { byNewestSeason } from "@/utils/season";
+import { byNewestSeason, byOldestSeason } from "@/utils/season";
 
-export { byNewestSeason };
+export { byNewestSeason, byOldestSeason };
 
 // Past-season stats, shown on a player's page below their current Season 23
 // numbers. Empty until filled in — add entries like:

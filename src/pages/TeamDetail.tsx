@@ -303,7 +303,13 @@ export default function TeamDetail() {
                       seriesScore={honor.seriesScore as string}
                     />
                   ) : (
-                    <TrophyCard key={honor.id} name={honor.honor} subtitle={honor.season} />
+                    <TrophyCard
+                      key={honor.id}
+                      name={honor.honor}
+                      subtitle={honor.season}
+                      logo={team.logo}
+                      color={team.color}
+                    />
                   ),
                 )}
               </div>
