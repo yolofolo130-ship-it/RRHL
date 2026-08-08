@@ -159,6 +159,20 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s16-champ-augy", season: "Season 16", playerName: "Augy" },
   { id: "s16-champ-snugthepug", season: "Season 16", playerName: "SnugThePug" },
   { id: "s16-champ-ddino", season: "Season 16", playerName: "DDino" },
+
+  // Season 17 — Pittsburgh Penguins
+  { id: "s17-champ-sparkles", season: "Season 17", playerName: "Sparkles" },
+  { id: "s17-champ-hogeye", season: "Season 17", playerName: "Hogeye" },
+  { id: "s17-champ-chrisx", season: "Season 17", playerName: "Chrisx" },
+  { id: "s17-champ-hitler", season: "Season 17", playerName: "Hitler" },
+  { id: "s17-champ-caleb", season: "Season 17", playerName: "Caleb" },
+  { id: "s17-champ-44worthy", season: "Season 17", playerName: "44worthy" },
+  { id: "s17-champ-tgod", season: "Season 17", playerName: "TGOD" },
+  { id: "s17-champ-slixzz", season: "Season 17", playerName: "Slixzz" },
+  { id: "s17-champ-krampuz", season: "Season 17", playerName: "Krampuz" },
+  { id: "s17-champ-augy", season: "Season 17", playerName: "Augy" },
+  { id: "s17-champ-snugthepug", season: "Season 17", playerName: "SnugThePug" },
+  { id: "s17-champ-carterthegawd", season: "Season 17", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
