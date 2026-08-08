@@ -105,21 +105,21 @@ export const skaters: Skater[] = [
 
 export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
-  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
+  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 2, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
   { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3 },
-  { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 4, wins: 2, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8 },
+  { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 4, wins: 3, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8 },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 21, goalsAgainst: 3 },
   { id: "uta-g2", name: "Baseball3122", teamId: "utah-mammoths", number: 24, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 4, goalsAgainst: 0 },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 3, wins: 3, losses: 0, otLosses: 0, saves: 51, goalsAgainst: 1, overall: 98, xFactor: "Post to Post", flag: "USA" },
   { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, wins: 3, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
-  { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 2, otLosses: 0, saves: 6, goalsAgainst: 8 },
+  { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 3, otLosses: 0, saves: 6, goalsAgainst: 8 },
   { id: "lak-g1", name: "Riptide", teamId: "los-angeles-kings", number: 32, gp: 1, wins: 1, losses: 2, otLosses: 0, saves: 1, goalsAgainst: 5 },
   { id: "lak-g2", name: "TheHolyHippo", teamId: "los-angeles-kings", number: 22, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
-  { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 1, wins: 0, losses: 3, otLosses: 0, saves: 0, goalsAgainst: 2 },
+  { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 1, wins: 0, losses: 3, otLosses: 1, saves: 0, goalsAgainst: 2 },
 ];
 
 export const coaches: Coach[] = [
