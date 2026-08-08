@@ -1011,6 +1011,72 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Chrisx",
   },
+  {
+    id: "s19-stanley-cup-mvp",
+    season: "Season 19",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Butter",
+  },
+  {
+    id: "s19-stanley-cup-losing-mvp",
+    season: "Season 19",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Rennu",
+  },
+  {
+    id: "s19-conn-smythe-trophy",
+    season: "Season 19",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Butter",
+  },
+  {
+    id: "s19-vezina-trophy",
+    season: "Season 19",
+    accoladeName: "Vezina Trophy",
+    playerName: "King",
+  },
+  {
+    id: "s19-ted-lindsay-trophy",
+    season: "Season 19",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "MJ",
+  },
+  {
+    id: "s19-rrhl-foundation-trophy",
+    season: "Season 19",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Carterthegawd",
+  },
+  {
+    id: "s19-james-norris-trophy",
+    season: "Season 19",
+    accoladeName: "James Norris Trophy",
+    playerName: "Bungee",
+  },
+  {
+    id: "s19-hart-memorial-trophy",
+    season: "Season 19",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Rennu",
+  },
+  {
+    id: "s19-maurice-rocket-richard-trophy",
+    season: "Season 19",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "Fire",
+  },
+  {
+    id: "s19-calder-trophy",
+    season: "Season 19",
+    accoladeName: "Calder Trophy",
+    playerName: "LillianTheGreat",
+  },
+  {
+    id: "s19-jack-adams-trophy",
+    season: "Season 19",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "SnugThePug",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
