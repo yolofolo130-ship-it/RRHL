@@ -2,7 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import TrophyCard from "@/components/TrophyCard";
 import ChampionBadge from "@/components/ChampionBadge";
-import OverallBadge from "@/components/OverallBadge";
+import PlayerCard from "@/components/PlayerCard";
 import XFactorBadge from "@/components/XFactorBadge";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
@@ -77,13 +77,22 @@ export default function PlayerDetail() {
                 ? "FORMER PLAYER"
                 : `${player.kind === "skater" ? player.position : "GOALIE"} · #${player.number}`}
             </p>
-            {player.kind !== "former" && (player.overall !== undefined || player.xFactor) && (
-              <div className="flex items-center gap-3 pt-1">
-                {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}
-                {player.xFactor && <XFactorBadge name={player.xFactor} size="lg" />}
+            {player.kind !== "former" && player.overall === undefined && player.xFactor && (
+              <div className="pt-1">
+                <XFactorBadge name={player.xFactor} size="lg" />
               </div>
             )}
           </div>
+          {player.kind !== "former" && player.overall !== undefined && (
+            <PlayerCard
+              name={player.name}
+              number={player.number}
+              position={player.kind === "skater" ? player.position : "G"}
+              teamId={player.teamId}
+              overall={player.overall}
+              xFactor={player.xFactor}
+            />
+          )}
         </div>
       </div>
 
