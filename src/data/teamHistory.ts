@@ -54,10 +54,10 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     honor: "Prince Of Wales Trophy",
   },
   {
-    id: "s2-pow-chi",
+    id: "s2-csc-chi",
     season: "Season 2",
     teamId: "ft-chicago-blackhawks",
-    honor: "Prince Of Wales Trophy",
+    honor: "Clarence S. Campbell Trophy",
   },
 ];
 
