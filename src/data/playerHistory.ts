@@ -1143,6 +1143,84 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Boolit",
   },
+  {
+    id: "s21-stanley-cup-mvp",
+    season: "Season 21",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Sinny",
+  },
+  {
+    id: "s21-stanley-cup-losing-mvp",
+    season: "Season 21",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s21-conn-smythe-trophy",
+    season: "Season 21",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Sinny",
+  },
+  {
+    id: "s21-vezina-trophy",
+    season: "Season 21",
+    accoladeName: "Vezina Trophy",
+    playerName: "Zeke",
+  },
+  {
+    id: "s21-ted-lindsay-trophy",
+    season: "Season 21",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s21-rrhl-foundation-trophy",
+    season: "Season 21",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Swordtsu",
+  },
+  {
+    id: "s21-lady-byng-memorial-trophy",
+    season: "Season 21",
+    accoladeName: "Lady Byng Memorial Trophy",
+    playerName: "Jrok",
+  },
+  {
+    id: "s21-james-norris-trophy",
+    season: "Season 21",
+    accoladeName: "James Norris Trophy",
+    playerName: "Full",
+  },
+  {
+    id: "s21-hart-memorial-trophy",
+    season: "Season 21",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "MJ",
+  },
+  {
+    id: "s21-maurice-rocket-richard-trophy",
+    season: "Season 21",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "MJ",
+  },
+  {
+    id: "s21-art-ross-trophy",
+    season: "Season 21",
+    accoladeName: "Art Ross Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s21-calder-trophy",
+    season: "Season 21",
+    accoladeName: "Calder Trophy",
+    playerName: "Wapw",
+  },
+  {
+    id: "s21-jack-adams-trophy",
+    season: "Season 21",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "DoughnutZ",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
