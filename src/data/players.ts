@@ -35,7 +35,7 @@ export const skaters: Skater[] = [
   { id: "tbl-7", name: "Ehhabhd", teamId: "tampa-bay-lightning", position: "D", number: 75, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "tbl-8", name: "GeorgePigs", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "bos-1", name: "Kdog2020", teamId: "boston-bruins", position: "C", number: 12, gp: 2, goals: 6, assists: 0, pim: 0 },
+  { id: "bos-1", name: "Kdog2020", teamId: "boston-bruins", position: "C", number: 12, gp: 3, goals: 7, assists: 3, pim: 0 },
   { id: "bos-2", name: "Boolit", teamId: "boston-bruins", position: "RW", number: 27, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "bos-3", name: "Bounty", teamId: "boston-bruins", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "bos-4", name: "KingPenguin", teamId: "boston-bruins", position: "D", number: 44, gp: 0, goals: 0, assists: 0, pim: 0 },
