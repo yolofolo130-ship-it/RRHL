@@ -459,6 +459,54 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "TGOD",
   },
+  {
+    id: "s10-stanley-cup-mvp",
+    season: "Season 10",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Ricey",
+  },
+  {
+    id: "s10-conn-smythe-trophy",
+    season: "Season 10",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "ALEXOMEGAVR",
+  },
+  {
+    id: "s10-vezina-trophy",
+    season: "Season 10",
+    accoladeName: "Vezina Trophy",
+    playerName: "Carber",
+  },
+  {
+    id: "s10-ted-lindsay-trophy",
+    season: "Season 10",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "Ricey",
+  },
+  {
+    id: "s10-rrhl-foundation-trophy",
+    season: "Season 10",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Rennu",
+  },
+  {
+    id: "s10-james-norris-trophy",
+    season: "Season 10",
+    accoladeName: "James Norris Trophy",
+    playerName: "ALEXOMEGAVR",
+  },
+  {
+    id: "s10-hart-memorial-trophy",
+    season: "Season 10",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Ricey",
+  },
+  {
+    id: "s10-calder-trophy",
+    season: "Season 10",
+    accoladeName: "Calder Trophy",
+    playerName: "Zac",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
