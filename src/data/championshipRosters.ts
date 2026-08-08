@@ -88,6 +88,16 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s10-champ-rennu", season: "Season 10", playerName: "Rennu" },
   { id: "s10-champ-dxrk", season: "Season 10", playerName: "Dxrk" },
   { id: "s10-champ-ricey", season: "Season 10", playerName: "Ricey" },
+
+  // Season 11 — Pittsburgh Penguins
+  { id: "s11-champ-chrisx", season: "Season 11", playerName: "Chrisx" },
+  { id: "s11-champ-fire", season: "Season 11", playerName: "Fire" },
+  { id: "s11-champ-tgod", season: "Season 11", playerName: "TGOD" },
+  { id: "s11-champ-zac", season: "Season 11", playerName: "Zac" },
+  { id: "s11-champ-hockeyboi", season: "Season 11", playerName: "Hockey Boi" },
+  { id: "s11-champ-adamcole", season: "Season 11", playerName: "Adam Cole" },
+  { id: "s11-champ-b3nn3tt1", season: "Season 11", playerName: "B3NN3TT1" },
+  { id: "s11-champ-carterthegawd", season: "Season 11", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
