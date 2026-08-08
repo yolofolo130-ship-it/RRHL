@@ -8,7 +8,7 @@ import { slugify } from "@/utils/format";
 export const skaters: Skater[] = [
   { id: "car-1", name: "BNA", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 1, goals: 3, assists: 2, pim: 0 },
   { id: "car-2", name: "DoughnutZ", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 2, goals: 5, assists: 2, pim: 0, overall: 88, star: "Wheels", flag: "Ireland" },
-  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "Mexico" },
+  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "PR" },
   { id: "car-4", name: "Fishbowl", teamId: "carolina-hurricanes", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0 },
   { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "car-6", name: "Mood", teamId: "carolina-hurricanes", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
