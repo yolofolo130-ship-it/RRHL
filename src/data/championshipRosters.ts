@@ -185,6 +185,19 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s18-champ-swordtsu", season: "Season 18", playerName: "Swordtsu" },
   { id: "s18-champ-king", season: "Season 18", playerName: "King" },
   { id: "s18-champ-carterthegawd", season: "Season 18", playerName: "Carterthegawd" },
+
+  // Season 19 — Buffalo Sabres
+  { id: "s19-champ-snickers", season: "Season 19", playerName: "Snickers" },
+  { id: "s19-champ-fellow", season: "Season 19", playerName: "Fellow" },
+  { id: "s19-champ-cron", season: "Season 19", playerName: "Cron" },
+  { id: "s19-champ-butter", season: "Season 19", playerName: "Butter" },
+  { id: "s19-champ-wyatt", season: "Season 19", playerName: "Wyatt" },
+  { id: "s19-champ-yaboicurry", season: "Season 19", playerName: "YaBoiCurry" },
+  { id: "s19-champ-darius", season: "Season 19", playerName: "Darius" },
+  { id: "s19-champ-full", season: "Season 19", playerName: "Full" },
+  { id: "s19-champ-evv76", season: "Season 19", playerName: "Evv-76" },
+  { id: "s19-champ-pechs", season: "Season 19", playerName: "Pechs" },
+  { id: "s19-champ-zac", season: "Season 19", playerName: "Zac" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
