@@ -15,7 +15,7 @@ export const skaters: Skater[] = [
   { id: "car-8", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "car-9", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 4, goals: 10, assists: 7, pim: 0 },
+  { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 4, goals: 10, assists: 7, pim: 0, overall: 97, xFactor: "Backhand Beauty", flag: "USA" },
   { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-3", name: "Mason", teamId: "pittsburgh-penguins", position: "RW", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 6, gp: 2, goals: 4, assists: 8, pim: 0 },
