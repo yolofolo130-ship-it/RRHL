@@ -1,5 +1,12 @@
 export type Conference = "east" | "west";
 
+// An X-Factor or Star ability's icon plus a description shown when its
+// badge is clicked on a player's page.
+export interface AbilityInfo {
+  icon: string;
+  description: string;
+}
+
 export interface Team {
   id: string;
   name: string;
