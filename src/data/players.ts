@@ -105,7 +105,7 @@ export const skaters: Skater[] = [
 
 export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
-  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 2, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
+  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 4 , wins: 2, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
