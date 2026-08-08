@@ -60,6 +60,7 @@ export const skaters: Skater[] = [
   { id: "uta-6", name: "5starmax", teamId: "utah-mammoths", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "uta-7", name: "Randomcrazynoob", teamId: "utah-mammoths", position: "LW", number: 98, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "uta-8", name: "Twin", teamId: "utah-mammoths", position: "C", number: 67, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "uta-9", name: "Zac", teamId: "utah-mammoths", position: "C", number: 27, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2 },
   { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0 },
@@ -104,7 +105,7 @@ export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
-  { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 31, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
+  { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
   { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3 },
   { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 4, wins: 2, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8 },
