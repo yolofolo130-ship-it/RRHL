@@ -4,6 +4,7 @@ import drFlag from "@/assets/flags/DR.png";
 import canadaFlag from "@/assets/flags/Canada.png";
 import irelandFlag from "@/assets/flags/Ireland.png";
 import prFlag from "@/assets/flags/PR.png";
+import ukraineFlag from "@/assets/flags/Ukraine.png";
 
 // Maps a flag/country name to its icon image. Drop the image in
 // src/assets/flags/, import it below, and add an entry — then set
@@ -15,4 +16,5 @@ export const flagIcons: Record<string, string> = {
   Canada: canadaFlag,
   Ireland: irelandFlag,
   PR: prFlag,
+  Ukraine: ukraineFlag,
 };
