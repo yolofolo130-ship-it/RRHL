@@ -17,6 +17,14 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s2-champ-swordtsu", season: "Season 2", playerName: "Swordtsu" },
   { id: "s2-champ-b3nn3tt1", season: "Season 2", playerName: "B3NN3TT1" },
   { id: "s2-champ-sane", season: "Season 2", playerName: "Sane" },
+
+  // Season 3 — Edmonton Oilers
+  { id: "s3-champ-flaganoid", season: "Season 3", playerName: "Flaganoid" },
+  { id: "s3-champ-tgod", season: "Season 3", playerName: "TGOD" },
+  { id: "s3-champ-krampuz", season: "Season 3", playerName: "Krampuz" },
+  { id: "s3-champ-nicklas", season: "Season 3", playerName: "Nicklas" },
+  { id: "s3-champ-2tone", season: "Season 3", playerName: "2Tone" },
+  { id: "s3-champ-vengeance", season: "Season 3", playerName: "Vengeance" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
