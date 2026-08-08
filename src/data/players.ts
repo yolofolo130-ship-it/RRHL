@@ -108,6 +108,7 @@ export const goalies: Goalie[] = [
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
+  { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
   { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3 },
   { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 4, wins: 2, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8 },
