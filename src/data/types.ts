@@ -139,6 +139,11 @@ export interface TeamSeasonHonor {
   season: string; // e.g. "Season 1"
   teamId: string;
   honor: string; // e.g. "Stanley Cup Champion", "President's Trophy"
+  // Series context for a championship-style honor (shows a matchup card
+  // with both teams and the score instead of a plain trophy card). Omit
+  // for honors that aren't a head-to-head series (President's Trophy, etc.)
+  opponentTeamId?: string;
+  seriesScore?: string; // e.g. "2-0"
 }
 
 // A franchise that appears in league history but no longer exists (folded,

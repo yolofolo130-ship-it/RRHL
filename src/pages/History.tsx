@@ -1,8 +1,14 @@
 import PageHeader from "@/components/PageHeader";
 import TrophyCard from "@/components/TrophyCard";
+import ChampionCard from "@/components/ChampionCard";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byNewestSeason } from "@/data/playerHistory";
-import { teamSeasonHonors, resolveHonorTeam } from "@/data/teamHistory";
+import {
+  teamSeasonHonors,
+  resolveHonorTeam,
+  resolveTeamRef,
+  isChampionshipHonor,
+} from "@/data/teamHistory";
 import { getPlayerIdByName } from "@/data/players";
 
 interface DisplayHonor {
@@ -30,11 +36,15 @@ function playerHonorsForSeason(season: string): DisplayHonor[] {
 
 function teamHonorsForSeason(season: string): DisplayHonor[] {
   return teamSeasonHonors
-    .filter((h) => h.season === season)
+    .filter((h) => h.season === season && !isChampionshipHonor(h))
     .map((h) => {
       const { name, href } = resolveHonorTeam(h.teamId);
       return { id: h.id, name: h.honor, subtitle: name, to: href };
     });
+}
+
+function championHonorsForSeason(season: string) {
+  return teamSeasonHonors.filter((h) => h.season === season && isChampionshipHonor(h));
 }
 
 export default function History() {
@@ -58,8 +68,9 @@ export default function History() {
         ) : (
           <div className="flex flex-col gap-14">
             {seasons.map((season) => {
+              const champions = championHonorsForSeason(season);
               const honors = [...playerHonorsForSeason(season), ...teamHonorsForSeason(season)];
-              if (honors.length === 0) return null;
+              if (champions.length === 0 && honors.length === 0) return null;
 
               return (
                 <div key={season}>
@@ -67,6 +78,16 @@ export default function History() {
                     {season.toUpperCase()}
                   </p>
                   <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                    {champions.map((honor) => (
+                      <ChampionCard
+                        key={honor.id}
+                        honor={honor.honor}
+                        season={honor.season}
+                        champion={resolveTeamRef(honor.teamId)}
+                        opponent={resolveTeamRef(honor.opponentTeamId as string)}
+                        seriesScore={honor.seriesScore as string}
+                      />
+                    ))}
                     {honors.map((honor) => (
                       <TrophyCard
                         key={honor.id}

@@ -3,11 +3,12 @@ import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import Tabs from "@/components/Tabs";
 import TrophyCard from "@/components/TrophyCard";
+import ChampionCard from "@/components/ChampionCard";
 import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
 import { skaters, goalies, coaches, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
-import { honorsForTeam } from "@/data/teamHistory";
+import { honorsForTeam, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { standingsForConference, isPlayoffPosition } from "@/utils/standings";
 import { formatLongDate } from "@/utils/format";
 
@@ -286,9 +287,20 @@ export default function TeamDetail() {
           <div className="mt-8">
             {teamHonors.length > 0 ? (
               <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                {teamHonors.map((honor) => (
-                  <TrophyCard key={honor.id} name={honor.honor} subtitle={honor.season} />
-                ))}
+                {teamHonors.map((honor) =>
+                  isChampionshipHonor(honor) ? (
+                    <ChampionCard
+                      key={honor.id}
+                      honor={honor.honor}
+                      season={honor.season}
+                      champion={{ team, name: team.name }}
+                      opponent={resolveTeamRef(honor.opponentTeamId as string)}
+                      seriesScore={honor.seriesScore as string}
+                    />
+                  ) : (
+                    <TrophyCard key={honor.id} name={honor.honor} subtitle={honor.season} />
+                  ),
+                )}
               </div>
             ) : (
               <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
