@@ -18,7 +18,7 @@ export default function XFactorBadge({ name, size = "sm" }: XFactorBadgeProps) {
     <img
       src={icon}
       alt={name}
-      title={`X-Factor: ${name}`}
+      title={`Player Ability: ${name}`}
       className={`${dims} shrink-0 object-contain`}
     />
   );
