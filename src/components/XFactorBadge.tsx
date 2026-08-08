@@ -15,11 +15,11 @@ export default function XFactorBadge({ name, size = "sm" }: XFactorBadgeProps) {
   const dims = size === "lg" ? "h-16 w-16" : "h-9 w-9";
 
   return (
-    <span
-      className="inline-flex shrink-0 items-center justify-center border border-purple-400/40 bg-purple-500/10 p-1.5"
+    <img
+      src={icon}
+      alt={name}
       title={`X-Factor: ${name}`}
-    >
-      <img src={icon} alt={name} className={`${dims} object-contain`} />
-    </span>
+      className={`${dims} shrink-0 object-contain`}
+    />
   );
 }
