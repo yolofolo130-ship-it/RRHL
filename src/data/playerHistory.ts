@@ -339,6 +339,66 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Kranky",
   },
+  {
+    id: "s8-stanley-cup-mvp",
+    season: "Season 8",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Ricey",
+  },
+  {
+    id: "s8-stanley-cup-losing-mvp",
+    season: "Season 8",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Sleepy",
+  },
+  {
+    id: "s8-conn-smythe-trophy",
+    season: "Season 8",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Ricey",
+  },
+  {
+    id: "s8-vezina-trophy",
+    season: "Season 8",
+    accoladeName: "Vezina Trophy",
+    playerName: "Carber",
+  },
+  {
+    id: "s8-ted-lindsay-trophy",
+    season: "Season 8",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s8-rrhl-foundation-trophy",
+    season: "Season 8",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Carsonreeves",
+  },
+  {
+    id: "s8-james-norris-trophy",
+    season: "Season 8",
+    accoladeName: "James Norris Trophy",
+    playerName: "Huddawg",
+  },
+  {
+    id: "s8-hart-memorial-trophy",
+    season: "Season 8",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Ricey",
+  },
+  {
+    id: "s8-calder-trophy",
+    season: "Season 8",
+    accoladeName: "Calder Trophy",
+    playerName: "Ricey",
+  },
+  {
+    id: "s8-jack-adams-trophy",
+    season: "Season 8",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Carber",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
