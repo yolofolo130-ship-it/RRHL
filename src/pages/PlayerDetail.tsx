@@ -6,8 +6,18 @@ import OverallBadge from "@/components/OverallBadge";
 import XFactorBadge from "@/components/XFactorBadge";
 import XFactorLogo from "@/components/XFactorLogo";
 import FlagBadge from "@/components/FlagBadge";
+import LeaderBadge from "@/components/LeaderBadge";
 import { getTeamById } from "@/data/teams";
-import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
+import {
+  getPlayerById,
+  skaterPoints,
+  goalieSavePct,
+  goalieGaa,
+  goalsRankFor,
+  assistsRankFor,
+  pointsRankFor,
+  savesRankFor,
+} from "@/data/players";
 import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } from "@/data/playerHistory";
 import { championshipSeasonsFor } from "@/data/championshipRosters";
 import { accolades } from "@/data/accolades";
@@ -47,6 +57,21 @@ export default function PlayerDetail() {
   const allAccolades = [...currentAccolades, ...pastAccolades].sort(byNewestSeason);
   const champSeasons = championshipSeasonsFor(player.name);
 
+  // Only surface a rank if it's actually leaderboard-worthy (top 10), so a
+  // player with 1 assist in a mostly-scoreless season doesn't get a banner.
+  const leaderRanks: { label: string; rank: number }[] = [];
+  if (player.kind === "skater") {
+    const pointsRank = pointsRankFor(player.id);
+    const goalsRank = goalsRankFor(player.id);
+    const assistsRank = assistsRankFor(player.id);
+    if (pointsRank !== undefined && pointsRank <= 10) leaderRanks.push({ label: "Scoring", rank: pointsRank });
+    if (goalsRank !== undefined && goalsRank <= 10) leaderRanks.push({ label: "Goals", rank: goalsRank });
+    if (assistsRank !== undefined && assistsRank <= 10) leaderRanks.push({ label: "Assists", rank: assistsRank });
+  } else if (player.kind === "goalie") {
+    const savesRank = savesRankFor(player.id);
+    if (savesRank !== undefined && savesRank <= 10) leaderRanks.push({ label: "Saves", rank: savesRank });
+  }
+
   return (
     <>
       <div className="relative overflow-hidden border-b border-line bg-bg-1">
@@ -79,6 +104,13 @@ export default function PlayerDetail() {
                 ? "FORMER PLAYER"
                 : `${player.kind === "skater" ? player.position : "GOALIE"} · #${player.number}`}
             </p>
+            {leaderRanks.length > 0 && (
+              <div className="flex flex-wrap items-center justify-center gap-2 pt-1 lg:justify-start">
+                {leaderRanks.map((leader) => (
+                  <LeaderBadge key={leader.label} label={leader.label} rank={leader.rank} />
+                ))}
+              </div>
+            )}
             {(player.overall !== undefined || player.xFactor || player.flag) && (
               <div className="flex items-center gap-3 pt-1">
                 {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}

@@ -178,6 +178,50 @@ export const topByPoints = (count: number): Skater[] =>
 export const topBySaves = (count: number): Goalie[] =>
   [...goalies].sort((a, b) => b.saves - a.saves).slice(0, count);
 
+// League-wide rank in a stat (1 = leader), or undefined if the player has
+// none of that stat yet — drives the "#4th in Assists" banner on a
+// player's page. Ties resolve by array order, same as the leaderboards.
+const rankIn = <T extends { id: string }>(sorted: T[], id: string): number | undefined => {
+  const index = sorted.findIndex((item) => item.id === id);
+  return index === -1 ? undefined : index + 1;
+};
+
+export const goalsRankFor = (skaterId: string): number | undefined => {
+  const skater = skaters.find((s) => s.id === skaterId);
+  if (!skater || skater.goals === 0) return undefined;
+  return rankIn(
+    [...skaters].sort((a, b) => b.goals - a.goals),
+    skaterId,
+  );
+};
+
+export const assistsRankFor = (skaterId: string): number | undefined => {
+  const skater = skaters.find((s) => s.id === skaterId);
+  if (!skater || skater.assists === 0) return undefined;
+  return rankIn(
+    [...skaters].sort((a, b) => b.assists - a.assists),
+    skaterId,
+  );
+};
+
+export const pointsRankFor = (skaterId: string): number | undefined => {
+  const skater = skaters.find((s) => s.id === skaterId);
+  if (!skater || skaterPoints(skater) === 0) return undefined;
+  return rankIn(
+    [...skaters].sort((a, b) => skaterPoints(b) - skaterPoints(a)),
+    skaterId,
+  );
+};
+
+export const savesRankFor = (goalieId: string): number | undefined => {
+  const goalie = goalies.find((g) => g.id === goalieId);
+  if (!goalie || goalie.saves === 0) return undefined;
+  return rankIn(
+    [...goalies].sort((a, b) => b.saves - a.saves),
+    goalieId,
+  );
+};
+
 // Skater, goalie, and former-player ids never collide (goalie ids always
 // end in "g<n>", former-player ids always start with "fp-"), so a single
 // lookup can serve both /players/:id and /players list links.

@@ -247,15 +247,20 @@ function LeaderCard({
         {rows.map((row, index) => {
           const team = getTeamById(row.teamId);
           return (
-            <li key={row.id} className="flex items-center justify-between gap-3">
-              <div className="flex items-center gap-2.5 min-w-0">
-                <span className="w-4 shrink-0 text-xs text-ink-3">{index + 1}</span>
-                {team && <TeamLogo team={team} className="h-5 w-5 shrink-0" />}
-                <span className="truncate text-sm text-ink-1">{row.name}</span>
-              </div>
-              <span className="shrink-0 font-display text-lg font-semibold text-ink-0">
-                {row.value}
-              </span>
+            <li key={row.id}>
+              <Link
+                to={`/players/${row.id}`}
+                className="flex items-center justify-between gap-3 transition-colors hover:text-white"
+              >
+                <div className="flex items-center gap-2.5 min-w-0">
+                  <span className="w-4 shrink-0 text-xs text-ink-3">{index + 1}</span>
+                  {team && <TeamLogo team={team} className="h-5 w-5 shrink-0" />}
+                  <span className="truncate text-sm text-ink-1">{row.name}</span>
+                </div>
+                <span className="shrink-0 font-display text-lg font-semibold text-ink-0">
+                  {row.value}
+                </span>
+              </Link>
             </li>
           );
         })}
