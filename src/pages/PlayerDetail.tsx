@@ -4,6 +4,7 @@ import TrophyCard from "@/components/TrophyCard";
 import ChampionBadge from "@/components/ChampionBadge";
 import OverallBadge from "@/components/OverallBadge";
 import XFactorBadge from "@/components/XFactorBadge";
+import XFactorLogo from "@/components/XFactorLogo";
 import FlagBadge from "@/components/FlagBadge";
 import { getTeamById } from "@/data/teams";
 import { getPlayerById, skaterPoints, goalieSavePct, goalieGaa } from "@/data/players";
@@ -84,6 +85,7 @@ export default function PlayerDetail() {
                   {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}
                   {player.xFactor && <XFactorBadge name={player.xFactor} size="lg" />}
                   {player.flag && <FlagBadge name={player.flag} size="lg" />}
+                  {player.xFactor && <XFactorLogo size="lg" />}
                 </div>
               )}
           </div>
