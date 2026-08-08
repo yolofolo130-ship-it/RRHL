@@ -42,6 +42,9 @@ export interface Skater {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Star ability name (a tier below X-Factor, typically ~88-93 OVR),
+   * looked up in data/stars.ts for its icon. */
+  star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
 }
@@ -61,6 +64,9 @@ export interface Goalie {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Star ability name (a tier below X-Factor, typically ~88-93 OVR),
+   * looked up in data/stars.ts for its icon. */
+  star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
 }
@@ -154,6 +160,9 @@ export interface FormerPlayer {
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
   xFactor?: string;
+  /** Star ability name (a tier below X-Factor, typically ~88-93 OVR),
+   * looked up in data/stars.ts for its icon. */
+  star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
 }
