@@ -222,6 +222,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s21-champ-yaboicurry", season: "Season 21", playerName: "YaBoiCurry" },
   { id: "s21-champ-uncnotfrog", season: "Season 21", playerName: "UncNotFrog" },
   { id: "s21-champ-evelyn", season: "Season 21", playerName: "Evelyn" },
+
+  // Season 22 — Seattle Kraken
+  { id: "s22-champ-lilballerjimmy", season: "Season 22", playerName: "lilballerjimmy" },
+  { id: "s22-champ-butter", season: "Season 22", playerName: "Butter" },
+  { id: "s22-champ-snickers", season: "Season 22", playerName: "Snickers" },
+  { id: "s22-champ-fishbowl", season: "Season 22", playerName: "Fishbowl" },
+  { id: "s22-champ-jrok", season: "Season 22", playerName: "Jrok" },
+  { id: "s22-champ-jazzmir", season: "Season 22", playerName: "Jazzmir" },
+  { id: "s22-champ-theholyhippo", season: "Season 22", playerName: "TheHolyHippo" },
+  { id: "s22-champ-tidy", season: "Season 22", playerName: "Tidy" },
+  { id: "s22-champ-ehhabhd", season: "Season 22", playerName: "Ehhabhd" },
+  { id: "s22-champ-carsonreeves", season: "Season 22", playerName: "Carsonreeves" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
