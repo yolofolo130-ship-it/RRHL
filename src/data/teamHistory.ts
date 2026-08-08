@@ -59,6 +59,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "ft-chicago-blackhawks",
     honor: "Clarence S. Campbell Trophy",
   },
+  {
+    id: "s3-scc-edm",
+    season: "Season 3",
+    teamId: "ft-edmonton-oilers",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "ft-anaheim-ducks",
+    seriesScore: "3-0",
+  },
+  {
+    id: "s3-pt-edm",
+    season: "Season 3",
+    teamId: "ft-edmonton-oilers",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s3-pow-pit",
+    season: "Season 3",
+    teamId: "pittsburgh-penguins",
+    honor: "Prince Of Wales Trophy",
+  },
+  {
+    id: "s3-csc-edm",
+    season: "Season 3",
+    teamId: "ft-edmonton-oilers",
+    honor: "Clarence S. Campbell Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
