@@ -33,6 +33,8 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-jj", name: "JJ" },
   { id: "fp-birbman", name: "Birbman" },
   { id: "fp-dxrk", name: "Dxrk" },
+  { id: "fp-cheddar", name: "Cheddar" },
+  { id: "fp-therupist", name: "therupist" },
 ];
 
 export const getFormerPlayerById = (id: string): FormerPlayer | undefined =>

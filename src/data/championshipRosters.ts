@@ -98,6 +98,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s11-champ-adamcole", season: "Season 11", playerName: "Adam Cole" },
   { id: "s11-champ-b3nn3tt1", season: "Season 11", playerName: "B3NN3TT1" },
   { id: "s11-champ-carterthegawd", season: "Season 11", playerName: "Carterthegawd" },
+
+  // Season 12 — Vegas Golden Knights
+  { id: "s12-champ-sparkles", season: "Season 12", playerName: "Sparkles" },
+  { id: "s12-champ-siah", season: "Season 12", playerName: "Siah" },
+  { id: "s12-champ-tgod", season: "Season 12", playerName: "TGOD" },
+  { id: "s12-champ-mood", season: "Season 12", playerName: "Mood" },
+  { id: "s12-champ-kranky", season: "Season 12", playerName: "Kranky" },
+  { id: "s12-champ-cheddar", season: "Season 12", playerName: "Cheddar" },
+  { id: "s12-champ-therupist", season: "Season 12", playerName: "therupist" },
+  { id: "s12-champ-aj", season: "Season 12", playerName: "AJ" },
+  { id: "s12-champ-tidy", season: "Season 12", playerName: "Tidy" },
+  { id: "s12-champ-swizzy", season: "Season 12", playerName: "Swizzy" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
