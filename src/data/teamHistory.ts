@@ -215,6 +215,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "ft-minnesota-wild",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s9-scc-pit",
+    season: "Season 9",
+    teamId: "pittsburgh-penguins",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "ft-edmonton-oilers",
+    seriesScore: "3-0",
+  },
+  {
+    id: "s9-pt-pit",
+    season: "Season 9",
+    teamId: "pittsburgh-penguins",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s9-csc-edm",
+    season: "Season 9",
+    teamId: "ft-edmonton-oilers",
+    honor: "Clarence S. Campbell Trophy",
+  },
+  {
+    id: "s9-pow-pit",
+    season: "Season 9",
+    teamId: "pittsburgh-penguins",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
