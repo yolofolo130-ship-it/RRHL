@@ -1221,6 +1221,84 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "DoughnutZ",
   },
+  {
+    id: "s22-stanley-cup-mvp",
+    season: "Season 22",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "lilballerjimmy",
+  },
+  {
+    id: "s22-stanley-cup-losing-mvp",
+    season: "Season 22",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "MJ",
+  },
+  {
+    id: "s22-conn-smythe-trophy",
+    season: "Season 22",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "lilballerjimmy",
+  },
+  {
+    id: "s22-vezina-trophy",
+    season: "Season 22",
+    accoladeName: "Vezina Trophy",
+    playerName: "TheHolyHippo",
+  },
+  {
+    id: "s22-ted-lindsay-trophy",
+    season: "Season 22",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s22-rrhl-foundation-trophy",
+    season: "Season 22",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "MJ",
+  },
+  {
+    id: "s22-lady-byng-memorial-trophy",
+    season: "Season 22",
+    accoladeName: "Lady Byng Memorial Trophy",
+    playerName: "Swordtsu",
+  },
+  {
+    id: "s22-james-norris-trophy",
+    season: "Season 22",
+    accoladeName: "James Norris Trophy",
+    playerName: "Full",
+  },
+  {
+    id: "s22-hart-memorial-trophy",
+    season: "Season 22",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s22-maurice-rocket-richard-trophy",
+    season: "Season 22",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s22-art-ross-trophy",
+    season: "Season 22",
+    accoladeName: "Art Ross Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s22-calder-trophy",
+    season: "Season 22",
+    accoladeName: "Calder Trophy",
+    playerName: "Fishbowl",
+  },
+  {
+    id: "s22-jack-adams-trophy",
+    season: "Season 22",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Chrisx",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
