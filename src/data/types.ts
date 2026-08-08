@@ -38,6 +38,10 @@ export interface Skater {
   goals: number;
   assists: number;
   pim: number;
+  /** NHL-video-game-style overall rating, 0-99. Omit until assigned. */
+  overall?: number;
+  /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
+  xFactor?: string;
 }
 
 export interface Goalie {
@@ -51,6 +55,10 @@ export interface Goalie {
   otLosses: number;
   saves: number;
   goalsAgainst: number;
+  /** NHL-video-game-style overall rating, 0-99. Omit until assigned. */
+  overall?: number;
+  /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */
+  xFactor?: string;
 }
 
 export type CoachRole = "Head Coach" | "Assistant Coach";
