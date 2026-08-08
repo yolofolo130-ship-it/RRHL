@@ -68,6 +68,15 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s8-champ-pechs", season: "Season 8", playerName: "Pechs" },
   { id: "s8-champ-mvp", season: "Season 8", playerName: "MVP" },
   { id: "s8-champ-b3nn3tt1", season: "Season 8", playerName: "B3NN3TT1" },
+
+  // Season 9 — Pittsburgh Penguins
+  { id: "s9-champ-chrisx", season: "Season 9", playerName: "Chrisx" },
+  { id: "s9-champ-luhdj", season: "Season 9", playerName: "Luh DJ" },
+  { id: "s9-champ-uncnotfrog", season: "Season 9", playerName: "UncNotFrog" },
+  { id: "s9-champ-jj", season: "Season 9", playerName: "JJ" },
+  { id: "s9-champ-tgod", season: "Season 9", playerName: "TGOD" },
+  { id: "s9-champ-carsonreeves", season: "Season 9", playerName: "Carsonreeves" },
+  { id: "s9-champ-carterthegawd", season: "Season 9", playerName: "Carterthegawd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
