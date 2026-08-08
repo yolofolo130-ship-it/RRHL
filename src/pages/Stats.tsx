@@ -15,8 +15,14 @@ const TAB_OPTIONS = [
 ];
 
 const skaterRows = [...skaters].sort((a, b) => skaterPoints(b) - skaterPoints(a));
+// Ranked by actual performance (SV%, then GAA, then save volume as
+// tiebreakers) rather than wins, so a goalie's record doesn't inflate their
+// rank when their underlying numbers don't back it up.
 const goalieRows = [...goalies].sort(
-  (a, b) => b.wins - a.wins || goalieSavePct(b) - goalieSavePct(a),
+  (a, b) =>
+    goalieSavePct(b) - goalieSavePct(a) ||
+    goalieGaa(a) - goalieGaa(b) ||
+    b.saves - a.saves,
 );
 const teamRows = sortStandings(computeStandings(teams, games));
 
