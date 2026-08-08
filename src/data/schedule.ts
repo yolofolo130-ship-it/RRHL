@@ -25,9 +25,9 @@ export const games: Game[] = [
   { id: "g15", week: 3, date: "2026-08-06", time: "9:00 PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "new-york-rangers", homeScore: 4, awayScore: 5, overtime: true, status: "final" },
 
   // ---------- Week 4 ----------
-  { id: "g16", week: 4, date: "2026-08-07", time: "7:35 PM", homeTeamId: "los-angeles-kings", awayTeamId: "st-louis-blues", status: "upcoming" },
-  { id: "g17", week: 4, date: "2026-08-07", time: "8:50 PM", homeTeamId: "pittsburgh-penguins", awayTeamId: "tampa-bay-lightning", status: "upcoming" },
-  { id: "g18", week: 4, date: "2026-08-07", time: "9:30 PM", homeTeamId: "dallas-stars", awayTeamId: "new-york-rangers", status: "upcoming" },
+  { id: "g16", week: 4, date: "2026-08-07", time: "7:35 PM", homeTeamId: "los-angeles-kings", awayTeamId: "st-louis-blues", homeScore: 5, awayScore: 2, status: "final" },
+  { id: "g17", week: 4, date: "2026-08-07", time: "8:50 PM", homeTeamId: "pittsburgh-penguins", awayTeamId: "tampa-bay-lightning", homeScore: 5, awayScore: 2, status: "final" },
+  { id: "g18", week: 4, date: "2026-08-07", time: "9:30 PM", homeTeamId: "dallas-stars", awayTeamId: "new-york-rangers", homeScore: 3, awayScore: 4, overtime: true, status: "final" },
   { id: "g19", week: 4, date: "2026-08-08", time: "8:10 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "boston-bruins", status: "upcoming" },
   { id: "g20", week: 4, date: "2026-08-08", time: "9:05 PM", homeTeamId: "utah-mammoths", awayTeamId: "vegas-golden-knights", status: "upcoming" },
 ];
