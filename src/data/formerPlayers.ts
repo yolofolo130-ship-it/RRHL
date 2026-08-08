@@ -4,7 +4,6 @@ import type { FormerPlayer } from "./types";
 // roster (players.ts). Add an entry here before referencing their name in
 // playerHistory.ts, so their history has somewhere to link to.
 export const formerPlayers: FormerPlayer[] = [
-  { id: "fp-carsonreeves", name: "Carsonreeves" },
   { id: "fp-krampuz", name: "Krampuz" },
   { id: "fp-minisneaki", name: "MiniSneaki" },
   { id: "fp-landorito", name: "Landorito" },
