@@ -152,4 +152,6 @@ export interface TeamSeasonHonor {
 export interface FormerTeam {
   id: string;
   name: string;
+  logo?: string;
+  color?: string;
 }

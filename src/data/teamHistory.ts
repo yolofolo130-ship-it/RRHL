@@ -1,4 +1,4 @@
-import type { Team, TeamSeasonHonor } from "./types";
+import type { TeamSeasonHonor } from "./types";
 import { getTeamById } from "./teams";
 import { getFormerTeamById } from "./formerTeams";
 import { byNewestSeason } from "@/utils/season";
@@ -43,18 +43,20 @@ export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
 export const isChampionshipHonor = (honor: TeamSeasonHonor): boolean =>
   Boolean(honor.opponentTeamId && honor.seriesScore);
 
-// Resolves a TeamSeasonHonor's teamId to a display name and, if it's a
-// current team, a route to link to (defunct teams have no page).
-export const resolveHonorTeam = (teamId: string): { name: string; href?: string } => {
-  const team = getTeamById(teamId);
-  if (team) return { name: team.name, href: `/teams/${team.id}` };
-  return { name: getFormerTeamById(teamId)?.name ?? "Unknown Team" };
-};
+export interface TeamRef {
+  name: string;
+  logo?: string;
+  color?: string;
+  /** Only set for a current team — defunct teams have no page to link to. */
+  href?: string;
+}
 
-// Same as resolveHonorTeam, but also returns the full Team (for its logo/
-// color) when it's a current team.
-export const resolveTeamRef = (teamId: string): { team?: Team; name: string } => {
+// Resolves a TeamSeasonHonor's teamId to everything a card needs to show
+// it: current teams get their logo/color/link, former (defunct) teams get
+// whatever's on file in formerTeams.ts — logo/color optional, no link.
+export const resolveTeamRef = (teamId: string): TeamRef => {
   const team = getTeamById(teamId);
-  if (team) return { team, name: team.name };
-  return { name: getFormerTeamById(teamId)?.name ?? "Unknown Team" };
+  if (team) return { name: team.name, logo: team.logo, color: team.color, href: `/teams/${team.id}` };
+  const former = getFormerTeamById(teamId);
+  return { name: former?.name ?? "Unknown Team", logo: former?.logo, color: former?.color };
 };

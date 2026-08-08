@@ -1,7 +1,5 @@
-import type { Team } from "@/data/types";
-
 interface TeamLogoProps {
-  team: Team;
+  team: { name: string; logo: string };
   className?: string;
 }
 

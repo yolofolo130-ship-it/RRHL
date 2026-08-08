@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import TeamLogo from "./TeamLogo";
-import type { Team } from "@/data/types";
+import type { TeamRef } from "@/data/teamHistory";
 
 const FALLBACK_ACCENT = "#fbbf24";
 
@@ -24,8 +24,8 @@ const CONFETTI_LEFT_DELAY = [
 interface ChampionCardProps {
   honor: string;
   season: string;
-  champion: { team?: Team; name: string };
-  opponent: { team?: Team; name: string };
+  champion: TeamRef;
+  opponent: TeamRef;
   seriesScore: string;
 }
 
@@ -36,7 +36,7 @@ export default function ChampionCard({
   opponent,
   seriesScore,
 }: ChampionCardProps) {
-  const accent = champion.team?.color ?? FALLBACK_ACCENT;
+  const accent = champion.color ?? FALLBACK_ACCENT;
 
   const className =
     "group relative block overflow-hidden border border-[var(--accent)]/30 bg-gradient-to-br from-[var(--accent)]/[0.12] via-bg-2 to-bg-2 p-5 shadow-[0_0_20px_-8px_var(--accent)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)]/50 hover:shadow-[0_0_30px_-6px_var(--accent)]";
@@ -69,8 +69,11 @@ export default function ChampionCard({
 
         <div className="mt-4 flex items-center justify-between gap-2">
           <div className="flex min-w-0 items-center gap-2.5">
-            {champion.team ? (
-              <TeamLogo team={champion.team} className="h-10 w-10 shrink-0" />
+            {champion.logo ? (
+              <TeamLogo
+                team={{ name: champion.name, logo: champion.logo }}
+                className="h-10 w-10 shrink-0"
+              />
             ) : (
               <div className="h-10 w-10 shrink-0 border border-[var(--accent)]/40 bg-bg-3" />
             )}
@@ -84,8 +87,11 @@ export default function ChampionCard({
           </p>
 
           <div className="flex min-w-0 flex-row-reverse items-center gap-2.5 text-right">
-            {opponent.team ? (
-              <TeamLogo team={opponent.team} className="h-8 w-8 shrink-0 opacity-70" />
+            {opponent.logo ? (
+              <TeamLogo
+                team={{ name: opponent.name, logo: opponent.logo }}
+                className="h-8 w-8 shrink-0 opacity-70"
+              />
             ) : (
               <div className="h-8 w-8 shrink-0 border border-line bg-bg-3" />
             )}
@@ -98,9 +104,9 @@ export default function ChampionCard({
 
   const style = { ["--accent" as string]: accent };
 
-  if (champion.team) {
+  if (champion.href) {
     return (
-      <Link to={`/teams/${champion.team.id}`} className={className} style={style}>
+      <Link to={champion.href} className={className} style={style}>
         {content}
       </Link>
     );

@@ -3,12 +3,7 @@ import TrophyCard from "@/components/TrophyCard";
 import ChampionCard from "@/components/ChampionCard";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byNewestSeason } from "@/data/playerHistory";
-import {
-  teamSeasonHonors,
-  resolveHonorTeam,
-  resolveTeamRef,
-  isChampionshipHonor,
-} from "@/data/teamHistory";
+import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { getPlayerIdByName } from "@/data/players";
 
 interface DisplayHonor {
@@ -38,7 +33,7 @@ function teamHonorsForSeason(season: string): DisplayHonor[] {
   return teamSeasonHonors
     .filter((h) => h.season === season && !isChampionshipHonor(h))
     .map((h) => {
-      const { name, href } = resolveHonorTeam(h.teamId);
+      const { name, href } = resolveTeamRef(h.teamId);
       return { id: h.id, name: h.honor, subtitle: name, to: href };
     });
 }

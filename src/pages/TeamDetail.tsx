@@ -293,7 +293,12 @@ export default function TeamDetail() {
                       key={honor.id}
                       honor={honor.honor}
                       season={honor.season}
-                      champion={{ team, name: team.name }}
+                      champion={{
+                        name: team.name,
+                        logo: team.logo,
+                        color: team.color,
+                        href: `/teams/${team.id}`,
+                      }}
                       opponent={resolveTeamRef(honor.opponentTeamId as string)}
                       seriesScore={honor.seriesScore as string}
                     />
