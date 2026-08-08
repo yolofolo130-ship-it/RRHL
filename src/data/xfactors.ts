@@ -1,4 +1,4 @@
-import postToPostIcon from "@/assets/x-factor-logos/TGOD-X-Factor.png";
+import postToPostIcon from "@/assets/x-factor-logos/Post-To-Post.png";
 import backhandBeautyIcon from "@/assets/x-factor-logos/Backhand-Beauty.png";
 import unstoppableIcon from "@/assets/x-factor-logos/Unstoppable.png";
 import ankleBreakerIcon from "@/assets/x-factor-logos/Ankle-Breaker.png";
