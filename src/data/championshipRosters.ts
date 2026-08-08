@@ -124,6 +124,17 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s13-champ-duck", season: "Season 13", playerName: "Duck" },
   { id: "s13-champ-eli", season: "Season 13", playerName: "Eli" },
   { id: "s13-champ-b3nn3tt1", season: "Season 13", playerName: "B3NN3TT1" },
+
+  // Season 14 — St. Louis Blues
+  { id: "s14-champ-kranky", season: "Season 14", playerName: "Kranky" },
+  { id: "s14-champ-josuxrr", season: "Season 14", playerName: "JosuxRR" },
+  { id: "s14-champ-rennu", season: "Season 14", playerName: "Rennu" },
+  { id: "s14-champ-sid", season: "Season 14", playerName: "Sid" },
+  { id: "s14-champ-claymore", season: "Season 14", playerName: "Claymore" },
+  { id: "s14-champ-bryce", season: "Season 14", playerName: "Bryce" },
+  { id: "s14-champ-adamcole", season: "Season 14", playerName: "Adam Cole" },
+  { id: "s14-champ-nexo", season: "Season 14", playerName: "Nexo" },
+  { id: "s14-champ-ehhabhd", season: "Season 14", playerName: "Ehhabhd" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
