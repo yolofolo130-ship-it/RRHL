@@ -23,6 +23,7 @@ export const skaters: Skater[] = [
   { id: "pit-7", name: "LBeard0320", teamId: "pittsburgh-penguins", position: "D", number: 45, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-8", name: "cjcrosby898999", teamId: "pittsburgh-penguins", position: "D", number: 23, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-9", name: "Arri", teamId: "pittsburgh-penguins", position: "RW", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-10", name: "Carterthegawd", teamId: "pittsburgh-penguins", position: "D", number: 77, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 2, goals: 4, assists: 5, pim: 0 },
   { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 4, goals: 9, assists: 1, pim: 0 },
