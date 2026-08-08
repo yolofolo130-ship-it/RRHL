@@ -13,6 +13,7 @@ export const skaters: Skater[] = [
   { id: "car-6", name: "Mood", teamId: "carolina-hurricanes", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "car-7", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0 },
   { id: "car-8", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "car-9", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 4, goals: 10, assists: 7, pim: 0 },
   { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -47,10 +48,9 @@ export const skaters: Skater[] = [
   { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 22, gp: 4, goals: 5, assists: 5, pim: 0 },
   { id: "nyr-3", name: "Eli", teamId: "new-york-rangers", position: "LW", number: 7, gp: 2, goals: 1, assists: 0, pim: 0 },
   { id: "nyr-4", name: "Sfgoofy", teamId: "new-york-rangers", position: "D", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "nyr-5", name: "Darkness", teamId: "new-york-rangers", position: "RW", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "nyr-6", name: "Carsonreeves", teamId: "new-york-rangers", position: "D", number: 9, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "nyr-7", name: "Cakelocks", teamId: "new-york-rangers", position: "RW", number: 54, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "nyr-8", name: "DieLit", teamId: "new-york-rangers", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "nyr-5", name: "Carsonreeves", teamId: "new-york-rangers", position: "D", number: 9, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "nyr-6", name: "Cakelocks", teamId: "new-york-rangers", position: "RW", number: 54, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "nyr-7", name: "DieLit", teamId: "new-york-rangers", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 3, goals: 4, assists: 0, pim: 0 },
   { id: "uta-2", name: "Rennu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -69,6 +69,7 @@ export const skaters: Skater[] = [
   { id: "vgk-6", name: "Sidedeer", teamId: "vegas-golden-knights", position: "LW", number: 38 , gp: 2, goals: 1, assists: 0, pim: 0 }, 
   { id: "vgk-7", name: "Drago", teamId: "vegas-golden-knights", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0},
   { id: "vgk-8", name: "MadMax", teamId: "vegas-golden-knights", position: "D", number: 56, gp: 0, goals: 0, assists: 0, pim: 0},
+  { id: "vgk-9", name: "Darkness", teamId: "vegas-golden-knights", position: "D", number: 5, gp: 1, goals: 0, assists: 0, pim: 0},
 
   { id: "stl-1", name: "Vengeance", teamId: "st-louis-blues", position: "C", number: 14, gp: 3, goals: 4, assists: 0, pim: 0 },
   { id: "stl-2", name: "Augy", teamId: "st-louis-blues", position: "RW", number: 21, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -86,6 +87,7 @@ export const skaters: Skater[] = [
   { id: "lak-5", name: "Duck", teamId: "los-angeles-kings", position: "D", number: 27, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "lak-7", name: "Kranky", teamId: "los-angeles-kings", position: "RW", number: 89, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "lak-8", name: "StefonB", teamId: "los-angeles-kings", position: "RW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "dal-1", name: "Santi", teamId: "dallas-stars", position: "C", number: 1, gp: 4, goals: 1, assists: 3, pim: 0 },
   { id: "dal-2", name: "Uzi", teamId: "dallas-stars", position: "RW", number: 19, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -118,13 +120,13 @@ export const goalies: Goalie[] = [
 
 export const coaches: Coach[] = [
   { id: "car-hc", name: "BNA", teamId: "carolina-hurricanes", role: "Head Coach" },
-  { id: "car-ac", name: "Full", teamId: "carolina-hurricanes", role: "Assistant Coach" },
+  { id: "car-ac", name: "Nickel", teamId: "carolina-hurricanes", role: "Assistant Coach" },
 
   { id: "pit-hc", name: "Chrisx", teamId: "pittsburgh-penguins", role: "Head Coach" },
   { id: "pit-ac", name: "Carterthegawd", teamId: "pittsburgh-penguins", role: "Assistant Coach" },
 
   { id: "tbl-hc", name: "Swordtsu", teamId: "tampa-bay-lightning", role: "Head Coach" },
-  { id: "tbl-ac", name: "Cron", teamId: "tampa-bay-lightning", role: "Assistant Coach" },
+  { id: "tbl-ac", name: "Pechs", teamId: "tampa-bay-lightning", role: "Assistant Coach" },
 
   { id: "bos-hc", name: "Kdog2020", teamId: "boston-bruins", role: "Head Coach" },
   { id: "bos-ac", name: "Boolit", teamId: "boston-bruins", role: "Assistant Coach" },
