@@ -7,7 +7,7 @@ import { getFormerPlayerById, getFormerPlayerByName } from "./formerPlayers";
 export const skaters: Skater[] = [
   { id: "car-1", name: "BNA", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 1, goals: 3, assists: 2, pim: 0 },
   { id: "car-2", name: "DoughnutZ", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 2, goals: 5, assists: 2, pim: 0 },
-  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "USA" },
+  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "Mexico" },
   { id: "car-4", name: "Fishbowl", teamId: "carolina-hurricanes", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0 },
   { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "car-6", name: "Mood", teamId: "carolina-hurricanes", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -116,7 +116,7 @@ export const goalies: Goalie[] = [
   { id: "uta-g2", name: "Baseball3122", teamId: "utah-mammoths", number: 24, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 4, goalsAgainst: 0 },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 3, wins: 3, losses: 0, otLosses: 0, saves: 51, goalsAgainst: 1, overall: 98, xFactor: "Post to Post", flag: "USA" },
   { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, wins: 3, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
-  { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 3, otLosses: 0, saves: 6, goalsAgainst: 8 },
+  { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 3, otLosses: 0, saves: 6, goalsAgainst: 13 },
   { id: "lak-g1", name: "Riptide", teamId: "los-angeles-kings", number: 32, gp: 1, wins: 1, losses: 2, otLosses: 0, saves: 1, goalsAgainst: 5 },
   { id: "lak-g2", name: "TheHolyHippo", teamId: "los-angeles-kings", number: 22, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
   { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 2, wins: 0, losses: 3, otLosses: 1, saves: 0, goalsAgainst: 6 },
