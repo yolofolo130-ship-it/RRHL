@@ -64,7 +64,7 @@ export default function PlayerDetail() {
     const pointsRank = pointsRankFor(player.id);
     const goalsRank = goalsRankFor(player.id);
     const assistsRank = assistsRankFor(player.id);
-    if (pointsRank !== undefined && pointsRank <= 10) leaderRanks.push({ label: "Scoring", rank: pointsRank });
+    if (pointsRank !== undefined && pointsRank <= 10) leaderRanks.push({ label: "Points", rank: pointsRank });
     if (goalsRank !== undefined && goalsRank <= 10) leaderRanks.push({ label: "Goals", rank: goalsRank });
     if (assistsRank !== undefined && assistsRank <= 10) leaderRanks.push({ label: "Assists", rank: assistsRank });
   } else if (player.kind === "goalie") {
