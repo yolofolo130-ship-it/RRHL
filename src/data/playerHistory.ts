@@ -945,6 +945,72 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Chrisx",
   },
+  {
+    id: "s18-stanley-cup-mvp",
+    season: "Season 18",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Rennu",
+  },
+  {
+    id: "s18-stanley-cup-losing-mvp",
+    season: "Season 18",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Siah",
+  },
+  {
+    id: "s18-conn-smythe-trophy",
+    season: "Season 18",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s18-vezina-trophy",
+    season: "Season 18",
+    accoladeName: "Vezina Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s18-ted-lindsay-trophy",
+    season: "Season 18",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "Jrok",
+  },
+  {
+    id: "s18-rrhl-foundation-trophy",
+    season: "Season 18",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Fire",
+  },
+  {
+    id: "s18-james-norris-trophy",
+    season: "Season 18",
+    accoladeName: "James Norris Trophy",
+    playerName: "Duck",
+  },
+  {
+    id: "s18-hart-memorial-trophy",
+    season: "Season 18",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "ALEXOMEGAVR",
+  },
+  {
+    id: "s18-maurice-rocket-richard-trophy",
+    season: "Season 18",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "ALEXOMEGAVR",
+  },
+  {
+    id: "s18-calder-trophy",
+    season: "Season 18",
+    accoladeName: "Calder Trophy",
+    playerName: "jonjon",
+  },
+  {
+    id: "s18-jack-adams-trophy",
+    season: "Season 18",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Chrisx",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>

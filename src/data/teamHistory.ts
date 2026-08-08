@@ -449,6 +449,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "pittsburgh-penguins",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s18-scc-pit",
+    season: "Season 18",
+    teamId: "pittsburgh-penguins",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "st-louis-blues",
+    seriesScore: "4-1",
+  },
+  {
+    id: "s18-pt-ott",
+    season: "Season 18",
+    teamId: "ft-ottawa-senators",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s18-csc-stl",
+    season: "Season 18",
+    teamId: "st-louis-blues",
+    honor: "Clarence S. Campbell Trophy",
+  },
+  {
+    id: "s18-pow-pit",
+    season: "Season 18",
+    teamId: "pittsburgh-penguins",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>
