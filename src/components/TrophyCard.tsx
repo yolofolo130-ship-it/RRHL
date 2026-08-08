@@ -18,9 +18,13 @@ export default function TrophyCard({ name, subtitle, muted = false }: TrophyCard
   }
 
   return (
-    <div className="group relative overflow-hidden border border-amber-400/30 bg-gradient-to-br from-amber-500/[0.08] via-bg-2 to-bg-2 p-5 transition-transform duration-300 hover:-translate-y-0.5">
+    <div className="group relative overflow-hidden border border-amber-400/30 bg-gradient-to-br from-amber-500/[0.08] via-bg-2 to-bg-2 p-5 shadow-[0_0_20px_-8px_rgba(251,191,36,0.25)] transition-all duration-300 hover:-translate-y-0.5 hover:border-amber-400/50 hover:shadow-[0_0_30px_-6px_rgba(251,191,36,0.45)]">
       <div
-        className="pointer-events-none absolute -inset-10 animate-glow-pulse rounded-full bg-amber-400/25 blur-3xl"
+        className="pointer-events-none absolute -inset-10 animate-glow-pulse rounded-full bg-amber-400/25 blur-3xl transition-colors duration-300 group-hover:bg-amber-400/40"
+        aria-hidden
+      />
+      <div
+        className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
         aria-hidden
       />
       <div className="relative flex items-start gap-3">
@@ -31,14 +35,16 @@ export default function TrophyCard({ name, subtitle, muted = false }: TrophyCard
           strokeWidth="1.5"
           strokeLinecap="round"
           strokeLinejoin="round"
-          className="mt-0.5 h-6 w-6 shrink-0 text-amber-300 drop-shadow-[0_0_6px_rgba(251,191,36,0.55)]"
+          className="mt-0.5 h-7 w-7 shrink-0 text-amber-300 drop-shadow-[0_0_6px_rgba(251,191,36,0.55)]"
           aria-hidden
         >
-          <path d="M8 4h8v4a4 4 0 0 1-8 0V4z" />
-          <path d="M8 5H5a2 2 0 0 0 2 4" />
-          <path d="M16 5h3a2 2 0 0 1-2 4" />
-          <path d="M12 12v3" />
-          <path d="M10 16h4l1 3H9l1-3z" />
+          {/* crossed hockey sticks */}
+          <path d="M5 4 L17 16" />
+          <path d="M17 16 L21.5 13.5" />
+          <path d="M19 4 L7 16" />
+          <path d="M7 16 L2.5 13.5" />
+          {/* puck */}
+          <ellipse cx="12" cy="19.5" rx="3.5" ry="1.4" fill="currentColor" stroke="none" />
         </svg>
         <div className="min-w-0">
           <p className="font-display text-lg font-semibold uppercase leading-tight tracking-wide text-amber-200">
