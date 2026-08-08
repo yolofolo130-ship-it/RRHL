@@ -33,6 +33,14 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s4-champ-sinny", season: "Season 4", playerName: "Sinny" },
   { id: "s4-champ-2tone", season: "Season 4", playerName: "2Tone" },
   { id: "s4-champ-flaganoid", season: "Season 4", playerName: "Flaganoid" },
+
+  // Season 5 — Pittsburgh Penguins
+  { id: "s5-champ-mvp", season: "Season 5", playerName: "MVP" },
+  { id: "s5-champ-chrisx", season: "Season 5", playerName: "Chrisx" },
+  { id: "s5-champ-carterthegawd", season: "Season 5", playerName: "Carterthegawd" },
+  { id: "s5-champ-tgod", season: "Season 5", playerName: "TGOD" },
+  { id: "s5-champ-hockeyboi", season: "Season 5", playerName: "Hockey Boi" },
+  { id: "s5-champ-siah", season: "Season 5", playerName: "Siah" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
