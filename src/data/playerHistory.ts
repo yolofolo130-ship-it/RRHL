@@ -759,6 +759,72 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Flaganoid",
   },
+  {
+    id: "s15-stanley-cup-mvp",
+    season: "Season 15",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Rennu",
+  },
+  {
+    id: "s15-stanley-cup-losing-mvp",
+    season: "Season 15",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Kranky",
+  },
+  {
+    id: "s15-conn-smythe-trophy",
+    season: "Season 15",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Rennu",
+  },
+  {
+    id: "s15-vezina-trophy",
+    season: "Season 15",
+    accoladeName: "Vezina Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s15-ted-lindsay-trophy",
+    season: "Season 15",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s15-rrhl-foundation-trophy",
+    season: "Season 15",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Kranky",
+  },
+  {
+    id: "s15-james-norris-trophy",
+    season: "Season 15",
+    accoladeName: "James Norris Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s15-hart-memorial-trophy",
+    season: "Season 15",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Rennu",
+  },
+  {
+    id: "s15-maurice-rocket-richard-trophy",
+    season: "Season 15",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "Fire",
+  },
+  {
+    id: "s15-calder-trophy",
+    season: "Season 15",
+    accoladeName: "Calder Trophy",
+    playerName: "Prim",
+  },
+  {
+    id: "s15-jack-adams-trophy",
+    season: "Season 15",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Kranky",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
