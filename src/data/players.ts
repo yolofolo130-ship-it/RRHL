@@ -5,15 +5,24 @@ import { getFormerPlayerById } from "./formerPlayers";
 // save percentage, and GAA are always calculated, never stored, so editing
 // goals/assists/saves here is enough to keep every table in sync.
 export const skaters: Skater[] = [
-  { id: "car-1", name: "Ethan Cole", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 5, goals: 3, assists: 4, pim: 2 },
-  { id: "car-2", name: "Marcus Webb", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 5, goals: 2, assists: 3, pim: 4 },
-  { id: "car-3", name: "Owen Price", teamId: "carolina-hurricanes", position: "D", number: 55, gp: 5, goals: 1, assists: 5, pim: 6 },
-  { id: "car-4", name: "Kyle Santos", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 5, goals: 0, assists: 2, pim: 8 },
+  { id: "car-1", name: "BNA", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 1, goals: 3, assists: 2, pim: 0 },
+  { id: "car-2", name: "DoughnutZ", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 2, goals: 5, assists: 2, pim: 0 },
+  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0 },
+  { id: "car-4", name: "Fishbowl", teamId: "carolina-hurricanes", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0 },
+  { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "car-6", name: "Mood", teamId: "carolina-hurricanes", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "car-7", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0 },
+  { id: "car-8", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "pit-1", name: "Jordan Blake", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 5, goals: 4, assists: 5, pim: 2 },
-  { id: "pit-2", name: "Derek Nash", teamId: "pittsburgh-penguins", position: "RW", number: 17, gp: 5, goals: 3, assists: 4, pim: 10 },
-  { id: "pit-3", name: "Trevor Lang", teamId: "pittsburgh-penguins", position: "D", number: 6, gp: 5, goals: 1, assists: 6, pim: 4 },
-  { id: "pit-4", name: "Sam Rooney", teamId: "pittsburgh-penguins", position: "D", number: 23, gp: 5, goals: 1, assists: 2, pim: 12 },
+  { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 3, goals: 8, assists: 4, pim: 0 },
+  { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-3", name: "Mason", teamId: "pittsburgh-penguins", position: "RW", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 6, gp: 2, goals: 2, assists: 5, pim: 0 },
+  { id: "pit-5", name: "chicharito9260", teamId: "pittsburgh-penguins", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-6", name: "44worthy", teamId: "pittsburgh-penguins", position: "D", number: 69, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-7", name: "LBeard0320", teamId: "pittsburgh-penguins", position: "D", number: 45, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-8", name: "cjcrosby898999", teamId: "pittsburgh-penguins", position: "D", number: 23, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-9", name: "Arri", teamId: "pittsburgh-penguins", position: "RW", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 2, goals: 4, assists: 5, pim: 0 },
   { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 3, goals: 8, assists: 3, pim: 0 },
@@ -73,6 +82,7 @@ export const skaters: Skater[] = [
 export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 30, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 28, goalsAgainst: 3 },
+  { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 31, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
   { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3 },
