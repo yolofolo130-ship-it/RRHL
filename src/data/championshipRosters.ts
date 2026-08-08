@@ -210,6 +210,18 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s20-champ-evantheguy", season: "Season 20", playerName: "EvanTheGuy" },
   { id: "s20-champ-arri", season: "Season 20", playerName: "Arri" },
   { id: "s20-champ-carterthegawd", season: "Season 20", playerName: "Carterthegawd" },
+
+  // Season 21 — Minnesota Wild
+  { id: "s21-champ-sleepy", season: "Season 21", playerName: "Sleepy" },
+  { id: "s21-champ-doughnutz", season: "Season 21", playerName: "DoughnutZ" },
+  { id: "s21-champ-full", season: "Season 21", playerName: "Full" },
+  { id: "s21-champ-kdog2020", season: "Season 21", playerName: "Kdog2020" },
+  { id: "s21-champ-sinny", season: "Season 21", playerName: "Sinny" },
+  { id: "s21-champ-kindsnack000", season: "Season 21", playerName: "KindSnack000" },
+  { id: "s21-champ-vengeance", season: "Season 21", playerName: "Vengeance" },
+  { id: "s21-champ-yaboicurry", season: "Season 21", playerName: "YaBoiCurry" },
+  { id: "s21-champ-uncnotfrog", season: "Season 21", playerName: "UncNotFrog" },
+  { id: "s21-champ-evelyn", season: "Season 21", playerName: "Evelyn" },
 ];
 
 // Every season this player was on a Stanley Cup-winning roster, oldest
