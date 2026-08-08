@@ -11,11 +11,13 @@ export const tracks: Track[] = [
   {
     id: "all-the-stars",
     title: "All The Stars",
+    artist: "Kendrick Lamar, SZA",
     src: musicUrl("all-the-stars.mp3"),
   },
   {
     id: "everybody",
-    title: "Everybody (feat. Kanye West, Ty Dolla $ign, Charlie Wilson)",
+    title: "Everybody",
+    artist: "Kanye West, Ty Dolla $ign, Charlie Wilson",
     src: musicUrl("everybody-feat-kanye-west-ty-dolla-sign-charlie-wilson.mp3"),
   },
   {
@@ -33,6 +35,7 @@ export const tracks: Track[] = [
   {
     id: "rottweiler",
     title: "Rottweiler",
+    artist: "EsDeeKid",
     src: musicUrl("rottweiler.mp3"),
   },
   {

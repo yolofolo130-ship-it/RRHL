@@ -9,6 +9,6 @@ import ankleBreakerIcon from "@/assets/x-factor-logos/Ankle-Breaker.png";
 export const xFactorIcons: Record<string, string> = {
   "Post to Post": postToPostIcon,
   "Backhand Beauty": backhandBeautyIcon,
-  Unstoppable: unstoppableIcon,
+  "Unstoppable": unstoppableIcon,
   "Ankle Breaker": ankleBreakerIcon,
 };
