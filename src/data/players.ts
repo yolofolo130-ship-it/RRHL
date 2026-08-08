@@ -14,10 +14,10 @@ export const skaters: Skater[] = [
   { id: "car-7", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0 },
   { id: "car-8", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 3, goals: 8, assists: 4, pim: 0 },
+  { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 4, goals: 10, assists: 7, pim: 0 },
   { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-3", name: "Mason", teamId: "pittsburgh-penguins", position: "RW", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 6, gp: 2, goals: 2, assists: 5, pim: 0 },
+  { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 6, gp: 2, goals: 4, assists: 8, pim: 0 },
   { id: "pit-5", name: "chicharito9260", teamId: "pittsburgh-penguins", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-6", name: "44worthy", teamId: "pittsburgh-penguins", position: "D", number: 69, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-7", name: "LBeard0320", teamId: "pittsburgh-penguins", position: "D", number: 45, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -25,7 +25,7 @@ export const skaters: Skater[] = [
   { id: "pit-9", name: "Arri", teamId: "pittsburgh-penguins", position: "RW", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 2, goals: 4, assists: 5, pim: 0 },
-  { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 3, goals: 8, assists: 3, pim: 0 },
+  { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 4, goals: 9, assists: 1, pim: 0 },
   { id: "tbl-3", name: "Snickers", teamId: "tampa-bay-lightning", position: "C", number: 8, gp: 2, goals: 0, assists: 0, pim: 0 },
   { id: "tbl-4", name: "KindSnack000", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "tbl-5", name: "LillianTheGreat", teamId: "tampa-bay-lightning", position: "D", number: 6, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -78,7 +78,7 @@ export const skaters: Skater[] = [
   { id: "stl-7", name: "Hogeye", teamId: "st-louis-blues", position: "C", number: 69, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "stl-8", name: "AlexKiller", teamId: "st-louis-blues", position: "LW", number: 1, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "lak-1", name: "MVP", teamId: "los-angeles-kings", position: "C", number: 9, gp: 1, goals: 9, assists: 0, pim: 0 },
+  { id: "lak-1", name: "MVP", teamId: "los-angeles-kings", position: "C", number: 9, gp: 2, goals: 13, assists: 2, pim: 0 },
   { id: "lak-2", name: "Gabriel", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 1, goals: 1, assists: 0, pim: 0 },
   { id: "lak-3", name: "Adam Cole", teamId: "los-angeles-kings", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "lak-4", name: "2Tone", teamId: "los-angeles-kings", position: "D", number: 26, gp: 1, goals: 0, assists: 0, pim: 0 },
@@ -99,7 +99,7 @@ export const skaters: Skater[] = [
 
 export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 30, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5 },
-  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 28, goalsAgainst: 3 },
+  { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 3 , wins: 1, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5 },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 31, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
