@@ -501,6 +501,32 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
     teamId: "ft-buffalo-sabres",
     honor: "Prince Of Wales Trophy",
   },
+  {
+    id: "s20-scc-pit",
+    season: "Season 20",
+    teamId: "pittsburgh-penguins",
+    honor: "Stanley Cup Champion",
+    opponentTeamId: "ft-vancouver-canucks",
+    seriesScore: "4-3",
+  },
+  {
+    id: "s20-pt-pit",
+    season: "Season 20",
+    teamId: "pittsburgh-penguins",
+    honor: "President's Trophy",
+  },
+  {
+    id: "s20-csc-van",
+    season: "Season 20",
+    teamId: "ft-vancouver-canucks",
+    honor: "Clarence S. Campbell Trophy",
+  },
+  {
+    id: "s20-pow-pit",
+    season: "Season 20",
+    teamId: "pittsburgh-penguins",
+    honor: "Prince Of Wales Trophy",
+  },
 ];
 
 export const honorsForTeam = (teamId: string): TeamSeasonHonor[] =>

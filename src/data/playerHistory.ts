@@ -1077,6 +1077,72 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "SnugThePug",
   },
+  {
+    id: "s20-stanley-cup-mvp",
+    season: "Season 20",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "Siah",
+  },
+  {
+    id: "s20-stanley-cup-losing-mvp",
+    season: "Season 20",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Vengeance",
+  },
+  {
+    id: "s20-conn-smythe-trophy",
+    season: "Season 20",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s20-vezina-trophy",
+    season: "Season 20",
+    accoladeName: "Vezina Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s20-ted-lindsay-trophy",
+    season: "Season 20",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "MJ",
+  },
+  {
+    id: "s20-rrhl-foundation-trophy",
+    season: "Season 20",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "lilballerjimmy",
+  },
+  {
+    id: "s20-james-norris-trophy",
+    season: "Season 20",
+    accoladeName: "James Norris Trophy",
+    playerName: "Boolit",
+  },
+  {
+    id: "s20-hart-memorial-trophy",
+    season: "Season 20",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s20-maurice-rocket-richard-trophy",
+    season: "Season 20",
+    accoladeName: "Maurice \"Rocket\" Richard Trophy",
+    playerName: "Chrisx",
+  },
+  {
+    id: "s20-calder-trophy",
+    season: "Season 20",
+    accoladeName: "Calder Trophy",
+    playerName: "RestartedRyan",
+  },
+  {
+    id: "s20-jack-adams-trophy",
+    season: "Season 20",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "Boolit",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
