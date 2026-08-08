@@ -1,8 +1,8 @@
 import type { AbilityInfo } from "./types";
-import postToPostIcon from "@/assets/x-factor-logos/Post-To-Post.png";
-import backhandBeautyIcon from "@/assets/x-factor-logos/Backhand-Beauty.png";
-import unstoppableIcon from "@/assets/x-factor-logos/Unstoppable.png";
-import ankleBreakerIcon from "@/assets/x-factor-logos/Ankle-Breaker.png";
+import postToPostIcon from "@/assets/x-factor-logos/Post-To-Post-Elite.png";
+import backhandBeautyIcon from "@/assets/x-factor-logos/Backhand-Beauty-Elite.png";
+import unstoppableIcon from "@/assets/x-factor-logos/Unstoppable-Elite.png";
+import ankleBreakerIcon from "@/assets/x-factor-logos/Ankle-Breaker-Elite.png";
 
 // Maps an X-Factor ability name to its icon + description. Drop the image
 // in src/assets/x-factor-logos/, import it below, and add an entry — then
