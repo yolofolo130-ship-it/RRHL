@@ -171,6 +171,60 @@ export const seasonAccolades: SeasonAccolade[] = [
     accoladeName: "Jack Adams Trophy",
     playerName: "Vengeance",
   },
+  {
+    id: "s5-stanley-cup-mvp",
+    season: "Season 5",
+    accoladeName: "Stanley Cup MVP",
+    playerName: "MVP",
+  },
+  {
+    id: "s5-stanley-cup-losing-mvp",
+    season: "Season 5",
+    accoladeName: "Stanley Cup Losing MVP",
+    playerName: "Vengeance",
+  },
+  {
+    id: "s5-conn-smythe-trophy",
+    season: "Season 5",
+    accoladeName: "Conn Smythe Trophy",
+    playerName: "Sinny",
+  },
+  {
+    id: "s5-vezina-trophy",
+    season: "Season 5",
+    accoladeName: "Vezina Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s5-ted-lindsay-trophy",
+    season: "Season 5",
+    accoladeName: "Ted Lindsay Trophy",
+    playerName: "TGOD",
+  },
+  {
+    id: "s5-rrhl-foundation-trophy",
+    season: "Season 5",
+    accoladeName: "RRHL Foundation Trophy",
+    playerName: "Siah",
+  },
+  {
+    id: "s5-hart-memorial-trophy",
+    season: "Season 5",
+    accoladeName: "Hart Memorial Trophy",
+    playerName: "2Tone",
+  },
+  {
+    id: "s5-calder-trophy",
+    season: "Season 5",
+    accoladeName: "Calder Trophy",
+    playerName: "Twin",
+  },
+  {
+    id: "s5-jack-adams-trophy",
+    season: "Season 5",
+    accoladeName: "Jack Adams Trophy",
+    playerName: "TGOD",
+  },
 ];
 
 export const skaterHistoryFor = (playerName: string): SeasonSkaterStats[] =>
