@@ -215,7 +215,6 @@ export interface SkaterGameStatLine {
   goals: number;
   assists: number;
   points: number;
-  plusMinus: number;
   pim: number;
   ppg: number; // power-play goals
   shg: number; // shorthanded goals

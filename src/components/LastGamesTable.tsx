@@ -22,7 +22,6 @@ export default function LastGamesTable({ games }: { games: SkaterGameRow[] }) {
             <th className="px-3 py-3 text-center font-semibold">G</th>
             <th className="px-3 py-3 text-center font-semibold">A</th>
             <th className="px-3 py-3 text-center font-semibold">P</th>
-            <th className="px-3 py-3 text-center font-semibold">+/-</th>
             <th className="px-3 py-3 text-center font-semibold">PIM</th>
             <th className="px-3 py-3 text-center font-semibold">PPG</th>
             <th className="px-3 py-3 text-center font-semibold">SHG</th>
@@ -52,9 +51,6 @@ export default function LastGamesTable({ games }: { games: SkaterGameRow[] }) {
                 <td className="px-3 py-3 text-center text-ink-1">{game.goals}</td>
                 <td className="px-3 py-3 text-center text-ink-1">{game.assists}</td>
                 <td className="px-3 py-3 text-center font-semibold text-ink-0">{game.points}</td>
-                <td className="px-3 py-3 text-center text-ink-1">
-                  {game.plusMinus > 0 ? `+${game.plusMinus}` : game.plusMinus}
-                </td>
                 <td className="px-3 py-3 text-center text-ink-1">{game.pim}</td>
                 <td className="px-3 py-3 text-center text-ink-1">{game.ppg}</td>
                 <td className="px-3 py-3 text-center text-ink-1">{game.shg}</td>
