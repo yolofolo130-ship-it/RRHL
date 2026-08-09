@@ -5,12 +5,14 @@ import AdminSchedule from "@/admin/AdminSchedule";
 import AdminSkaterLogs from "@/admin/AdminSkaterLogs";
 import AdminGoalieLogs from "@/admin/AdminGoalieLogs";
 import AdminRosters from "@/admin/AdminRosters";
+import AdminAccolades from "@/admin/AdminAccolades";
 
 const TAB_OPTIONS = [
   { value: "schedule", label: "SCHEDULE" },
   { value: "skaters", label: "SKATER LOGS" },
   { value: "goalies", label: "GOALIE LOGS" },
   { value: "rosters", label: "ROSTERS" },
+  { value: "accolades", label: "ACCOLADES" },
 ];
 
 export default function Admin() {
@@ -123,6 +125,7 @@ export default function Admin() {
       {tab === "skaters" && <AdminSkaterLogs />}
       {tab === "goalies" && <AdminGoalieLogs />}
       {tab === "rosters" && <AdminRosters />}
+      {tab === "accolades" && <AdminAccolades />}
     </div>
   );
 }
