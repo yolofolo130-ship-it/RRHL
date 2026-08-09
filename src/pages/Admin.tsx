@@ -4,11 +4,13 @@ import { clearToken, getToken, setToken, verifyToken } from "@/admin/github";
 import AdminSchedule from "@/admin/AdminSchedule";
 import AdminSkaterLogs from "@/admin/AdminSkaterLogs";
 import AdminGoalieLogs from "@/admin/AdminGoalieLogs";
+import AdminRosters from "@/admin/AdminRosters";
 
 const TAB_OPTIONS = [
   { value: "schedule", label: "SCHEDULE" },
   { value: "skaters", label: "SKATER LOGS" },
   { value: "goalies", label: "GOALIE LOGS" },
+  { value: "rosters", label: "ROSTERS" },
 ];
 
 export default function Admin() {
@@ -120,6 +122,7 @@ export default function Admin() {
       {tab === "schedule" && <AdminSchedule />}
       {tab === "skaters" && <AdminSkaterLogs />}
       {tab === "goalies" && <AdminGoalieLogs />}
+      {tab === "rosters" && <AdminRosters />}
     </div>
   );
 }

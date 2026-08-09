@@ -110,6 +110,89 @@ export function findArrayRange(lines: string[], openMarker: string): { start: nu
   return { start, end };
 }
 
+// ---------- players.ts roster entries ----------
+//
+// Rosters have optional fields (overall/xFactor/star/flag) that may or may
+// not be present on a given line, plus a `headshot` field on some players
+// that's a bare identifier (an imported image), not a primitive — e.g.
+// `headshot: sinnyAvatar`. A full rebuild-from-known-fields approach (like
+// the schedule/game-log stringifiers above) would silently drop that
+// import. So roster edits go through `setLineField` instead: split the
+// line into its comma-separated `key: value` tokens, replace/insert/remove
+// only the one token being edited, and leave every other token — including
+// ones this admin panel doesn't understand — completely untouched.
+
+function splitTopLevelTokens(inner: string): string[] {
+  const tokens: string[] = [];
+  let current = "";
+  let inQuotes = false;
+  for (let i = 0; i < inner.length; i++) {
+    const c = inner[i];
+    if (c === '"' && inner[i - 1] !== "\\") inQuotes = !inQuotes;
+    if (!inQuotes && c === ",") {
+      tokens.push(current.trim());
+      current = "";
+      continue;
+    }
+    current += c;
+  }
+  if (current.trim()) tokens.push(current.trim());
+  return tokens;
+}
+
+function tokenKey(token: string): string {
+  return token.slice(0, token.indexOf(":")).trim();
+}
+
+// Splits a `  { ...inner... },` line into its prefix/inner/suffix so the
+// inner tokens can be edited and rejoined without disturbing indentation
+// or the trailing comma.
+function splitEntryLine(line: string): { prefix: string; inner: string; suffix: string } {
+  const openIdx = line.indexOf("{");
+  const closeIdx = line.lastIndexOf("}");
+  if (openIdx === -1 || closeIdx === -1) throw new Error(`Not an object-literal line: ${line}`);
+  return {
+    prefix: line.slice(0, openIdx + 1) + " ",
+    inner: line.slice(openIdx + 1, closeIdx).trim(),
+    suffix: " " + line.slice(closeIdx),
+  };
+}
+
+function formatValue(value: string | number | boolean): string {
+  if (typeof value === "string") return `"${value.replace(/"/g, '\\"')}"`;
+  return String(value);
+}
+
+// Sets (or clears, if `value` is undefined) a single field on an entry
+// line, preserving every other token verbatim. New fields are inserted
+// right before a trailing `headshot` token if present, otherwise appended
+// at the end.
+export function setLineField(
+  line: string,
+  key: string,
+  value: string | number | boolean | undefined,
+): string {
+  const { prefix, inner, suffix } = splitEntryLine(line);
+  const tokens = splitTopLevelTokens(inner);
+  const existingIndex = tokens.findIndex((t) => tokenKey(t) === key);
+
+  if (value === undefined) {
+    if (existingIndex === -1) return line;
+    tokens.splice(existingIndex, 1);
+    return prefix + tokens.join(", ") + suffix;
+  }
+
+  const newToken = `${key}: ${formatValue(value)}`;
+  if (existingIndex !== -1) {
+    tokens[existingIndex] = newToken;
+  } else {
+    const headshotIndex = tokens.findIndex((t) => tokenKey(t) === "headshot");
+    if (headshotIndex !== -1) tokens.splice(headshotIndex, 0, newToken);
+    else tokens.push(newToken);
+  }
+  return prefix + tokens.join(", ") + suffix;
+}
+
 // ---------- shared line-editing utilities ----------
 
 // Replaces the line at `index`, or if index is -1, inserts a brand new
