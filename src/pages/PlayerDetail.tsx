@@ -92,12 +92,35 @@ export default function PlayerDetail() {
           }}
           aria-hidden
         />
+        {team && player.headshot && (
+          <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
+            <img
+              src={team.logo}
+              alt=""
+              className="animate-logo-drift absolute -left-12 top-4 h-44 w-44 opacity-[0.07] lg:h-64 lg:w-64"
+            />
+            <img
+              src={team.logo}
+              alt=""
+              className="animate-logo-drift absolute right-[8%] top-20 h-28 w-28 opacity-[0.05] [animation-delay:-4s] lg:h-40 lg:w-40"
+            />
+            <img
+              src={team.logo}
+              alt=""
+              className="animate-logo-drift absolute left-1/3 -bottom-10 h-56 w-56 opacity-[0.06] [animation-delay:-8s] lg:h-80 lg:w-80"
+            />
+          </div>
+        )}
         <div className="relative mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-6 pb-10 pt-36 text-center lg:flex-row lg:items-end lg:gap-8 lg:px-10 lg:text-left">
           {player.headshot ? (
             <img
               src={player.headshot}
               alt={player.name}
-              className="h-44 w-44 shrink-0 rounded-2xl border border-line-strong object-cover shadow-xl shadow-black/50 lg:h-64 lg:w-64"
+              className="h-56 w-44 shrink-0 object-cover object-top lg:h-80 lg:w-64"
+              style={{
+                maskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+                WebkitMaskImage: "linear-gradient(to bottom, black 75%, transparent 100%)",
+              }}
             />
           ) : (
             team && <TeamLogo team={team} className="h-28 w-28 shrink-0 lg:h-36 lg:w-36" />
@@ -106,9 +129,8 @@ export default function PlayerDetail() {
             {team && (
               <Link
                 to={`/teams/${team.id}`}
-                className="flex items-center gap-2 text-xs font-semibold tracking-[0.3em] text-ink-2 hover:text-ink-0"
+                className="text-xs font-semibold tracking-[0.3em] text-ink-2 hover:text-ink-0"
               >
-                {player.headshot && <TeamLogo team={team} className="h-5 w-5" />}
                 {team.name.toUpperCase()}
               </Link>
             )}
