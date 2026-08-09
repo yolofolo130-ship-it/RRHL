@@ -1,3 +1,5 @@
+import carberHof from "@/assets/hall-of-fame/Carber-HOF.png";
+
 export interface HallOfFameEntry {
   id: string;
   playerName: string;
@@ -21,5 +23,6 @@ export const hallOfFame: HallOfFameEntry[] = [
     note: "Retired as a St. Louis Blue in Season 17.",
     accolades: "S6 Jack Adams Trophy Winner 🎧; S6 Vezina Trophy Winner 🥅; S8 Vezina Trophy Winner 🥅; S8 Stanley Cup Champion 🏆; S9 Vezina Trophy Winner 🥅; S9 Stanley Cup Champion 🏆; S10 Jack Adams Trophy Winner 🎧; S10 Stanley Cup Champion 🏆",
     teamId: "st-louis-blues",
+    headshot: carberHof,
   },
 ];
