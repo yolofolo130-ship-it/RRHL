@@ -19,21 +19,38 @@ export const recordBook: RecordCategory[] = [
   {
     id: "goals",
     name: "Goals",
-    records: [{ label: "Season" }, { label: "Game" }, { label: "Playoffs" }],
+    records: [
+      { label: "Season", holder: "Ricey", value: "54 goals (Season 9)" },
+      { label: "Game", holder: "Ricey", value: "34 goals (Season 9)" },
+      { label: "Playoffs", holder: "Sinny", value: "13 goals (Season 21)" },
+    ],
   },
   {
     id: "assists",
     name: "Assists",
-    records: [{ label: "Season" }, { label: "Game" }, { label: "Playoffs" }],
+    records: [
+      { label: "Season", holder: "Twizzy", value: "29 assists (Season 4)" },
+      { label: "Game", holder: "Renuu", value: "5 assists (Season 14)" },
+      { label: "Playoffs", holder: "Renuu", value: "5 assists (Season 14)" },
+    ],
   },
   {
     id: "points",
     name: "Points",
-    records: [{ label: "Season" }, { label: "Game" }, { label: "Playoffs" }],
+    records: [
+      { label: "Season", holder: "Ricey", value: "83 points (Season 9)" },
+      { label: "Game", holder: "Ricey", value: "56 points (Season 9)" },
+      { label: "Playoffs", holder: "Snickers", value: "15 points (Season 14)" },
+    ],
   },
   {
     id: "goalie",
     name: "Goalie",
-    records: [{ label: "Saves" }, { label: "SV%" }, { label: "Record" }, { label: "Shutouts" }],
+    records: [
+      { label: "Saves", holder: "TGOD", value: "81 saves (Season 20)" },
+      { label: "SV%", holder: "TGOD", value: ".992 SV% (Season 14)" },
+      { label: "Record", holder: "TGOD", value: "10-0-0 (Season 9)" },
+      { label: "Shutouts", holder: "TGOD", value: "7 shutouts (Season 5)" },
+    ],
   },
 ];

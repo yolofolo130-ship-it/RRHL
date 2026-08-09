@@ -487,7 +487,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s10-rrhl-foundation-trophy",
     season: "Season 10",
     accoladeName: "RRHL Foundation Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s10-james-norris-trophy",
@@ -535,7 +535,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s11-ted-lindsay-trophy",
     season: "Season 11",
     accoladeName: "Ted Lindsay Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s11-rrhl-foundation-trophy",
@@ -553,7 +553,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s11-hart-memorial-trophy",
     season: "Season 11",
     accoladeName: "Hart Memorial Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s11-calder-trophy",
@@ -763,7 +763,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s15-stanley-cup-mvp",
     season: "Season 15",
     accoladeName: "Stanley Cup MVP",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s15-stanley-cup-losing-mvp",
@@ -775,7 +775,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s15-conn-smythe-trophy",
     season: "Season 15",
     accoladeName: "Conn Smythe Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s15-vezina-trophy",
@@ -805,7 +805,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s15-hart-memorial-trophy",
     season: "Season 15",
     accoladeName: "Hart Memorial Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s15-maurice-rocket-richard-trophy",
@@ -871,13 +871,13 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s16-hart-memorial-trophy",
     season: "Season 16",
     accoladeName: "Hart Memorial Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s16-maurice-rocket-richard-trophy",
     season: "Season 16",
     accoladeName: "Maurice \"Rocket\" Richard Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s16-calder-trophy",
@@ -943,7 +943,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s17-maurice-rocket-richard-trophy",
     season: "Season 17",
     accoladeName: "Maurice \"Rocket\" Richard Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s17-jack-adams-trophy",
@@ -955,7 +955,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s18-stanley-cup-mvp",
     season: "Season 18",
     accoladeName: "Stanley Cup MVP",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s18-stanley-cup-losing-mvp",
@@ -1027,7 +1027,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s19-stanley-cup-losing-mvp",
     season: "Season 19",
     accoladeName: "Stanley Cup Losing MVP",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s19-conn-smythe-trophy",
@@ -1063,7 +1063,7 @@ export const seasonAccolades: SeasonAccolade[] = [
     id: "s19-hart-memorial-trophy",
     season: "Season 19",
     accoladeName: "Hart Memorial Trophy",
-    playerName: "Rennu",
+    playerName: "Renuu",
   },
   {
     id: "s19-maurice-rocket-richard-trophy",
