@@ -481,9 +481,9 @@ export function lastGamesFor(playerName: string, teamId: string, count = 5): Ska
 // `gameId` must match a game id in schedule.ts.
 export const goalieGameStatLines: GoalieGameStatLine[] = [
   // ---------- CAROLINA HURRICANES ----------
-  { playerName: "Wapw", gameId: "g04", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Wapw", gameId: "g08", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Wapw", gameId: "g12", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g04", gs: 1, dec: "OTL", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 9, goalsAgainst: 1, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
+  { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 42, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
   { playerName: "Fellow", gameId: "g02", gs: 1, dec: "W", shotsAgainst: 13, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
