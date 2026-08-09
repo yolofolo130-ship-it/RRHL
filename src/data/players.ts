@@ -38,8 +38,8 @@ export const skaters: Skater[] = [
 
   { id: "bos-1", name: "Kdog2020", teamId: "boston-bruins", position: "C", number: 12, gp: 3, goals: 7, assists: 3, pim: 0, overall: 87, flag: "USA" },
   { id: "bos-2", name: "Boolit", teamId: "boston-bruins", position: "RW", number: 27, gp: 0, goals: 0, assists: 0, pim: 0, overall: 89, star: "Truculence", flag: "USA" },
-  { id: "bos-3", name: "Bounty", teamId: "boston-bruins", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "bos-4", name: "KingPenguin", teamId: "boston-bruins", position: "D", number: 44, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "bos-3", name: "Bounty", teamId: "boston-bruins", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
+  { id: "bos-4", name: "KingPenguin", teamId: "boston-bruins", position: "D", number: 44, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "Quick Release", flag: "USA" },
   { id: "bos-5", name: "Huddawg", teamId: "boston-bruins", position: "C", number: 1, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "bos-6", name: "Jace", teamId: "boston-bruins", position: "RW", number: 7, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
   { id: "bos-7", name: "Funko", teamId: "boston-bruins", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
