@@ -64,11 +64,17 @@ export interface Goalie {
   teamId: string;
   number: number;
   gp: number;
+  gs: number; // games started
   wins: number;
   losses: number;
   otLosses: number;
   saves: number;
   goalsAgainst: number;
+  shutouts: number;
+  /** Goals/assists a goalie has personally scored — rare, but tracked. */
+  goals: number;
+  assists: number;
+  pim: number;
   /** NHL-video-game-style overall rating, 0-99. Omit until assigned. */
   overall?: number;
   /** X-Factor ability name, looked up in data/xfactors.ts for its icon. */

@@ -9,6 +9,7 @@ import {
   skaters,
   goalies,
   skaterPoints,
+  goaliePoints,
   goalieSavePct,
   goalieGaa,
   goalieShotsAgainst,
@@ -101,19 +102,26 @@ export default function Stats() {
           )}
 
           {tab === "goalies" && (
-            <table className="w-full min-w-[640px] border-collapse text-sm">
+            <table className="w-full min-w-[920px] border-collapse text-sm">
               <thead>
                 <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                   <th className="px-4 py-3 text-left font-semibold">#</th>
                   <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
                   <th className="px-3 py-3 text-left font-semibold">TEAM</th>
                   <th className="px-3 py-3 text-center font-semibold">GP</th>
+                  <th className="px-3 py-3 text-center font-semibold">GS</th>
                   <th className="px-3 py-3 text-center font-semibold">W</th>
                   <th className="px-3 py-3 text-center font-semibold">L</th>
-                  <th className="px-3 py-3 text-center font-semibold">SV</th>
+                  <th className="px-3 py-3 text-center font-semibold">SA</th>
+                  <th className="px-3 py-3 text-center font-semibold">SVS</th>
                   <th className="px-3 py-3 text-center font-semibold">GA</th>
                   <th className="px-3 py-3 text-center font-semibold">SV%</th>
-                  <th className="px-4 py-3 text-center font-semibold">GAA</th>
+                  <th className="px-3 py-3 text-center font-semibold">GAA</th>
+                  <th className="px-3 py-3 text-center font-semibold">SO</th>
+                  <th className="px-3 py-3 text-center font-semibold">G</th>
+                  <th className="px-3 py-3 text-center font-semibold">A</th>
+                  <th className="px-3 py-3 text-center font-semibold">P</th>
+                  <th className="px-4 py-3 text-center font-semibold">PIM</th>
                 </tr>
               </thead>
               <tbody>
@@ -139,16 +147,25 @@ export default function Stats() {
                         )}
                       </td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.gp}</td>
+                      <td className="px-3 py-3 text-center text-ink-1">{goalie.gs}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.wins}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.losses}</td>
+                      <td className="px-3 py-3 text-center text-ink-1">{goalieShotsAgainst(goalie)}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.saves}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.goalsAgainst}</td>
                       <td className="px-3 py-3 text-center font-semibold text-ink-0">
                         {goalieShotsAgainst(goalie) > 0 ? formatSavePct(goalieSavePct(goalie)) : "—"}
                       </td>
-                      <td className="px-4 py-3 text-center text-ink-1">
+                      <td className="px-3 py-3 text-center text-ink-1">
                         {goalie.gp > 0 ? goalieGaa(goalie).toFixed(2) : "—"}
                       </td>
+                      <td className="px-3 py-3 text-center text-ink-1">{goalie.shutouts}</td>
+                      <td className="px-3 py-3 text-center text-ink-1">{goalie.goals}</td>
+                      <td className="px-3 py-3 text-center text-ink-1">{goalie.assists}</td>
+                      <td className="px-3 py-3 text-center font-semibold text-ink-0">
+                        {goaliePoints(goalie)}
+                      </td>
+                      <td className="px-4 py-3 text-center text-ink-1">{goalie.pim}</td>
                     </tr>
                   );
                 })}
