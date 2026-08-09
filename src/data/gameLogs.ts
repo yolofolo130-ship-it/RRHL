@@ -508,9 +508,9 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Pechs", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   // ---------- BOSTON BRUINS ----------
-  { playerName: "Apx11o", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Apx11o", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Apx11o", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g05", gs: 0, dec: "OTL", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g07", gs: 1, dec: "L", shotsAgainst: 4, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g13", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   { playerName: "Sparkles", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Sparkles", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
