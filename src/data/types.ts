@@ -54,6 +54,8 @@ export interface Skater {
   star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
+  /** Headshot image, imported directly from src/assets/headshots/. */
+  headshot?: string;
 }
 
 export interface Goalie {
@@ -76,6 +78,8 @@ export interface Goalie {
   star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
+  /** Headshot image, imported directly from src/assets/headshots/. */
+  headshot?: string;
 }
 
 export type CoachRole = "Head Coach" | "Assistant Coach";
@@ -172,6 +176,8 @@ export interface FormerPlayer {
   star?: string;
   /** Country/flag name, looked up in data/flags.ts for its icon. */
   flag?: string;
+  /** Headshot image, imported directly from src/assets/headshots/. */
+  headshot?: string;
 }
 
 // Team-level honors won in past seasons (Stanley Cup champion, President's

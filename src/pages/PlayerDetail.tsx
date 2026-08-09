@@ -93,6 +93,13 @@ export default function PlayerDetail() {
           aria-hidden
         />
         <div className="relative mx-auto flex flex-col items-center gap-6 px-6 pb-10 pt-36 text-center lg:flex-row lg:items-end lg:gap-8 lg:px-10 lg:text-left">
+          {player.headshot && (
+            <img
+              src={player.headshot}
+              alt={player.name}
+              className="h-28 w-28 shrink-0 rounded-full border border-line-strong object-cover lg:h-36 lg:w-36"
+            />
+          )}
           {team && <TeamLogo team={team} className="h-28 w-28 shrink-0 lg:h-36 lg:w-36" />}
           <div className="flex flex-1 flex-col items-center gap-2 lg:items-start">
             {team && (
