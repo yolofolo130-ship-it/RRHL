@@ -7,11 +7,13 @@ import { accolades } from "@/data/accolades";
 import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { hallOfFame } from "@/data/hallOfFame";
+import { recordBook } from "@/data/recordBook";
 import { getPlayerSlugByName } from "@/data/players";
 
 const TAB_OPTIONS = [
-  { value: "record-book", label: "RECORD BOOK" },
+  { value: "award-history", label: "AWARD HISTORY" },
   { value: "hall-of-fame", label: "HALL OF FAME" },
+  { value: "record-book", label: "RECORD BOOK" },
 ];
 
 interface DisplayHonor {
@@ -53,7 +55,7 @@ function championHonorsForSeason(season: string) {
 }
 
 export default function History() {
-  const [tab, setTab] = useState("record-book");
+  const [tab, setTab] = useState("award-history");
 
   const seasons = Array.from(
     new Set([
@@ -70,7 +72,7 @@ export default function History() {
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} className="mb-10" />
 
-        {tab === "record-book" &&
+        {tab === "award-history" &&
           (seasons.length === 0 ? (
             <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
               No award history on record yet.
@@ -133,6 +135,19 @@ export default function History() {
                   />
                 );
               })}
+            </div>
+          ))}
+
+        {tab === "record-book" &&
+          (recordBook.length === 0 ? (
+            <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
+              No records on the books yet.
+            </p>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {recordBook.map((entry) => (
+                <TrophyCard key={entry.id} name={entry.record} subtitle={entry.holder} />
+              ))}
             </div>
           ))}
       </section>
