@@ -24,7 +24,7 @@ export const skaters: Skater[] = [
   { id: "pit-7", name: "LBeard0320", teamId: "pittsburgh-penguins", position: "D", number: 45, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-8", name: "cjcrosby898999", teamId: "pittsburgh-penguins", position: "D", number: 23, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "pit-9", name: "Arri", teamId: "pittsburgh-penguins", position: "RW", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "pit-10", name: "Carterthegawd", teamId: "pittsburgh-penguins", position: "D", number: 77, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "pit-10", name: "Carterthegawd", teamId: "pittsburgh-penguins", position: "D", number: 77, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
 
   { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 2, goals: 4, assists: 5, pim: 0, overall: 92, star: "Quick Release", flag: "USA" },
   { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 4, goals: 9, assists: 1, pim: 0, overall: 87, flag: "USA" },
@@ -40,7 +40,7 @@ export const skaters: Skater[] = [
   { id: "bos-2", name: "Boolit", teamId: "boston-bruins", position: "RW", number: 27, gp: 0, goals: 0, assists: 0, pim: 0, overall: 89, star: "Truculence", flag: "USA" },
   { id: "bos-3", name: "Bounty", teamId: "boston-bruins", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "bos-4", name: "KingPenguin", teamId: "boston-bruins", position: "D", number: 44, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "bos-5", name: "Huddawg", teamId: "boston-bruins", position: "C", number: 1, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "bos-5", name: "Huddawg", teamId: "boston-bruins", position: "C", number: 1, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "bos-6", name: "Jace", teamId: "boston-bruins", position: "RW", number: 7, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "bos-7", name: "Funko", teamId: "boston-bruins", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -66,7 +66,7 @@ export const skaters: Skater[] = [
   { id: "uta-11", name: "Mood", teamId: "utah-mammoths", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR" },
-  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0 },
+  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0, overall: 86, flag: "USA" },
   { id: "vgk-3", name: "Siah", teamId: "vegas-golden-knights", position: "C", number: 8, gp: 3, goals: 2, assists: 0, pim: 2, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico" },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "C", number: 16, gp: 3, goals: 0, assists: 0, pim: 0, overall: 87, flag: "Jamaica" },
   { id: "vgk-5", name: "Caleb", teamId: "vegas-golden-knights", position: "D", number: 9, gp: 3, goals: 1, assists: 3, pim: 0, overall: 88, star: "Truculence", flag: "USA" },
@@ -77,7 +77,7 @@ export const skaters: Skater[] = [
 
   { id: "stl-1", name: "Vengeance", teamId: "st-louis-blues", position: "C", number: 14, gp: 3, goals: 4, assists: 0, pim: 0, overall: 92, star: "Wheels", flag: "Canada" },
   { id: "stl-2", name: "Augy", teamId: "st-louis-blues", position: "RW", number: 21, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "stl-3", name: "EvanTheGuy", teamId: "st-louis-blues", position: "LW", number: 4, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "stl-3", name: "EvanTheGuy", teamId: "st-louis-blues", position: "LW", number: 4, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "stl-4", name: "Fire", teamId: "st-louis-blues", position: "C", number: 7, gp: 0, goals: 0, assists: 0, pim: 0, overall: 93, star: "Quick Release", flag: "USA" },
   { id: "stl-5", name: "Tidy", teamId: "st-louis-blues", position: "LW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "stl-6", name: "TDLMarcus", teamId: "st-louis-blues", position: "D", number: 56, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -109,7 +109,7 @@ export const skaters: Skater[] = [
 export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 3, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5, overall: 86, flag: "Ukraine" },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 4 , wins: 2, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5, overall: 87, flag: "Mexico" },
-  { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0 },
+  { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0 , wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0, overall: 86, flag: "Mexico" },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1 },
   { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 29, gp: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6 },
@@ -117,7 +117,7 @@ export const goalies: Goalie[] = [
   { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 1, gp: 4, wins: 3, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8, overall: 89, star: "Dialed In", flag: "USA" },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 2, wins: 3, losses: 0, otLosses: 0, saves: 33, goalsAgainst: 3, overall: 83, flag: "USA" },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 3, wins: 3, losses: 0, otLosses: 0, saves: 51, goalsAgainst: 1, overall: 98, xFactor: "Post to Post", flag: "USA" },
-  { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, wins: 3, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0 },
+  { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, wins: 3, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, overall: 86, flag: "USA" },
   { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, wins: 1, losses: 3, otLosses: 0, saves: 6, goalsAgainst: 13 },
   { id: "lak-g1", name: "Riptide", teamId: "los-angeles-kings", number: 32, gp: 1, wins: 1, losses: 2, otLosses: 0, saves: 1, goalsAgainst: 5 },
   { id: "lak-g2", name: "TheHolyHippo", teamId: "los-angeles-kings", number: 22, gp: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, overall: 90, star: "Warrior", flag: "USA" },
