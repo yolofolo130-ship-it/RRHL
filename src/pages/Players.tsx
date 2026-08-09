@@ -91,7 +91,9 @@ export default function Players() {
                       </p>
                       <p className="truncate text-xs text-ink-2">Former player</p>
                     </div>
-                    <OverallBadge overall={player.overall ?? 70} className="ml-auto" />
+                    {player.overall !== undefined && (
+                      <OverallBadge overall={player.overall} className="ml-auto" />
+                    )}
                   </Link>
                 ))}
               </div>
