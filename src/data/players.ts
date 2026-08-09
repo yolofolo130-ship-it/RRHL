@@ -2,6 +2,8 @@ import type { Coach, FormerPlayer, Goalie, Skater } from "./types";
 import { getFormerPlayerByName, getFormerPlayerBySlug } from "./formerPlayers";
 import { slugify } from "@/utils/format";
 
+import sinnyAvatar from "@/assets/players-avatars/Sinny-Avatar.png";
+
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
 // goals/assists/saves here is enough to keep every table in sync.
@@ -65,7 +67,7 @@ export const skaters: Skater[] = [
   { id: "uta-10", name: "Baseball3122", teamId: "utah-mammoths", position: "LW", number: 24, gp: 2, goals: 0, assists: 0, pim: 0 },
   { id: "uta-11", name: "Mood", teamId: "utah-mammoths", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
 
-  { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR" },
+  { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR", headshot: sinnyAvatar },
   { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0, overall: 86, flag: "USA" },
   { id: "vgk-3", name: "Siah", teamId: "vegas-golden-knights", position: "C", number: 8, gp: 3, goals: 2, assists: 0, pim: 2, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico" },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "C", number: 16, gp: 3, goals: 0, assists: 0, pim: 0, overall: 87, flag: "Jamaica" },
