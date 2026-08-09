@@ -15,6 +15,7 @@ import {
   skaterPoints,
   goalieSavePct,
   goalieGaa,
+  goalieShotsAgainst,
   goalsRankFor,
   assistsRankFor,
   pointsRankFor,
@@ -261,13 +262,15 @@ export default function PlayerDetail() {
               ))}
               <div className="border border-line bg-bg-2 p-5 text-center">
                 <p className="font-display text-3xl font-semibold text-ink-0">
-                  {(goalieSavePct(player) * 100).toFixed(1)}%
+                  {goalieShotsAgainst(player) > 0
+                    ? `${(goalieSavePct(player) * 100).toFixed(1)}%`
+                    : "—"}
                 </p>
                 <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-ink-3">SV%</p>
               </div>
               <div className="border border-line bg-bg-2 p-5 text-center">
                 <p className="font-display text-3xl font-semibold text-ink-0">
-                  {goalieGaa(player).toFixed(2)}
+                  {player.gp > 0 ? goalieGaa(player).toFixed(2) : "—"}
                 </p>
                 <p className="mt-1 text-[10px] font-semibold tracking-[0.2em] text-ink-3">GAA</p>
               </div>

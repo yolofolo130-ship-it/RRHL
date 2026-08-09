@@ -11,6 +11,7 @@ import {
   skaterPoints,
   goalieSavePct,
   goalieGaa,
+  goalieShotsAgainst,
   isQualifiedGoalie,
   playerSlug,
 } from "@/data/players";
@@ -142,10 +143,12 @@ export default function Stats() {
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.saves}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.goalsAgainst}</td>
                       <td className="px-3 py-3 text-center font-semibold text-ink-0">
-                        {(goalieSavePct(goalie) * 100).toFixed(1)}%
+                        {goalieShotsAgainst(goalie) > 0
+                          ? `${(goalieSavePct(goalie) * 100).toFixed(1)}%`
+                          : "—"}
                       </td>
                       <td className="px-4 py-3 text-center text-ink-1">
-                        {goalieGaa(goalie).toFixed(2)}
+                        {goalie.gp > 0 ? goalieGaa(goalie).toFixed(2) : "—"}
                       </td>
                     </tr>
                   );
