@@ -1,6 +1,8 @@
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import type { HallOfFameEntry } from "@/data/hallOfFame";
 import { getTeamById } from "@/data/teams";
+import { getPlayerSlugByName } from "@/data/players";
 
 interface HallOfFameModalProps {
   entry: HallOfFameEntry;
@@ -34,6 +36,7 @@ export default function HallOfFameModal({ entry, onClose }: HallOfFameModalProps
 
   const team = entry.teamId ? getTeamById(entry.teamId) : undefined;
   const accent = team?.color ?? "#fbbf24";
+  const playerSlug = getPlayerSlugByName(entry.playerName);
 
   return (
     <div
@@ -59,7 +62,7 @@ export default function HallOfFameModal({ entry, onClose }: HallOfFameModalProps
                 key={i}
                 src={team.logo}
                 alt=""
-                className="animate-logo-fall absolute -top-1/4"
+                className="animate-logo-fall absolute top-0"
                 style={
                   {
                     left: `${slot.left}%`,
@@ -131,6 +134,16 @@ export default function HallOfFameModal({ entry, onClose }: HallOfFameModalProps
                 </li>
               ))}
             </ul>
+          )}
+          {playerSlug && (
+            <Link
+              to={`/players/${playerSlug}`}
+              onClick={onClose}
+              className="mt-2 inline-flex items-center gap-1.5 border border-[var(--accent)]/40 px-4 py-2 text-xs font-semibold tracking-[0.15em] text-[var(--accent)] transition-colors hover:bg-[var(--accent)]/10"
+            >
+              VIEW PLAYER PROFILE
+              <span aria-hidden>→</span>
+            </Link>
           )}
         </div>
       </div>
