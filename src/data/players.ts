@@ -11,10 +11,9 @@ export const skaters: Skater[] = [
   { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "PR" },
   { id: "car-4", name: "Fishbowl", teamId: "carolina-hurricanes", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0, overall: 83, flag: "Canada" },
   { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
-  { id: "car-6", name: "Mood", teamId: "carolina-hurricanes", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "car-7", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0, overall: 88, star: "Quick Release", flag: "USA" },
-  { id: "car-8", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "car-9", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "car-6", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0, overall: 88, star: "Quick Release", flag: "USA" },
+  { id: "car-7", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0 },
+  { id: "car-8", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 9, gp: 4, goals: 10, assists: 7, pim: 0, overall: 97, xFactor: "Backhand Beauty", flag: "USA" },
   { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 0, goals: 0, assists: 0, pim: 0 },
@@ -64,6 +63,7 @@ export const skaters: Skater[] = [
   { id: "uta-8", name: "Twin", teamId: "utah-mammoths", position: "C", number: 67, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "uta-9", name: "Zac", teamId: "utah-mammoths", position: "C", number: 27, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "uta-10", name: "Baseball3122", teamId: "utah-mammoths", position: "LW", number: 24, gp: 2, goals: 0, assists: 0, pim: 0 },
+  { id: "uta-11", name: "Mood", teamId: "utah-mammoths", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR" },
   { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0 },
