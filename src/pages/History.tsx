@@ -5,6 +5,7 @@ import TrophyCard from "@/components/TrophyCard";
 import ChampionCard from "@/components/ChampionCard";
 import RecordCategoryCard from "@/components/RecordCategoryCard";
 import HallOfFameModal from "@/components/HallOfFameModal";
+import HallOfFameCard from "@/components/HallOfFameCard";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
@@ -128,10 +129,9 @@ export default function History() {
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
               {hallOfFame.map((entry) => (
-                <TrophyCard
+                <HallOfFameCard
                   key={entry.id}
-                  name={entry.playerName}
-                  subtitle={entry.note ?? "Hall of Fame"}
+                  entry={entry}
                   onClick={() => setSelectedInductee(entry)}
                 />
               ))}
