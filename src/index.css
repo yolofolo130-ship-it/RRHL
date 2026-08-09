@@ -27,6 +27,7 @@
   --animate-diamond-shimmer: diamond-shimmer 1.4s ease-in-out infinite;
   --animate-logo-drift: logo-drift 12s ease-in-out infinite;
   --animate-logo-fall: logo-fall 7s linear infinite;
+  --animate-logo-float: logo-float 50s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -127,6 +128,26 @@
     100% {
       transform: translateY(560px) rotate(var(--fall-rot, 20deg));
       opacity: 0;
+    }
+  }
+  @keyframes logo-float {
+    0% {
+      transform: translate(0, 0) rotate(0deg);
+    }
+    20% {
+      transform: translate(18vw, 10vh) rotate(8deg);
+    }
+    40% {
+      transform: translate(8vw, 32vh) rotate(-6deg);
+    }
+    60% {
+      transform: translate(-16vw, 20vh) rotate(10deg);
+    }
+    80% {
+      transform: translate(-10vw, -10vh) rotate(-8deg);
+    }
+    100% {
+      transform: translate(0, 0) rotate(0deg);
     }
   }
 }

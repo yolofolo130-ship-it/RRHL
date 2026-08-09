@@ -8,8 +8,21 @@ const formatTime = (seconds: number): string => {
   return `${mins}:${secs.toString().padStart(2, "0")}`;
 };
 
+// Fisher-Yates — re-run once per page load (see the lazy useState below),
+// so the play order is freshly shuffled on every visit/refresh but stable
+// while you're browsing.
+function shuffle<T>(items: T[]): T[] {
+  const shuffled = [...items];
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+  }
+  return shuffled;
+}
+
 export default function MusicPlayer() {
   const audioRef = useRef<HTMLAudioElement>(null);
+  const [playOrder] = useState(() => shuffle(tracks));
   const [trackIndex, setTrackIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentTime, setCurrentTime] = useState(0);
@@ -17,7 +30,7 @@ export default function MusicPlayer() {
   const [volume, setVolume] = useState(0.8);
   const [playlistOpen, setPlaylistOpen] = useState(false);
 
-  const track = tracks[trackIndex];
+  const track = playOrder[trackIndex];
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -35,7 +48,7 @@ export default function MusicPlayer() {
   }, [volume]);
 
   const goTo = (index: number) => {
-    setTrackIndex((index + tracks.length) % tracks.length);
+    setTrackIndex((index + playOrder.length) % playOrder.length);
     setIsPlaying(true);
   };
 
@@ -67,7 +80,7 @@ export default function MusicPlayer() {
       {playlistOpen && (
         <div className="max-h-64 overflow-y-auto border-b border-line bg-bg-1">
           <ul className="mx-auto px-6 py-2 lg:px-10">
-            {tracks.map((t, i) => (
+            {playOrder.map((t, i) => (
               <li key={t.id}>
                 <button
                   type="button"

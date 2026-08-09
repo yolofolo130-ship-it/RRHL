@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route, Outlet } from "react-router-dom";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
+import FloatingLogo from "@/components/FloatingLogo";
 import PageTransition from "@/components/PageTransition";
 import Home from "@/pages/Home";
 import Standings from "@/pages/Standings";
@@ -20,6 +21,7 @@ import NotFound from "@/pages/NotFound";
 function Layout() {
   return (
     <>
+      <FloatingLogo />
       <Navbar />
       <main className="flex-1 pb-24 sm:pb-20">
         <PageTransition>
