@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
 import { findArrayRange, isEntryLine, parseLineKV, stringifyGameLine, type GameFields } from "@/admin/lines";
-import { getTeamById } from "@/data/teams";
+import { teams } from "@/data/teams";
 
 const PATH = "src/data/schedule.ts";
+const OPEN_MARKER = "export const games";
 const STATUS_OPTIONS = ["upcoming", "live", "final", "postponed"];
 
 interface Row extends GameFields {
@@ -15,17 +16,18 @@ export default function AdminSchedule() {
   const [lines, setLines] = useState<string[] | null>(null);
   const [rows, setRows] = useState<Row[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [savingId, setSavingId] = useState<string | null>(null);
-  const [savedId, setSavedId] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
 
   const load = () => {
     setLoading(true);
-    setError(null);
+    setLoadError(null);
     getFile(PATH)
       .then(({ content, sha }) => {
         const ls = content.split("\n");
-        const { start, end } = findArrayRange(ls, "export const games");
+        const { start, end } = findArrayRange(ls, OPEN_MARKER);
         const parsed: Row[] = [];
         for (let i = start + 1; i < end; i++) {
           if (!isEntryLine(ls[i])) continue;
@@ -48,7 +50,7 @@ export default function AdminSchedule() {
         setSha(sha);
         setRows(parsed);
       })
-      .catch((e) => setError(String(e.message ?? e)))
+      .catch((e) => setLoadError(String(e.message ?? e)))
       .finally(() => setLoading(false));
   };
 
@@ -58,112 +60,159 @@ export default function AdminSchedule() {
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   };
 
-  const save = async (row: Row) => {
-    if (!lines || !sha) return;
-    setSavingId(row.id);
-    setError(null);
+  const saveAll = async () => {
+    if (!lines || !sha || rows.length === 0) return;
+    setSaving(true);
+    setSaveError(null);
     try {
-      const newLine = stringifyGameLine(row);
       const nextLines = [...lines];
-      nextLines[row.lineIndex] = newLine;
-      const newSha = await commitFile(PATH, nextLines.join("\n"), sha, `Update ${row.id} final score`);
+      for (const row of rows) {
+        nextLines[row.lineIndex] = stringifyGameLine(row);
+      }
+      const newSha = await commitFile(PATH, nextLines.join("\n"), sha, "Update schedule");
       setLines(nextLines);
       setSha(newSha);
-      setSavedId(row.id);
-      setTimeout(() => setSavedId((id) => (id === row.id ? null : id)), 2000);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
     } catch (e: any) {
-      setError(String(e.message ?? e));
+      setSaveError(String(e.message ?? e));
     } finally {
-      setSavingId(null);
+      setSaving(false);
     }
   };
 
   if (loading) return <p className="text-sm text-ink-2">Loading schedule…</p>;
-  if (error) return <p className="text-sm text-red-400">{error}</p>;
+  if (loadError) return <p className="text-sm text-red-400">{loadError}</p>;
 
   return (
-    <div className="overflow-x-auto border border-line bg-bg-2">
-      <table className="w-full min-w-[900px] border-collapse text-sm">
-        <thead>
-          <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
-            <th className="px-4 py-3 text-left font-semibold">DATE</th>
-            <th className="px-3 py-3 text-left font-semibold">MATCHUP</th>
-            <th className="px-3 py-3 text-center font-semibold">HOME</th>
-            <th className="px-3 py-3 text-center font-semibold">AWAY</th>
-            <th className="px-3 py-3 text-center font-semibold">OT</th>
-            <th className="px-3 py-3 text-center font-semibold">STATUS</th>
-            <th className="px-4 py-3 text-center font-semibold"></th>
-          </tr>
-        </thead>
-        <tbody>
-          {rows.map((row) => {
-            const home = getTeamById(row.homeTeamId);
-            const away = getTeamById(row.awayTeamId);
-            return (
-              <tr key={row.id} className="border-b border-line/60 last:border-b-0">
-                <td className="px-4 py-3 text-ink-2">{row.date}</td>
-                <td className="px-3 py-3 text-ink-1">
-                  {away?.abbr ?? row.awayTeamId} @ {home?.abbr ?? row.homeTeamId}
-                </td>
-                <td className="px-3 py-3 text-center">
-                  <input
-                    type="number"
-                    value={row.homeScore ?? ""}
-                    onChange={(e) =>
-                      updateRow(row.id, {
-                        homeScore: e.target.value === "" ? undefined : Number(e.target.value),
-                      })
-                    }
-                    className="w-16 border border-line bg-bg-1 px-2 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
-                  />
-                </td>
-                <td className="px-3 py-3 text-center">
-                  <input
-                    type="number"
-                    value={row.awayScore ?? ""}
-                    onChange={(e) =>
-                      updateRow(row.id, {
-                        awayScore: e.target.value === "" ? undefined : Number(e.target.value),
-                      })
-                    }
-                    className="w-16 border border-line bg-bg-1 px-2 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
-                  />
-                </td>
-                <td className="px-3 py-3 text-center">
-                  <input
-                    type="checkbox"
-                    checked={row.overtime ?? false}
-                    onChange={(e) => updateRow(row.id, { overtime: e.target.checked })}
-                  />
-                </td>
-                <td className="px-3 py-3 text-center">
-                  <select
-                    value={row.status}
-                    onChange={(e) => updateRow(row.id, { status: e.target.value })}
-                    className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                  >
-                    {STATUS_OPTIONS.map((s) => (
-                      <option key={s} value={s}>
-                        {s}
-                      </option>
-                    ))}
-                  </select>
-                </td>
-                <td className="px-4 py-3 text-center">
-                  <button
-                    type="button"
-                    onClick={() => save(row)}
-                    disabled={savingId === row.id}
-                    className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
-                  >
-                    {savingId === row.id ? "…" : savedId === row.id ? "SAVED" : "SAVE"}
-                  </button>
-                </td>
-              </tr>
-            );
-          })}
-        </tbody>
-      </table>
+    <div>
+      <div className="overflow-x-auto border border-line bg-bg-2">
+        <table className="w-full min-w-[1100px] border-collapse text-sm">
+          <thead>
+            <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
+              <th className="px-3 py-3 text-left font-semibold">DATE</th>
+              <th className="px-3 py-3 text-left font-semibold">TIME</th>
+              <th className="px-3 py-3 text-left font-semibold">AWAY</th>
+              <th className="px-3 py-3 text-left font-semibold">HOME</th>
+              <th className="px-2 py-3 text-center font-semibold">A SCORE</th>
+              <th className="px-2 py-3 text-center font-semibold">H SCORE</th>
+              <th className="px-2 py-3 text-center font-semibold">OT</th>
+              <th className="px-3 py-3 text-center font-semibold">STATUS</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.map((row) => {
+              const sameTeams = row.homeTeamId === row.awayTeamId;
+              return (
+                <tr key={row.id} className="border-b border-line/60 last:border-b-0">
+                  <td className="px-3 py-3">
+                    <input
+                      type="date"
+                      value={row.date}
+                      onChange={(e) => updateRow(row.id, { date: e.target.value })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    />
+                  </td>
+                  <td className="px-3 py-3">
+                    <input
+                      type="text"
+                      value={row.time}
+                      onChange={(e) => updateRow(row.id, { time: e.target.value })}
+                      placeholder="8:10 PM"
+                      className="w-24 border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    />
+                  </td>
+                  <td className="px-3 py-3">
+                    <select
+                      value={row.awayTeamId}
+                      onChange={(e) => updateRow(row.id, { awayTeamId: e.target.value })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      {teams.map((t) => (
+                        <option key={t.id} value={t.id}>
+                          {t.abbr}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td className="px-3 py-3">
+                    <select
+                      value={row.homeTeamId}
+                      onChange={(e) => updateRow(row.id, { homeTeamId: e.target.value })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      {teams.map((t) => (
+                        <option key={t.id} value={t.id}>
+                          {t.abbr}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td className="px-2 py-3 text-center">
+                    <input
+                      type="number"
+                      value={row.awayScore ?? ""}
+                      onChange={(e) =>
+                        updateRow(row.id, {
+                          awayScore: e.target.value === "" ? undefined : Number(e.target.value),
+                        })
+                      }
+                      className="w-14 border border-line bg-bg-1 px-2 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
+                    />
+                  </td>
+                  <td className="px-2 py-3 text-center">
+                    <input
+                      type="number"
+                      value={row.homeScore ?? ""}
+                      onChange={(e) =>
+                        updateRow(row.id, {
+                          homeScore: e.target.value === "" ? undefined : Number(e.target.value),
+                        })
+                      }
+                      className="w-14 border border-line bg-bg-1 px-2 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
+                    />
+                  </td>
+                  <td className="px-2 py-3 text-center">
+                    <input
+                      type="checkbox"
+                      checked={row.overtime ?? false}
+                      onChange={(e) => updateRow(row.id, { overtime: e.target.checked })}
+                    />
+                  </td>
+                  <td className="px-3 py-3 text-center">
+                    <select
+                      value={row.status}
+                      onChange={(e) => updateRow(row.id, { status: e.target.value })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      {STATUS_OPTIONS.map((s) => (
+                        <option key={s} value={s}>
+                          {s}
+                        </option>
+                      ))}
+                    </select>
+                    {sameTeams && <p className="mt-1 text-[10px] text-red-400">same team twice</p>}
+                  </td>
+                </tr>
+              );
+            })}
+          </tbody>
+        </table>
+      </div>
+
+      {rows.length > 0 && (
+        <div className="mt-4 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={saveAll}
+            disabled={saving || rows.some((r) => r.homeTeamId === r.awayTeamId)}
+            className="border border-line-strong bg-white px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE ALL"}
+          </button>
+          {saveError && <p className="text-xs text-red-400">{saveError}</p>}
+        </div>
+      )}
     </div>
   );
 }
