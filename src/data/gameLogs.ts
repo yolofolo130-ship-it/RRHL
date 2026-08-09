@@ -486,10 +486,10 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Wapw", gameId: "g12", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
-  { playerName: "Fellow", gameId: "g02", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Fellow", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Fellow", gameId: "g12", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Fellow", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g02", gs: 1, dec: "W", shotsAgainst: 13, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g07", gs: 1, dec: "W", shotsAgainst: 7, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g12", gs: 1, dec: "OTL", shotsAgainst: 8, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g17", gs: 1, dec: "W", shotsAgainst: 16, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   { playerName: "ElMosquito", gameId: "g02", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "ElMosquito", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
