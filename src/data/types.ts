@@ -204,3 +204,22 @@ export interface FormerTeam {
   logo?: string;
   color?: string;
 }
+
+// A single skater's box score from one game, shown as "Last 5 Games" on
+// their player page. Goalies aren't tracked here. Points aren't stored —
+// always goals + assists, computed at render time like everywhere else.
+export interface SkaterGameLog {
+  id: string;
+  playerName: string;
+  date: string; // "YYYY-MM-DD"
+  opponentTeamId: string;
+  home: boolean; // true -> "vs OPP", false -> "@ OPP"
+  goals: number;
+  assists: number;
+  plusMinus: number;
+  pim: number;
+  ppg: number; // power-play goals
+  shg: number; // shorthanded goals
+  shots: number;
+  shifts: number;
+}

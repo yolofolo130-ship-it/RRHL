@@ -9,6 +9,7 @@ import FlagBadge from "@/components/FlagBadge";
 import StarBadge from "@/components/StarBadge";
 import StarLogo from "@/components/StarLogo";
 import LeaderBadge from "@/components/LeaderBadge";
+import LastGamesTable from "@/components/LastGamesTable";
 import { getTeamById } from "@/data/teams";
 import {
   getPlayerBySlug,
@@ -25,6 +26,7 @@ import {
 } from "@/data/players";
 import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } from "@/data/playerHistory";
 import { championshipSeasonsFor } from "@/data/championshipRosters";
+import { lastGamesFor } from "@/data/gameLogs";
 import { formatSavePct } from "@/utils/format";
 import { accolades } from "@/data/accolades";
 
@@ -276,6 +278,15 @@ export default function PlayerDetail() {
             </>
           )}
         </div>
+
+        {player.kind === "skater" && (
+          <>
+            <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">
+              LAST 5 GAMES
+            </p>
+            <LastGamesTable games={lastGamesFor(player.name)} />
+          </>
+        )}
           </>
         )}
 
