@@ -22,7 +22,7 @@ import {
   topBySavePct,
   topByGaa,
 } from "@/data/players";
-import { formatLongDate } from "@/utils/format";
+import { formatLongDate, formatSavePct } from "@/utils/format";
 
 const upcomingGames = games
   .filter((g) => g.status === "upcoming" || g.status === "live")
@@ -137,7 +137,7 @@ export default function Home() {
               id: g.id,
               teamId: g.teamId,
               name: g.name,
-              value: `${(goalieSavePct(g) * 100).toFixed(1)}%`,
+              value: formatSavePct(goalieSavePct(g)),
             }))}
           />
           <LeaderCard

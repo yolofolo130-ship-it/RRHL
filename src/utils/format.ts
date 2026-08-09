@@ -46,6 +46,9 @@ export const slugify = (value: string): string =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
+// NHL-style save percentage: 0.912 -> ".912" (three decimals, no leading 0).
+export const formatSavePct = (pct: number): string => pct.toFixed(3).replace(/^0/, "");
+
 export const isSameDate = (iso: string, date: Date): boolean => {
   const parsed = parseIsoDate(iso);
   return (

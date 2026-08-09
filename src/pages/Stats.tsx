@@ -16,6 +16,7 @@ import {
   playerSlug,
 } from "@/data/players";
 import { computeStandings, sortStandings } from "@/utils/standings";
+import { formatSavePct } from "@/utils/format";
 
 const TAB_OPTIONS = [
   { value: "skaters", label: "SKATERS" },
@@ -143,9 +144,7 @@ export default function Stats() {
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.saves}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{goalie.goalsAgainst}</td>
                       <td className="px-3 py-3 text-center font-semibold text-ink-0">
-                        {goalieShotsAgainst(goalie) > 0
-                          ? `${(goalieSavePct(goalie) * 100).toFixed(1)}%`
-                          : "—"}
+                        {goalieShotsAgainst(goalie) > 0 ? formatSavePct(goalieSavePct(goalie)) : "—"}
                       </td>
                       <td className="px-4 py-3 text-center text-ink-1">
                         {goalie.gp > 0 ? goalieGaa(goalie).toFixed(2) : "—"}

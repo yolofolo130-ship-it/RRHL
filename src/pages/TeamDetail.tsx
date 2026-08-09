@@ -14,11 +14,12 @@ import {
   skaterPoints,
   goalieSavePct,
   goalieGaa,
+  goalieShotsAgainst,
   playerSlug,
 } from "@/data/players";
 import { honorsForTeam, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { standingsForConference, isPlayoffPosition } from "@/utils/standings";
-import { formatLongDate } from "@/utils/format";
+import { formatLongDate, formatSavePct } from "@/utils/format";
 
 const TAB_OPTIONS = [
   { value: "overview", label: "OVERVIEW" },
@@ -217,7 +218,7 @@ export default function TeamDetail() {
                         {goalie.wins}-{goalie.losses}-{goalie.otLosses}
                       </td>
                       <td className="px-4 py-3 text-center font-semibold text-ink-0">
-                        {(goalieSavePct(goalie) * 100).toFixed(1)}%
+                        {goalieShotsAgainst(goalie) > 0 ? formatSavePct(goalieSavePct(goalie)) : "—"}
                       </td>
                     </tr>
                   ))}
