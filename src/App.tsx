@@ -14,6 +14,7 @@ import PlayerDetail from "@/pages/PlayerDetail";
 import Staff from "@/pages/Staff";
 import Accolades from "@/pages/Accolades";
 import History from "@/pages/History";
+import Admin from "@/pages/Admin";
 import NotFound from "@/pages/NotFound";
 
 function Layout() {
@@ -35,6 +36,7 @@ export default function App() {
   return (
     <BrowserRouter basename={import.meta.env.BASE_URL}>
       <Routes>
+        <Route path="/admin" element={<Admin />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/standings" element={<Standings />} />
