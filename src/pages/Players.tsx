@@ -39,8 +39,8 @@ export default function Players() {
                         {player.number}
                       </div>
                       <div className="min-w-0">
-                        <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
-                          {player.name}
+                        <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                          <span className="min-w-0 truncate">{player.name}</span>
                           <ChampionBadge seasons={championshipSeasonsFor(player.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
@@ -62,8 +62,8 @@ export default function Players() {
                         {goalie.number}
                       </div>
                       <div className="min-w-0">
-                        <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
-                          {goalie.name}
+                        <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                          <span className="min-w-0 truncate">{goalie.name}</span>
                           <ChampionBadge seasons={championshipSeasonsFor(goalie.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
@@ -95,8 +95,8 @@ export default function Players() {
                     className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                   >
                     <div className="min-w-0">
-                      <p className="flex items-center gap-1.5 truncate font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
-                        {player.name}
+                      <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
+                        <span className="min-w-0 truncate">{player.name}</span>
                         <ChampionBadge seasons={championshipSeasonsFor(player.name)} />
                       </p>
                       <p className="truncate text-xs text-ink-2">Former player</p>
