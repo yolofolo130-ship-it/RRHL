@@ -269,6 +269,7 @@ interface HofRow {
   playerName: string;
   note: string;
   accolades: string;
+  teamId: string;
 }
 
 function HallOfFameSection() {
@@ -282,6 +283,7 @@ function HallOfFameSection() {
   const [newPlayer, setNewPlayer] = useState("");
   const [newNote, setNewNote] = useState("");
   const [newAccolades, setNewAccolades] = useState("");
+  const [newTeamId, setNewTeamId] = useState("");
   const [adding, setAdding] = useState(false);
 
   const load = () => {
@@ -300,6 +302,7 @@ function HallOfFameSection() {
             playerName: kv.playerName as string,
             note: (kv.note as string | undefined) ?? "",
             accolades: (kv.accolades as string | undefined) ?? "",
+            teamId: (kv.teamId as string | undefined) ?? "",
           });
         }
         setLines(normalized);
@@ -323,6 +326,7 @@ function HallOfFameSection() {
     try {
       let newLine = setLineField(lines[row.lineIndex], "note", row.note || undefined);
       newLine = setLineField(newLine, "accolades", row.accolades || undefined);
+      newLine = setLineField(newLine, "teamId", row.teamId || undefined);
       const nextLines = [...lines];
       nextLines[row.lineIndex] = newLine;
       const newSha = await commitFile(
@@ -351,6 +355,7 @@ function HallOfFameSection() {
       const parts = [`id: "${id}"`, `playerName: "${newPlayer.trim()}"`];
       if (newNote.trim()) parts.push(`note: "${newNote.trim()}"`);
       if (newAccolades.trim()) parts.push(`accolades: "${newAccolades.trim()}"`);
+      if (newTeamId) parts.push(`teamId: "${newTeamId}"`);
       const newLine = `  { ${parts.join(", ")} },`;
       const { end } = findArrayRange(lines, HALL_OF_FAME_MARKER);
       const nextLines = [...lines];
@@ -366,6 +371,7 @@ function HallOfFameSection() {
       setNewPlayer("");
       setNewNote("");
       setNewAccolades("");
+      setNewTeamId("");
       load();
     } catch (e: any) {
       setError(String(e.message ?? e));
@@ -385,6 +391,7 @@ function HallOfFameSection() {
             <thead>
               <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                 <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
+                <th className="px-3 py-3 text-left font-semibold">TEAM</th>
                 <th className="px-3 py-3 text-left font-semibold">NOTE</th>
                 <th className="px-3 py-3 text-left font-semibold">ACCOLADES (SEMICOLON-SEPARATED)</th>
                 <th className="px-4 py-3 text-center font-semibold"></th>
@@ -394,6 +401,20 @@ function HallOfFameSection() {
               {rows.map((row) => (
                 <tr key={row.id} className="border-b border-line/60 last:border-b-0">
                   <td className="px-4 py-3 text-ink-1">{row.playerName}</td>
+                  <td className="px-3 py-3">
+                    <select
+                      value={row.teamId}
+                      onChange={(e) => updateRow(row.id, { teamId: e.target.value })}
+                      className="border border-line bg-bg-1 px-2 py-1.5 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      <option value="">—</option>
+                      {TEAM_OPTIONS.map((t) => (
+                        <option key={t.id} value={t.id}>
+                          {t.name}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
                   <td className="px-3 py-3">
                     <input
                       type="text"
@@ -440,6 +461,23 @@ function HallOfFameSection() {
             placeholder="Chrisx"
             className="w-48 border border-line bg-bg-1 px-2 py-1.5 text-sm text-ink-0 outline-none focus:border-line-strong"
           />
+        </div>
+        <div>
+          <label className="mb-1 block text-[10px] font-semibold tracking-[0.15em] text-ink-3">
+            TEAM (OPTIONAL)
+          </label>
+          <select
+            value={newTeamId}
+            onChange={(e) => setNewTeamId(e.target.value)}
+            className="border border-line bg-bg-1 px-2 py-1.5 text-sm text-ink-0 outline-none focus:border-line-strong"
+          >
+            <option value="">—</option>
+            {TEAM_OPTIONS.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.name}
+              </option>
+            ))}
+          </select>
         </div>
         <div>
           <label className="mb-1 block text-[10px] font-semibold tracking-[0.15em] text-ink-3">

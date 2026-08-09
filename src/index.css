@@ -26,6 +26,7 @@
   --animate-confetti-fall: confetti-fall 2.2s ease-in both;
   --animate-diamond-shimmer: diamond-shimmer 1.4s ease-in-out infinite;
   --animate-logo-drift: logo-drift 12s ease-in-out infinite;
+  --animate-logo-fall: logo-fall 7s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -110,6 +111,22 @@
     }
     50% {
       transform: translate(var(--drift-x, 16px), var(--drift-y, -14px)) rotate(var(--drift-rot, 4deg));
+    }
+  }
+  @keyframes logo-fall {
+    0% {
+      transform: translateY(-20%) rotate(0deg);
+      opacity: 0;
+    }
+    12% {
+      opacity: var(--fall-opacity, 0.28);
+    }
+    88% {
+      opacity: var(--fall-opacity, 0.28);
+    }
+    100% {
+      transform: translateY(420%) rotate(var(--fall-rot, 20deg));
+      opacity: 0;
     }
   }
 }

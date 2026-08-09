@@ -1,4 +1,5 @@
 import type { HallOfFameEntry } from "@/data/hallOfFame";
+import { getTeamById } from "@/data/teams";
 
 interface HallOfFameCardProps {
   entry: HallOfFameEntry;
@@ -10,6 +11,7 @@ export default function HallOfFameCard({ entry, onClick }: HallOfFameCardProps) 
     .split(";")
     .map((a) => a.trim())
     .filter(Boolean).length;
+  const team = entry.teamId ? getTeamById(entry.teamId) : undefined;
 
   return (
     <button
@@ -36,6 +38,13 @@ export default function HallOfFameCard({ entry, onClick }: HallOfFameCardProps) 
           </div>
         )}
         <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-bg-2 via-bg-2/10 to-transparent" />
+        {team?.logo && (
+          <img
+            src={team.logo}
+            alt=""
+            className="absolute bottom-2 right-2 h-9 w-9 object-contain drop-shadow-[0_2px_6px_rgba(0,0,0,0.6)]"
+          />
+        )}
       </div>
       <div className="relative p-5">
         <p className="text-[10px] font-semibold tracking-[0.25em] text-amber-400">HALL OF FAME</p>
