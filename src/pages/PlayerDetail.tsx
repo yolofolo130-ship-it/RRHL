@@ -120,7 +120,7 @@ export default function PlayerDetail() {
               </div>
             )}
             {(player.overall !== undefined || player.xFactor || player.star || player.flag) && (
-              <div className="flex items-center gap-3 pt-1">
+              <div className="flex flex-wrap items-center justify-center gap-3 pt-1 lg:justify-start">
                 {player.overall !== undefined && <OverallBadge overall={player.overall} size="lg" />}
                 {player.xFactor && <XFactorBadge name={player.xFactor} size="lg" />}
                 {player.star && <StarBadge name={player.star} size="lg" />}

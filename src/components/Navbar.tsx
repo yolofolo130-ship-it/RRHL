@@ -62,7 +62,10 @@ export default function Navbar() {
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img src={rrhlLogo} alt="RRHL logo" className="h-10 w-10 object-contain" />
           <span className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
-            <span className="text-ink-2">Rec Room</span> Hockey League
+            <span className="sm:hidden">RRHL</span>
+            <span className="hidden sm:inline">
+              <span className="text-ink-2">Rec Room</span> Hockey League
+            </span>
           </span>
         </Link>
 
