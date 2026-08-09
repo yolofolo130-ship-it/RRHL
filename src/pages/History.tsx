@@ -3,6 +3,7 @@ import PageHeader from "@/components/PageHeader";
 import Tabs from "@/components/Tabs";
 import TrophyCard from "@/components/TrophyCard";
 import ChampionCard from "@/components/ChampionCard";
+import RecordCategoryCard from "@/components/RecordCategoryCard";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
@@ -138,18 +139,13 @@ export default function History() {
             </div>
           ))}
 
-        {tab === "record-book" &&
-          (recordBook.length === 0 ? (
-            <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
-              No records on the books yet.
-            </p>
-          ) : (
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {recordBook.map((entry) => (
-                <TrophyCard key={entry.id} name={entry.record} subtitle={entry.holder} />
-              ))}
-            </div>
-          ))}
+        {tab === "record-book" && (
+          <div className="grid gap-4 sm:grid-cols-2">
+            {recordBook.map((category) => (
+              <RecordCategoryCard key={category.id} {...category} />
+            ))}
+          </div>
+        )}
       </section>
     </>
   );
