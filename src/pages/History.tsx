@@ -74,7 +74,7 @@ export default function History() {
       <PageHeader eyebrow="THE ARCHIVES" title="History" />
 
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
-        <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} className="mb-10" />
+        <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} className="mb-10" dividers />
 
         {tab === "award-history" &&
           (seasons.length === 0 ? (

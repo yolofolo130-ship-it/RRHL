@@ -230,7 +230,7 @@ export default function PlayerDetail() {
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         {player.kind !== "former" && (
           <>
-        <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">SEASON 23</p>
+        <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">SEASON 23 STATS</p>
         <div className="grid gap-4 sm:grid-cols-3 lg:grid-cols-6">
           {player.kind === "skater" ? (
             (
