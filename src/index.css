@@ -109,7 +109,7 @@
       transform: translate(0, 0) rotate(0deg);
     }
     50% {
-      transform: translate(16px, -14px) rotate(4deg);
+      transform: translate(var(--drift-x, 16px), var(--drift-y, -14px)) rotate(var(--drift-rot, 4deg));
     }
   }
 }

@@ -26,6 +26,56 @@ import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } 
 import { championshipSeasonsFor } from "@/data/championshipRosters";
 import { accolades } from "@/data/accolades";
 
+// Fixed slots spread far apart across the header so the small drift
+// distance each logo animates through can never carry one into another.
+const LOGO_SLOTS = ["-left-12 top-2 lg:top-4", "right-[6%] top-16 lg:top-20", "left-[30%] -bottom-12 lg:-bottom-16"];
+const LOGO_SIZES = [
+  { base: "h-24 w-24", lg: "lg:h-32 lg:w-32", opacity: 0.08 },
+  { base: "h-40 w-40", lg: "lg:h-56 lg:w-56", opacity: 0.06 },
+  { base: "h-56 w-56", lg: "lg:h-80 lg:w-80", opacity: 0.045 },
+];
+
+function hashSeed(input: string): number {
+  let hash = 0;
+  for (let i = 0; i < input.length; i++) {
+    hash = (hash << 5) - hash + input.charCodeAt(i);
+    hash |= 0;
+  }
+  return Math.abs(hash) || 1;
+}
+
+// Deterministic per-player PRNG (mulberry32) — same player always gets the
+// same layout, but different players get a different mix of sizes/speeds.
+function seededRandom(seed: number) {
+  let t = seed;
+  return () => {
+    t += 0x6d2b79f5;
+    let r = Math.imul(t ^ (t >>> 15), 1 | t);
+    r ^= r + Math.imul(r ^ (r >>> 7), 61 | r);
+    return ((r ^ (r >>> 14)) >>> 0) / 4294967296;
+  };
+}
+
+function logoDriftLayout(seed: string) {
+  const rand = seededRandom(hashSeed(seed));
+  const sizes = [...LOGO_SIZES].sort(() => rand() - 0.5);
+  return LOGO_SLOTS.map((position, i) => {
+    const size = sizes[i];
+    const dir = rand() > 0.5 ? 1 : -1;
+    return {
+      position,
+      base: size.base,
+      lg: size.lg,
+      opacity: size.opacity,
+      duration: 18 + rand() * 12, // 18-30s — slow
+      delay: -(rand() * 14), // stagger so they don't pulse in sync
+      driftX: dir * (10 + rand() * 10), // 10-20px
+      driftY: -(8 + rand() * 10), // -8 to -18px
+      rotate: dir * (2 + rand() * 4), // 2-6deg
+    };
+  });
+}
+
 export default function PlayerDetail() {
   const { playerSlug } = useParams<{ playerSlug: string }>();
   const player = playerSlug ? getPlayerBySlug(playerSlug) : undefined;
@@ -47,6 +97,7 @@ export default function PlayerDetail() {
   }
 
   const team = player.kind !== "former" ? getTeamById(player.teamId) : undefined;
+  const logoLayout = team ? logoDriftLayout(player.id) : [];
   const skaterHistory = skaterHistoryFor(player.name);
   const goalieHistory = goalieHistoryFor(player.name);
 
@@ -94,21 +145,24 @@ export default function PlayerDetail() {
         />
         {team && (
           <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
-            <img
-              src={team.logo}
-              alt=""
-              className="animate-logo-drift absolute -left-12 top-4 h-44 w-44 opacity-[0.07] lg:h-64 lg:w-64"
-            />
-            <img
-              src={team.logo}
-              alt=""
-              className="animate-logo-drift absolute right-[8%] top-20 h-28 w-28 opacity-[0.05] [animation-delay:-4s] lg:h-40 lg:w-40"
-            />
-            <img
-              src={team.logo}
-              alt=""
-              className="animate-logo-drift absolute left-1/3 -bottom-10 h-56 w-56 opacity-[0.06] [animation-delay:-8s] lg:h-80 lg:w-80"
-            />
+            {logoLayout.map((logo, i) => (
+              <img
+                key={i}
+                src={team.logo}
+                alt=""
+                className={`animate-logo-drift absolute ${logo.position} ${logo.base} ${logo.lg}`}
+                style={
+                  {
+                    opacity: logo.opacity,
+                    animationDuration: `${logo.duration}s`,
+                    animationDelay: `${logo.delay}s`,
+                    "--drift-x": `${logo.driftX}px`,
+                    "--drift-y": `${logo.driftY}px`,
+                    "--drift-rot": `${logo.rotate}deg`,
+                  } as React.CSSProperties
+                }
+              />
+            ))}
           </div>
         )}
         <div className="relative mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-6 pb-10 pt-36 text-center lg:flex-row lg:items-end lg:gap-8 lg:px-10 lg:text-left">
