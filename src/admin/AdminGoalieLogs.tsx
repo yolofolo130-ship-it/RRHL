@@ -29,9 +29,10 @@ export default function AdminGoalieLogs() {
   const [sha, setSha] = useState<string | null>(null);
   const [lines, setLines] = useState<string[] | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [savingKey, setSavingKey] = useState<string | null>(null);
-  const [savedKey, setSavedKey] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
   const [rows, setRows] = useState<Row[]>([]);
 
   const teamGoalies = useMemo(() => goalies.filter((g) => g.teamId === teamId), [teamId]);
@@ -42,13 +43,13 @@ export default function AdminGoalieLogs() {
 
   const load = () => {
     setLoading(true);
-    setError(null);
+    setLoadError(null);
     getFile(PATH)
       .then(({ content, sha }) => {
         setLines(content.split("\n"));
         setSha(sha);
       })
-      .catch((e) => setError(String(e.message ?? e)))
+      .catch((e) => setLoadError(String(e.message ?? e)))
       .finally(() => setLoading(false));
   };
 
@@ -98,40 +99,49 @@ export default function AdminGoalieLogs() {
     setRows((rs) => rs.map((r) => (r.gameId === gameId ? { ...r, ...patch } : r)));
   };
 
-  const save = async (row: Row) => {
-    if (!lines || !sha) return;
-    const key = `${row.playerName}-${row.gameId}`;
-    setSavingKey(key);
-    setError(null);
+  const saveAll = async () => {
+    if (!lines || !sha || rows.length === 0) return;
+    setSaving(true);
+    setSaveError(null);
     try {
-      const { end } = findArrayRange(lines, OPEN_MARKER);
-      const newLine = stringifyGoalieStatLine(row);
-      const nextLines = upsertLine(
-        lines,
-        row.lineIndex,
-        newLine,
-        (kv) => kv.playerName === row.playerName,
-        end,
-      );
+      let nextLines = [...lines];
+      // Replace existing lines first — safe in any order, doesn't shift indices.
+      for (const row of rows) {
+        if (row.lineIndex !== -1) nextLines[row.lineIndex] = stringifyGoalieStatLine(row);
+      }
+      // Insert brand-new lines one at a time, recomputing the range each time
+      // so later insertions account for earlier ones shifting the array.
+      for (const row of rows) {
+        if (row.lineIndex === -1) {
+          const { end } = findArrayRange(nextLines, OPEN_MARKER);
+          nextLines = upsertLine(
+            nextLines,
+            -1,
+            stringifyGoalieStatLine(row),
+            (kv) => kv.playerName === row.playerName,
+            end,
+          );
+        }
+      }
       const newSha = await commitFile(
         PATH,
         nextLines.join("\n"),
         sha,
-        `Update ${row.playerName}'s ${row.gameId} goalie stat line`,
+        `Update ${playerName}'s goalie game logs`,
       );
       setLines(nextLines);
       setSha(newSha);
-      setSavedKey(key);
-      setTimeout(() => setSavedKey((k) => (k === key ? null : k)), 2000);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
     } catch (e: any) {
-      setError(String(e.message ?? e));
+      setSaveError(String(e.message ?? e));
     } finally {
-      setSavingKey(null);
+      setSaving(false);
     }
   };
 
   if (loading) return <p className="text-sm text-ink-2">Loading goalie game logs…</p>;
-  if (error) return <p className="text-sm text-red-400">{error}</p>;
+  if (loadError) return <p className="text-sm text-red-400">{loadError}</p>;
 
   return (
     <div>
@@ -180,13 +190,11 @@ export default function AdminGoalieLogs() {
                 <th className="px-2 py-3 text-center font-semibold">A</th>
                 <th className="px-2 py-3 text-center font-semibold">P</th>
                 <th className="px-2 py-3 text-center font-semibold">PIM</th>
-                <th className="px-4 py-3 text-center font-semibold"></th>
               </tr>
             </thead>
             <tbody>
               {rows.map((row) => {
                 const opp = getTeamById(row.opponentTeamId);
-                const key = `${row.playerName}-${row.gameId}`;
                 return (
                   <tr key={row.gameId} className="border-b border-line/60 last:border-b-0">
                     <td className="px-4 py-3 text-ink-2">{row.date}</td>
@@ -276,21 +284,25 @@ export default function AdminGoalieLogs() {
                         className="w-14 border border-line bg-bg-1 px-1.5 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
                       />
                     </td>
-                    <td className="px-4 py-3 text-center">
-                      <button
-                        type="button"
-                        onClick={() => save(row)}
-                        disabled={savingKey === key}
-                        className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
-                      >
-                        {savingKey === key ? "…" : savedKey === key ? "SAVED" : "SAVE"}
-                      </button>
-                    </td>
                   </tr>
                 );
               })}
             </tbody>
           </table>
+        </div>
+      )}
+
+      {rows.length > 0 && (
+        <div className="mt-4 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={saveAll}
+            disabled={saving}
+            className="border border-line-strong bg-white px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE ALL"}
+          </button>
+          {saveError && <p className="text-xs text-red-400">{saveError}</p>}
         </div>
       )}
     </div>

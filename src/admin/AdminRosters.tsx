@@ -107,21 +107,25 @@ export default function AdminRosters() {
   const [sha, setSha] = useState<string | null>(null);
   const [lines, setLines] = useState<string[] | null>(null);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-  const [savingId, setSavingId] = useState<string | null>(null);
-  const [savedId, setSavedId] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [skaterSaveError, setSkaterSaveError] = useState<string | null>(null);
+  const [goalieSaveError, setGoalieSaveError] = useState<string | null>(null);
+  const [savingSkaters, setSavingSkaters] = useState(false);
+  const [savedSkaters, setSavedSkaters] = useState(false);
+  const [savingGoalies, setSavingGoalies] = useState(false);
+  const [savedGoalies, setSavedGoalies] = useState(false);
   const [skaterRows, setSkaterRows] = useState<Row[]>([]);
   const [goalieRows, setGoalieRows] = useState<Row[]>([]);
 
   const load = () => {
     setLoading(true);
-    setError(null);
+    setLoadError(null);
     getFile(PATH)
       .then(({ content, sha }) => {
         setLines(content.split("\n"));
         setSha(sha);
       })
-      .catch((e) => setError(String(e.message ?? e)))
+      .catch((e) => setLoadError(String(e.message ?? e)))
       .finally(() => setLoading(false));
   };
 
@@ -153,31 +157,40 @@ export default function AdminRosters() {
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, values: { ...r.values, [key]: value as any } } : r)));
   };
 
-  const save = async (row: Row, editableKeys: readonly string[]) => {
-    if (!lines || !sha) return;
-    setSavingId(row.id);
-    setError(null);
+  const saveAll = async (
+    rows: Row[],
+    editableKeys: readonly string[],
+    label: string,
+    setSaving: (v: boolean) => void,
+    setSaved: (v: boolean) => void,
+    setSaveError: (v: string | null) => void,
+  ) => {
+    if (!lines || !sha || rows.length === 0) return;
+    setSaving(true);
+    setSaveError(null);
     try {
-      let newLine = lines[row.lineIndex];
-      for (const key of editableKeys) {
-        newLine = setLineField(newLine, key, row.values[key] as any);
-      }
       const nextLines = [...lines];
-      nextLines[row.lineIndex] = newLine;
-      const newSha = await commitFile(PATH, nextLines.join("\n"), sha, `Update ${row.name}'s roster info`);
+      for (const row of rows) {
+        let newLine = nextLines[row.lineIndex];
+        for (const key of editableKeys) {
+          newLine = setLineField(newLine, key, row.values[key] as any);
+        }
+        nextLines[row.lineIndex] = newLine;
+      }
+      const newSha = await commitFile(PATH, nextLines.join("\n"), sha, `Update ${label} roster info`);
       setLines(nextLines);
       setSha(newSha);
-      setSavedId(row.id);
-      setTimeout(() => setSavedId((id) => (id === row.id ? null : id)), 2000);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
     } catch (e: any) {
-      setError(String(e.message ?? e));
+      setSaveError(String(e.message ?? e));
     } finally {
-      setSavingId(null);
+      setSaving(false);
     }
   };
 
   if (loading) return <p className="text-sm text-ink-2">Loading rosters…</p>;
-  if (error) return <p className="text-sm text-red-400">{error}</p>;
+  if (loadError) return <p className="text-sm text-red-400">{loadError}</p>;
 
   const skaterEditableKeys = [...SKATER_NUMBER_FIELDS, "overall", "xFactor", "star", "flag"];
   const goalieEditableKeys = [...GOALIE_NUMBER_FIELDS, "overall", "xFactor", "star", "flag"];
@@ -211,7 +224,6 @@ export default function AdminRosters() {
               <th className="px-2 py-3 text-center font-semibold">X-FACTOR</th>
               <th className="px-2 py-3 text-center font-semibold">STAR</th>
               <th className="px-2 py-3 text-center font-semibold">FLAG</th>
-              <th className="px-4 py-3 text-center font-semibold"></th>
             </tr>
           </thead>
           <tbody>
@@ -232,21 +244,33 @@ export default function AdminRosters() {
                   values={row.values}
                   onChange={(key, value) => updateField(setSkaterRows, row.id, key, value)}
                 />
-                <td className="px-4 py-3 text-center">
-                  <button
-                    type="button"
-                    onClick={() => save(row, skaterEditableKeys)}
-                    disabled={savingId === row.id}
-                    className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
-                  >
-                    {savingId === row.id ? "…" : savedId === row.id ? "SAVED" : "SAVE"}
-                  </button>
-                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {skaterRows.length > 0 && (
+        <div className="mt-4 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() =>
+              saveAll(
+                skaterRows,
+                skaterEditableKeys,
+                "skater",
+                setSavingSkaters,
+                setSavedSkaters,
+                setSkaterSaveError,
+              )
+            }
+            disabled={savingSkaters}
+            className="border border-line-strong bg-white px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {savingSkaters ? "SAVING…" : savedSkaters ? "SAVED ✓" : "SAVE ALL SKATERS"}
+          </button>
+          {skaterSaveError && <p className="text-xs text-red-400">{skaterSaveError}</p>}
+        </div>
+      )}
 
       <p className="mb-3 mt-10 text-xs font-semibold tracking-[0.2em] text-ink-2">GOALIES</p>
       <div className="overflow-x-auto border border-line bg-bg-2">
@@ -263,7 +287,6 @@ export default function AdminRosters() {
               <th className="px-2 py-3 text-center font-semibold">X-FACTOR</th>
               <th className="px-2 py-3 text-center font-semibold">STAR</th>
               <th className="px-2 py-3 text-center font-semibold">FLAG</th>
-              <th className="px-4 py-3 text-center font-semibold"></th>
             </tr>
           </thead>
           <tbody>
@@ -284,21 +307,33 @@ export default function AdminRosters() {
                   values={row.values}
                   onChange={(key, value) => updateField(setGoalieRows, row.id, key, value)}
                 />
-                <td className="px-4 py-3 text-center">
-                  <button
-                    type="button"
-                    onClick={() => save(row, goalieEditableKeys)}
-                    disabled={savingId === row.id}
-                    className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
-                  >
-                    {savingId === row.id ? "…" : savedId === row.id ? "SAVED" : "SAVE"}
-                  </button>
-                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {goalieRows.length > 0 && (
+        <div className="mt-4 flex items-center gap-3">
+          <button
+            type="button"
+            onClick={() =>
+              saveAll(
+                goalieRows,
+                goalieEditableKeys,
+                "goalie",
+                setSavingGoalies,
+                setSavedGoalies,
+                setGoalieSaveError,
+              )
+            }
+            disabled={savingGoalies}
+            className="border border-line-strong bg-white px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {savingGoalies ? "SAVING…" : savedGoalies ? "SAVED ✓" : "SAVE ALL GOALIES"}
+          </button>
+          {goalieSaveError && <p className="text-xs text-red-400">{goalieSaveError}</p>}
+        </div>
+      )}
     </div>
   );
 }
