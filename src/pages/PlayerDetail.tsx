@@ -92,7 +92,7 @@ export default function PlayerDetail() {
           }}
           aria-hidden
         />
-        {team && player.headshot && (
+        {team && (
           <div className="pointer-events-none absolute inset-0 overflow-hidden" aria-hidden>
             <img
               src={team.logo}
