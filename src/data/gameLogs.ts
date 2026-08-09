@@ -523,9 +523,9 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "DDino", gameId: "g18", gs: 0, dec: "W", shotsAgainst: 21, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- UTAH MAMMOTHS ----------
-  { playerName: "Sleepy", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Sleepy", gameId: "g09", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Sleepy", gameId: "g11", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g05", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g09", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g11", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- VEGAS GOLDEN KNIGHTS ----------
   { playerName: "TGOD", gameId: "g01", gs: 1, dec: "W", shotsAgainst: 11, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
