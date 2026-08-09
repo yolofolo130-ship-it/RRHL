@@ -1,6 +1,6 @@
 import type { Conference, Game, Team } from "@/data/types";
 
-export const PLAYOFF_SPOTS_PER_CONFERENCE = 4;
+export const PLAYOFF_SPOTS_PER_CONFERENCE = 3;
 
 export interface TeamStanding {
   team: Team;
