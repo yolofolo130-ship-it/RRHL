@@ -1,4 +1,4 @@
-import type { SkaterGameStatLine } from "./types";
+import type { SkaterGameStatLine, GoalieGameStatLine } from "./types";
 import { games } from "./schedule";
 
 // Real per-game stat lines a skater has logged. Sparse by design: a
@@ -470,6 +470,130 @@ export function lastGamesFor(playerName: string, teamId: string, count = 5): Ska
         shg: stat?.shg ?? 0,
         shots: stat?.shots ?? 0,
         shifts: stat?.shifts ?? 0,
+      };
+    });
+}
+
+// Real per-game stat lines a goalie has logged. Same sparse pattern as
+// skaterGameStatLines above — a goalie's row for a game still shows up
+// via `lastGoalieGamesFor` even with no entry here, pulled live from the
+// last 5 FINAL games in schedule.ts for their team.
+//
+// `playerName` must exactly match the goalie's name in players.ts.
+// `gameId` must match a game id in schedule.ts.
+export const goalieGameStatLines: GoalieGameStatLine[] = [
+  // ---------- CAROLINA HURRICANES ----------
+  { playerName: "Wapw", gameId: "g04", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g08", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g12", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- PITTSBURGH PENGUINS ----------
+  { playerName: "Fellow", gameId: "g02", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g12", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  { playerName: "ElMosquito", gameId: "g02", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "ElMosquito", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "ElMosquito", gameId: "g12", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "ElMosquito", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- TAMPA BAY LIGHTNING ----------
+  { playerName: "SnugThePug", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g15", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  { playerName: "Pechs", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Pechs", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Pechs", gameId: "g15", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Pechs", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- BOSTON BRUINS ----------
+  { playerName: "Apx11o", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  { playerName: "Sparkles", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Sparkles", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Sparkles", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- NEW YORK RANGERS ----------
+  { playerName: "DDino", gameId: "g02", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "DDino", gameId: "g10", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "DDino", gameId: "g15", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "DDino", gameId: "g18", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- UTAH MAMMOTHS ----------
+  { playerName: "Sleepy", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g09", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g11", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- VEGAS GOLDEN KNIGHTS ----------
+  { playerName: "TGOD", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "TGOD", gameId: "g10", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "TGOD", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  { playerName: "King", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "King", gameId: "g10", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "King", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- ST. LOUIS BLUES ----------
+  { playerName: "Nova", gameId: "g04", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Nova", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Nova", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Nova", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- LOS ANGELES KINGS ----------
+  { playerName: "Riptide", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Riptide", gameId: "g08", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Riptide", gameId: "g11", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Riptide", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  { playerName: "TheHolyHippo", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "TheHolyHippo", gameId: "g08", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "TheHolyHippo", gameId: "g11", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "TheHolyHippo", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+  // ---------- DALLAS STARS ----------
+  { playerName: "Jollyllama", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Jollyllama", gameId: "g09", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Jollyllama", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Jollyllama", gameId: "g18", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+
+];
+
+// One row of a goalie's "Last 5 Games" table.
+export interface GoalieGameRow {
+  gameId: string;
+  date: string;
+  opponentTeamId: string;
+  home: boolean;
+  gs: number;
+  dec?: "W" | "L" | "OTL";
+  shotsAgainst: number;
+  goalsAgainst: number;
+  pim: number;
+}
+
+export function lastGoalieGamesFor(playerName: string, teamId: string, count = 5): GoalieGameRow[] {
+  return games
+    .filter((g) => g.status === "final" && (g.homeTeamId === teamId || g.awayTeamId === teamId))
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, count)
+    .map((game) => {
+      const home = game.homeTeamId === teamId;
+      const stat = goalieGameStatLines.find((s) => s.playerName === playerName && s.gameId === game.id);
+      return {
+        gameId: game.id,
+        date: game.date,
+        opponentTeamId: home ? game.awayTeamId : game.homeTeamId,
+        home,
+        gs: stat?.gs ?? 0,
+        dec: stat?.dec,
+        shotsAgainst: stat?.shotsAgainst ?? 0,
+        goalsAgainst: stat?.goalsAgainst ?? 0,
+        pim: stat?.pim ?? 0,
       };
     });
 }

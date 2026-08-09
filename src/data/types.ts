@@ -222,3 +222,15 @@ export interface SkaterGameStatLine {
   shots: number;
   shifts: number;
 }
+
+// Same idea as SkaterGameStatLine, for goalies. `gameId` links back to a
+// Game in schedule.ts.
+export interface GoalieGameStatLine {
+  playerName: string;
+  gameId: string;
+  gs: number; // games started, usually 0 or 1
+  dec?: "W" | "L" | "OTL"; // decision, omit until recorded
+  shotsAgainst: number;
+  goalsAgainst: number;
+  pim: number;
+}
