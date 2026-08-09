@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>RRHL S23 — Rec Room Hockey League</title>
+    <script type="text/javascript">
+      // GitHub Pages has no server-side router — a direct link to any page
+      // other than the homepage (a shared player/team link, a bookmark, or
+      // a refresh) has nowhere to go and lands here. This is the standard
+      // SPA-on-GitHub-Pages redirect: encode the real path into a query
+      // string and send the browser to index.html, which decodes it back
+      // (see the inline script there) before React Router ever sees it.
+      var pathSegmentsToKeep = 1; // keep "/RRHL" from the project pages base path
+
+      var l = window.location;
+      l.replace(
+        l.protocol + "//" + l.hostname + (l.port ? ":" + l.port : "") +
+        l.pathname.split("/").slice(0, 1 + pathSegmentsToKeep).join("/") + "/?/" +
+        l.pathname.slice(1).split("/").slice(pathSegmentsToKeep).join("/").replace(/&/g, "~and~") +
+        (l.search ? "&" + l.search.slice(1).replace(/&/g, "~and~") : "") +
+        l.hash
+      );
+    </script>
+  </head>
+  <body></body>
+</html>
