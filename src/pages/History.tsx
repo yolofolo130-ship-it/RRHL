@@ -1,10 +1,18 @@
+import { useState } from "react";
 import PageHeader from "@/components/PageHeader";
+import Tabs from "@/components/Tabs";
 import TrophyCard from "@/components/TrophyCard";
 import ChampionCard from "@/components/ChampionCard";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
+import { hallOfFame } from "@/data/hallOfFame";
 import { getPlayerSlugByName } from "@/data/players";
+
+const TAB_OPTIONS = [
+  { value: "record-book", label: "RECORD BOOK" },
+  { value: "hall-of-fame", label: "HALL OF FAME" },
+];
 
 interface DisplayHonor {
   id: string;
@@ -45,6 +53,8 @@ function championHonorsForSeason(season: string) {
 }
 
 export default function History() {
+  const [tab, setTab] = useState("record-book");
+
   const seasons = Array.from(
     new Set([
       ...seasonAccolades.map((a) => a.season),
@@ -55,52 +65,76 @@ export default function History() {
 
   return (
     <>
-      <PageHeader eyebrow="THE RECORD BOOK" title="History" />
+      <PageHeader eyebrow="THE ARCHIVES" title="History" />
 
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
-        {seasons.length === 0 ? (
-          <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
-            No award history on record yet.
-          </p>
-        ) : (
-          <div className="flex flex-col gap-14">
-            {seasons.map((season) => {
-              const champions = championHonorsForSeason(season);
-              const honors = [...playerHonorsForSeason(season), ...teamHonorsForSeason(season)];
-              if (champions.length === 0 && honors.length === 0) return null;
+        <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} className="mb-10" />
 
-              return (
-                <div key={season}>
-                  <p className="border-b border-line pb-4 text-xs font-semibold tracking-[0.28em] text-ink-2">
-                    {season.toUpperCase()}
-                  </p>
-                  <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                    {champions.map((honor) => (
-                      <ChampionCard
-                        key={honor.id}
-                        honor={honor.honor}
-                        season={honor.season}
-                        champion={resolveTeamRef(honor.teamId)}
-                        opponent={resolveTeamRef(honor.opponentTeamId as string)}
-                        seriesScore={honor.seriesScore as string}
-                      />
-                    ))}
-                    {honors.map((honor) => (
-                      <TrophyCard
-                        key={honor.id}
-                        name={honor.name}
-                        subtitle={honor.subtitle}
-                        to={honor.to}
-                        logo={honor.logo}
-                        color={honor.color}
-                      />
-                    ))}
+        {tab === "record-book" &&
+          (seasons.length === 0 ? (
+            <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
+              No award history on record yet.
+            </p>
+          ) : (
+            <div className="flex flex-col gap-14">
+              {seasons.map((season) => {
+                const champions = championHonorsForSeason(season);
+                const honors = [...playerHonorsForSeason(season), ...teamHonorsForSeason(season)];
+                if (champions.length === 0 && honors.length === 0) return null;
+
+                return (
+                  <div key={season}>
+                    <p className="border-b border-line pb-4 text-xs font-semibold tracking-[0.28em] text-ink-2">
+                      {season.toUpperCase()}
+                    </p>
+                    <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+                      {champions.map((honor) => (
+                        <ChampionCard
+                          key={honor.id}
+                          honor={honor.honor}
+                          season={honor.season}
+                          champion={resolveTeamRef(honor.teamId)}
+                          opponent={resolveTeamRef(honor.opponentTeamId as string)}
+                          seriesScore={honor.seriesScore as string}
+                        />
+                      ))}
+                      {honors.map((honor) => (
+                        <TrophyCard
+                          key={honor.id}
+                          name={honor.name}
+                          subtitle={honor.subtitle}
+                          to={honor.to}
+                          logo={honor.logo}
+                          color={honor.color}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              );
-            })}
-          </div>
-        )}
+                );
+              })}
+            </div>
+          ))}
+
+        {tab === "hall-of-fame" &&
+          (hallOfFame.length === 0 ? (
+            <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
+              No inductees yet.
+            </p>
+          ) : (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {hallOfFame.map((entry) => {
+                const slug = getPlayerSlugByName(entry.playerName);
+                return (
+                  <TrophyCard
+                    key={entry.id}
+                    name={entry.playerName}
+                    subtitle={entry.note ?? "Hall of Fame"}
+                    to={slug ? `/players/${slug}` : undefined}
+                  />
+                );
+              })}
+            </div>
+          ))}
       </section>
     </>
   );
