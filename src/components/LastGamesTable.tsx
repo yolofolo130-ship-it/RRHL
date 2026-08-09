@@ -51,9 +51,7 @@ export default function LastGamesTable({ games }: { games: SkaterGameLog[] }) {
                 </td>
                 <td className="px-3 py-3 text-center text-ink-1">{game.goals}</td>
                 <td className="px-3 py-3 text-center text-ink-1">{game.assists}</td>
-                <td className="px-3 py-3 text-center font-semibold text-ink-0">
-                  {game.goals + game.assists}
-                </td>
+                <td className="px-3 py-3 text-center font-semibold text-ink-0">{game.points}</td>
                 <td className="px-3 py-3 text-center text-ink-1">
                   {game.plusMinus > 0 ? `+${game.plusMinus}` : game.plusMinus}
                 </td>
