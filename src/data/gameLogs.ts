@@ -571,6 +571,10 @@ export interface GoalieGameRow {
   dec?: "W" | "L" | "OTL";
   shotsAgainst: number;
   goalsAgainst: number;
+  shutout: number;
+  goals: number;
+  assists: number;
+  points: number;
   pim: number;
 }
 
@@ -591,6 +595,10 @@ export function lastGoalieGamesFor(playerName: string, teamId: string, count = 5
         dec: stat?.dec,
         shotsAgainst: stat?.shotsAgainst ?? 0,
         goalsAgainst: stat?.goalsAgainst ?? 0,
+        shutout: stat?.shutout ?? 0,
+        goals: stat?.goals ?? 0,
+        assists: stat?.assists ?? 0,
+        points: stat?.points ?? 0,
         pim: stat?.pim ?? 0,
       };
     });

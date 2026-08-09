@@ -88,13 +88,25 @@ export interface GoalieStatFields {
   dec?: "W" | "L" | "OTL";
   shotsAgainst: number;
   goalsAgainst: number;
+  shutout: number;
+  goals: number;
+  assists: number;
+  points: number;
   pim: number;
 }
 
 export function stringifyGoalieStatLine(f: GoalieStatFields): string {
   const parts = [`playerName: "${f.playerName}"`, `gameId: "${f.gameId}"`, `gs: ${f.gs}`];
   if (f.dec) parts.push(`dec: "${f.dec}"`);
-  parts.push(`shotsAgainst: ${f.shotsAgainst}`, `goalsAgainst: ${f.goalsAgainst}`, `pim: ${f.pim}`);
+  parts.push(
+    `shotsAgainst: ${f.shotsAgainst}`,
+    `goalsAgainst: ${f.goalsAgainst}`,
+    `shutout: ${f.shutout}`,
+    `goals: ${f.goals}`,
+    `assists: ${f.assists}`,
+    `points: ${f.points}`,
+    `pim: ${f.pim}`,
+  );
   return `  { ${parts.join(", ")} },`;
 }
 

@@ -14,7 +14,7 @@ export default function LastGoalieGamesTable({ games }: { games: GoalieGameRow[]
 
   return (
     <div className="overflow-x-auto border border-line bg-bg-2">
-      <table className="w-full min-w-[640px] border-collapse text-sm">
+      <table className="w-full min-w-[860px] border-collapse text-sm">
         <thead>
           <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
             <th className="px-4 py-3 text-left font-semibold">DATE</th>
@@ -24,6 +24,10 @@ export default function LastGoalieGamesTable({ games }: { games: GoalieGameRow[]
             <th className="px-3 py-3 text-center font-semibold">SA</th>
             <th className="px-3 py-3 text-center font-semibold">GA</th>
             <th className="px-3 py-3 text-center font-semibold">SV%</th>
+            <th className="px-3 py-3 text-center font-semibold">SO</th>
+            <th className="px-3 py-3 text-center font-semibold">G</th>
+            <th className="px-3 py-3 text-center font-semibold">A</th>
+            <th className="px-3 py-3 text-center font-semibold">P</th>
             <th className="px-4 py-3 text-center font-semibold">PIM</th>
           </tr>
         </thead>
@@ -55,6 +59,10 @@ export default function LastGoalieGamesTable({ games }: { games: GoalieGameRow[]
                     ? formatSavePct((game.shotsAgainst - game.goalsAgainst) / game.shotsAgainst)
                     : "—"}
                 </td>
+                <td className="px-3 py-3 text-center text-ink-1">{game.shutout}</td>
+                <td className="px-3 py-3 text-center text-ink-1">{game.goals}</td>
+                <td className="px-3 py-3 text-center text-ink-1">{game.assists}</td>
+                <td className="px-3 py-3 text-center text-ink-1">{game.points}</td>
                 <td className="px-4 py-3 text-center text-ink-1">{game.pim}</td>
               </tr>
             );

@@ -237,5 +237,9 @@ export interface GoalieGameStatLine {
   dec?: "W" | "L" | "OTL"; // decision, omit until recorded
   shotsAgainst: number;
   goalsAgainst: number;
+  shutout?: number; // 0 or 1, omit until recorded
+  goals?: number;
+  assists?: number;
+  points?: number;
   pim: number;
 }

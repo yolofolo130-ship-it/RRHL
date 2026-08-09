@@ -84,6 +84,10 @@ export default function AdminGoalieLogs() {
         dec: existing.dec as "W" | "L" | "OTL" | undefined,
         shotsAgainst: (existing.shotsAgainst as number) ?? 0,
         goalsAgainst: (existing.goalsAgainst as number) ?? 0,
+        shutout: (existing.shutout as number) ?? 0,
+        goals: (existing.goals as number) ?? 0,
+        assists: (existing.assists as number) ?? 0,
+        points: (existing.points as number) ?? 0,
         pim: (existing.pim as number) ?? 0,
       };
     });
@@ -162,7 +166,7 @@ export default function AdminGoalieLogs() {
         </p>
       ) : (
         <div className="mt-6 overflow-x-auto border border-line bg-bg-2">
-          <table className="w-full min-w-[760px] border-collapse text-sm">
+          <table className="w-full min-w-[980px] border-collapse text-sm">
             <thead>
               <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                 <th className="px-4 py-3 text-left font-semibold">DATE</th>
@@ -171,6 +175,10 @@ export default function AdminGoalieLogs() {
                 <th className="px-2 py-3 text-center font-semibold">DEC</th>
                 <th className="px-2 py-3 text-center font-semibold">SA</th>
                 <th className="px-2 py-3 text-center font-semibold">GA</th>
+                <th className="px-2 py-3 text-center font-semibold">SO</th>
+                <th className="px-2 py-3 text-center font-semibold">G</th>
+                <th className="px-2 py-3 text-center font-semibold">A</th>
+                <th className="px-2 py-3 text-center font-semibold">P</th>
                 <th className="px-2 py-3 text-center font-semibold">PIM</th>
                 <th className="px-4 py-3 text-center font-semibold"></th>
               </tr>
@@ -224,6 +232,40 @@ export default function AdminGoalieLogs() {
                         value={row.goalsAgainst}
                         onChange={(e) => updateRow(row.gameId, { goalsAgainst: Number(e.target.value) })}
                         className="w-14 border border-line bg-bg-1 px-1.5 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
+                      />
+                    </td>
+                    <td className="px-2 py-3 text-center">
+                      <input
+                        type="number"
+                        min={0}
+                        max={1}
+                        value={row.shutout}
+                        onChange={(e) => updateRow(row.gameId, { shutout: Number(e.target.value) })}
+                        className="w-12 border border-line bg-bg-1 px-1.5 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
+                      />
+                    </td>
+                    <td className="px-2 py-3 text-center">
+                      <input
+                        type="number"
+                        value={row.goals}
+                        onChange={(e) => updateRow(row.gameId, { goals: Number(e.target.value) })}
+                        className="w-12 border border-line bg-bg-1 px-1.5 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
+                      />
+                    </td>
+                    <td className="px-2 py-3 text-center">
+                      <input
+                        type="number"
+                        value={row.assists}
+                        onChange={(e) => updateRow(row.gameId, { assists: Number(e.target.value) })}
+                        className="w-12 border border-line bg-bg-1 px-1.5 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
+                      />
+                    </td>
+                    <td className="px-2 py-3 text-center">
+                      <input
+                        type="number"
+                        value={row.points}
+                        onChange={(e) => updateRow(row.gameId, { points: Number(e.target.value) })}
+                        className="w-12 border border-line bg-bg-1 px-1.5 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
                       />
                     </td>
                     <td className="px-2 py-3 text-center">
