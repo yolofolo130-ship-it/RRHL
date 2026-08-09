@@ -58,7 +58,7 @@ export default function Navbar() {
           : "border-b border-transparent bg-transparent"
       }`}
     >
-      <div className="mx-auto flex h-20 items-center justify-between px-6 lg:px-10">
+      <div className="mx-auto flex h-20 max-w-[1400px] items-center justify-between px-6 lg:px-10">
         <Link to="/" className="flex items-center gap-3 shrink-0">
           <img src={rrhlLogo} alt="RRHL logo" className="h-10 w-10 object-contain" />
           <span className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0">

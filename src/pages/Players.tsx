@@ -13,7 +13,7 @@ export default function Players() {
     <>
       <PageHeader eyebrow="THE ROSTER" title="Players" />
 
-      <section className="mx-auto px-6 py-14 lg:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         <div className="flex flex-col gap-14">
           {teams.map((team) => {
             const teamSkaters = skaters.filter((s) => s.teamId === team.id);

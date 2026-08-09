@@ -39,7 +39,7 @@ export default function Home() {
     <>
       <Hero />
 
-      <section className="mx-auto px-6 py-20 lg:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <SectionHeader
           eyebrow="ON THE SLATE"
           title="Upcoming Games"
@@ -52,7 +52,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto px-6 py-20 lg:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <SectionHeader
           eyebrow="AROUND THE LEAGUE"
           title="Standings"
@@ -73,13 +73,13 @@ export default function Home() {
       </section>
 
       {featuredGame && (
-        <section className="mx-auto px-6 py-20 lg:px-10">
+        <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
           <SectionHeader eyebrow="DON'T MISS IT" title="Main Event" />
           <FeaturedMatchup gameId={featuredGame.id} />
         </section>
       )}
 
-      <section className="mx-auto px-6 py-20 lg:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <SectionHeader eyebrow="THE FIELD" title="League Teams" />
         <div className="mt-8 grid grid-cols-2 gap-4 sm:grid-cols-3 lg:grid-cols-5">
           {teams.map((team) => (
@@ -88,7 +88,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto px-6 py-20 lg:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <SectionHeader
           eyebrow="TOP PERFORMERS"
           title="League Leaders"

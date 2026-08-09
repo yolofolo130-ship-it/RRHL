@@ -6,7 +6,7 @@ export default function Staff() {
     <>
       <PageHeader eyebrow="RRHL STAFF TEAM" title="Staff" />
 
-      <section className="mx-auto px-6 py-14 lg:px-10">
+      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         <div className="flex flex-col gap-14">
           {staffCategoryOrder.map((category) => {
             const members = staff.filter((member) => member.category === category);

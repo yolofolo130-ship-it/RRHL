@@ -32,7 +32,7 @@ export default function Footer() {
           }}
           aria-hidden
         />
-        <div className="relative mx-auto flex flex-col items-center gap-5 px-6 py-14 text-center lg:px-10">
+        <div className="relative mx-auto flex max-w-[1400px] flex-col items-center gap-5 px-6 py-14 text-center lg:px-10">
           <p className="font-display text-3xl font-bold uppercase tracking-wide text-ink-0 sm:text-4xl">
             Join today and start your legacy.
           </p>
@@ -55,7 +55,7 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="mx-auto flex flex-col gap-10 px-6 py-14 lg:flex-row lg:items-start lg:justify-between lg:px-10">
+      <div className="mx-auto flex max-w-[1400px] flex-col gap-10 px-6 py-14 lg:flex-row lg:items-start lg:justify-between lg:px-10">
         <div className="flex items-center gap-3">
           <img src={rrhlLogo} alt="RRHL logo" className="h-12 w-12 object-contain" />
           <div>
