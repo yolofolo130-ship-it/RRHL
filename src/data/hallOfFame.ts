@@ -1,4 +1,5 @@
 import carberHof from "@/assets/hall-of-fame/Carber-HOF.png";
+import miniSneakiHof from "@/assets/hall-of-fame/MiniSneaki.png";
 
 export interface HallOfFameEntry {
   id: string;
@@ -24,5 +25,13 @@ export const hallOfFame: HallOfFameEntry[] = [
     accolades: "S6 Jack Adams Trophy Winner 🎧; S6 Vezina Trophy Winner 🥅; S8 Vezina Trophy Winner 🥅; S8 Stanley Cup Champion 🏆; S9 Vezina Trophy Winner 🥅; S9 Stanley Cup Champion 🏆; S10 Jack Adams Trophy Winner 🎧; S10 Stanley Cup Champion 🏆",
     teamId: "st-louis-blues",
     headshot: carberHof,
+  },
+  {
+    id: "hof-minisneaki",
+    playerName: "MiniSneaki",
+    note: "Retired as a Carolina Hurricane in Season 6.",
+    accolades: "S1 Stanley Cup Champion 🏆; S1 Conn Smythe Trophy Winner 🏆",
+    teamId: "carolina-hurricanes",
+    headshot: miniSneakiHof,
   },
 ];
