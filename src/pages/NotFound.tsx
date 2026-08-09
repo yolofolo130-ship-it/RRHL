@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function NotFound() {
   return (
-    <div className="mx-auto flex max-w-[1400px] flex-col items-center px-6 py-40 text-center lg:px-10">
+    <div className="mx-auto flex flex-col items-center px-6 py-40 text-center lg:px-10">
       <p className="text-xs font-semibold tracking-[0.3em] text-ink-2">404</p>
       <h1 className="font-display mt-3 text-5xl font-bold uppercase tracking-wide text-ink-0 sm:text-6xl">
         Icing Called

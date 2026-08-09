@@ -7,7 +7,7 @@ export default function Accolades() {
     <>
       <PageHeader eyebrow="END OF SEASON" title="Accolades" />
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+      <section className="mx-auto px-6 py-14 lg:px-10">
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {accolades.map((accolade) => (
             <TrophyCard

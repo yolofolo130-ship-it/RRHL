@@ -13,7 +13,7 @@ export default function Teams() {
     <>
       <PageHeader eyebrow="TEN CLUBS, ONE CUP" title="Teams" />
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+      <section className="mx-auto px-6 py-14 lg:px-10">
         <SectionHeader eyebrow="CONFERENCE" title="Eastern Conference" />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {eastStandings.map((standing) => (
@@ -22,7 +22,7 @@ export default function Teams() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-[1400px] px-6 pb-20 lg:px-10">
+      <section className="mx-auto px-6 pb-20 lg:px-10">
         <SectionHeader eyebrow="CONFERENCE" title="Western Conference" />
         <div className="mt-8 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {westStandings.map((standing) => (

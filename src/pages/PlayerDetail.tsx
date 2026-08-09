@@ -32,7 +32,7 @@ export default function PlayerDetail() {
 
   if (!player) {
     return (
-      <div className="mx-auto max-w-[1400px] px-6 py-32 text-center lg:px-10">
+      <div className="mx-auto px-6 py-32 text-center lg:px-10">
         <p className="font-display text-3xl font-semibold uppercase text-ink-0">
           Player not found
         </p>
@@ -92,7 +92,7 @@ export default function PlayerDetail() {
           }}
           aria-hidden
         />
-        <div className="relative mx-auto flex max-w-[1400px] flex-col items-center gap-6 px-6 pb-10 pt-36 text-center lg:flex-row lg:items-end lg:gap-8 lg:px-10 lg:text-left">
+        <div className="relative mx-auto flex flex-col items-center gap-6 px-6 pb-10 pt-36 text-center lg:flex-row lg:items-end lg:gap-8 lg:px-10 lg:text-left">
           {team && <TeamLogo team={team} className="h-28 w-28 shrink-0 lg:h-36 lg:w-36" />}
           <div className="flex flex-1 flex-col items-center gap-2 lg:items-start">
             {team && (
@@ -133,7 +133,7 @@ export default function PlayerDetail() {
         </div>
       </div>
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+      <section className="mx-auto px-6 py-14 lg:px-10">
         {player.kind !== "former" && (
           <>
         <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">SEASON 23</p>

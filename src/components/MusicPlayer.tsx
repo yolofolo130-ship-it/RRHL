@@ -66,7 +66,7 @@ export default function MusicPlayer() {
 
       {playlistOpen && (
         <div className="max-h-64 overflow-y-auto border-b border-line bg-bg-1">
-          <ul className="mx-auto max-w-[1400px] px-6 py-2 lg:px-10">
+          <ul className="mx-auto px-6 py-2 lg:px-10">
             {tracks.map((t, i) => (
               <li key={t.id}>
                 <button
@@ -93,7 +93,7 @@ export default function MusicPlayer() {
         </div>
       )}
 
-      <div className="mx-auto flex max-w-[1400px] items-center gap-4 px-6 py-3 lg:px-10">
+      <div className="mx-auto flex items-center gap-4 px-6 py-3 lg:px-10">
         <div className="hidden min-w-0 flex-1 sm:flex sm:flex-col">
           <span className="truncate text-sm font-semibold text-ink-0">
             {track.title}

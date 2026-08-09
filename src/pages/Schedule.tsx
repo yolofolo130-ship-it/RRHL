@@ -58,7 +58,7 @@ export default function Schedule() {
     <>
       <PageHeader eyebrow="EVERY FACEOFF" title="S23 Schedule" />
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+      <section className="mx-auto px-6 py-14 lg:px-10">
         <div className="flex flex-wrap items-center gap-4">
           <Tabs options={CONFERENCE_OPTIONS} value={conference} onChange={setConference} />
 

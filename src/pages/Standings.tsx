@@ -22,7 +22,7 @@ export default function Standings() {
     <>
       <PageHeader eyebrow="REGULAR SEASON" title="S23 Standings" />
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+      <section className="mx-auto px-6 py-14 lg:px-10">
         <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} />
 
         <div className="mt-8">

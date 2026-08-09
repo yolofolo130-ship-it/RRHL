@@ -44,7 +44,7 @@ export default function Stats() {
     <>
       <PageHeader eyebrow="THE NUMBERS" title="S23 Player Stats" />
 
-      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+      <section className="mx-auto px-6 py-14 lg:px-10">
         <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} />
 
         <div className="mt-8 overflow-x-auto border border-line bg-bg-2">
