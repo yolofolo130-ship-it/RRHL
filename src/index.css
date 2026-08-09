@@ -26,7 +26,7 @@
   --animate-confetti-fall: confetti-fall 2.2s ease-in both;
   --animate-diamond-shimmer: diamond-shimmer 1.4s ease-in-out infinite;
   --animate-logo-drift: logo-drift 12s ease-in-out infinite;
-  --animate-logo-fall: logo-fall 7s ease-in-out infinite;
+  --animate-logo-fall: logo-fall 7s linear infinite;
 
   @keyframes fade-up {
     from {

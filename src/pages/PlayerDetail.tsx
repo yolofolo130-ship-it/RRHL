@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import TeamLogo from "@/components/TeamLogo";
 import TrophyCard from "@/components/TrophyCard";
 import ChampionBadge from "@/components/ChampionBadge";
+import HallOfFameBadge from "@/components/HallOfFameBadge";
 import OverallBadge from "@/components/OverallBadge";
 import XFactorBadge from "@/components/XFactorBadge";
 import XFactorLogo from "@/components/XFactorLogo";
@@ -30,6 +31,7 @@ import { championshipSeasonsFor } from "@/data/championshipRosters";
 import { lastGamesFor, lastGoalieGamesFor } from "@/data/gameLogs";
 import { formatSavePct } from "@/utils/format";
 import { accolades } from "@/data/accolades";
+import { hallOfFame } from "@/data/hallOfFame";
 
 // Fixed slots spread far apart across the header so the small drift
 // distance each logo animates through can never carry one into another.
@@ -116,6 +118,7 @@ export default function PlayerDetail() {
   }));
   const allAccolades = [...currentAccolades, ...pastAccolades].sort(byNewestSeason);
   const champSeasons = championshipSeasonsFor(player.name);
+  const isHallOfFamer = hallOfFame.some((entry) => entry.playerName === player.name);
 
   // Only surface a rank if it's actually leaderboard-worthy (top 10), so a
   // player with 1 assist in a mostly-scoreless season doesn't get a banner.
@@ -196,6 +199,7 @@ export default function PlayerDetail() {
             <h1 className="flex flex-wrap items-center justify-center gap-3 font-display text-5xl font-bold uppercase tracking-wide text-ink-0 sm:text-6xl lg:justify-start">
               {player.name}
               <ChampionBadge seasons={champSeasons} size="lg" />
+              {isHallOfFamer && <HallOfFameBadge size="lg" />}
             </h1>
             <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
               {player.kind === "former"
