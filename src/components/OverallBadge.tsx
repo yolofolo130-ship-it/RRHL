@@ -1,6 +1,7 @@
 interface OverallBadgeProps {
   overall: number;
   size?: "sm" | "lg";
+  className?: string;
 }
 
 interface Tier {
@@ -53,7 +54,7 @@ const tierFor = (overall: number): Tier => {
 };
 
 // 95+ overalls get a shimmering icy-blue diamond glow behind the number.
-export default function OverallBadge({ overall, size = "sm" }: OverallBadgeProps) {
+export default function OverallBadge({ overall, size = "sm", className = "" }: OverallBadgeProps) {
   const tier = tierFor(overall);
   const padding = size === "lg" ? "px-4 py-2" : "px-3 py-1.5";
   const numberSize = size === "lg" ? "text-2xl" : "text-base";
@@ -61,7 +62,7 @@ export default function OverallBadge({ overall, size = "sm" }: OverallBadgeProps
 
   return (
     <span
-      className={`relative inline-flex shrink-0 flex-col items-center overflow-hidden border ${tier.border} ${tier.bg} ${padding} leading-none`}
+      className={`relative inline-flex shrink-0 flex-col items-center overflow-hidden border ${tier.border} ${tier.bg} ${padding} leading-none ${className}`}
       title={`Overall rating: ${overall}`}
     >
       {tier.glow && (

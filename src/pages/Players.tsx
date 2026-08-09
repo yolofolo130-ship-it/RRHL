@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import TeamLogo from "@/components/TeamLogo";
 import ChampionBadge from "@/components/ChampionBadge";
+import OverallBadge from "@/components/OverallBadge";
 import { teams } from "@/data/teams";
 import { skaters, goalies, skaterPoints, playerSlug } from "@/data/players";
 import { formerPlayers } from "@/data/formerPlayers";
@@ -46,6 +47,9 @@ export default function Players() {
                           {player.position} &middot; {skaterPoints(player)} PTS
                         </p>
                       </div>
+                      {player.overall !== undefined && (
+                        <OverallBadge overall={player.overall} className="ml-auto" />
+                      )}
                     </Link>
                   ))}
                   {teamGoalies.map((goalie) => (
@@ -66,6 +70,9 @@ export default function Players() {
                           G &middot; {goalie.wins}-{goalie.losses}-{goalie.otLosses}
                         </p>
                       </div>
+                      {goalie.overall !== undefined && (
+                        <OverallBadge overall={goalie.overall} className="ml-auto" />
+                      )}
                     </Link>
                   ))}
                 </div>
@@ -94,6 +101,9 @@ export default function Players() {
                       </p>
                       <p className="truncate text-xs text-ink-2">Former player</p>
                     </div>
+                    {player.overall !== undefined && (
+                      <OverallBadge overall={player.overall} className="ml-auto" />
+                    )}
                   </Link>
                 ))}
               </div>
