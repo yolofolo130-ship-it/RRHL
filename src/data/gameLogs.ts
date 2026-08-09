@@ -528,7 +528,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Sleepy", gameId: "g11", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   // ---------- VEGAS GOLDEN KNIGHTS ----------
-  { playerName: "TGOD", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "TGOD", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "TGOD", gameId: "g10", gs: 1, dec: "W", shotsAgainst: 30, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "TGOD", gameId: "g14", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
 
