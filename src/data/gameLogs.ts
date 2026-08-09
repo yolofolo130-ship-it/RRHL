@@ -48,10 +48,10 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Badmilk", gameId: "g12", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
-  { playerName: "Chrisx", gameId: "g02", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Chrisx", gameId: "g07", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Chrisx", gameId: "g12", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Chrisx", gameId: "g17", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g02", goals: 4, assists: 1, points: 5, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 6, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g07", goals: 3, assists: 3, points: 4, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 5, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g12", goals: 1, assists: 0, points: 1, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g17", goals: 2, assists: 3, points: 5, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
 
   { playerName: "RestartedRyan", gameId: "g02", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "RestartedRyan", gameId: "g07", goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
