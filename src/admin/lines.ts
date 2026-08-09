@@ -195,6 +195,21 @@ export function setLineField(
 
 // ---------- shared line-editing utilities ----------
 
+// If the given array is currently an empty single-line literal (e.g.
+// "export const hallOfFame: HallOfFameEntry[] = [];"), splits it into an
+// open line and a "];" line so findArrayRange/insert logic has somewhere
+// to put a new entry. No-op if the array already spans multiple lines.
+export function normalizeEmptyArray(lines: string[], openMarker: string): string[] {
+  const idx = lines.findIndex((l) => l.includes(openMarker));
+  if (idx === -1) return lines;
+  const line = lines[idx];
+  if (!/\[\s*\]\s*;?\s*$/.test(line)) return lines;
+  const openLine = line.replace(/\[\s*\]\s*;?\s*$/, "[");
+  const next = [...lines];
+  next.splice(idx, 1, openLine, "];");
+  return next;
+}
+
 // Replaces the line at `index`, or if index is -1, inserts a brand new
 // line right after the last line belonging to `afterKey`/`afterValue`
 // (e.g. the last existing row for a given player), or before `arrayEnd`
