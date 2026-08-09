@@ -497,10 +497,10 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "ElMosquito", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   // ---------- TAMPA BAY LIGHTNING ----------
-  { playerName: "SnugThePug", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "SnugThePug", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "SnugThePug", gameId: "g15", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "SnugThePug", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g01", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g06", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g15", gs: 0, dec: "OTL", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g17", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   { playerName: "Pechs", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Pechs", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
