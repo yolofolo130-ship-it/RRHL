@@ -205,14 +205,13 @@ export interface FormerTeam {
   color?: string;
 }
 
-// A single skater's box score from one game, shown as "Last 5 Games" on
-// their player page. Goalies aren't tracked here.
-export interface SkaterGameLog {
-  id: string;
+// A single skater's real stat line from one game, shown as "Last 5 Games"
+// on their player page. Goalies aren't tracked here. `gameId` links back to
+// a Game in schedule.ts — date/opponent/home-away are read from that game,
+// not stored here, so the row always matches the schedule automatically.
+export interface SkaterGameStatLine {
   playerName: string;
-  date: string; // "YYYY-MM-DD"
-  opponentTeamId: string;
-  home: boolean; // true -> "vs OPP", false -> "@ OPP"
+  gameId: string;
   goals: number;
   assists: number;
   points: number;

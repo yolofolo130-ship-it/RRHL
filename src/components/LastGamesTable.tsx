@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
 import { getTeamById } from "@/data/teams";
-import type { SkaterGameLog } from "@/data/types";
+import type { SkaterGameRow } from "@/data/gameLogs";
 import { formatShortDate } from "@/utils/format";
 
-export default function LastGamesTable({ games }: { games: SkaterGameLog[] }) {
+export default function LastGamesTable({ games }: { games: SkaterGameRow[] }) {
   if (games.length === 0) {
     return (
       <p className="border border-line bg-bg-2 px-6 py-8 text-center text-sm text-ink-2">
@@ -35,7 +35,7 @@ export default function LastGamesTable({ games }: { games: SkaterGameLog[] }) {
             const opponent = getTeamById(game.opponentTeamId);
             return (
               <tr
-                key={game.id}
+                key={game.gameId}
                 className="border-b border-line/60 last:border-b-0 hover:bg-white/[0.03]"
               >
                 <td className="px-4 py-3 text-ink-1">{formatShortDate(game.date)}</td>

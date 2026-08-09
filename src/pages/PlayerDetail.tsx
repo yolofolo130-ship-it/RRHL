@@ -284,7 +284,7 @@ export default function PlayerDetail() {
             <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">
               LAST 5 GAMES
             </p>
-            <LastGamesTable games={lastGamesFor(player.name)} />
+            <LastGamesTable games={lastGamesFor(player.name, player.teamId)} />
           </>
         )}
           </>
