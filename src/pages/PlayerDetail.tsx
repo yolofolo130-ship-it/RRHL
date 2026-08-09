@@ -97,7 +97,7 @@ export default function PlayerDetail() {
             <img
               src={player.headshot}
               alt={player.name}
-              className="h-28 w-28 shrink-0 rounded-full border border-line-strong object-cover lg:h-36 lg:w-36"
+              className="h-36 w-36 shrink-0 rounded-full border border-line-strong object-cover lg:h-48 lg:w-48"
             />
           ) : (
             team && <TeamLogo team={team} className="h-28 w-28 shrink-0 lg:h-36 lg:w-36" />
