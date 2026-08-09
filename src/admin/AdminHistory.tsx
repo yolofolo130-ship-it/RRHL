@@ -268,6 +268,7 @@ interface HofRow {
   id: string;
   playerName: string;
   note: string;
+  accolades: string;
 }
 
 function HallOfFameSection() {
@@ -280,6 +281,7 @@ function HallOfFameSection() {
   const [savedId, setSavedId] = useState<string | null>(null);
   const [newPlayer, setNewPlayer] = useState("");
   const [newNote, setNewNote] = useState("");
+  const [newAccolades, setNewAccolades] = useState("");
   const [adding, setAdding] = useState(false);
 
   const load = () => {
@@ -297,6 +299,7 @@ function HallOfFameSection() {
             id: kv.id as string,
             playerName: kv.playerName as string,
             note: (kv.note as string | undefined) ?? "",
+            accolades: (kv.accolades as string | undefined) ?? "",
           });
         }
         setLines(normalized);
@@ -309,23 +312,24 @@ function HallOfFameSection() {
 
   useEffect(load, []);
 
-  const updateNote = (id: string, note: string) => {
-    setRows((rs) => rs.map((r) => (r.id === id ? { ...r, note } : r)));
+  const updateRow = (id: string, patch: Partial<HofRow>) => {
+    setRows((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   };
 
-  const saveNote = async (row: HofRow) => {
+  const saveRow = async (row: HofRow) => {
     if (!lines || !sha) return;
     setSavingId(row.id);
     setError(null);
     try {
-      const newLine = setLineField(lines[row.lineIndex], "note", row.note || undefined);
+      let newLine = setLineField(lines[row.lineIndex], "note", row.note || undefined);
+      newLine = setLineField(newLine, "accolades", row.accolades || undefined);
       const nextLines = [...lines];
       nextLines[row.lineIndex] = newLine;
       const newSha = await commitFile(
         HALL_OF_FAME_PATH,
         nextLines.join("\n"),
         sha,
-        `Update ${row.playerName}'s Hall of Fame note`,
+        `Update ${row.playerName}'s Hall of Fame entry`,
       );
       setLines(nextLines);
       setSha(newSha);
@@ -344,9 +348,10 @@ function HallOfFameSection() {
     setError(null);
     try {
       const id = `hof-${slugify(newPlayer)}`;
-      const newLine = newNote.trim()
-        ? `  { id: "${id}", playerName: "${newPlayer.trim()}", note: "${newNote.trim()}" },`
-        : `  { id: "${id}", playerName: "${newPlayer.trim()}" },`;
+      const parts = [`id: "${id}"`, `playerName: "${newPlayer.trim()}"`];
+      if (newNote.trim()) parts.push(`note: "${newNote.trim()}"`);
+      if (newAccolades.trim()) parts.push(`accolades: "${newAccolades.trim()}"`);
+      const newLine = `  { ${parts.join(", ")} },`;
       const { end } = findArrayRange(lines, HALL_OF_FAME_MARKER);
       const nextLines = [...lines];
       nextLines.splice(end, 0, newLine);
@@ -360,6 +365,7 @@ function HallOfFameSection() {
       setSha(newSha);
       setNewPlayer("");
       setNewNote("");
+      setNewAccolades("");
       load();
     } catch (e: any) {
       setError(String(e.message ?? e));
@@ -380,6 +386,7 @@ function HallOfFameSection() {
               <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                 <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
                 <th className="px-3 py-3 text-left font-semibold">NOTE</th>
+                <th className="px-3 py-3 text-left font-semibold">ACCOLADES (SEMICOLON-SEPARATED)</th>
                 <th className="px-4 py-3 text-center font-semibold"></th>
               </tr>
             </thead>
@@ -391,15 +398,24 @@ function HallOfFameSection() {
                     <input
                       type="text"
                       value={row.note}
-                      onChange={(e) => updateNote(row.id, e.target.value)}
+                      onChange={(e) => updateRow(row.id, { note: e.target.value })}
                       placeholder="Why they were inducted"
+                      className="w-full border border-line bg-bg-1 px-2 py-1.5 text-ink-0 outline-none focus:border-line-strong"
+                    />
+                  </td>
+                  <td className="px-3 py-3">
+                    <input
+                      type="text"
+                      value={row.accolades}
+                      onChange={(e) => updateRow(row.id, { accolades: e.target.value })}
+                      placeholder="Hart Memorial Trophy (S22); Stanley Cup Champion (S22)"
                       className="w-full border border-line bg-bg-1 px-2 py-1.5 text-ink-0 outline-none focus:border-line-strong"
                     />
                   </td>
                   <td className="px-4 py-3 text-center">
                     <button
                       type="button"
-                      onClick={() => saveNote(row)}
+                      onClick={() => saveRow(row)}
                       disabled={savingId === row.id}
                       className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
                     >
@@ -435,6 +451,18 @@ function HallOfFameSection() {
             onChange={(e) => setNewNote(e.target.value)}
             placeholder="3x Stanley Cup champion"
             className="w-64 border border-line bg-bg-1 px-2 py-1.5 text-sm text-ink-0 outline-none focus:border-line-strong"
+          />
+        </div>
+        <div>
+          <label className="mb-1 block text-[10px] font-semibold tracking-[0.15em] text-ink-3">
+            ACCOLADES (SEMICOLON-SEPARATED, OPTIONAL)
+          </label>
+          <input
+            type="text"
+            value={newAccolades}
+            onChange={(e) => setNewAccolades(e.target.value)}
+            placeholder="Hart Memorial Trophy (S22); Stanley Cup Champion (S22)"
+            className="w-96 border border-line bg-bg-1 px-2 py-1.5 text-sm text-ink-0 outline-none focus:border-line-strong"
           />
         </div>
         <button

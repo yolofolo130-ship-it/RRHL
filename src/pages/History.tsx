@@ -4,10 +4,11 @@ import Tabs from "@/components/Tabs";
 import TrophyCard from "@/components/TrophyCard";
 import ChampionCard from "@/components/ChampionCard";
 import RecordCategoryCard from "@/components/RecordCategoryCard";
+import HallOfFameModal from "@/components/HallOfFameModal";
 import { accolades } from "@/data/accolades";
 import { seasonAccolades, byOldestSeason } from "@/data/playerHistory";
 import { teamSeasonHonors, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
-import { hallOfFame } from "@/data/hallOfFame";
+import { hallOfFame, type HallOfFameEntry } from "@/data/hallOfFame";
 import { recordBook } from "@/data/recordBook";
 import { getPlayerSlugByName } from "@/data/players";
 
@@ -57,6 +58,7 @@ function championHonorsForSeason(season: string) {
 
 export default function History() {
   const [tab, setTab] = useState("award-history");
+  const [selectedInductee, setSelectedInductee] = useState<HallOfFameEntry | null>(null);
 
   const seasons = Array.from(
     new Set([
@@ -125,17 +127,14 @@ export default function History() {
             </p>
           ) : (
             <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-              {hallOfFame.map((entry) => {
-                const slug = getPlayerSlugByName(entry.playerName);
-                return (
-                  <TrophyCard
-                    key={entry.id}
-                    name={entry.playerName}
-                    subtitle={entry.note ?? "Hall of Fame"}
-                    to={slug ? `/players/${slug}` : undefined}
-                  />
-                );
-              })}
+              {hallOfFame.map((entry) => (
+                <TrophyCard
+                  key={entry.id}
+                  name={entry.playerName}
+                  subtitle={entry.note ?? "Hall of Fame"}
+                  onClick={() => setSelectedInductee(entry)}
+                />
+              ))}
             </div>
           ))}
 
@@ -147,6 +146,10 @@ export default function History() {
           </div>
         )}
       </section>
+
+      {selectedInductee && (
+        <HallOfFameModal entry={selectedInductee} onClose={() => setSelectedInductee(null)} />
+      )}
     </>
   );
 }

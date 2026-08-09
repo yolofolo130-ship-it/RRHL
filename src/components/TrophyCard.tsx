@@ -10,6 +10,8 @@ interface TrophyCardProps {
   muted?: boolean;
   /** If set, the card links there (e.g. the winner's or team's page). */
   to?: string;
+  /** If set (and `to` isn't), the card renders as a button instead of a link. */
+  onClick?: () => void;
   /** A team crest shown in place of the generic hockey-sticks icon. */
   logo?: string;
   /** Themes the card in this color instead of the default gold. */
@@ -21,6 +23,7 @@ export default function TrophyCard({
   subtitle,
   muted = false,
   to,
+  onClick,
   logo,
   color,
 }: TrophyCardProps) {
@@ -92,6 +95,14 @@ export default function TrophyCard({
       <Link to={to} className={className} style={style}>
         {content}
       </Link>
+    );
+  }
+
+  if (onClick) {
+    return (
+      <button type="button" onClick={onClick} className={`${className} w-full text-left`} style={style}>
+        {content}
+      </button>
     );
   }
 
