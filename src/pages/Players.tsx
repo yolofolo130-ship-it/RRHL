@@ -35,9 +35,13 @@ export default function Players() {
                       to={`/players/${playerSlug(player.name)}`}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
-                        {player.number}
-                      </div>
+                      {player.overall !== undefined ? (
+                        <OverallBadge overall={player.overall} />
+                      ) : (
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
+                          {player.number}
+                        </div>
+                      )}
                       <div className="min-w-0">
                         <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           <span className="min-w-0 truncate">{player.name}</span>
@@ -47,9 +51,6 @@ export default function Players() {
                           {player.position} &middot; {skaterPoints(player)} PTS
                         </p>
                       </div>
-                      {player.overall !== undefined && (
-                        <OverallBadge overall={player.overall} className="ml-auto" />
-                      )}
                     </Link>
                   ))}
                   {teamGoalies.map((goalie) => (
@@ -58,9 +59,13 @@ export default function Players() {
                       to={`/players/${playerSlug(goalie.name)}`}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
-                      <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
-                        {goalie.number}
-                      </div>
+                      {goalie.overall !== undefined ? (
+                        <OverallBadge overall={goalie.overall} />
+                      ) : (
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center border border-line bg-bg-3 font-display text-lg font-semibold text-ink-1">
+                          {goalie.number}
+                        </div>
+                      )}
                       <div className="min-w-0">
                         <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           <span className="min-w-0 truncate">{goalie.name}</span>
@@ -70,9 +75,6 @@ export default function Players() {
                           G &middot; {goalie.wins}-{goalie.losses}-{goalie.otLosses}
                         </p>
                       </div>
-                      {goalie.overall !== undefined && (
-                        <OverallBadge overall={goalie.overall} className="ml-auto" />
-                      )}
                     </Link>
                   ))}
                 </div>
