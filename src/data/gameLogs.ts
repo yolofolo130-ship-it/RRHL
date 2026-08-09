@@ -1,17 +1,18 @@
 import type { SkaterGameLog } from "./types";
 
 // Per-game skater box scores for the "Last 5 Games" table on a skater's
-// player page. Auto-generated from each team's completed schedule.ts
-// games (last 5, or fewer if the team has played fewer) so every player's
-// row count and opponent/date/home-away is always accurate. Stat columns
-// start at 0 as placeholders — fill in real numbers per game as you get
-// them; this file only needs new rows added when a team plays a NEW final
-// game beyond what's already listed here.
+// player page. Grouped by team below so it's easy to find/edit on GitHub.
+// Auto-generated from each team's completed schedule.ts games (last 5,
+// or fewer if the team has played fewer) so every player's row count and
+// opponent/date/home-away is always accurate. Stat columns start at 0 as
+// placeholders — fill in real numbers per game as you get them; add new
+// rows here when a team plays a NEW final game beyond what's listed.
 //
 // `playerName` must exactly match the player's name in players.ts.
 // `opponentTeamId` must exactly match a team id in teams.ts.
 // `home: true` shows "vs OPP", `home: false` shows "@ OPP".
 export const skaterGameLogs: SkaterGameLog[] = [
+  // ---------- CAROLINA HURRICANES ----------
   { id: "car-1-g04", playerName: "BNA", date: "2026-08-01", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "car-1-g08", playerName: "BNA", date: "2026-08-04", opponentTeamId: "los-angeles-kings", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "car-1-g12", playerName: "BNA", date: "2026-08-05", opponentTeamId: "pittsburgh-penguins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -36,6 +37,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "car-8-g04", playerName: "Badmilk", date: "2026-08-01", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "car-8-g08", playerName: "Badmilk", date: "2026-08-04", opponentTeamId: "los-angeles-kings", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "car-8-g12", playerName: "Badmilk", date: "2026-08-05", opponentTeamId: "pittsburgh-penguins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- PITTSBURGH PENGUINS ----------
   { id: "pit-1-g02", playerName: "Chrisx", date: "2026-07-31", opponentTeamId: "new-york-rangers", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "pit-1-g07", playerName: "Chrisx", date: "2026-08-03", opponentTeamId: "boston-bruins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "pit-1-g12", playerName: "Chrisx", date: "2026-08-05", opponentTeamId: "carolina-hurricanes", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -76,6 +79,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "pit-10-g07", playerName: "Carterthegawd", date: "2026-08-03", opponentTeamId: "boston-bruins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "pit-10-g12", playerName: "Carterthegawd", date: "2026-08-05", opponentTeamId: "carolina-hurricanes", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "pit-10-g17", playerName: "Carterthegawd", date: "2026-08-07", opponentTeamId: "tampa-bay-lightning", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- TAMPA BAY LIGHTNING ----------
   { id: "tbl-1-g01", playerName: "Swordtsu", date: "2026-07-31", opponentTeamId: "vegas-golden-knights", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "tbl-1-g06", playerName: "Swordtsu", date: "2026-08-03", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "tbl-1-g15", playerName: "Swordtsu", date: "2026-08-06", opponentTeamId: "new-york-rangers", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -112,6 +117,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "tbl-9-g06", playerName: "Boa", date: "2026-08-03", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "tbl-9-g15", playerName: "Boa", date: "2026-08-06", opponentTeamId: "new-york-rangers", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "tbl-9-g17", playerName: "Boa", date: "2026-08-07", opponentTeamId: "pittsburgh-penguins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- BOSTON BRUINS ----------
   { id: "bos-1-g05", playerName: "Kdog2020", date: "2026-08-02", opponentTeamId: "utah-mammoths", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "bos-1-g07", playerName: "Kdog2020", date: "2026-08-03", opponentTeamId: "pittsburgh-penguins", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "bos-1-g13", playerName: "Kdog2020", date: "2026-08-06", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -136,6 +143,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "bos-8-g05", playerName: "Idk67", date: "2026-08-02", opponentTeamId: "utah-mammoths", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "bos-8-g07", playerName: "Idk67", date: "2026-08-03", opponentTeamId: "pittsburgh-penguins", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "bos-8-g13", playerName: "Idk67", date: "2026-08-06", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- NEW YORK RANGERS ----------
   { id: "nyr-1-g02", playerName: "Jrok", date: "2026-07-31", opponentTeamId: "pittsburgh-penguins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "nyr-1-g10", playerName: "Jrok", date: "2026-08-04", opponentTeamId: "vegas-golden-knights", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "nyr-1-g15", playerName: "Jrok", date: "2026-08-06", opponentTeamId: "tampa-bay-lightning", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -164,6 +173,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "nyr-7-g10", playerName: "DieLit", date: "2026-08-04", opponentTeamId: "vegas-golden-knights", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "nyr-7-g15", playerName: "DieLit", date: "2026-08-06", opponentTeamId: "tampa-bay-lightning", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "nyr-7-g18", playerName: "DieLit", date: "2026-08-07", opponentTeamId: "dallas-stars", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- UTAH MAMMOTHS ----------
   { id: "uta-1-g05", playerName: "MJ", date: "2026-08-02", opponentTeamId: "boston-bruins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "uta-1-g09", playerName: "MJ", date: "2026-08-04", opponentTeamId: "dallas-stars", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "uta-1-g11", playerName: "MJ", date: "2026-08-05", opponentTeamId: "los-angeles-kings", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -197,6 +208,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "uta-11-g05", playerName: "Mood", date: "2026-08-02", opponentTeamId: "boston-bruins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "uta-11-g09", playerName: "Mood", date: "2026-08-04", opponentTeamId: "dallas-stars", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "uta-11-g11", playerName: "Mood", date: "2026-08-05", opponentTeamId: "los-angeles-kings", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- VEGAS GOLDEN KNIGHTS ----------
   { id: "vgk-1-g01", playerName: "Sinny", date: "2026-07-31", opponentTeamId: "tampa-bay-lightning", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "vgk-1-g10", playerName: "Sinny", date: "2026-08-04", opponentTeamId: "new-york-rangers", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "vgk-1-g14", playerName: "Sinny", date: "2026-08-06", opponentTeamId: "dallas-stars", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -224,6 +237,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "vgk-9-g01", playerName: "Darkness", date: "2026-07-31", opponentTeamId: "tampa-bay-lightning", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "vgk-9-g10", playerName: "Darkness", date: "2026-08-04", opponentTeamId: "new-york-rangers", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "vgk-9-g14", playerName: "Darkness", date: "2026-08-06", opponentTeamId: "dallas-stars", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- ST. LOUIS BLUES ----------
   { id: "stl-1-g04", playerName: "Vengeance", date: "2026-08-01", opponentTeamId: "carolina-hurricanes", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "stl-1-g06", playerName: "Vengeance", date: "2026-08-03", opponentTeamId: "tampa-bay-lightning", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "stl-1-g13", playerName: "Vengeance", date: "2026-08-06", opponentTeamId: "boston-bruins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -256,6 +271,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "stl-8-g06", playerName: "AlexKiller", date: "2026-08-03", opponentTeamId: "tampa-bay-lightning", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "stl-8-g13", playerName: "AlexKiller", date: "2026-08-06", opponentTeamId: "boston-bruins", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "stl-8-g16", playerName: "AlexKiller", date: "2026-08-07", opponentTeamId: "los-angeles-kings", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- LOS ANGELES KINGS ----------
   { id: "lak-1-g03", playerName: "MVP", date: "2026-08-01", opponentTeamId: "dallas-stars", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "lak-1-g08", playerName: "MVP", date: "2026-08-04", opponentTeamId: "carolina-hurricanes", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "lak-1-g11", playerName: "MVP", date: "2026-08-05", opponentTeamId: "utah-mammoths", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -292,6 +309,8 @@ export const skaterGameLogs: SkaterGameLog[] = [
   { id: "lak-9-g08", playerName: "Evv-76", date: "2026-08-04", opponentTeamId: "carolina-hurricanes", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "lak-9-g11", playerName: "Evv-76", date: "2026-08-05", opponentTeamId: "utah-mammoths", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "lak-9-g16", playerName: "Evv-76", date: "2026-08-07", opponentTeamId: "st-louis-blues", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+
+  // ---------- DALLAS STARS ----------
   { id: "dal-1-g03", playerName: "Santi", date: "2026-08-01", opponentTeamId: "los-angeles-kings", home: true, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "dal-1-g09", playerName: "Santi", date: "2026-08-04", opponentTeamId: "utah-mammoths", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { id: "dal-1-g14", playerName: "Santi", date: "2026-08-06", opponentTeamId: "vegas-golden-knights", home: false, goals: 0, assists: 0, points: 0, plusMinus: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
