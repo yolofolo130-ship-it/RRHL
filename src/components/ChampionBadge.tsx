@@ -20,10 +20,6 @@ export default function ChampionBadge({ seasons, size = "sm" }: ChampionBadgePro
       title={`Stanley Cup champion: ${seasons.join(", ")}`}
     >
       <span className="relative inline-flex shrink-0 items-center justify-center">
-        <span
-          className="pointer-events-none absolute -inset-1 animate-glow-pulse rounded-full bg-amber-400/50 blur-md"
-          aria-hidden
-        />
         <svg
           viewBox="0 0 24 24"
           fill="currentColor"
