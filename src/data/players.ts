@@ -88,11 +88,11 @@ export const skaters: Skater[] = [
   { id: "stl-8", name: "AlexKiller", teamId: "st-louis-blues", position: "LW", number: 1, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "lak-1", name: "MVP", teamId: "los-angeles-kings", position: "C", number: 9, gp: 2, goals: 13, assists: 2, pim: 0, overall: 85, flag: "USA" },
-  { id: "lak-2", name: "Gabriel", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 1, goals: 1, assists: 0, pim: 0, overall: 80, flag: "USA" },
+  { id: "lak-2", name: "Gabriel", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 3, goals: 1, assists: 0, pim: 0, overall: 80, flag: "USA" },
   { id: "lak-3", name: "Adam Cole", teamId: "los-angeles-kings", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "lak-4", name: "2Tone", teamId: "los-angeles-kings", position: "D", number: 26, gp: 1, goals: 0, assists: 0, pim: 0, overall: 85, flag: "USA" },
   { id: "lak-5", name: "Duck", teamId: "los-angeles-kings", position: "D", number: 27, gp: 0, goals: 0, assists: 0, pim: 0, overall: 88, star: "Wheels", flag: "USA" },
-  { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
+  { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 2, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
   { id: "lak-7", name: "Kranky", teamId: "los-angeles-kings", position: "RW", number: 89, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
   { id: "lak-8", name: "StefonB", teamId: "los-angeles-kings", position: "RW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
   { id: "lak-9", name: "Evv-76", teamId: "los-angeles-kings", position: "D", number: 1, gp: 0, goals: 0, assists: 0, pim: 0, overall: 75, flag: "USA" },
