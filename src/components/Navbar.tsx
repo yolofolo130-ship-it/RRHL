@@ -52,7 +52,7 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 transition-all duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transition-colors duration-300 ${
         scrolled
           ? "border-b border-line bg-bg-0/80 backdrop-blur-md"
           : "border-b border-transparent bg-transparent"
@@ -109,7 +109,7 @@ export default function Navbar() {
             aria-label="Toggle menu"
             aria-expanded={mobileOpen}
             onClick={() => setMobileOpen((open) => !open)}
-            className="flex h-10 w-10 flex-col items-center justify-center gap-[5px] border border-line lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-[5px] border border-line lg:hidden"
           >
             <span
               className={`h-[1.5px] w-5 bg-white transition-all duration-300 ${
