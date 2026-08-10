@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import heroTrailer from "@/assets/backgrounds/rrhl-trailer-fix.mp4";
 
@@ -7,6 +7,11 @@ import heroTrailer from "@/assets/backgrounds/rrhl-trailer-fix.mp4";
 // it only ever shows at the top of the homepage.
 export default function Hero() {
   const videoRef = useRef<HTMLVideoElement>(null);
+  // Some browsers block autoplay outright regardless of muted/playsinline
+  // (iOS Low Power Mode, a site-level "Never Auto-Play" setting) — no JS
+  // workaround forces it, so a tap-to-play fallback appears instead of
+  // leaving the video permanently stuck.
+  const [needsTap, setNeedsTap] = useState(false);
 
   useEffect(() => {
     // Mobile Safari's autoplay gate checks the *actual* muted state at the
@@ -17,11 +22,15 @@ export default function Hero() {
     const video = videoRef.current;
     if (!video) return;
     video.muted = true;
-    video.play().catch(() => {
-      // Autoplay still blocked (e.g. data saver) — the poster/first frame
-      // just stays put, which is a fine fallback.
-    });
+    video.play().catch(() => setNeedsTap(true));
   }, []);
+
+  const tapToPlay = () => {
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().then(() => setNeedsTap(false)).catch(() => {});
+  };
 
   return (
     <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-bg-0">
@@ -33,9 +42,22 @@ export default function Hero() {
         loop
         playsInline
         preload="auto"
+        onPlaying={() => setNeedsTap(false)}
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden
       />
+      {needsTap && (
+        <button
+          type="button"
+          onClick={tapToPlay}
+          aria-label="Play trailer"
+          className="absolute left-1/2 top-1/2 z-20 flex h-16 w-16 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-white/40 bg-black/40 text-white backdrop-blur-sm transition-transform duration-300 hover:scale-105"
+        >
+          <svg viewBox="0 0 24 24" fill="currentColor" className="ml-1 h-6 w-6">
+            <path d="M8 5v14l11-7z" />
+          </svg>
+        </button>
+      )}
       {/* Flat scrim over the whole video — the old gradient left the
           middle fully transparent, right where the title sits, so text
           contrast depended on whatever the video happened to show. */}
