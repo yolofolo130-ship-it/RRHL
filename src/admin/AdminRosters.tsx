@@ -370,8 +370,8 @@ export default function AdminRosters() {
   if (loading) return <p className="text-sm text-ink-2">Loading rosters…</p>;
   if (loadError) return <p className="text-sm text-red-400">{loadError}</p>;
 
-  const skaterEditableKeys = ["number", ...SKATER_NUMBER_FIELDS, "overall", "xFactor", "star", "flag"];
-  const goalieEditableKeys = ["number", ...GOALIE_NUMBER_FIELDS, "overall", "xFactor", "star", "flag"];
+  const skaterEditableKeys = ["teamId", "number", ...SKATER_NUMBER_FIELDS, "overall", "xFactor", "star", "flag"];
+  const goalieEditableKeys = ["teamId", "number", ...GOALIE_NUMBER_FIELDS, "overall", "xFactor", "star", "flag"];
 
   return (
     <div>
@@ -393,6 +393,7 @@ export default function AdminRosters() {
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
+              <th className="px-2 py-3 text-center font-semibold">TEAM</th>
               <th className="px-2 py-3 text-center font-semibold">#</th>
               {SKATER_NUMBER_FIELDS.map((f) => (
                 <th key={f} className="px-2 py-3 text-center font-semibold">
@@ -409,6 +410,21 @@ export default function AdminRosters() {
             {skaterRows.map((row) => (
               <tr key={row.id} className="border-b border-line/60 last:border-b-0">
                 <td className="px-4 py-3 font-medium text-ink-0">{row.name}</td>
+                <td className="px-2 py-3 text-center">
+                  <select
+                    value={(row.values.teamId as string) ?? teamId}
+                    onChange={(e) => updateField(setSkaterRows, row.id, "teamId", e.target.value)}
+                    className={`border bg-bg-1 px-1 py-1 text-ink-0 outline-none focus:border-line-strong ${
+                      row.values.teamId !== teamId ? "border-amber-400/60 text-amber-300" : "border-line"
+                    }`}
+                  >
+                    {teams.map((t) => (
+                      <option key={t.id} value={t.id}>
+                        {t.abbr}
+                      </option>
+                    ))}
+                  </select>
+                </td>
                 <td className="px-2 py-3 text-center">
                   <input
                     type="number"
@@ -506,6 +522,7 @@ export default function AdminRosters() {
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
+              <th className="px-2 py-3 text-center font-semibold">TEAM</th>
               <th className="px-2 py-3 text-center font-semibold">#</th>
               {GOALIE_NUMBER_FIELDS.map((f) => (
                 <th key={f} className="px-2 py-3 text-center font-semibold">
@@ -522,6 +539,21 @@ export default function AdminRosters() {
             {goalieRows.map((row) => (
               <tr key={row.id} className="border-b border-line/60 last:border-b-0">
                 <td className="px-4 py-3 font-medium text-ink-0">{row.name}</td>
+                <td className="px-2 py-3 text-center">
+                  <select
+                    value={(row.values.teamId as string) ?? teamId}
+                    onChange={(e) => updateField(setGoalieRows, row.id, "teamId", e.target.value)}
+                    className={`border bg-bg-1 px-1 py-1 text-ink-0 outline-none focus:border-line-strong ${
+                      row.values.teamId !== teamId ? "border-amber-400/60 text-amber-300" : "border-line"
+                    }`}
+                  >
+                    {teams.map((t) => (
+                      <option key={t.id} value={t.id}>
+                        {t.abbr}
+                      </option>
+                    ))}
+                  </select>
+                </td>
                 <td className="px-2 py-3 text-center">
                   <input
                     type="number"
