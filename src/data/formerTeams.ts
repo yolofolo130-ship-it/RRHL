@@ -9,7 +9,7 @@ import torontoMapleLeafsLogo from "@/assets/logos/toronto-maple-leafs-logo.webp"
 import columbusBlueJacketsLogo from "@/assets/logos/Columbus-Blue-Jackets.webp";
 import newJerseyDevilsLogo from "@/assets/logos/New-Jersey-Devils.webp";
 import newYorkIslandersLogo from "@/assets/logos/New-York-Islanders.webp";
-import philadelphiaFlyersLogo from "@/assets/logos/philadelphia-flyers-logo.png";
+import philadelphiaFlyersLogo from "@/assets/logos/philadelphia-flyers-logo.webp";
 import washingtonCapitalsLogo from "@/assets/logos/Washington-Capitals.webp";
 import chicagoBlackhawksLogo from "@/assets/logos/chicago-blackhawks-logo.webp";
 import coloradoAvalancheLogo from "@/assets/logos/Colorado-Avalanche.webp";
@@ -20,7 +20,7 @@ import anaheimDucksLogo from "@/assets/logos/Anaheim-Ducks.webp";
 import calgaryFlamesLogo from "@/assets/logos/calgary-flames-logo.webp";
 import edmontonOilersLogo from "@/assets/logos/edmonton-oilers-logo.webp";
 import sanJoseSharksLogo from "@/assets/logos/San-Jose-Sharks.webp";
-import seattleKrakenLogo from "@/assets/logos/Seattle-Kraken-Logo.png";
+import seattleKrakenLogo from "@/assets/logos/Seattle-Kraken-Logo.webp";
 import vancouverCanucksLogo from "@/assets/logos/vancouver-canucks-logo.webp";
 import arizonaCoyotesLogo from "@/assets/logos/arizona-coyotes-logo.webp";
 
