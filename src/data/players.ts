@@ -32,9 +32,9 @@ export const skaters: Skater[] = [
   { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 4, goals: 9, assists: 1, pim: 0, overall: 87, flag: "USA" },
   { id: "tbl-3", name: "Snickers", teamId: "tampa-bay-lightning", position: "C", number: 8, gp: 2, goals: 0, assists: 0, pim: 0, overall: 87, flag: "USA" },
   { id: "tbl-4", name: "KindSnack000", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
-  { id: "tbl-5", name: "LillianTheGreat", teamId: "tampa-bay-lightning", position: "D", number: 6, gp: 0, goals: 0, assists: 0, pim: 0, overall: 88, star: "Truculence", flag: "USA" },
+  { id: "tbl-5", name: "LillianTheGreat", teamId: "tampa-bay-lightning", position: "D", number: 6, gp: 1, goals: 0, assists: 0, pim: 0, overall: 88, star: "Truculence", flag: "USA" },
   { id: "tbl-6", name: "UncNotFrog", teamId: "tampa-bay-lightning", position: "D", number: 4, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
-  { id: "tbl-7", name: "Ehhabhd", teamId: "tampa-bay-lightning", position: "D", number: 75, gp: 0, goals: 0, assists: 0, pim: 0, overall: 79, flag: "USA" },
+  { id: "tbl-7", name: "Ehhabhd", teamId: "tampa-bay-lightning", position: "D", number: 75, gp: 2, goals: 0, assists: 0, pim: 0, overall: 79, flag: "USA" },
   { id: "tbl-8", name: "GeorgePigs", teamId: "tampa-bay-lightning", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "tbl-9", name: "Boa", teamId: "tampa-bay-lightning", position: "RW", number: 99, gp: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
 
