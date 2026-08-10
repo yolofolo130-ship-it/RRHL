@@ -221,16 +221,16 @@ function TeamBlock({
   return (
     <Link
       to={`/teams/${team.id}`}
-      className={`flex flex-1 flex-col items-center gap-4 text-center transition-opacity hover:opacity-80 sm:flex-row sm:gap-6 ${
-        reverse ? "sm:flex-row-reverse sm:text-right" : "sm:text-left"
+      className={`flex flex-1 items-center gap-4 text-left transition-opacity hover:opacity-80 sm:gap-6 ${
+        reverse ? "flex-row-reverse text-right" : ""
       }`}
     >
-      <TeamLogo team={team} className="h-24 w-24 sm:h-28 sm:w-28" />
-      <div>
-        <p className="font-display text-3xl font-semibold uppercase leading-tight text-ink-0 sm:text-4xl">
+      <TeamLogo team={team} className="h-16 w-16 shrink-0 sm:h-28 sm:w-28" />
+      <div className="min-w-0">
+        <p className="font-display text-xl font-semibold uppercase leading-tight text-ink-0 sm:text-4xl">
           {team.name}
         </p>
-        <p className="text-xs font-semibold tracking-[0.2em] text-ink-3">
+        <p className="text-[10px] font-semibold tracking-[0.15em] text-ink-3 sm:text-xs sm:tracking-[0.2em]">
           {team.conference === "east" ? "EASTERN CONFERENCE" : "WESTERN CONFERENCE"}
         </p>
         {(leadingScorer || leadingGoalie) && (

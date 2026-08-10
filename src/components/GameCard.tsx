@@ -27,31 +27,31 @@ export default function GameCard({ game }: GameCardProps) {
   const awayWon = isFinal && (game.awayScore ?? 0) > (game.homeScore ?? 0);
 
   return (
-    <div className="group flex flex-col gap-5 border border-line bg-bg-2 px-5 py-5 transition-colors duration-300 hover:border-line-strong sm:flex-row sm:items-center sm:gap-6 sm:px-6">
-      <div className="flex shrink-0 flex-row items-center gap-4 sm:w-24 sm:flex-col sm:items-start sm:gap-1">
-        <span className="text-xs font-semibold tracking-wider text-ink-1">
+    <div className="group flex flex-row items-center gap-3 border border-line bg-bg-2 px-3 py-4 transition-colors duration-300 hover:border-line-strong sm:gap-6 sm:px-6 sm:py-5">
+      <div className="flex w-14 shrink-0 flex-col items-start gap-0.5 sm:w-24 sm:gap-1">
+        <span className="text-[11px] font-semibold tracking-wider text-ink-1 sm:text-xs">
           {formatShortDate(game.date)}
         </span>
-        <span className="text-xs text-ink-3">{game.time}</span>
+        <span className="text-[10px] text-ink-3 sm:text-xs">{game.time}</span>
       </div>
 
-      <div className="flex flex-1 items-center justify-center gap-4 sm:gap-8">
+      <div className="flex flex-1 items-center justify-center gap-2 sm:gap-8">
         <TeamSide team={away} score={game.awayScore} showScore={isFinal || isLive} won={awayWon} />
-        <span className="shrink-0 text-xs font-semibold tracking-widest text-ink-3">
+        <span className="shrink-0 text-[10px] font-semibold tracking-widest text-ink-3 sm:text-xs">
           {isFinal || isLive ? "" : "VS"}
         </span>
         <TeamSide team={home} score={game.homeScore} showScore={isFinal || isLive} won={homeWon} reverse />
       </div>
 
-      <div className="flex shrink-0 items-center justify-between gap-3 sm:w-28 sm:flex-col sm:items-end sm:justify-center sm:gap-2">
+      <div className="flex w-16 shrink-0 flex-col items-end gap-1 sm:w-28 sm:gap-2">
         {isLive ? (
-          <span className="inline-flex items-center gap-2 text-xs font-semibold tracking-[0.2em] text-red-500">
+          <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold tracking-[0.15em] text-red-500 sm:gap-2 sm:text-xs sm:tracking-[0.2em]">
             <span className="h-1.5 w-1.5 animate-live-pulse rounded-full bg-red-500" />
             LIVE
           </span>
         ) : (
           <span
-            className={`text-xs font-semibold tracking-[0.2em] ${
+            className={`text-[10px] font-semibold tracking-[0.15em] sm:text-xs sm:tracking-[0.2em] ${
               isPostponed ? "text-ink-3" : "text-ink-2"
             }`}
           >
@@ -60,7 +60,7 @@ export default function GameCard({ game }: GameCardProps) {
         )}
         <Link
           to={`/teams/${home.id}`}
-          className="text-xs font-semibold tracking-[0.15em] text-ink-3 underline-offset-4 transition-colors duration-300 hover:text-ink-0 hover:underline"
+          className="text-[10px] font-semibold tracking-[0.1em] text-ink-3 underline-offset-4 transition-colors duration-300 hover:text-ink-0 hover:underline sm:text-xs sm:tracking-[0.15em]"
         >
           MATCHUP
         </Link>
