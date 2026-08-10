@@ -18,10 +18,11 @@ import sidAvatar from "@/assets/staff/Sid-Staff.webp";
 import yaBoiCurryAvatar from "@/assets/staff/YaBoiCurry-Staff.webp";
 import wapwAvatar from "@/assets/staff/Wapw-Staff.webp";
 import meshAvatar from "@/assets/staff/Mesh-Staff.png";
+import sinnyStaffAvatar from "@/assets/staff/Sinny-Staff.gif";
 
 // Placeholder league staff — replace names/roles/discord handles at any time.
 export const staff: StaffMember[] = [
-  { id: "s0", name: "Sinny", role: "Website Developer", category: "Website Developer", discord: "@sinnysahur" },
+  { id: "s0", name: "Sinny", role: "Website Developer", category: "Website Developer", discord: "@sinnysahur", avatar: sinnyStaffAvatar },
 
   { id: "s1", name: "Chrisx", role: "Commissioner", category: "Commissioner", discord: "@chrisxistuff", avatar: chrisxAvatar },
 
