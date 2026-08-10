@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 import TeamLogo from "./TeamLogo";
 import type { TeamRef } from "@/data/teamHistory";
+import { championshipRosters } from "@/data/championshipRosters";
+import { getPlayerSlugByName } from "@/data/players";
 
 const FALLBACK_ACCENT = "#fbbf24";
 
@@ -41,6 +43,7 @@ export default function ChampionCard({
 }: ChampionCardProps) {
   const [photoOpen, setPhotoOpen] = useState(false);
   const accent = champion.color ?? FALLBACK_ACCENT;
+  const roster = championshipRosters.filter((c) => c.season === season);
 
   const className =
     "group relative block overflow-hidden border border-[var(--accent)]/30 bg-gradient-to-br from-[var(--accent)]/[0.12] via-bg-2 to-bg-2 p-5 shadow-[0_0_20px_-8px_var(--accent)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)]/50 hover:shadow-[0_0_30px_-6px_var(--accent)]";
@@ -122,25 +125,65 @@ export default function ChampionCard({
 
   const photoModal = photo && photoOpen && (
     <div
-      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6"
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6 py-10"
       onClick={() => setPhotoOpen(false)}
     >
-      <div className="relative max-h-[85vh] max-w-3xl" onClick={(e) => e.stopPropagation()}>
+      <div
+        className="relative flex max-h-full w-full max-w-3xl flex-col overflow-hidden border border-line-strong bg-bg-2"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           type="button"
           onClick={() => setPhotoOpen(false)}
           aria-label="Close"
-          className="absolute -top-10 right-0 text-ink-2 transition-colors hover:text-ink-0"
+          className="absolute right-3 top-3 z-10 flex h-8 w-8 items-center justify-center bg-black/50 text-white transition-colors hover:bg-black/70"
         >
-          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2}>
+          <svg viewBox="0 0 24 24" className="h-5 w-5" fill="none" stroke="currentColor" strokeWidth={2}>
             <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
           </svg>
         </button>
-        <img
-          src={photo}
-          alt={`${champion.name} — ${honor}, ${season}`}
-          className="max-h-[85vh] w-auto border border-line-strong object-contain"
-        />
+        <div className="overflow-y-auto">
+          <img
+            src={photo}
+            alt={`${champion.name} — ${honor}, ${season}`}
+            className="w-full object-contain"
+          />
+          <div className="p-6">
+            <p className="font-display text-xl font-bold uppercase tracking-wide text-ink-0">
+              {champion.name}
+            </p>
+            <p className="text-xs font-semibold tracking-[0.15em] text-[var(--accent)]" style={style}>
+              {honor} — {season}
+            </p>
+            {roster.length > 0 && (
+              <div className="mt-5 border-t border-line pt-4">
+                <p className="mb-3 text-[10px] font-semibold tracking-[0.25em] text-ink-3">
+                  WINNING ROSTER
+                </p>
+                <ul className="grid grid-cols-2 gap-x-4 gap-y-1.5 sm:grid-cols-3">
+                  {roster.map((player) => {
+                    const slug = getPlayerSlugByName(player.playerName);
+                    return (
+                      <li key={player.id} className="min-w-0 truncate text-sm">
+                        {slug ? (
+                          <Link
+                            to={`/players/${slug}`}
+                            onClick={() => setPhotoOpen(false)}
+                            className="text-ink-1 transition-colors hover:text-white hover:underline"
+                          >
+                            {player.playerName}
+                          </Link>
+                        ) : (
+                          <span className="text-ink-1">{player.playerName}</span>
+                        )}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            )}
+          </div>
+        </div>
       </div>
     </div>
   );

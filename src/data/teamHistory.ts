@@ -3,6 +3,19 @@ import { getTeamById } from "./teams";
 import { getFormerTeamById } from "./formerTeams";
 import { byNewestSeason } from "@/utils/season";
 
+import s11ChampPhoto from "@/assets/championships/Season-11-PittsburghPenguins.webp";
+import s12ChampPhoto from "@/assets/championships/Season-12-VegasGoldenKnights.webp";
+import s13ChampPhoto from "@/assets/championships/Season-13-ColoradoAvalanche.webp";
+import s14ChampPhoto from "@/assets/championships/Season-14-StLouisBlues.webp";
+import s15ChampPhoto from "@/assets/championships/Season-15-SeattleKraken.webp";
+import s16ChampPhoto from "@/assets/championships/Season-16-ColumbusBlueJackets.webp";
+import s17ChampPhoto from "@/assets/championships/Season-17-PittsburghPenguins.webp";
+import s18ChampPhoto from "@/assets/championships/Season-18-PittsburghPenguins.webp";
+import s19ChampPhoto from "@/assets/championships/Season-19-BuffaloSabres.webp";
+import s20ChampPhoto from "@/assets/championships/Season-20-PittsburghPenguins.webp";
+import s21ChampPhoto from "@/assets/championships/Season-21-MinnesotaWild.webp";
+import s22ChampPhoto from "@/assets/championships/Season-22-SeattleKraken.webp";
+
 // Team-level honors won in past seasons, shown on a team's History tab.
 // Add entries like:
 // { id: "s22-scc-car", season: "Season 22", teamId: "carolina-hurricanes", honor: "Stanley Cup Champion", opponentTeamId: "boston-bruins", seriesScore: "4-2" },
@@ -47,51 +60,51 @@ export const teamSeasonHonors: TeamSeasonHonor[] = [
   { id: "s10-pt-stl", season: "Season 10", teamId: "st-louis-blues", honor: "President's Trophy" },
   { id: "s10-csc-stl", season: "Season 10", teamId: "st-louis-blues", honor: "Clarence S. Campbell Trophy" },
   { id: "s10-pow-pit", season: "Season 10", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
-  { id: "s11-scc-pit", season: "Season 11", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "ft-seattle-kraken", seriesScore: "3-0" },
+  { id: "s11-scc-pit", season: "Season 11", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "ft-seattle-kraken", seriesScore: "3-0", photo: s11ChampPhoto },
   { id: "s11-pt-pit", season: "Season 11", teamId: "pittsburgh-penguins", honor: "President's Trophy" },
   { id: "s11-csc-sea", season: "Season 11", teamId: "ft-seattle-kraken", honor: "Clarence S. Campbell Trophy" },
   { id: "s11-pow-pit", season: "Season 11", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
-  { id: "s12-scc-vgk", season: "Season 12", teamId: "vegas-golden-knights", honor: "Stanley Cup Champion", opponentTeamId: "ft-florida-panthers", seriesScore: "3-0" },
+  { id: "s12-scc-vgk", season: "Season 12", teamId: "vegas-golden-knights", honor: "Stanley Cup Champion", opponentTeamId: "ft-florida-panthers", seriesScore: "3-0", photo: s12ChampPhoto },
   { id: "s12-pt-fla", season: "Season 12", teamId: "ft-florida-panthers", honor: "President's Trophy" },
   { id: "s12-csc-vgk", season: "Season 12", teamId: "vegas-golden-knights", honor: "Clarence S. Campbell Trophy" },
   { id: "s12-pow-fla", season: "Season 12", teamId: "ft-florida-panthers", honor: "Prince Of Wales Trophy" },
-  { id: "s13-scc-col", season: "Season 13", teamId: "ft-colorado-avalanche", honor: "Stanley Cup Champion", opponentTeamId: "ft-san-jose-sharks", seriesScore: "4-0" },
+  { id: "s13-scc-col", season: "Season 13", teamId: "ft-colorado-avalanche", honor: "Stanley Cup Champion", opponentTeamId: "ft-san-jose-sharks", seriesScore: "4-0", photo: s13ChampPhoto },
   { id: "s13-pt-bos", season: "Season 13", teamId: "boston-bruins", honor: "President's Trophy" },
   { id: "s13-csc-sjs", season: "Season 13", teamId: "ft-san-jose-sharks", honor: "Clarence S. Campbell Trophy" },
   { id: "s13-pow-col", season: "Season 13", teamId: "ft-colorado-avalanche", honor: "Prince Of Wales Trophy" },
-  { id: "s14-scc-stl", season: "Season 14", teamId: "st-louis-blues", honor: "Stanley Cup Champion", opponentTeamId: "carolina-hurricanes", seriesScore: "4-1" },
+  { id: "s14-scc-stl", season: "Season 14", teamId: "st-louis-blues", honor: "Stanley Cup Champion", opponentTeamId: "carolina-hurricanes", seriesScore: "4-1", photo: s14ChampPhoto },
   { id: "s14-pt-nyi", season: "Season 14", teamId: "ft-new-york-islanders", honor: "President's Trophy" },
   { id: "s14-csc-stl", season: "Season 14", teamId: "st-louis-blues", honor: "Clarence S. Campbell Trophy" },
   { id: "s14-pow-car", season: "Season 14", teamId: "carolina-hurricanes", honor: "Prince Of Wales Trophy" },
-  { id: "s15-scc-sea", season: "Season 15", teamId: "ft-seattle-kraken", honor: "Stanley Cup Champion", opponentTeamId: "boston-bruins", seriesScore: "4-1" },
+  { id: "s15-scc-sea", season: "Season 15", teamId: "ft-seattle-kraken", honor: "Stanley Cup Champion", opponentTeamId: "boston-bruins", seriesScore: "4-1", photo: s15ChampPhoto },
   { id: "s15-pt-bos", season: "Season 15", teamId: "boston-bruins", honor: "President's Trophy" },
   { id: "s15-csc-sea", season: "Season 15", teamId: "ft-seattle-kraken", honor: "Clarence S. Campbell Trophy" },
   { id: "s15-pow-bos", season: "Season 15", teamId: "boston-bruins", honor: "Prince Of Wales Trophy" },
-  { id: "s16-scc-cbj", season: "Season 16", teamId: "ft-columbus-blue-jackets", honor: "Stanley Cup Champion", opponentTeamId: "dallas-stars", seriesScore: "4-1" },
+  { id: "s16-scc-cbj", season: "Season 16", teamId: "ft-columbus-blue-jackets", honor: "Stanley Cup Champion", opponentTeamId: "dallas-stars", seriesScore: "4-1", photo: s16ChampPhoto },
   { id: "s16-pt-nyr", season: "Season 16", teamId: "new-york-rangers", honor: "President's Trophy" },
   { id: "s16-csc-dal", season: "Season 16", teamId: "dallas-stars", honor: "Clarence S. Campbell Trophy" },
   { id: "s16-pow-cbj", season: "Season 16", teamId: "ft-columbus-blue-jackets", honor: "Prince Of Wales Trophy" },
-  { id: "s17-scc-pit", season: "Season 17", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "ft-minnesota-wild", seriesScore: "4-1" },
+  { id: "s17-scc-pit", season: "Season 17", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "ft-minnesota-wild", seriesScore: "4-1", photo: s17ChampPhoto },
   { id: "s17-pt-uta", season: "Season 17", teamId: "utah-mammoths", honor: "President's Trophy" },
   { id: "s17-csc-min", season: "Season 17", teamId: "ft-minnesota-wild", honor: "Clarence S. Campbell Trophy" },
   { id: "s17-pow-pit", season: "Season 17", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
-  { id: "s18-scc-pit", season: "Season 18", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "st-louis-blues", seriesScore: "4-1" },
+  { id: "s18-scc-pit", season: "Season 18", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "st-louis-blues", seriesScore: "4-1", photo: s18ChampPhoto },
   { id: "s18-pt-ott", season: "Season 18", teamId: "ft-ottawa-senators", honor: "President's Trophy" },
   { id: "s18-csc-stl", season: "Season 18", teamId: "st-louis-blues", honor: "Clarence S. Campbell Trophy" },
   { id: "s18-pow-pit", season: "Season 18", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
-  { id: "s19-scc-buf", season: "Season 19", teamId: "ft-buffalo-sabres", honor: "Stanley Cup Champion", opponentTeamId: "st-louis-blues", seriesScore: "4-1" },
+  { id: "s19-scc-buf", season: "Season 19", teamId: "ft-buffalo-sabres", honor: "Stanley Cup Champion", opponentTeamId: "st-louis-blues", seriesScore: "4-1", photo: s19ChampPhoto },
   { id: "s19-pt-wpg", season: "Season 19", teamId: "ft-winnipeg-jets", honor: "President's Trophy" },
   { id: "s19-csc-stl", season: "Season 19", teamId: "st-louis-blues", honor: "Clarence S. Campbell Trophy" },
   { id: "s19-pow-buf", season: "Season 19", teamId: "ft-buffalo-sabres", honor: "Prince Of Wales Trophy" },
-  { id: "s20-scc-pit", season: "Season 20", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "ft-vancouver-canucks", seriesScore: "4-3" },
+  { id: "s20-scc-pit", season: "Season 20", teamId: "pittsburgh-penguins", honor: "Stanley Cup Champion", opponentTeamId: "ft-vancouver-canucks", seriesScore: "4-3", photo: s20ChampPhoto },
   { id: "s20-pt-pit", season: "Season 20", teamId: "pittsburgh-penguins", honor: "President's Trophy" },
   { id: "s20-csc-van", season: "Season 20", teamId: "ft-vancouver-canucks", honor: "Clarence S. Campbell Trophy" },
   { id: "s20-pow-pit", season: "Season 20", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
-  { id: "s21-scc-min", season: "Season 21", teamId: "ft-minnesota-wild", honor: "Stanley Cup Champion", opponentTeamId: "pittsburgh-penguins", seriesScore: "4-1" },
+  { id: "s21-scc-min", season: "Season 21", teamId: "ft-minnesota-wild", honor: "Stanley Cup Champion", opponentTeamId: "pittsburgh-penguins", seriesScore: "4-1", photo: s21ChampPhoto },
   { id: "s21-pt-min", season: "Season 21", teamId: "ft-minnesota-wild", honor: "President's Trophy" },
   { id: "s21-csc-min", season: "Season 21", teamId: "ft-minnesota-wild", honor: "Clarence S. Campbell Trophy" },
   { id: "s21-pow-pit", season: "Season 21", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
-  { id: "s22-scc-sea", season: "Season 22", teamId: "ft-seattle-kraken", honor: "Stanley Cup Champion", opponentTeamId: "pittsburgh-penguins", seriesScore: "4-3" },
+  { id: "s22-scc-sea", season: "Season 22", teamId: "ft-seattle-kraken", honor: "Stanley Cup Champion", opponentTeamId: "pittsburgh-penguins", seriesScore: "4-3", photo: s22ChampPhoto },
   { id: "s22-pt-pit", season: "Season 22", teamId: "pittsburgh-penguins", honor: "President's Trophy" },
   { id: "s22-csc-sea", season: "Season 22", teamId: "ft-seattle-kraken", honor: "Clarence S. Campbell Trophy" },
   { id: "s22-pow-pit", season: "Season 22", teamId: "pittsburgh-penguins", honor: "Prince Of Wales Trophy" },
