@@ -98,12 +98,13 @@ export interface Coach {
 }
 
 export type StaffCategory =
+  | "Website Developer"
   | "Commissioner"
-  | "League Management"
-  | "Game Operations"
+  | "Co Commissioners & League Director"
+  | "League Manager and Head of Board of Directors"
   | "Board of Directors"
   | "Media"
-  | "Moderation";
+  | "RRHL Staff Team";
 
 export interface StaffMember {
   id: string;
