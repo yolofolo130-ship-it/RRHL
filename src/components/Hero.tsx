@@ -32,8 +32,13 @@ export default function Hero() {
     video.play().then(() => setNeedsTap(false)).catch(() => {});
   };
 
+  // min-h-[92vh] only applies sm: and up — the content here is vertically
+  // centered, not stretched, so forcing that height on every mobile screen
+  // (which can be quite tall) left a large dead gap of video/vignette below
+  // the text before the next section started. On mobile the section now
+  // sizes to its own content instead.
   return (
-    <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-bg-0">
+    <section className="relative flex items-center justify-center overflow-hidden bg-bg-0 sm:min-h-[92vh]">
       <video
         ref={videoRef}
         src={heroTrailer}
@@ -81,7 +86,7 @@ export default function Hero() {
         <div className="absolute inset-0 [box-shadow:inset_0_0_220px_120px_rgba(0,0,0,0.85)]" />
       </div>
 
-      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-20 text-center">
+      <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-20 pb-16 text-center sm:pb-0">
         <p
           className="animate-fade-up text-xs font-semibold tracking-[0.35em] text-ink-2"
           style={{ textShadow: "0 2px 12px rgba(0,0,0,0.9)" }}
