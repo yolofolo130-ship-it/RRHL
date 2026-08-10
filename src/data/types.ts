@@ -200,6 +200,9 @@ export interface TeamSeasonHonor {
   // for honors that aren't a head-to-head series (President's Trophy, etc.)
   opponentTeamId?: string;
   seriesScore?: string; // e.g. "2-0"
+  // Championship team photo, imported directly from src/assets/. Omit if
+  // no photo is on hand for that season yet.
+  photo?: string;
 }
 
 // A franchise that appears in league history but no longer exists (folded,

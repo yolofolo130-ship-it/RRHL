@@ -102,6 +102,7 @@ export default function History() {
                           champion={resolveTeamRef(honor.teamId)}
                           opponent={resolveTeamRef(honor.opponentTeamId as string)}
                           seriesScore={honor.seriesScore as string}
+                          photo={honor.photo}
                         />
                       ))}
                       {honors.map((honor) => (

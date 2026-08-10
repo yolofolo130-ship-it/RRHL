@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import TeamLogo from "./TeamLogo";
 import type { TeamRef } from "@/data/teamHistory";
@@ -27,6 +28,7 @@ interface ChampionCardProps {
   champion: TeamRef;
   opponent: TeamRef;
   seriesScore: string;
+  photo?: string;
 }
 
 export default function ChampionCard({
@@ -35,7 +37,9 @@ export default function ChampionCard({
   champion,
   opponent,
   seriesScore,
+  photo,
 }: ChampionCardProps) {
+  const [photoOpen, setPhotoOpen] = useState(false);
   const accent = champion.color ?? FALLBACK_ACCENT;
 
   const className =
@@ -55,12 +59,29 @@ export default function ChampionCard({
         ))}
       </div>
       <div className="relative">
-        <p className="font-display text-lg font-semibold uppercase tracking-wide text-[var(--accent)]">
-          {honor}
-        </p>
-        <p className="mt-1 text-xs font-semibold tracking-[0.15em] text-[var(--accent)]/60">
-          {season}
-        </p>
+        <div className="flex items-start justify-between gap-2">
+          <div>
+            <p className="font-display text-lg font-semibold uppercase tracking-wide text-[var(--accent)]">
+              {honor}
+            </p>
+            <p className="mt-1 text-xs font-semibold tracking-[0.15em] text-[var(--accent)]/60">
+              {season}
+            </p>
+          </div>
+          {photo && (
+            <button
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                setPhotoOpen(true);
+              }}
+              className="relative z-10 shrink-0 border border-[var(--accent)]/40 bg-[var(--accent)]/10 px-2.5 py-1.5 text-[10px] font-semibold tracking-[0.1em] text-[var(--accent)] transition-colors duration-300 hover:bg-[var(--accent)]/20"
+            >
+              VIEW PHOTO
+            </button>
+          )}
+        </div>
 
         <div className="mt-4 flex items-center justify-between gap-2">
           <div className="flex min-w-0 items-center gap-2.5">
@@ -99,17 +120,48 @@ export default function ChampionCard({
 
   const style = { ["--accent" as string]: accent };
 
+  const photoModal = photo && photoOpen && (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6"
+      onClick={() => setPhotoOpen(false)}
+    >
+      <div className="relative max-h-[85vh] max-w-3xl" onClick={(e) => e.stopPropagation()}>
+        <button
+          type="button"
+          onClick={() => setPhotoOpen(false)}
+          aria-label="Close"
+          className="absolute -top-10 right-0 text-ink-2 transition-colors hover:text-ink-0"
+        >
+          <svg viewBox="0 0 24 24" className="h-6 w-6" fill="none" stroke="currentColor" strokeWidth={2}>
+            <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+          </svg>
+        </button>
+        <img
+          src={photo}
+          alt={`${champion.name} — ${honor}, ${season}`}
+          className="max-h-[85vh] w-auto border border-line-strong object-contain"
+        />
+      </div>
+    </div>
+  );
+
   if (champion.href) {
     return (
-      <Link to={champion.href} className={className} style={style}>
-        {content}
-      </Link>
+      <>
+        <Link to={champion.href} className={className} style={style}>
+          {content}
+        </Link>
+        {photoModal}
+      </>
     );
   }
 
   return (
-    <div className={className} style={style}>
-      {content}
-    </div>
+    <>
+      <div className={className} style={style}>
+        {content}
+      </div>
+      {photoModal}
+    </>
   );
 }
