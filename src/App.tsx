@@ -23,7 +23,12 @@ function Layout() {
     <>
       <FloatingLogo />
       <Navbar />
-      <main className="flex-1 pb-24 sm:pb-20">
+      {/* flex-1 (not on mobile) stretches main to push the footer to the
+          bottom of the viewport on short pages — good on desktop, but on
+          mobile it leaves an absurd black gap above the footer whenever a
+          page's content is shorter than the screen. Below sm, main just
+          sizes to its content and the footer follows directly after. */}
+      <main className="pb-24 sm:flex-1 sm:pb-20">
         <PageTransition>
           <Outlet />
         </PageTransition>
