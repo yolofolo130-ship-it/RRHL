@@ -59,7 +59,7 @@ export const skaters: Skater[] = [
   { id: "uta-2", name: "Renuu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "One-T", flag: "USA" },
   { id: "uta-3", name: "lilballerjimmy", teamId: "utah-mammoths", position: "C", number: 2, gp: 3, goals: 3, assists: 0, pim: 0, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico" },
   { id: "uta-4", name: "Reject", teamId: "utah-mammoths", position: "LW", number: 25, gp: 2, goals: 3, assists: 2, pim: 0, overall: 70, flag: "USA" },
-  { id: "uta-5", name: "Jazzmir", teamId: "utah-mammoths", position: "D", number: 31, gp: 0, goals: 0, assists: 0, pim: 0, overall: 89, star: "Quick Release", flag: "USA" },
+  { id: "uta-5", name: "Jazzmir", teamId: "utah-mammoths", position: "D", number: 31, gp: 1, goals: 0, assists: 0, pim: 0, overall: 89, star: "Quick Release", flag: "USA" },
   { id: "uta-6", name: "5starmax", teamId: "utah-mammoths", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "uta-7", name: "Randomcrazynoob", teamId: "utah-mammoths", position: "LW", number: 98, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "uta-8", name: "Twin", teamId: "utah-mammoths", position: "C", number: 67, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
