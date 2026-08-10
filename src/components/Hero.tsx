@@ -1,3 +1,4 @@
+import { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import heroTrailer from "@/assets/backgrounds/rrhl-trailer-fix.mp4";
 
@@ -5,14 +6,33 @@ import heroTrailer from "@/assets/backgrounds/rrhl-trailer-fix.mp4";
 // below, which keep the title text readable over it. Only lives here, so
 // it only ever shows at the top of the homepage.
 export default function Hero() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    // Mobile Safari's autoplay gate checks the *actual* muted state at the
+    // moment play() is attempted — React's declarative `muted` prop doesn't
+    // always land in time for that check, which silently blocks playback
+    // on iOS even though it works everywhere else. Setting it imperatively
+    // here, right before play(), makes autoplay reliable on mobile too.
+    const video = videoRef.current;
+    if (!video) return;
+    video.muted = true;
+    video.play().catch(() => {
+      // Autoplay still blocked (e.g. data saver) — the poster/first frame
+      // just stays put, which is a fine fallback.
+    });
+  }, []);
+
   return (
     <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-bg-0">
       <video
+        ref={videoRef}
         src={heroTrailer}
         autoPlay
         muted
         loop
         playsInline
+        preload="auto"
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden
       />
