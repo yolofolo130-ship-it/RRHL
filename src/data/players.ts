@@ -54,6 +54,7 @@ export const skaters: Skater[] = [
   { id: "nyr-5", name: "Carsonreeves", teamId: "new-york-rangers", position: "D", number: 9, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
   { id: "nyr-6", name: "Cakelocks", teamId: "new-york-rangers", position: "RW", number: 61, gp: 0, goals: 0, assists: 0, pim: 0, overall: 77, flag: "USA" },
   { id: "nyr-7", name: "DieLit", teamId: "new-york-rangers", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "nyr-8", name: "Dimers", teamId: "new-york-rangers", position: "LW", number: 64, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },
 
   { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 3, goals: 4, assists: 0, pim: 0, overall: 93, star: "Wheels", flag: "USA" },
   { id: "uta-2", name: "Renuu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "One-T", flag: "USA" },
