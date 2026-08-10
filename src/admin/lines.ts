@@ -205,6 +205,94 @@ export function setLineField(
   return prefix + tokens.join(", ") + suffix;
 }
 
+// ---------- players.ts brand-new roster entries ----------
+//
+// Unlike editing an existing line (which must preserve unknown tokens like
+// a bare `headshot` import via setLineField above), a freshly created
+// player has no such tokens yet, so a plain rebuild-from-fields is safe.
+
+export interface NewSkaterFields {
+  id: string;
+  name: string;
+  teamId: string;
+  position: string;
+  number: number;
+  overall?: number;
+  xFactor?: string;
+  star?: string;
+  flag?: string;
+}
+
+export function stringifyNewSkaterLine(f: NewSkaterFields): string {
+  const parts = [
+    `id: "${f.id}"`,
+    `name: "${f.name}"`,
+    `teamId: "${f.teamId}"`,
+    `position: "${f.position}"`,
+    `number: ${f.number}`,
+    `gp: 0`,
+    `goals: 0`,
+    `assists: 0`,
+    `pim: 0`,
+  ];
+  if (f.overall !== undefined) parts.push(`overall: ${f.overall}`);
+  if (f.xFactor) parts.push(`xFactor: "${f.xFactor}"`);
+  if (f.star) parts.push(`star: "${f.star}"`);
+  if (f.flag) parts.push(`flag: "${f.flag}"`);
+  return `  { ${parts.join(", ")} },`;
+}
+
+export interface NewGoalieFields {
+  id: string;
+  name: string;
+  teamId: string;
+  number: number;
+  overall?: number;
+  xFactor?: string;
+  star?: string;
+  flag?: string;
+}
+
+export function stringifyNewGoalieLine(f: NewGoalieFields): string {
+  const parts = [
+    `id: "${f.id}"`,
+    `name: "${f.name}"`,
+    `teamId: "${f.teamId}"`,
+    `number: ${f.number}`,
+    `gp: 0`,
+    `gs: 0`,
+    `wins: 0`,
+    `losses: 0`,
+    `otLosses: 0`,
+    `saves: 0`,
+    `goalsAgainst: 0`,
+    `shutouts: 0`,
+    `goals: 0`,
+    `assists: 0`,
+    `pim: 0`,
+  ];
+  if (f.overall !== undefined) parts.push(`overall: ${f.overall}`);
+  if (f.xFactor) parts.push(`xFactor: "${f.xFactor}"`);
+  if (f.star) parts.push(`star: "${f.star}"`);
+  if (f.flag) parts.push(`flag: "${f.flag}"`);
+  return `  { ${parts.join(", ")} },`;
+}
+
+// Scans an array's entry lines for ids matching `${idRegex}` and returns
+// one past the highest numeric suffix found — e.g. existing car-1..car-8
+// yields 9. Starts at 1 if the team has no players of this kind yet.
+export function nextIdNumber(lines: string[], start: number, end: number, idRegex: RegExp): number {
+  let max = 0;
+  for (let i = start + 1; i < end; i++) {
+    if (!isEntryLine(lines[i])) continue;
+    const kv = parseLineKV(lines[i]);
+    const id = kv.id as string | undefined;
+    const m = id?.match(idRegex);
+    if (m) max = Math.max(max, Number(m[1]));
+  }
+  return max + 1;
+}
+
 // ---------- shared line-editing utilities ----------
 
 // If the given array is currently an empty single-line literal (e.g.

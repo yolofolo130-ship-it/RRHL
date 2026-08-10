@@ -17,7 +17,7 @@ export default function Staff() {
               return (
                 <div key={category}>
                   <p className="border-b border-amber-400/40 pb-4 text-xs font-semibold tracking-[0.28em] text-amber-400">
-                    ★ THE PERSON WHO ACTUALLY BUILT THIS SITE ★
+                    ★ BEHIND THE RRHL WEBSITE ★
                   </p>
                   <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
                     <div className="group relative flex items-center gap-4 overflow-hidden border border-amber-400/40 bg-gradient-to-br from-amber-400/[0.12] via-bg-2 to-bg-2 p-5 shadow-[0_0_24px_-6px_#fbbf24]">
@@ -44,7 +44,8 @@ export default function Staff() {
                         <p className="truncate text-xs font-semibold text-amber-400/80">{dev.role}</p>
                         <p className="truncate text-xs text-ink-3">{dev.discord}</p>
                         <p className="mt-1 text-[11px] italic leading-snug text-ink-2">
-                          Built every page, every stat table, and every pixel of RRHL from scratch. All hail.
+                          Designed and developed the RRHL website from the ground up, including player
+                          profiles, statistics, records, history, and league information.
                         </p>
                       </div>
                     </div>
