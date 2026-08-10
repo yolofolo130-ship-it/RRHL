@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import heroTrailer from "@/assets/backgrounds/rrhl-trailer.mp4";
+import heroTrailer from "@/assets/backgrounds/rrhl-trailer-fix.mp4";
 
 // Background trailer plays muted/looped behind the gradient + vignette
 // below, which keep the title text readable over it. Only lives here, so
@@ -16,6 +16,10 @@ export default function Hero() {
         className="absolute inset-0 h-full w-full object-cover"
         aria-hidden
       />
+      {/* Flat scrim over the whole video — the old gradient left the
+          middle fully transparent, right where the title sits, so text
+          contrast depended on whatever the video happened to show. */}
+      <div className="absolute inset-0 bg-black/55" aria-hidden />
       <div className="absolute inset-0" aria-hidden>
         <div className="absolute left-1/2 top-[-10%] h-[70%] w-[140%] -translate-x-1/2 rounded-full bg-white/[0.05] blur-[120px]" />
         <div className="absolute bottom-[-20%] left-[10%] h-[50%] w-[50%] rounded-full bg-white/[0.03] blur-[140px]" />
@@ -31,18 +35,27 @@ export default function Hero() {
           <line x1="0" y1="200" x2="400" y2="200" stroke="white" strokeWidth="1" />
         </svg>
 
-        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-transparent to-bg-0" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/35 to-bg-0" />
         <div className="absolute inset-0 [box-shadow:inset_0_0_220px_120px_rgba(0,0,0,0.85)]" />
       </div>
 
       <div className="relative z-10 mx-auto flex max-w-4xl flex-col items-center px-6 pt-20 text-center">
-        <p className="animate-fade-up text-xs font-semibold tracking-[0.35em] text-ink-2">
+        <p
+          className="animate-fade-up text-xs font-semibold tracking-[0.35em] text-ink-2"
+          style={{ textShadow: "0 2px 12px rgba(0,0,0,0.9)" }}
+        >
           S23 &bull; REGULAR SEASON
         </p>
-        <h1 className="font-display mt-5 text-balance text-[15vw] font-bold uppercase leading-[0.92] tracking-tight text-ink-0 sm:text-7xl lg:text-8xl">
+        <h1
+          className="font-display mt-5 text-balance text-[15vw] font-bold uppercase leading-[0.92] tracking-tight text-ink-0 sm:text-7xl lg:text-8xl"
+          style={{ textShadow: "0 4px 28px rgba(0,0,0,0.9), 0 2px 8px rgba(0,0,0,0.9)" }}
+        >
           Rec Room Hockey League
         </h1>
-        <p className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-ink-2 sm:text-base">
+        <p
+          className="mt-6 max-w-xl text-balance text-sm leading-relaxed text-ink-2 sm:text-base"
+          style={{ textShadow: "0 2px 12px rgba(0,0,0,0.9)" }}
+        >
           Ten teams. One winner. Follow every faceoff, track the standings,
           and watch your favorite team chase the Stanley Cup.
         </p>
