@@ -19,8 +19,8 @@ export const skaters: Skater[] = [
 
   { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 5, gp: 4, goals: 10, assists: 7, pim: 0, overall: 97, xFactor: "Backhand Beauty", flag: "USA" },
   { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
-  { id: "pit-3", name: "Mason", teamId: "pittsburgh-penguins", position: "RW", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
-  { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 87, gp: 2, goals: 4, assists: 8, pim: 0, overall: 90, star: "Truculence", flag: "USA" },
+  { id: "pit-3", name: "Mason", teamId: "pittsburgh-penguins", position: "RW", number: 32, gp: 4, goals: 3, assists: 4, pim: 0, overall: 83, flag: "USA" },
+  { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 87, gp: 4, goals: 4, assists: 9, pim: 0, overall: 90, star: "Truculence", flag: "USA" },
   { id: "pit-5", name: "chicharito9260", teamId: "pittsburgh-penguins", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "pit-6", name: "44worthy", teamId: "pittsburgh-penguins", position: "D", number: 69, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
   { id: "pit-7", name: "LBeard0320", teamId: "pittsburgh-penguins", position: "D", number: 45, gp: 0, goals: 0, assists: 0, pim: 0, overall: 76, flag: "USA" },
