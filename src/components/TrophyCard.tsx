@@ -46,10 +46,6 @@ export default function TrophyCard({
   const content = (
     <>
       <div
-        className="pointer-events-none absolute -inset-10 animate-glow-pulse rounded-full bg-[var(--accent)]/25 blur-3xl transition-colors duration-300 group-hover:bg-[var(--accent)]/40"
-        aria-hidden
-      />
-      <div
         className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/10 to-transparent transition-transform duration-700 ease-out group-hover:translate-x-full"
         aria-hidden
       />

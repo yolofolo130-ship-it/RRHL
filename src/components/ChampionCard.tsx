@@ -54,11 +54,6 @@ export default function ChampionCard({
           />
         ))}
       </div>
-      <div
-        className="pointer-events-none absolute -inset-10 animate-glow-pulse rounded-full bg-[var(--accent)]/30 blur-3xl"
-        aria-hidden
-      />
-
       <div className="relative">
         <p className="font-display text-lg font-semibold uppercase tracking-wide text-[var(--accent)]">
           {honor}
