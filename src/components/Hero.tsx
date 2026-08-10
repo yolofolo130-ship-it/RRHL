@@ -1,12 +1,21 @@
 import { Link } from "react-router-dom";
+import heroTrailer from "@/assets/backgrounds/rrhl-trailer.mp4";
 
-// No arena photo was supplied in the asset pack, so the backdrop is built
-// entirely from CSS/SVG: rink lines + stadium light glows + a vignette.
-// Drop a real photo at src/assets/backgrounds/hero.jpg and swap the <div>
-// below for an <img>/background-image to replace it later.
+// Background trailer plays muted/looped behind the gradient + vignette
+// below, which keep the title text readable over it. Only lives here, so
+// it only ever shows at the top of the homepage.
 export default function Hero() {
   return (
     <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-bg-0">
+      <video
+        src={heroTrailer}
+        autoPlay
+        muted
+        loop
+        playsInline
+        className="absolute inset-0 h-full w-full object-cover"
+        aria-hidden
+      />
       <div className="absolute inset-0" aria-hidden>
         <div className="absolute left-1/2 top-[-10%] h-[70%] w-[140%] -translate-x-1/2 rounded-full bg-white/[0.05] blur-[120px]" />
         <div className="absolute bottom-[-20%] left-[10%] h-[50%] w-[50%] rounded-full bg-white/[0.03] blur-[140px]" />
