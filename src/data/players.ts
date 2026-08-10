@@ -47,12 +47,12 @@ export const skaters: Skater[] = [
   { id: "bos-7", name: "Funko", teamId: "boston-bruins", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 0, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
 
-  { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 10, gp: 3, goals: 6, assists: 2, pim: 0, overall: 93, star: "One-T", flag: "USA" },
-  { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 22, gp: 4, goals: 5, assists: 5, pim: 0, overall: 91, star: "Truculence", flag: "USA" },
+  { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 2, gp: 3, goals: 6, assists: 2, pim: 0, overall: 93, star: "One-T", flag: "USA" },
+  { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 10, gp: 4, goals: 5, assists: 5, pim: 0, overall: 91, star: "Truculence", flag: "USA" },
   { id: "nyr-3", name: "Eli", teamId: "new-york-rangers", position: "LW", number: 7, gp: 2, goals: 1, assists: 0, pim: 0, overall: 87, flag: "USA" },
   { id: "nyr-4", name: "Sfgoofy", teamId: "new-york-rangers", position: "D", number: 24, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "nyr-5", name: "Carsonreeves", teamId: "new-york-rangers", position: "D", number: 9, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
-  { id: "nyr-6", name: "Cakelocks", teamId: "new-york-rangers", position: "RW", number: 54, gp: 0, goals: 0, assists: 0, pim: 0, overall: 77, flag: "USA" },
+  { id: "nyr-6", name: "Cakelocks", teamId: "new-york-rangers", position: "RW", number: 61, gp: 0, goals: 0, assists: 0, pim: 0, overall: 77, flag: "USA" },
   { id: "nyr-7", name: "DieLit", teamId: "new-york-rangers", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 3, goals: 4, assists: 0, pim: 0, overall: 93, star: "Wheels", flag: "USA" },
