@@ -76,6 +76,7 @@ export const skaters: Skater[] = [
   { id: "vgk-7", name: "Drago", teamId: "vegas-golden-knights", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0},
   { id: "vgk-8", name: "MadMax", teamId: "vegas-golden-knights", position: "D", number: 56, gp: 0, goals: 0, assists: 0, pim: 0, overall: 77, flag: "USA" },
   { id: "vgk-9", name: "Darkness", teamId: "vegas-golden-knights", position: "D", number: 5, gp: 1, goals: 0, assists: 0, pim: 0, overall: 75, flag: "USA" },
+  { id: "vgk-10", name: "Sigma3k", teamId: "vegas-golden-knights", position: "C", number: 35, gp: 0, goals: 0, assists: 0, pim: 0, overall: 73, flag: "DR" },
 
   { id: "stl-1", name: "Vengeance", teamId: "st-louis-blues", position: "C", number: 14, gp: 3, goals: 4, assists: 0, pim: 0, overall: 92, star: "Wheels", flag: "Canada" },
   { id: "stl-2", name: "Augy", teamId: "st-louis-blues", position: "RW", number: 21, gp: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
