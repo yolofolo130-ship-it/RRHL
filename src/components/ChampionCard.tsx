@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import TeamLogo from "./TeamLogo";
 import type { TeamRef } from "@/data/teamHistory";
@@ -44,6 +44,20 @@ export default function ChampionCard({
   const [photoOpen, setPhotoOpen] = useState(false);
   const accent = champion.color ?? FALLBACK_ACCENT;
   const roster = championshipRosters.filter((c) => c.season === season);
+
+  // Opening the lightbox was jumping visitors back to the top of the page,
+  // and closing it left them there instead of back where they'd scrolled
+  // to — pin the scroll position for the lifetime of the modal and restore
+  // it on close, same as body-scroll-lock does in most modal libraries.
+  useEffect(() => {
+    if (!photoOpen) return;
+    const scrollY = window.scrollY;
+    document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+      window.scrollTo({ top: scrollY, behavior: "instant" as ScrollBehavior });
+    };
+  }, [photoOpen]);
 
   const className =
     "group relative block overflow-hidden border border-[var(--accent)]/30 bg-gradient-to-br from-[var(--accent)]/[0.12] via-bg-2 to-bg-2 p-5 shadow-[0_0_20px_-8px_var(--accent)] transition-all duration-300 hover:-translate-y-0.5 hover:border-[var(--accent)]/50 hover:shadow-[0_0_30px_-6px_var(--accent)]";
