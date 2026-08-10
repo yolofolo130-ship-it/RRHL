@@ -1,22 +1,22 @@
 import type { StaffMember } from "./types";
 
-import chrisxAvatar from "@/assets/staff/Chrisx.png";
-import tgodAvatar from "@/assets/staff/TGOD.png";
-import carterthegawdAvatar from "@/assets/staff/Carterthegawd.png";
+import chrisxAvatar from "@/assets/staff/Chrisx.webp";
+import tgodAvatar from "@/assets/staff/TGOD.webp";
+import carterthegawdAvatar from "@/assets/staff/Carterthegawd.webp";
 import siahAvatar from "@/assets/staff/Siah.png";
-import vengeanaceAvatar from "@/assets/staff/Vengeance.png";
-import boolitAvatar from "@/assets/staff/Boolit.png";
-import sparklesAvatar from "@/assets/staff/Sparkles.png";
-import cronAvatar from "@/assets/staff/Cron.png";
-import swordAvatar from "@/assets/staff/Sword.png";
-import nickelAvatar from "@/assets/staff/Nickel.png";
-import lilballerjimmyAvatar from "@/assets/staff/lilballerjimmy.png";
-import fullAvatar from "@/assets/staff/Full.png";
-import calebisgodAvatar from "@/assets/staff/Calebisgod.png";
-import snugThePugAvatar from "@/assets/staff/SnugThePug-Staff.png";
-import sidAvatar from "@/assets/staff/Sid-Staff.png";
-import yaBoiCurryAvatar from "@/assets/staff/YaBoiCurry-Staff.png";
-import wapwAvatar from "@/assets/staff/Wapw-Staff.png";
+import vengeanaceAvatar from "@/assets/staff/Vengeance.webp";
+import boolitAvatar from "@/assets/staff/Boolit.webp";
+import sparklesAvatar from "@/assets/staff/Sparkles.webp";
+import cronAvatar from "@/assets/staff/Cron.webp";
+import swordAvatar from "@/assets/staff/Sword.webp";
+import nickelAvatar from "@/assets/staff/Nickel.webp";
+import lilballerjimmyAvatar from "@/assets/staff/lilballerjimmy.webp";
+import fullAvatar from "@/assets/staff/Full.webp";
+import calebisgodAvatar from "@/assets/staff/Calebisgod.webp";
+import snugThePugAvatar from "@/assets/staff/SnugThePug-Staff.webp";
+import sidAvatar from "@/assets/staff/Sid-Staff.webp";
+import yaBoiCurryAvatar from "@/assets/staff/YaBoiCurry-Staff.webp";
+import wapwAvatar from "@/assets/staff/Wapw-Staff.webp";
 import meshAvatar from "@/assets/staff/Mesh-Staff.png";
 
 // Placeholder league staff — replace names/roles/discord handles at any time.

@@ -1,5 +1,5 @@
-import carberHof from "@/assets/hall-of-fame/Carber-HOF.png";
-import miniSneakiHof from "@/assets/hall-of-fame/MiniSneaki.png";
+import carberHof from "@/assets/hall-of-fame/Carber-HOF.webp";
+import miniSneakiHof from "@/assets/hall-of-fame/MiniSneaki.webp";
 
 export interface HallOfFameEntry {
   id: string;

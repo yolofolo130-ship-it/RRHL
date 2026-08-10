@@ -1,15 +1,15 @@
 import type { Team } from "./types";
 
-import carolinaLogo from "@/assets/logos/carolina-hurricanes.png";
-import pittsburghLogo from "@/assets/logos/pittsburgh-penguins.png";
-import tampaBayLogo from "@/assets/logos/tampa-bay-lightning.png";
-import bostonLogo from "@/assets/logos/boston-bruins.png";
-import newYorkLogo from "@/assets/logos/new-york-rangers.png";
-import utahLogo from "@/assets/logos/Utah-Mammoth.png";
-import vegasLogo from "@/assets/logos/vegas-golden-knights.png";
-import stLouisLogo from "@/assets/logos/St-Louis-Blue.png";
-import losAngelesLogo from "@/assets/logos/los-angeles-kings.png";
-import dallasLogo from "@/assets/logos/dallas-stars.png";
+import carolinaLogo from "@/assets/logos/carolina-hurricanes.webp";
+import pittsburghLogo from "@/assets/logos/pittsburgh-penguins.webp";
+import tampaBayLogo from "@/assets/logos/tampa-bay-lightning.webp";
+import bostonLogo from "@/assets/logos/boston-bruins.webp";
+import newYorkLogo from "@/assets/logos/new-york-rangers.webp";
+import utahLogo from "@/assets/logos/Utah-Mammoth.webp";
+import vegasLogo from "@/assets/logos/vegas-golden-knights.webp";
+import stLouisLogo from "@/assets/logos/St-Louis-Blue.webp";
+import losAngelesLogo from "@/assets/logos/los-angeles-kings.webp";
+import dallasLogo from "@/assets/logos/dallas-stars.webp";
 
 // Team colors are used sparingly, only as subtle accents on team-specific
 // cards and pages. The primary site identity stays black / white / gray.

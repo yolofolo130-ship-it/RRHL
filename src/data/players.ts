@@ -2,7 +2,7 @@ import type { Coach, FormerPlayer, Goalie, Skater } from "./types";
 import { getFormerPlayerByName, getFormerPlayerBySlug } from "./formerPlayers";
 import { slugify } from "@/utils/format";
 
-import sinnyAvatar from "@/assets/players-avatars/Sinny-Avatar.png";
+import sinnyAvatar from "@/assets/players-avatars/Sinny-Avatar.webp";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
