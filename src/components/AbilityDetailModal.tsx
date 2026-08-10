@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 
 interface AbilityDetailModalProps {
   name: string;
@@ -24,7 +25,13 @@ export default function AbilityDetailModal({
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [onClose]);
 
-  return (
+  // Portaled straight to document.body — PageTransition's fade-up entrance
+  // animation leaves a permanent (identity) transform on its wrapper once
+  // it finishes, and any transform on an ancestor turns position:fixed
+  // descendants into something positioned relative to that ancestor's box
+  // instead of the real viewport. Rendering outside that subtree sidesteps
+  // it entirely rather than fighting the animation.
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6"
       onClick={onClose}
@@ -63,6 +70,7 @@ export default function AbilityDetailModal({
           </p>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

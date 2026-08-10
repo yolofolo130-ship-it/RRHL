@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import type { HallOfFameEntry } from "@/data/hallOfFame";
 import { getTeamById } from "@/data/teams";
@@ -38,7 +39,10 @@ export default function HallOfFameModal({ entry, onClose }: HallOfFameModalProps
   const accent = team?.color ?? "#fbbf24";
   const playerSlug = getPlayerSlugByName(entry.playerName);
 
-  return (
+  // Portaled straight to document.body — see AbilityDetailModal.tsx for why
+  // (PageTransition's fade-up animation leaves a permanent transform on its
+  // wrapper, which breaks position:fixed for any descendant).
+  return createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/70 px-6"
       onClick={onClose}
@@ -147,6 +151,7 @@ export default function HallOfFameModal({ entry, onClose }: HallOfFameModalProps
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 }

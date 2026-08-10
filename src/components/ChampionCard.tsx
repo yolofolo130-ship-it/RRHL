@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { Link } from "react-router-dom";
 import TeamLogo from "./TeamLogo";
 import type { TeamRef } from "@/data/teamHistory";
@@ -137,7 +138,10 @@ export default function ChampionCard({
 
   const style = { ["--accent" as string]: accent };
 
-  const photoModal = photo && photoOpen && (
+  // Portaled straight to document.body — see AbilityDetailModal.tsx for why
+  // (PageTransition's fade-up animation leaves a permanent transform on its
+  // wrapper, which breaks position:fixed for any descendant).
+  const photoModal = photo && photoOpen && createPortal(
     <div
       className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 px-6 py-10"
       onClick={() => setPhotoOpen(false)}
@@ -199,7 +203,8 @@ export default function ChampionCard({
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body,
   );
 
   if (champion.href) {
