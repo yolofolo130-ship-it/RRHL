@@ -48,7 +48,7 @@ export const skaters: Skater[] = [
   { id: "bos-7", name: "Funko", teamId: "boston-bruins", position: "D", number: 99, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 2, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
 
-  { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 2, gp: 3, goals: 6, assists: 2, pim: 0, overall: 93, star: "One-T", flag: "USA" },
+  { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 2, gp: 3, goals: 6, assists: 2, pim: 0, overall: 93, star: "One-T", flag: "PR" },
   { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 10, gp: 4, goals: 5, assists: 6, pim: 0, overall: 91, star: "Truculence", flag: "USA" },
   { id: "nyr-3", name: "Eli", teamId: "new-york-rangers", position: "LW", number: 7, gp: 2, goals: 1, assists: 0, pim: 0, overall: 87, flag: "USA" },
   { id: "nyr-4", name: "Sfgoofy", teamId: "new-york-rangers", position: "D", number: 24, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
@@ -57,7 +57,7 @@ export const skaters: Skater[] = [
   { id: "nyr-7", name: "DieLit", teamId: "new-york-rangers", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "nyr-8", name: "Dimers", teamId: "new-york-rangers", position: "LW", number: 64, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },
 
-  { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 3, goals: 4, assists: 0, pim: 0, overall: 93, star: "Wheels", flag: "USA" },
+  { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 3, goals: 4, assists: 0, pim: 0, overall: 93, star: "Wheels", flag: "Aruba" },
   { id: "uta-2", name: "Renuu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "One-T", flag: "USA" },
   { id: "uta-3", name: "lilballerjimmy", teamId: "utah-mammoths", position: "C", number: 2, gp: 3, goals: 3, assists: 0, pim: 0, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico" },
   { id: "uta-4", name: "Reject", teamId: "utah-mammoths", position: "LW", number: 25, gp: 2, goals: 3, assists: 2, pim: 0, overall: 70, flag: "USA" },

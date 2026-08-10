@@ -59,6 +59,7 @@ export const seasonAccolades: SeasonAccolade[] = [
   { id: "s6-james-norris-trophy", season: "Season 6", accoladeName: "James Norris Trophy", playerName: "Sidedeer" },
   { id: "s6-hart-memorial-trophy", season: "Season 6", accoladeName: "Hart Memorial Trophy", playerName: "TGOD" },
   { id: "s6-jack-adams-trophy", season: "Season 6", accoladeName: "Jack Adams Trophy", playerName: "Carber" },
+  { id: "s6-calder-trophy", season: "Season 6", accoladeName: "Calder Trophy", playerName: "SnugThePug" },
   { id: "s7-stanley-cup-mvp", season: "Season 7", accoladeName: "Stanley Cup MVP", playerName: "Flaganoid" },
   { id: "s7-stanley-cup-losing-mvp", season: "Season 7", accoladeName: "Stanley Cup Losing MVP", playerName: "Huddawg" },
   { id: "s7-conn-smythe-trophy", season: "Season 7", accoladeName: "Conn Smythe Trophy", playerName: "Flaganoid" },
