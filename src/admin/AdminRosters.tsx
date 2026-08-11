@@ -49,14 +49,14 @@ function AbilityFlagSelects({
   onChange,
 }: {
   values: KV;
-  onChange: (key: string, value: string | undefined) => void;
+  onChange: (key: string, value: string | number | undefined) => void;
 }) {
   return (
     <>
       <td className="px-2 py-3 text-center">
         <select
           value={(values.overall as number | undefined) ?? ""}
-          onChange={(e) => onChange("overall", e.target.value === "" ? undefined : e.target.value)}
+          onChange={(e) => onChange("overall", e.target.value === "" ? undefined : Number(e.target.value))}
           className="w-16 border border-line bg-bg-1 px-1 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
         >
           <option value="">—</option>
