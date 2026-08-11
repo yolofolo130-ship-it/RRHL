@@ -160,6 +160,7 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s16-champ-augy", season: "Season 16", playerName: "Augy" },
   { id: "s16-champ-snugthepug", season: "Season 16", playerName: "SnugThePug" },
   { id: "s16-champ-ddino", season: "Season 16", playerName: "DDino" },
+  { id: "s16-champ-vengeance", season: "Season 16", playerName: "Vengeance" },
 
   // Season 17 — Pittsburgh Penguins
   { id: "s17-champ-sparkles", season: "Season 17", playerName: "Sparkles" },
