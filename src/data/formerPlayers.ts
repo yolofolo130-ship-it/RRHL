@@ -41,7 +41,6 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-emoine", name: "Emoine", flag: "USA" },
   { id: "fp-blaze", name: "Blaze", flag: "USA" },
   { id: "fp-david", name: "David", flag: "USA" },
-  { id: "fp-hitler", name: "Hitler", flag: "USA" },
   { id: "fp-slixzz", name: "Slixzz", flag: "USA" },
   { id: "fp-wyatt", name: "Wyatt", flag: "USA" },
   { id: "fp-yaboicurry", name: "YaBoiCurry", flag: "USA" },

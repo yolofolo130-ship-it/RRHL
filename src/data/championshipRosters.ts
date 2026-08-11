@@ -166,7 +166,6 @@ export const championshipRosters: ChampionshipRosterEntry[] = [
   { id: "s17-champ-sparkles", season: "Season 17", playerName: "Sparkles" },
   { id: "s17-champ-hogeye", season: "Season 17", playerName: "Hogeye" },
   { id: "s17-champ-chrisx", season: "Season 17", playerName: "Chrisx" },
-  { id: "s17-champ-hitler", season: "Season 17", playerName: "Hitler" },
   { id: "s17-champ-caleb", season: "Season 17", playerName: "Caleb" },
   { id: "s17-champ-44worthy", season: "Season 17", playerName: "44worthy" },
   { id: "s17-champ-tgod", season: "Season 17", playerName: "TGOD" },
