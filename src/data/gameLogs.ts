@@ -338,7 +338,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "AlexKiller", gameId: "g16", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   // ---------- LOS ANGELES KINGS ----------
-  { playerName: "MVP", gameId: "g03", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "MVP", gameId: "g03", goals: 9, assists: 0, points: 9, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MVP", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MVP", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MVP", gameId: "g16", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -617,6 +617,8 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Mesh", gameId: "g10", gs: 0, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Mesh", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Mesh", gameId: "g20", gs: 1, dec: "W", shotsAgainst: 16, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Gabriel", gameId: "g03", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Uzi", gameId: "g03", gs: 1, dec: "L", shotsAgainst: 10, goalsAgainst: 10, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
