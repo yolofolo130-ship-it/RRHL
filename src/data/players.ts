@@ -65,10 +65,9 @@ export const skaters: Skater[] = [
   { id: "uta-6", name: "5starmax", teamId: "utah-mammoths", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "uta-7", name: "Randomcrazynoob", teamId: "utah-mammoths", position: "LW", number: 98, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "uta-8", name: "Twin", teamId: "utah-mammoths", position: "C", number: 67, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
-  { id: "uta-9", name: "Zac", teamId: "utah-mammoths", position: "C", number: 27, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
-  { id: "uta-10", name: "Baseball3122", teamId: "utah-mammoths", position: "LW", number: 24, gp: 2, goals: 0, assists: 0, pim: 0, flag: "USA" },
-  { id: "uta-11", name: "Mood", teamId: "utah-mammoths", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
-  { id: "uta-12", name: "Rudolph", teamId: "utah-mammoths", position: "C", number: 12, gp: 0, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
+  { id: "uta-9", name: "Baseball3122", teamId: "utah-mammoths", position: "LW", number: 24, gp: 2, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "uta-10", name: "Mood", teamId: "utah-mammoths", position: "RW", number: 13, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
+  { id: "uta-11", name: "Rudolph", teamId: "utah-mammoths", position: "C", number: 12, gp: 0, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 3, goals: 5, assists: 1, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR", headshot: sinnyAvatar },
   { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 3, goals: 1, assists: 3, pim: 0, overall: 86, flag: "USA" },
