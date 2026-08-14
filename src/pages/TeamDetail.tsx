@@ -16,6 +16,7 @@ import {
   goalieGaa,
   goalieShotsAgainst,
   playerSlug,
+  getHeadshotByName,
 } from "@/data/players";
 import { honorsForTeam, resolveTeamRef, isChampionshipHonor } from "@/data/teamHistory";
 import { standingsForConference, isPlayoffPosition } from "@/utils/standings";
@@ -71,6 +72,15 @@ export default function TeamDetail() {
   const nextGame = teamGames.find((g) => g.status === "upcoming" || g.status === "live");
   const roster = skaters.filter((s) => s.teamId === team.id);
   const teamGoalies = goalies.filter((g) => g.teamId === team.id);
+  const goalsLeader = roster.length > 0 ? [...roster].sort((a, b) => b.goals - a.goals)[0] : undefined;
+  const assistsLeader = roster.length > 0 ? [...roster].sort((a, b) => b.assists - a.assists)[0] : undefined;
+  const pointsLeader =
+    roster.length > 0 ? [...roster].sort((a, b) => skaterPoints(b) - skaterPoints(a))[0] : undefined;
+  const teamLeaders = [
+    { label: "GOALS LEADER", player: goalsLeader, value: goalsLeader?.goals },
+    { label: "ASSISTS LEADER", player: assistsLeader, value: assistsLeader?.assists },
+    { label: "POINTS LEADER", player: pointsLeader, value: pointsLeader ? skaterPoints(pointsLeader) : undefined },
+  ];
   const teamCoaches = coaches.filter((c) => c.teamId === team.id);
   const headCoaches = teamCoaches.filter((c) => c.role === "Head Coach");
   const assistantCoaches = teamCoaches.filter((c) => c.role === "Assistant Coach");
@@ -152,6 +162,42 @@ export default function TeamDetail() {
                 <p className="mt-3 text-sm text-ink-2">No games scheduled.</p>
               )}
             </div>
+
+            {teamLeaders.some((l) => l.player) && (
+              <div className="lg:col-span-3">
+                <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">
+                  TEAM LEADERS
+                </p>
+                <div className="grid gap-4 sm:grid-cols-3">
+                  {teamLeaders.map(({ label, player: leader, value }) => {
+                    if (!leader) return null;
+                    const headshot = getHeadshotByName(leader.name);
+                    return (
+                      <Link
+                        key={label}
+                        to={`/players/${playerSlug(leader.name)}`}
+                        className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors hover:border-line-strong"
+                      >
+                        {headshot ? (
+                          <img
+                            src={headshot}
+                            alt=""
+                            className="h-14 w-14 shrink-0 rounded-full border border-line object-cover"
+                          />
+                        ) : (
+                          <TeamLogo team={team} className="h-12 w-12 shrink-0 opacity-70" />
+                        )}
+                        <div>
+                          <p className="text-[10px] font-semibold tracking-[0.2em] text-ink-3">{label}</p>
+                          <p className="font-display text-lg font-semibold text-ink-0">{leader.name}</p>
+                          <p className="text-sm text-ink-2">{value}</p>
+                        </div>
+                      </Link>
+                    );
+                  })}
+                </div>
+              </div>
+            )}
 
             <div className="lg:col-span-3">
               <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">

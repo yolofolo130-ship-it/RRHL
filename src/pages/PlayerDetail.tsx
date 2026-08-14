@@ -12,6 +12,7 @@ import StarLogo from "@/components/StarLogo";
 import LeaderBadge from "@/components/LeaderBadge";
 import LastGamesTable from "@/components/LastGamesTable";
 import LastGoalieGamesTable from "@/components/LastGoalieGamesTable";
+import PlayerCompare from "@/components/PlayerCompare";
 import { getTeamById } from "@/data/teams";
 import {
   getPlayerBySlug,
@@ -311,6 +312,8 @@ export default function PlayerDetail() {
             <LastGoalieGamesTable games={lastGoalieGamesFor(player.name, player.teamId)} />
           </>
         )}
+
+        <PlayerCompare current={player} />
           </>
         )}
 
