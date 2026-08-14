@@ -180,7 +180,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   // ---------- NEW YORK RANGERS ----------
   { playerName: "Jrok", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Jrok", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Jrok", gameId: "g15", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Jrok", gameId: "g15", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Jrok", gameId: "g18", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Bungee", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -520,7 +520,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   // ---------- NEW YORK RANGERS ----------
   { playerName: "DDino", gameId: "g02", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "DDino", gameId: "g10", gs: 1, dec: "OTL", shotsAgainst: 41, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "DDino", gameId: "g15", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "DDino", gameId: "g15", gs: 0, dec: "W", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "DDino", gameId: "g18", gs: 0, dec: "W", shotsAgainst: 21, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- UTAH MAMMOTHS ----------
@@ -620,6 +620,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Gabriel", gameId: "g03", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Uzi", gameId: "g03", gs: 1, dec: "L", shotsAgainst: 10, goalsAgainst: 10, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Baseball3122", gameId: "g11", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Cron", gameId: "g15", gs: 1, dec: "OTL", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
