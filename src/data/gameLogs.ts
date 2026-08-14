@@ -105,7 +105,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Swordtsu", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Cron", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Cron", gameId: "g06", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Cron", gameId: "g06", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Cron", gameId: "g15", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Cron", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
@@ -499,7 +499,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
 
   // ---------- TAMPA BAY LIGHTNING ----------
   { playerName: "SnugThePug", gameId: "g01", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "SnugThePug", gameId: "g06", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g06", gs: 1, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "SnugThePug", gameId: "g15", gs: 0, dec: "OTL", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "SnugThePug", gameId: "g17", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
@@ -540,7 +540,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
 
   // ---------- ST. LOUIS BLUES ----------
   { playerName: "Nova", gameId: "g04", gs: 0, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Nova", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Nova", gameId: "g06", gs: 0, dec: "L", shotsAgainst: 7, goalsAgainst: 7, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Nova", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Nova", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
