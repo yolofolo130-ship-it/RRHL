@@ -269,7 +269,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Butter", gameId: "g14", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Siah", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Siah", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Siah", gameId: "g10", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Siah", gameId: "g14", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Mesh", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -519,7 +519,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
 
   // ---------- NEW YORK RANGERS ----------
   { playerName: "DDino", gameId: "g02", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "DDino", gameId: "g10", gs: 1, dec: "OTL", shotsAgainst: 40, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "DDino", gameId: "g10", gs: 1, dec: "OTL", shotsAgainst: 41, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "DDino", gameId: "g15", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "DDino", gameId: "g18", gs: 0, dec: "W", shotsAgainst: 21, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
