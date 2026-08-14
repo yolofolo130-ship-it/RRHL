@@ -2,6 +2,11 @@ import type { Conference, Game, Team } from "@/data/types";
 
 export const PLAYOFF_SPOTS_PER_CONFERENCE = 3;
 
+export interface Streak {
+  type: "W" | "L";
+  count: number;
+}
+
 export interface TeamStanding {
   team: Team;
   gp: number;
@@ -12,6 +17,37 @@ export interface TeamStanding {
   ga: number;
   diff: number;
   pts: number;
+  streak: Streak | null;
+}
+
+// Current win/loss streak, newest final game first. OT losses count as a
+// loss for streak purposes (same simple W/L split shown in the table) —
+// only the outcome breaks the streak, not how it was lost.
+function computeStreak(teamId: string, games: Game[]): Streak | null {
+  const results = games
+    .filter(
+      (g) =>
+        g.status === "final" &&
+        g.homeScore != null &&
+        g.awayScore != null &&
+        (g.homeTeamId === teamId || g.awayTeamId === teamId),
+    )
+    .sort((a, b) => b.date.localeCompare(a.date) || b.id.localeCompare(a.id))
+    .map((g): "W" | "L" => {
+      const isHome = g.homeTeamId === teamId;
+      const won = isHome ? g.homeScore! > g.awayScore! : g.awayScore! > g.homeScore!;
+      return won ? "W" : "L";
+    });
+
+  if (results.length === 0) return null;
+
+  const type = results[0];
+  let count = 0;
+  for (const result of results) {
+    if (result !== type) break;
+    count++;
+  }
+  return { type, count };
 }
 
 /**
@@ -28,7 +64,7 @@ export function computeStandings(teams: Team[], games: Game[]): TeamStanding[] {
   const byId = new Map<string, TeamStanding>(
     teams.map((team) => [
       team.id,
-      { team, gp: 0, w: 0, l: 0, otl: 0, gf: 0, ga: 0, diff: 0, pts: 0 },
+      { team, gp: 0, w: 0, l: 0, otl: 0, gf: 0, ga: 0, diff: 0, pts: 0, streak: null },
     ]),
   );
 
@@ -61,6 +97,7 @@ export function computeStandings(teams: Team[], games: Game[]): TeamStanding[] {
   for (const standing of byId.values()) {
     standing.diff = standing.gf - standing.ga;
     standing.pts = standing.w * 2 + standing.otl;
+    standing.streak = computeStreak(standing.team.id, games);
   }
 
   return teams.map((team) => byId.get(team.id)!);

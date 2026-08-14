@@ -41,6 +41,7 @@ export default function StandingsTable({
                 </>
               )}
               <th className="px-4 py-3 text-center font-semibold">PTS</th>
+              <th className="px-3 py-3 text-center font-semibold">STRK</th>
             </tr>
           </thead>
           <tbody>
@@ -81,13 +82,24 @@ export default function StandingsTable({
                     <>
                       <td className="px-3 py-3 text-center text-ink-1">{row.gf}</td>
                       <td className="px-3 py-3 text-center text-ink-1">{row.ga}</td>
-                      <td className="px-3 py-3 text-center text-ink-1">
+                      <td
+                        className={`px-3 py-3 text-center font-semibold ${
+                          row.diff > 0 ? "text-emerald-400" : row.diff < 0 ? "text-red-400" : "text-ink-1"
+                        }`}
+                      >
                         {row.diff > 0 ? `+${row.diff}` : row.diff}
                       </td>
                     </>
                   )}
                   <td className="px-4 py-3 text-center text-base font-bold text-ink-0">
                     {row.pts}
+                  </td>
+                  <td
+                    className={`px-3 py-3 text-center font-semibold ${
+                      row.streak?.type === "W" ? "text-emerald-400" : row.streak?.type === "L" ? "text-red-400" : "text-ink-3"
+                    }`}
+                  >
+                    {row.streak ? `${row.streak.type}${row.streak.count}` : "—"}
                   </td>
                 </tr>
               );
