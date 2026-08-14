@@ -581,6 +581,15 @@ export default function AdminSchedule() {
 // (same GoalieStatFields shape, just a separate array so the skater
 // doesn't turn into a full goalie roster entry). POTG-only skaters
 // (holding no WG/LG role) get a normal skater-shaped line instead.
+//
+// Only a couple of numbers actually get typed in here — saves (+ an
+// optional goal) for a goalie, goals + assists for a skater. Everything
+// else derivable from the game itself (goals against = the opponent's
+// final score, shutout = whether that's zero, decision = win/loss from
+// which role they hold, points = goals + assists) is computed instead
+// of asked for, and anything NOT derivable that this panel doesn't show
+// (assists/pim/gs for a goalie) is just carried over from whatever's
+// already on file rather than reset.
 
 type StatKind = "goalie" | "in-net" | "skater";
 
@@ -606,12 +615,19 @@ function rolesForGame(game: Row): Map<string, string[]> {
   return roles;
 }
 
+// Goals let in by whichever team `teamId` belongs to in this game — i.e.
+// the OTHER team's final score.
+function goalsAgainstFor(game: Row, teamId: string): number {
+  const isHome = teamId === game.homeTeamId;
+  return (isHome ? game.awayScore : game.homeScore) ?? 0;
+}
+
 function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, string[]>): StatEntry[] {
   const entries: StatEntry[] = [];
   for (const [name, playerRoles] of roles) {
-    const isNaturalGoalie = goalies.some((g) => g.name === name);
-    const isGoalieRole = playerRoles.includes("WG") || playerRoles.includes("LG");
-    const kind: StatKind = isNaturalGoalie ? "goalie" : isGoalieRole ? "in-net" : "skater";
+    const goalie = goalies.find((g) => g.name === name);
+    const skater = goalie ? undefined : skaters.find((s) => s.name === name);
+    const kind: StatKind = goalie ? "goalie" : skater && playerRoles.some((r) => r === "WG" || r === "LG") ? "in-net" : "skater";
     const marker = markerForKind(kind);
     const { start, end } = findArrayRange(statsLines, marker);
     let lineIndex = -1;
@@ -628,6 +644,14 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
     if (kind === "goalie" || kind === "in-net") {
       const isWinner = playerRoles.includes("WG");
       const isLoser = playerRoles.includes("LG");
+      const teamId = (goalie ?? skater)?.teamId ?? game.homeTeamId;
+      const goalsAgainst = goalsAgainstFor(game, teamId);
+      const existingSA = existing.shotsAgainst as number | undefined;
+      const existingGA = existing.goalsAgainst as number | undefined;
+      // Preserve a previously-entered save count even though goalsAgainst
+      // just got recomputed fresh from the game score (which may differ
+      // from whatever it was set to before, e.g. if the score was fixed).
+      const saves = existingSA !== undefined ? Math.max(0, existingSA - (existingGA ?? 0)) : 0;
       entries.push({
         kind,
         lineIndex,
@@ -638,9 +662,9 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
           dec:
             (existing.dec as "W" | "L" | "OTL" | undefined) ??
             (isWinner ? "W" : isLoser ? (game.overtime ? "OTL" : "L") : undefined),
-          shotsAgainst: (existing.shotsAgainst as number) ?? 0,
-          goalsAgainst: (existing.goalsAgainst as number) ?? 0,
-          shutout: (existing.shutout as number) ?? 0,
+          shotsAgainst: saves + goalsAgainst,
+          goalsAgainst,
+          shutout: goalsAgainst === 0 ? 1 : 0,
           goals: (existing.goals as number) ?? 0,
           assists: (existing.assists as number) ?? 0,
           points: (existing.points as number) ?? 0,
@@ -648,15 +672,17 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
         },
       });
     } else {
+      const goals = (existing.goals as number) ?? 0;
+      const assists = (existing.assists as number) ?? 0;
       entries.push({
         kind: "skater",
         lineIndex,
         fields: {
           playerName: name,
           gameId: game.id,
-          goals: (existing.goals as number) ?? 0,
-          assists: (existing.assists as number) ?? 0,
-          points: (existing.points as number) ?? 0,
+          goals,
+          assists,
+          points: goals + assists,
           pim: (existing.pim as number) ?? 0,
           ppg: (existing.ppg as number) ?? 0,
           shg: (existing.shg as number) ?? 0,
@@ -691,7 +717,14 @@ function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelP
 
   const updateEntry = (name: string, patch: Partial<SkaterStatFields & GoalieStatFields>) => {
     setEntries((es) =>
-      es.map((e) => (e.fields.playerName === name ? ({ ...e, fields: { ...e.fields, ...patch } } as StatEntry) : e)),
+      es.map((e) => {
+        if (e.fields.playerName !== name) return e;
+        const fields = { ...e.fields, ...patch } as SkaterStatFields & GoalieStatFields;
+        // Points isn't shown as its own field here — keep it in sync
+        // with goals + assists so gameLogs.ts still stores a real number.
+        if (e.kind === "skater") fields.points = fields.goals + fields.assists;
+        return { ...e, fields } as StatEntry;
+      }),
     );
   };
 
@@ -747,25 +780,23 @@ function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelP
             </p>
             {entry.kind !== "skater" ? (
               <div className="flex flex-wrap gap-2">
-                <StatInput label="GS" value={entry.fields.gs} onChange={(v) => updateEntry(entry.fields.playerName, { gs: v })} />
-                <DecInput value={entry.fields.dec} onChange={(v) => updateEntry(entry.fields.playerName, { dec: v })} />
-                <StatInput label="SA" value={entry.fields.shotsAgainst} onChange={(v) => updateEntry(entry.fields.playerName, { shotsAgainst: v })} />
-                <StatInput label="GA" value={entry.fields.goalsAgainst} onChange={(v) => updateEntry(entry.fields.playerName, { goalsAgainst: v })} />
-                <StatInput label="SO" value={entry.fields.shutout} onChange={(v) => updateEntry(entry.fields.playerName, { shutout: v })} />
-                <StatInput label="G" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
-                <StatInput label="A" value={entry.fields.assists} onChange={(v) => updateEntry(entry.fields.playerName, { assists: v })} />
-                <StatInput label="PIM" value={entry.fields.pim} onChange={(v) => updateEntry(entry.fields.playerName, { pim: v })} />
+                <StatInput
+                  label="SAVES"
+                  value={entry.fields.shotsAgainst - entry.fields.goalsAgainst}
+                  onChange={(v) => updateEntry(entry.fields.playerName, { shotsAgainst: v + entry.fields.goalsAgainst })}
+                />
+                <StatInput label="GOALS" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
+                {entry.fields.shutout === 1 && (
+                  <span className="flex flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.1em] text-ink-3">
+                    SO
+                    <span className="flex h-[30px] w-14 items-center justify-center border border-line bg-bg-1 text-sm text-ink-0">✓</span>
+                  </span>
+                )}
               </div>
             ) : (
               <div className="flex flex-wrap gap-2">
-                <StatInput label="G" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
-                <StatInput label="A" value={entry.fields.assists} onChange={(v) => updateEntry(entry.fields.playerName, { assists: v })} />
-                <StatInput label="P" value={entry.fields.points} onChange={(v) => updateEntry(entry.fields.playerName, { points: v })} />
-                <StatInput label="PIM" value={entry.fields.pim} onChange={(v) => updateEntry(entry.fields.playerName, { pim: v })} />
-                <StatInput label="PPG" value={entry.fields.ppg} onChange={(v) => updateEntry(entry.fields.playerName, { ppg: v })} />
-                <StatInput label="SHG" value={entry.fields.shg} onChange={(v) => updateEntry(entry.fields.playerName, { shg: v })} />
-                <StatInput label="SHOTS" value={entry.fields.shots} onChange={(v) => updateEntry(entry.fields.playerName, { shots: v })} />
-                <StatInput label="SHIFTS" value={entry.fields.shifts} onChange={(v) => updateEntry(entry.fields.playerName, { shifts: v })} />
+                <StatInput label="GOALS" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
+                <StatInput label="ASSISTS" value={entry.fields.assists} onChange={(v) => updateEntry(entry.fields.playerName, { assists: v })} />
               </div>
             )}
           </div>
@@ -804,32 +835,6 @@ function StatInput({
         onChange={(e) => onChange(Number(e.target.value))}
         className="w-14 border border-line bg-bg-1 px-1.5 py-1 text-center text-sm text-ink-0 outline-none focus:border-line-strong"
       />
-    </label>
-  );
-}
-
-function DecInput({
-  value,
-  onChange,
-}: {
-  value: "W" | "L" | "OTL" | undefined;
-  onChange: (v: "W" | "L" | "OTL" | undefined) => void;
-}) {
-  const DEC_OPTIONS = ["", "W", "L", "OTL"] as const;
-  return (
-    <label className="flex flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.1em] text-ink-3">
-      DEC
-      <select
-        value={value ?? ""}
-        onChange={(e) => onChange(e.target.value === "" ? undefined : (e.target.value as "W" | "L" | "OTL"))}
-        className="border border-line bg-bg-1 px-1.5 py-1 text-sm text-ink-0 outline-none focus:border-line-strong"
-      >
-        {DEC_OPTIONS.map((d) => (
-          <option key={d} value={d}>
-            {d || "—"}
-          </option>
-        ))}
-      </select>
     </label>
   );
 }
