@@ -5,7 +5,7 @@ import type { Game } from "./types";
 export const games: Game[] = [
   // ---------- Week 1 ----------
   { id: "g01", week: 1, date: "2026-07-31", time: "8:00 PM", homeTeamId: "vegas-golden-knights", awayTeamId: "tampa-bay-lightning", homeScore: 3, awayScore: 0, status: "final", wg: "TGOD", potg: "Sinny" },
-  { id: "g02", week: 1, date: "2026-07-31", time: "9:05 PM", homeTeamId: "pittsburgh-penguins", awayTeamId: "new-york-rangers", homeScore: 5, awayScore: 1, status: "final" },
+  { id: "g02", week: 1, date: "2026-07-31", time: "9:05 PM", homeTeamId: "pittsburgh-penguins", awayTeamId: "new-york-rangers", homeScore: 5, awayScore: 1, status: "final", wg: "Fellow", lg: "Bungee", potg: "Chrisx" },
   { id: "g03", week: 1, date: "2026-08-01", time: "7:35 PM", homeTeamId: "dallas-stars", awayTeamId: "los-angeles-kings", homeScore: 0, awayScore: 10, status: "final" },
   { id: "g04", week: 1, date: "2026-08-01", time: "8:40 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "st-louis-blues", homeScore: 1, awayScore: 2, overtime: true, status: "final" },
   { id: "g05", week: 1, date: "2026-08-02", time: "8:30 PM", homeTeamId: "boston-bruins", awayTeamId: "utah-mammoths", homeScore: 1, awayScore: 2, overtime: true, status: "final" },
