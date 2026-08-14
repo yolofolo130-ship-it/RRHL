@@ -20,7 +20,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "BNA", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "DoughnutZ", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "DoughnutZ", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "DoughnutZ", gameId: "g08", goals: 4, assists: 0, points: 4, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "DoughnutZ", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Full", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -483,7 +483,7 @@ export function lastGamesFor(playerName: string, teamId: string, count = 5): Ska
 export const goalieGameStatLines: GoalieGameStatLine[] = [
   // ---------- CAROLINA HURRICANES ----------
   { playerName: "Wapw", gameId: "g04", gs: 1, dec: "OTL", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 9, goalsAgainst: 1, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
+  { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 12, goalsAgainst: 4, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
   { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 42, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
