@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import type { Game } from "@/data/types";
 import { getTeamById } from "@/data/teams";
 import { getHeadshotByName, getPlayerSlugByName } from "@/data/players";
+import { gameStatSummary } from "@/data/gameLogs";
 import TeamLogo from "./TeamLogo";
 import { formatShortDate } from "@/utils/format";
 
@@ -72,18 +73,19 @@ export default function GameCard({ game }: GameCardProps) {
 
       {hasHonors && (
         <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-line/60 pt-3">
-          {game.wg && <GameHonor label="WG" name={game.wg} />}
-          {game.lg && <GameHonor label="LG" name={game.lg} />}
-          {game.potg && <GameHonor label="POTG" name={game.potg} />}
+          {game.wg && <GameHonor label="WG" name={game.wg} gameId={game.id} />}
+          {game.lg && <GameHonor label="LG" name={game.lg} gameId={game.id} />}
+          {game.potg && <GameHonor label="POTG" name={game.potg} gameId={game.id} />}
         </div>
       )}
     </div>
   );
 }
 
-function GameHonor({ label, name }: { label: string; name: string }) {
+function GameHonor({ label, name, gameId }: { label: string; name: string; gameId: string }) {
   const headshot = getHeadshotByName(name);
   const slug = getPlayerSlugByName(name);
+  const summary = gameStatSummary(name, gameId);
   const content = (
     <>
       <span className="text-[10px] font-semibold tracking-[0.1em] text-ink-3 sm:text-xs">{label}:</span>
@@ -96,6 +98,7 @@ function GameHonor({ label, name }: { label: string; name: string }) {
         />
       )}
       <span className="text-xs font-semibold text-ink-1 sm:text-sm">{name}</span>
+      {summary && <span className="text-[10px] text-ink-3 sm:text-xs">{summary}</span>}
     </>
   );
 
