@@ -5,10 +5,11 @@
   --font-sans: "Oswald", system-ui, sans-serif;
 
   /* Admin panel only — deliberately distinct from the public site's
-     display fonts above: a clean UI sans for chrome/labels, monospace
-     for data tables, closer to a normal dashboard than a fan site. */
+     display fonts above: a clean UI sans for chrome/labels, Chakra
+     Petch for data tables and headers, closer to a normal dashboard
+     than a fan site. */
   --font-admin-sans: "Inter", system-ui, sans-serif;
-  --font-admin-mono: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+  --font-admin-mono: "Chakra Petch", "Inter", system-ui, sans-serif;
   --font-admin-display: "Chakra Petch", "Inter", system-ui, sans-serif;
 
   --color-bg-0: #050505;
