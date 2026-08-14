@@ -78,7 +78,7 @@ export const skaters: Skater[] = [
   { id: "uta-11", name: "Rudolph", teamId: "utah-mammoths", position: "C", number: 12, gp: 0, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 4, goals: 7, assists: 1, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR", headshot: sinnyAvatar },
-  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 4, goals: 1, assists: 5, pim: 0, overall: 86, flag: "USA" },
+  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 4, goals: 1, assists: 5, pim: 0, overall: 86, flag: "Canada" },
   { id: "vgk-3", name: "Siah", teamId: "vegas-golden-knights", position: "C", number: 8, gp: 3, goals: 2, assists: 0, pim: 2, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico" },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "C", number: 16, gp: 4, goals: 0, assists: 0, pim: 0, overall: 87, flag: "Jamaica" },
   { id: "vgk-5", name: "Caleb", teamId: "vegas-golden-knights", position: "D", number: 9, gp: 4, goals: 1, assists: 3, pim: 0, overall: 88, star: "Truculence", flag: "USA" },
