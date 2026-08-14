@@ -321,7 +321,7 @@ export default function AdminRosters() {
         star: newSkater.star,
         flag: newSkater.flag,
       });
-      const nextLines = upsertLine(lines, -1, newLine, (kv) => kv.teamId === teamId, end);
+      const nextLines = upsertLine(lines, -1, newLine, (kv) => kv.teamId === teamId, start, end);
       const newSha = await commitFile(PATH, nextLines.join("\n"), sha, `Add skater ${name} to ${currentTeam.name}`);
       setLines(nextLines);
       setSha(newSha);
@@ -356,7 +356,7 @@ export default function AdminRosters() {
         star: newGoalie.star,
         flag: newGoalie.flag,
       });
-      const nextLines = upsertLine(lines, -1, newLine, (kv) => kv.teamId === teamId, end);
+      const nextLines = upsertLine(lines, -1, newLine, (kv) => kv.teamId === teamId, start, end);
       const newSha = await commitFile(PATH, nextLines.join("\n"), sha, `Add goalie ${name} to ${currentTeam.name}`);
       setLines(nextLines);
       setSha(newSha);

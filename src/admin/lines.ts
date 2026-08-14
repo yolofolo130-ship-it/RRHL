@@ -319,6 +319,7 @@ export function upsertLine(
   existingIndex: number,
   newLine: string,
   insertAfterPredicate: (kv: KV) => boolean,
+  arrayStartIndex: number,
   arrayEndIndex: number,
 ): string[] {
   const next = [...lines];
@@ -326,7 +327,13 @@ export function upsertLine(
     next[existingIndex] = newLine;
     return next;
   }
-  for (let i = arrayEndIndex - 1; i >= 0; i--) {
+  // Bounded at arrayStartIndex so this can never walk backward past the
+  // array's own opening line into whatever array precedes it in the file —
+  // without that bound, a predicate that matches nothing in an empty (or
+  // still-short) array would keep searching into the PREVIOUS array and
+  // could splice the new line into completely the wrong place (e.g. a
+  // goalie-shaped line landing inside skaterGameStatLines).
+  for (let i = arrayEndIndex - 1; i > arrayStartIndex; i--) {
     if (isEntryLine(next[i]) && insertAfterPredicate(parseLineKV(next[i]))) {
       next.splice(i + 1, 0, newLine);
       return next;

@@ -118,12 +118,13 @@ export default function AdminInNet() {
       // so later insertions account for earlier ones shifting the array.
       for (const row of rows) {
         if (row.lineIndex === -1) {
-          const { end } = findArrayRange(nextLines, OPEN_MARKER);
+          const { start, end } = findArrayRange(nextLines, OPEN_MARKER);
           nextLines = upsertLine(
             nextLines,
             -1,
             stringifyGoalieStatLine(row),
             (kv) => kv.playerName === row.playerName,
+            start,
             end,
           );
         }
