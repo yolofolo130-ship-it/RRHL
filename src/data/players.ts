@@ -122,7 +122,7 @@ export const skaters: Skater[] = [
 ];
 
 export const goalies: Goalie[] = [
-  { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 4, gs: 4, wins: 2, losses: 0, otLosses: 1, saves: 63, goalsAgainst: 5, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "Ukraine" },
+  { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 4, gs: 4, wins: 2, losses: 1, otLosses: 1, saves: 77, goalsAgainst: 6, shutouts: 0, goals: 1, assists: 1, pim: 0, overall: 86, flag: "Ukraine" },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 35, gp: 4, gs: 4, wins: 2, losses: 1, otLosses: 1, saves: 44, goalsAgainst: 5, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 87, flag: "Mexico", headshot: pitg1Headshot },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 0, gs: 0, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, gs: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 85, flag: "Canada" },
