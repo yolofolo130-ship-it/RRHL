@@ -224,7 +224,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
 
   { playerName: "lilballerjimmy", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "lilballerjimmy", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "lilballerjimmy", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "lilballerjimmy", gameId: "g11", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Reject", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Reject", gameId: "g09", goals: 2, assists: 1, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -547,7 +547,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   // ---------- LOS ANGELES KINGS ----------
   { playerName: "Riptide", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Riptide", gameId: "g08", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Riptide", gameId: "g11", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Riptide", gameId: "g11", gs: 0, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Riptide", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   { playerName: "TheHolyHippo", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
@@ -619,6 +619,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Mesh", gameId: "g20", gs: 1, dec: "W", shotsAgainst: 16, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Gabriel", gameId: "g03", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Uzi", gameId: "g03", gs: 1, dec: "L", shotsAgainst: 10, goalsAgainst: 10, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Baseball3122", gameId: "g11", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
