@@ -35,6 +35,6 @@ export const games: Game[] = [
   { id: "g23", week: 6, date: "2026-08-15", time: "7:00", homeTeamId: "tampa-bay-lightning", awayTeamId: "boston-bruins", status: "upcoming" },
   { id: "g24", week: 6, date: "2026-08-15", time: "8:20PM", homeTeamId: "los-angeles-kings", awayTeamId: "pittsburgh-penguins", status: "upcoming" },
 ];
-
+export const featuredGameId = "g20";
 // Featured matchup shown prominently on the homepage.
 export const featuredGameId = "g20";
