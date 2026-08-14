@@ -422,7 +422,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Salva", gameId: "g03", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Salva", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Salva", gameId: "g14", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Salva", gameId: "g18", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Salva", gameId: "g18", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "PKPlis", gameId: "g03", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "PKPlis", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -559,7 +559,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Jollyllama", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Jollyllama", gameId: "g09", gs: 0, dec: "L", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Jollyllama", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Jollyllama", gameId: "g18", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Jollyllama", gameId: "g18", gs: 0, dec: "OTL", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
 ];
 
