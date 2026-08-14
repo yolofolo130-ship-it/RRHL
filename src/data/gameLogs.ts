@@ -214,7 +214,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "DieLit", gameId: "g18", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   // ---------- UTAH MAMMOTHS ----------
-  { playerName: "MJ", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "MJ", gameId: "g05", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MJ", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MJ", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
@@ -509,7 +509,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Pechs", gameId: "g17", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   // ---------- BOSTON BRUINS ----------
-  { playerName: "Apx11o", gameId: "g05", gs: 0, dec: "OTL", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g05", gs: 0, dec: "OTL", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Apx11o", gameId: "g07", gs: 1, dec: "L", shotsAgainst: 4, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Apx11o", gameId: "g13", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
@@ -524,7 +524,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "DDino", gameId: "g18", gs: 0, dec: "W", shotsAgainst: 21, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- UTAH MAMMOTHS ----------
-  { playerName: "Sleepy", gameId: "g05", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g05", gs: 1, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g09", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g11", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g20", gs: 1, dec: "L", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
