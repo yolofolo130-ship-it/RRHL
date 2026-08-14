@@ -52,7 +52,6 @@ export default function AdminSchedule() {
   const [adding, setAdding] = useState(false);
   const [addError, setAddError] = useState<string | null>(null);
   const [featuredGameId, setFeaturedGameId] = useState("");
-  const [featuredLineIndex, setFeaturedLineIndex] = useState(-1);
   const [savingFeatured, setSavingFeatured] = useState(false);
   const [savedFeatured, setSavedFeatured] = useState(false);
   const [featuredError, setFeaturedError] = useState<string | null>(null);
@@ -89,7 +88,6 @@ export default function AdminSchedule() {
         setNewGame((f) => ({ ...f, week: maxWeek + 1 }));
 
         const featuredIdx = ls.findIndex((l) => l.includes(FEATURED_MARKER));
-        setFeaturedLineIndex(featuredIdx);
         const featuredMatch = featuredIdx !== -1 ? ls[featuredIdx].match(/"([^"]+)"/) : null;
         setFeaturedGameId(featuredMatch?.[1] ?? "");
       })
@@ -166,7 +164,14 @@ export default function AdminSchedule() {
   };
 
   const saveFeatured = async () => {
-    if (!lines || !sha || featuredLineIndex === -1 || !featuredGameId) return;
+    if (!lines || !sha || !featuredGameId) return;
+    // Found fresh from the current lines rather than cached from load() —
+    // addGame/saveAll can insert or shift lines in between, so a stale
+    // index captured once at load time can point at the wrong line by the
+    // time this runs (this previously corrupted schedule.ts with a
+    // duplicate `featuredGameId` declaration).
+    const featuredLineIndex = lines.findIndex((l) => l.includes(FEATURED_MARKER));
+    if (featuredLineIndex === -1) return;
     setSavingFeatured(true);
     setFeaturedError(null);
     try {
