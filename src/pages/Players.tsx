@@ -35,7 +35,16 @@ export default function Players() {
                       to={`/players/${playerSlug(player.name)}`}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
-                      <OverallBadge overall={player.overall ?? 70} />
+                      <span className="flex shrink-0 items-center gap-2">
+                        {player.headshot && (
+                          <img
+                            src={player.headshot}
+                            alt=""
+                            className="h-10 w-10 rounded-full border border-line object-cover"
+                          />
+                        )}
+                        <OverallBadge overall={player.overall ?? 70} />
+                      </span>
                       <div className="min-w-0">
                         <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           <span className="min-w-0 truncate">{player.name}</span>
@@ -53,7 +62,16 @@ export default function Players() {
                       to={`/players/${playerSlug(goalie.name)}`}
                       className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                     >
-                      <OverallBadge overall={goalie.overall ?? 70} />
+                      <span className="flex shrink-0 items-center gap-2">
+                        {goalie.headshot && (
+                          <img
+                            src={goalie.headshot}
+                            alt=""
+                            className="h-10 w-10 rounded-full border border-line object-cover"
+                          />
+                        )}
+                        <OverallBadge overall={goalie.overall ?? 70} />
+                      </span>
                       <div className="min-w-0">
                         <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                           <span className="min-w-0 truncate">{goalie.name}</span>
@@ -84,6 +102,13 @@ export default function Players() {
                     to={`/players/${playerSlug(player.name)}`}
                     className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
                   >
+                    {player.headshot && (
+                      <img
+                        src={player.headshot}
+                        alt=""
+                        className="h-10 w-10 shrink-0 rounded-full border border-line object-cover"
+                      />
+                    )}
                     <div className="min-w-0">
                       <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
                         <span className="min-w-0 truncate">{player.name}</span>
