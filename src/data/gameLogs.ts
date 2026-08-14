@@ -66,7 +66,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Sid", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Sid", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Sid", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Sid", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Sid", gameId: "g17", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "chicharito9260", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "chicharito9260", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -621,6 +621,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Uzi", gameId: "g03", gs: 1, dec: "L", shotsAgainst: 10, goalsAgainst: 10, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Baseball3122", gameId: "g11", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Cron", gameId: "g15", gs: 1, dec: "OTL", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Ehhabhd", gameId: "g17", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
