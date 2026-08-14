@@ -9,6 +9,7 @@ import car1Headshot from "@/assets/players-avatars/BNA-Avatar.png";
 import pitg1Headshot from "@/assets/players-avatars/Fellow-Avatar.png";
 import pit10Headshot from "@/assets/players-avatars/Carterthegawd-Avatar.png";
 import tbl1Headshot from "@/assets/players-avatars/Swordtsu-Avatar.png";
+import car3Headshot from "@/assets/players-avatars/car-3.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -16,7 +17,7 @@ import tbl1Headshot from "@/assets/players-avatars/Swordtsu-Avatar.png";
 export const skaters: Skater[] = [
   { id: "car-1", name: "BNA", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 1, goals: 3, assists: 2, pim: 0, overall: 85, flag: "German", headshot: car1Headshot },
   { id: "car-2", name: "DoughnutZ", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 3, goals: 7, assists: 4, pim: 0, overall: 88, star: "Wheels", flag: "Ireland" },
-  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "PR" },
+  { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "PR", headshot: car3Headshot },
   { id: "car-4", name: "Fishbowl", teamId: "dallas-stars", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0, overall: 83, flag: "Canada" },
   { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 1, goals: 3, assists: 0, pim: 0, overall: 83, flag: "USA" },
   { id: "car-6", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0, overall: 88, star: "Quick Release", flag: "USA" },
