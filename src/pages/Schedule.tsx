@@ -4,7 +4,6 @@ import Tabs from "@/components/Tabs";
 import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
-import { weekBanners } from "@/data/weekBanners";
 import { formatLongDate } from "@/utils/format";
 
 const CONFERENCE_OPTIONS = [
@@ -63,7 +62,6 @@ export default function Schedule() {
         }
         return {
           week: weekNumber,
-          banner: weekBanners.find((b) => b.week === weekNumber)?.banner,
           dates: Array.from(dateMap.entries()),
         };
       });
@@ -110,19 +108,11 @@ export default function Schedule() {
               No games match these filters.
             </p>
           )}
-          {gamesByWeek.map(({ week: weekNumber, banner, dates }) => (
+          {gamesByWeek.map(({ week: weekNumber, dates }) => (
             <div key={weekNumber}>
-              {banner ? (
-                <img
-                  src={banner}
-                  alt={`Week ${weekNumber}`}
-                  className="mx-auto mb-6 aspect-[3/1] w-full max-w-[1500px] border border-line object-cover"
-                />
-              ) : (
-                <p className="mb-6 text-xs font-semibold tracking-[0.25em] text-ink-3">
-                  WEEK {weekNumber}
-                </p>
-              )}
+              <p className="mb-6 text-xs font-semibold tracking-[0.25em] text-ink-3">
+                WEEK {weekNumber}
+              </p>
               <div className="flex flex-col gap-10">
                 {dates.map(([date, dateGames]) => (
                   <div key={date}>

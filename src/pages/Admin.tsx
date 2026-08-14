@@ -8,7 +8,6 @@ import AdminGoalieLogs from "@/admin/AdminGoalieLogs";
 import AdminInNet from "@/admin/AdminInNet";
 import AdminRosters from "@/admin/AdminRosters";
 import AdminHeadshots from "@/admin/AdminHeadshots";
-import AdminWeekBanners from "@/admin/AdminWeekBanners";
 import AdminAccolades from "@/admin/AdminAccolades";
 import AdminHistory from "@/admin/AdminHistory";
 
@@ -33,12 +32,6 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Schedule",
         description: "Dates, times, matchups, and scores for every game.",
         Component: AdminSchedule,
-      },
-      {
-        value: "week-banners",
-        label: "Week Banners",
-        description: "Upload the banner image shown above each week's games.",
-        Component: AdminWeekBanners,
       },
       {
         value: "skaters",
