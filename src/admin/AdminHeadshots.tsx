@@ -39,10 +39,14 @@ export default function AdminHeadshots() {
     setUploadError(null);
     try {
       const ext = (file.name.split(".").pop() || "jpg").toLowerCase();
-      const idSafe = currentPlayer.id.replace(/[^a-zA-Z0-9]/g, "");
-      const varName = `${idSafe}Headshot`;
-      const assetPath = `src/assets/players-avatars/${currentPlayer.id}.${ext}`;
-      const importPath = `@/assets/players-avatars/${currentPlayer.id}.${ext}`;
+      // Named after the player, not their id, so the folder stays readable
+      // when browsing it directly. Safe because player names are unique
+      // across the whole roster (see playerSlug in data/players.ts).
+      const fileBase = currentPlayer.name.trim().replace(/[^a-zA-Z0-9]+/g, "-").replace(/^-+|-+$/g, "");
+      const rawIdent = currentPlayer.name.replace(/[^a-zA-Z0-9]/g, "");
+      const varName = `${/^[0-9]/.test(rawIdent) ? `p${rawIdent}` : rawIdent}Headshot`;
+      const assetPath = `src/assets/players-avatars/${fileBase}-Avatar.${ext}`;
+      const importPath = `@/assets/players-avatars/${fileBase}-Avatar.${ext}`;
 
       // 1. Upload the image itself.
       const base64 = await fileToBase64(file);

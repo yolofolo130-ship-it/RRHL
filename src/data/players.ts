@@ -3,12 +3,12 @@ import { getFormerPlayerByName, getFormerPlayerBySlug } from "./formerPlayers";
 import { slugify } from "@/utils/format";
 
 import sinnyAvatar from "@/assets/players-avatars/Sinny-Avatar.webp";
-import pit1Headshot from "@/assets/players-avatars/pit-1.png";
-import pit4Headshot from "@/assets/players-avatars/pit-4.png";
-import car1Headshot from "@/assets/players-avatars/car-1.png";
-import pitg1Headshot from "@/assets/players-avatars/pit-g1.png";
-import pit10Headshot from "@/assets/players-avatars/pit-10.png";
-import tbl1Headshot from "@/assets/players-avatars/tbl-1.png";
+import pit1Headshot from "@/assets/players-avatars/Chrisx-Avatar.png";
+import pit4Headshot from "@/assets/players-avatars/Sid-Avatar.png";
+import car1Headshot from "@/assets/players-avatars/BNA-Avatar.png";
+import pitg1Headshot from "@/assets/players-avatars/Fellow-Avatar.png";
+import pit10Headshot from "@/assets/players-avatars/Carterthegawd-Avatar.png";
+import tbl1Headshot from "@/assets/players-avatars/Swordtsu-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
