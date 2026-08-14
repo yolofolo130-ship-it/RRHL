@@ -538,30 +538,34 @@ export default function AdminSchedule() {
   );
 }
 
-// ---------- inline per-game stats (WG / LG / POTG) ----------
+// ---------- inline per-game stats (WG / POTG) ----------
 //
-// Lets the admin log a stat line for a game's WG/LG/POTG right where
-// they set those roles, instead of hopping over to the Skater/Goalie/
-// In Net Logs tabs and re-finding the same player + game. Writes
-// straight to gameLogs.ts, reusing the same stringify/upsert helpers
-// those tabs use.
+// Lets the admin log a stat line for a game's WG/POTG right where they
+// set those roles, instead of hopping over to the Skater/Goalie/In Net
+// Logs tabs and re-finding the same player + game. Writes straight to
+// gameLogs.ts, reusing the same stringify/upsert helpers those tabs use.
 //
-// WG/LG can be either a natural goalie OR a skater who filled in as
+// LG deliberately does NOT drive a stat entry here — it only sets the
+// label shown on the public Schedule page. Auto-generating a stat card
+// for the LG the moment they're picked meant their "Last 5 Games" table
+// changed on its own, which was confusing to reconcile; logging an LG's
+// real stats is a manual trip to Goalie/In Net Logs like before.
+//
+// WG can be either a natural goalie OR a skater who filled in as
 // emergency goalie for that game — the two are told apart by whether
 // the name matches the goalie roster: a natural goalie's line goes in
 // goalieGameStatLines, an emergency one goes in inNetAppearances
 // (same GoalieStatFields shape, just a separate array so the skater
 // doesn't turn into a full goalie roster entry). POTG-only skaters
-// (holding no WG/LG role) get a normal skater-shaped line instead.
+// (holding no WG role) get a normal skater-shaped line instead.
 //
 // Only a couple of numbers actually get typed in here — saves (+ an
 // optional goal) for a goalie, goals + assists for a skater. Everything
 // else derivable from the game itself (goals against = the opponent's
-// final score, shutout = whether that's zero, decision = win/loss from
-// which role they hold, points = goals + assists) is computed instead
-// of asked for, and anything NOT derivable that this panel doesn't show
-// (assists/pim/gs for a goalie) is just carried over from whatever's
-// already on file rather than reset.
+// final score, shutout = whether that's zero, points = goals + assists)
+// is computed instead of asked for, and anything NOT derivable that this
+// panel doesn't show (assists/pim/gs for a goalie) is just carried over
+// from whatever's already on file rather than reset.
 
 type StatKind = "goalie" | "in-net" | "skater";
 
@@ -582,7 +586,7 @@ function rolesForGame(game: Row): Map<string, string[]> {
     roles.set(name, [...(roles.get(name) ?? []), role]);
   };
   add(game.wg, "WG");
-  add(game.lg, "LG");
+  // LG intentionally omitted — see the comment above this section.
   add(game.potg, "POTG");
   return roles;
 }
@@ -621,7 +625,7 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
   for (const [name, playerRoles] of roles) {
     const goalie = goalies.find((g) => g.name === name);
     const skater = goalie ? undefined : skaters.find((s) => s.name === name);
-    const kind: StatKind = goalie ? "goalie" : skater && playerRoles.some((r) => r === "WG" || r === "LG") ? "in-net" : "skater";
+    const kind: StatKind = goalie ? "goalie" : skater && playerRoles.includes("WG") ? "in-net" : "skater";
     const marker = markerForKind(kind);
     const { start, end } = findArrayRange(statsLines, marker);
     let lineIndex = -1;
@@ -637,7 +641,6 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
     }
     if (kind === "goalie" || kind === "in-net") {
       const isWinner = playerRoles.includes("WG");
-      const isLoser = playerRoles.includes("LG");
       const teamId = (goalie ?? skater)?.teamId ?? game.homeTeamId;
       const goalsAgainst = goalsAgainstFor(game, teamId);
       const existingSA = existing.shotsAgainst as number | undefined;
@@ -653,9 +656,7 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
           playerName: name,
           gameId: game.id,
           gs: (existing.gs as number) ?? 1,
-          dec:
-            (existing.dec as "W" | "L" | "OTL" | undefined) ??
-            (isWinner ? "W" : isLoser ? (game.overtime ? "OTL" : "L") : undefined),
+          dec: (existing.dec as "W" | "L" | "OTL" | undefined) ?? (isWinner ? "W" : undefined),
           shotsAgainst: saves + goalsAgainst,
           goalsAgainst,
           shutout: goalsAgainst === 0 ? 1 : 0,
