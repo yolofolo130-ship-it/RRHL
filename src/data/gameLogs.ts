@@ -297,7 +297,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Darkness", gameId: "g14", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   // ---------- ST. LOUIS BLUES ----------
-  { playerName: "Vengeance", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Vengeance", gameId: "g04", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Vengeance", gameId: "g06", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Vengeance", gameId: "g13", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Vengeance", gameId: "g16", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -539,7 +539,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "King", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
   // ---------- ST. LOUIS BLUES ----------
-  { playerName: "Nova", gameId: "g04", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Nova", gameId: "g04", gs: 0, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Nova", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Nova", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Nova", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
