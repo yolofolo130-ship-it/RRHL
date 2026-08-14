@@ -31,6 +31,12 @@ export interface Game {
   awayScore?: number;
   overtime?: boolean;
   status: GameStatus;
+  /** Winning goalie's name, for final games. Looked up against players.ts for a headshot. */
+  wg?: string;
+  /** Losing goalie's name, for final games. Looked up against players.ts for a headshot. */
+  lg?: string;
+  /** Player of the Game / MVP's name, for final games. Looked up against players.ts for a headshot. */
+  potg?: string;
 }
 
 export type Position = "C" | "LW" | "RW" | "D" | "G";

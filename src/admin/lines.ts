@@ -42,6 +42,9 @@ export interface GameFields {
   awayScore?: number;
   overtime?: boolean;
   status: string;
+  wg?: string;
+  lg?: string;
+  potg?: string;
 }
 
 export function stringifyGameLine(f: GameFields): string {
@@ -57,6 +60,9 @@ export function stringifyGameLine(f: GameFields): string {
   if (f.awayScore !== undefined) parts.push(`awayScore: ${f.awayScore}`);
   if (f.overtime) parts.push(`overtime: true`);
   parts.push(`status: "${f.status}"`);
+  if (f.wg) parts.push(`wg: "${f.wg}"`);
+  if (f.lg) parts.push(`lg: "${f.lg}"`);
+  if (f.potg) parts.push(`potg: "${f.potg}"`);
   return `  { ${parts.join(", ")} },`;
 }
 

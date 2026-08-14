@@ -309,3 +309,14 @@ export const getPlayerSlugByName = (name: string): string | undefined => {
   const former = getFormerPlayerByName(name);
   return former ? playerSlug(former.name) : undefined;
 };
+
+// Resolves a name (as stored on a Game's wg/lg/potg field) to that
+// player's headshot, if they have one on file. Same lookup order as
+// getPlayerSlugByName.
+export const getHeadshotByName = (name: string): string | undefined => {
+  const skater = skaters.find((s) => s.name === name);
+  if (skater?.headshot) return skater.headshot;
+  const goalie = goalies.find((g) => g.name === name);
+  if (goalie?.headshot) return goalie.headshot;
+  return getFormerPlayerByName(name)?.headshot;
+};

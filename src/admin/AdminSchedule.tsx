@@ -11,6 +11,7 @@ import {
   type GameFields,
 } from "@/admin/lines";
 import { teams, getTeamById } from "@/data/teams";
+import { skaters, goalies } from "@/data/players";
 
 const PATH = "src/data/schedule.ts";
 const OPEN_MARKER = "export const games";
@@ -28,6 +29,14 @@ interface NewGameForm {
   awayTeamId: string;
   homeTeamId: string;
   status: string;
+}
+
+function goaliesForGame(homeTeamId: string, awayTeamId: string) {
+  return goalies.filter((g) => g.teamId === homeTeamId || g.teamId === awayTeamId);
+}
+
+function allPlayersForGame(homeTeamId: string, awayTeamId: string) {
+  return [...skaters, ...goalies].filter((p) => p.teamId === homeTeamId || p.teamId === awayTeamId);
 }
 
 const EMPTY_NEW_GAME: NewGameForm = {
@@ -79,6 +88,9 @@ export default function AdminSchedule() {
             awayScore: kv.awayScore as number | undefined,
             overtime: (kv.overtime as boolean | undefined) ?? false,
             status: kv.status as string,
+            wg: kv.wg as string | undefined,
+            lg: kv.lg as string | undefined,
+            potg: kv.potg as string | undefined,
           });
         }
         setLines(ls);
@@ -230,7 +242,7 @@ export default function AdminSchedule() {
       </div>
 
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1100px] border-collapse text-sm font-admin-mono">
+        <table className="w-full min-w-[1600px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-3 py-3 text-left font-semibold">DATE</th>
@@ -241,11 +253,16 @@ export default function AdminSchedule() {
               <th className="px-2 py-3 text-center font-semibold">H SCORE</th>
               <th className="px-2 py-3 text-center font-semibold">OT</th>
               <th className="px-3 py-3 text-center font-semibold">STATUS</th>
+              <th className="px-3 py-3 text-left font-semibold">WG</th>
+              <th className="px-3 py-3 text-left font-semibold">LG</th>
+              <th className="px-3 py-3 text-left font-semibold">POTG</th>
             </tr>
           </thead>
           <tbody>
             {rows.map((row) => {
               const sameTeams = row.homeTeamId === row.awayTeamId;
+              const rowGoalies = goaliesForGame(row.homeTeamId, row.awayTeamId);
+              const rowPlayers = allPlayersForGame(row.homeTeamId, row.awayTeamId);
               return (
                 <tr key={row.id} className="border-b border-line/60 last:border-b-0">
                   <td className="px-3 py-3">
@@ -335,6 +352,48 @@ export default function AdminSchedule() {
                       ))}
                     </select>
                     {sameTeams && <p className="mt-1 text-[10px] text-red-400">same team twice</p>}
+                  </td>
+                  <td className="px-3 py-3">
+                    <select
+                      value={row.wg ?? ""}
+                      onChange={(e) => updateRow(row.id, { wg: e.target.value || undefined })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      <option value="">—</option>
+                      {rowGoalies.map((g) => (
+                        <option key={g.id} value={g.name}>
+                          {g.name}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td className="px-3 py-3">
+                    <select
+                      value={row.lg ?? ""}
+                      onChange={(e) => updateRow(row.id, { lg: e.target.value || undefined })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      <option value="">—</option>
+                      {rowGoalies.map((g) => (
+                        <option key={g.id} value={g.name}>
+                          {g.name}
+                        </option>
+                      ))}
+                    </select>
+                  </td>
+                  <td className="px-3 py-3">
+                    <select
+                      value={row.potg ?? ""}
+                      onChange={(e) => updateRow(row.id, { potg: e.target.value || undefined })}
+                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
+                    >
+                      <option value="">—</option>
+                      {rowPlayers.map((p) => (
+                        <option key={p.id} value={p.name}>
+                          {p.name}
+                        </option>
+                      ))}
+                    </select>
                   </td>
                 </tr>
               );
