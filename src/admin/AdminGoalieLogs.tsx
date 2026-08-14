@@ -177,7 +177,7 @@ export default function AdminGoalieLogs() {
         </p>
       ) : (
         <div className="mt-6 overflow-x-auto border border-line bg-bg-2">
-          <table className="w-full min-w-[980px] border-collapse text-sm">
+          <table className="w-full min-w-[980px] border-collapse text-sm font-admin-mono">
             <thead>
               <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                 <th className="px-4 py-3 text-left font-semibold">DATE</th>

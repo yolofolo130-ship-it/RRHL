@@ -4,6 +4,12 @@
   --font-display: "Barlow Condensed", "Oswald", sans-serif;
   --font-sans: "Oswald", system-ui, sans-serif;
 
+  /* Admin panel only — deliberately distinct from the public site's
+     display fonts above: a clean UI sans for chrome/labels, monospace
+     for data tables, closer to a normal dashboard than a fan site. */
+  --font-admin-sans: "Inter", system-ui, sans-serif;
+  --font-admin-mono: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+
   --color-bg-0: #050505;
   --color-bg-1: #080808;
   --color-bg-2: #0d0d0d;
@@ -196,6 +202,15 @@ body {
 
 .font-display {
   font-family: var(--font-display);
+}
+
+.font-admin-sans {
+  font-family: var(--font-admin-sans);
+}
+
+.font-admin-mono {
+  font-family: var(--font-admin-mono);
+  font-variant-numeric: tabular-nums;
 }
 
 .text-balance {

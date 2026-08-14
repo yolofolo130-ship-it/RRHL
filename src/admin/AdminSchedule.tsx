@@ -88,7 +88,7 @@ export default function AdminSchedule() {
   return (
     <div>
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1100px] border-collapse text-sm">
+        <table className="w-full min-w-[1100px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-3 py-3 text-left font-semibold">DATE</th>

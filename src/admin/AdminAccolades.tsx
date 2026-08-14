@@ -152,7 +152,7 @@ export default function AdminAccolades() {
       ) : (
         <>
           <div className="overflow-x-auto border border-line bg-bg-2">
-            <table className="w-full min-w-[600px] border-collapse text-sm">
+            <table className="w-full min-w-[600px] border-collapse text-sm font-admin-mono">
               <thead>
                 <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                   <th className="px-4 py-3 text-left font-semibold">AWARD</th>

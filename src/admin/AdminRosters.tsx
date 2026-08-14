@@ -390,7 +390,7 @@ export default function AdminRosters() {
 
       <p className="mb-3 mt-8 text-xs font-semibold tracking-[0.2em] text-ink-2">SKATERS</p>
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[900px] border-collapse text-sm">
+        <table className="w-full min-w-[900px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
@@ -519,7 +519,7 @@ export default function AdminRosters() {
 
       <p className="mb-3 mt-10 text-xs font-semibold tracking-[0.2em] text-ink-2">GOALIES</p>
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1100px] border-collapse text-sm">
+        <table className="w-full min-w-[1100px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-4 py-3 text-left font-semibold">PLAYER</th>

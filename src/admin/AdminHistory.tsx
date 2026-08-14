@@ -396,7 +396,7 @@ function HallOfFameSection() {
       {error && <AdminSaveError error={error} onRetry={load} className="mb-3" />}
       {rows.length > 0 && (
         <div className="mb-4 overflow-x-auto border border-line bg-bg-2">
-          <table className="w-full min-w-[600px] border-collapse text-sm">
+          <table className="w-full min-w-[600px] border-collapse text-sm font-admin-mono">
             <thead>
               <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                 <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
@@ -618,7 +618,7 @@ function RecordBookSection() {
     <div className="flex flex-col gap-6">
       {categories.map((cat) => (
         <div key={cat} className="overflow-x-auto border border-line bg-bg-2">
-          <table className="w-full min-w-[600px] border-collapse text-sm">
+          <table className="w-full min-w-[600px] border-collapse text-sm font-admin-mono">
             <thead>
               <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                 <th className="px-4 py-3 text-left font-semibold">{cat.toUpperCase()}</th>
