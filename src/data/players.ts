@@ -9,8 +9,8 @@ import car1Headshot from "@/assets/players-avatars/BNA-Avatar.png";
 import pitg1Headshot from "@/assets/players-avatars/Fellow-Avatar.png";
 import pit10Headshot from "@/assets/players-avatars/Carterthegawd-Avatar.png";
 import tbl1Headshot from "@/assets/players-avatars/Swordtsu-Avatar.png";
-import car3Headshot from "@/assets/players-avatars/car-3.png";
-import uta3Headshot from "@/assets/players-avatars/uta-3.png";
+import car3Headshot from "@/assets/players-avatars/Full-Avatar.png";
+import uta3Headshot from "@/assets/players-avatars/lilballerjimmy-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
