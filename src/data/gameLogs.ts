@@ -262,6 +262,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Sinny", gameId: "g01", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 3, shifts: 2 },
   { playerName: "Sinny", gameId: "g10", goals: 0, assists: 1, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Sinny", gameId: "g14", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 6, shifts: 2 },
+  { playerName: "Sinny", gameId: "g20", goals: 2, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Butter", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Butter", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
