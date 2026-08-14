@@ -30,6 +30,7 @@ export const games: Game[] = [
   { id: "g18", week: 4, date: "2026-08-07", time: "9:30 PM", homeTeamId: "dallas-stars", awayTeamId: "new-york-rangers", homeScore: 3, awayScore: 4, overtime: true, status: "final" },
   { id: "g19", week: 4, date: "2026-08-13", time: "8:10 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "boston-bruins", homeScore: 3, awayScore: 4, status: "final" },
   { id: "g20", week: 4, date: "2026-08-13", time: "9:05 PM", homeTeamId: "utah-mammoths", awayTeamId: "vegas-golden-knights", homeScore: 1, awayScore: 2, status: "final" },
+  { id: "g21", week: 5, date: "2026-08-14", time: "7:55PM", homeTeamId: "st-louis-blues", awayTeamId: "dallas-stars", status: "upcoming" },
 ];
 
 // Featured matchup shown prominently on the homepage.
