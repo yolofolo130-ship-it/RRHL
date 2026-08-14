@@ -247,3 +247,9 @@ export interface GoalieGameStatLine {
   points?: number;
   pim: number;
 }
+
+// A skater's stat line for a game where they filled in as emergency
+// goalie instead of their usual position — same shape as
+// GoalieGameStatLine, but kept in a separate array (inNetAppearances)
+// since these players are still on the roster as skaters, not goalies.
+export type InNetAppearance = GoalieGameStatLine;

@@ -28,7 +28,7 @@ import {
 } from "@/data/players";
 import { skaterHistoryFor, goalieHistoryFor, pastAccoladesFor, byNewestSeason } from "@/data/playerHistory";
 import { championshipSeasonsFor } from "@/data/championshipRosters";
-import { lastGamesFor, lastGoalieGamesFor } from "@/data/gameLogs";
+import { lastGamesFor, lastGoalieGamesFor, inNetGamesFor } from "@/data/gameLogs";
 import { formatSavePct } from "@/utils/format";
 import { accolades } from "@/data/accolades";
 import { hallOfFame } from "@/data/hallOfFame";
@@ -107,6 +107,7 @@ export default function PlayerDetail() {
   const logoLayout = team ? logoDriftLayout(player.id) : [];
   const skaterHistory = skaterHistoryFor(player.name);
   const goalieHistory = goalieHistoryFor(player.name);
+  const inNetGames = player.kind === "skater" ? inNetGamesFor(player.name, player.teamId) : [];
 
   const currentAccolades = accolades
     .filter((a) => a.winner === player.name)
@@ -290,6 +291,15 @@ export default function PlayerDetail() {
               LAST 5 GAMES
             </p>
             <LastGamesTable games={lastGamesFor(player.name, player.teamId)} />
+          </>
+        )}
+
+        {player.kind === "skater" && inNetGames.length > 0 && (
+          <>
+            <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">
+              IN NET
+            </p>
+            <LastGoalieGamesTable games={inNetGames} />
           </>
         )}
 

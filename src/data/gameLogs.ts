@@ -1,4 +1,4 @@
-import type { SkaterGameStatLine, GoalieGameStatLine } from "./types";
+import type { SkaterGameStatLine, GoalieGameStatLine, InNetAppearance } from "./types";
 import { games } from "./schedule";
 
 // Real per-game stat lines a skater has logged. Sparse by design: a
@@ -602,4 +602,75 @@ export function lastGoalieGamesFor(playerName: string, teamId: string, count = 5
         pim: stat?.pim ?? 0,
       };
     });
+}
+
+// Games where a skater filled in as emergency goalie instead of their
+// usual position — rare by design, so unlike goalieGameStatLines this is
+// NOT padded to a team's last N games; it only ever has real appearances.
+//
+// `playerName` must exactly match the skater's name in players.ts.
+// `gameId` must match a game id in schedule.ts.
+export const inNetAppearances: InNetAppearance[] = [
+];
+
+// Admin-panel skeleton only — same "last N team games" shape as
+// lastGoalieGamesFor, used to give the admin editable rows for a team's
+// recent games when logging a new in-net appearance. Not used for the
+// public player-profile display; see inNetGamesFor for that.
+export function lastInNetGamesFor(playerName: string, teamId: string, count = 5): GoalieGameRow[] {
+  return games
+    .filter((g) => g.status === "final" && (g.homeTeamId === teamId || g.awayTeamId === teamId))
+    .sort((a, b) => b.date.localeCompare(a.date))
+    .slice(0, count)
+    .map((game) => {
+      const home = game.homeTeamId === teamId;
+      const stat = inNetAppearances.find((s) => s.playerName === playerName && s.gameId === game.id);
+      return {
+        gameId: game.id,
+        date: game.date,
+        opponentTeamId: home ? game.awayTeamId : game.homeTeamId,
+        home,
+        gs: stat?.gs ?? 0,
+        dec: stat?.dec,
+        shotsAgainst: stat?.shotsAgainst ?? 0,
+        goalsAgainst: stat?.goalsAgainst ?? 0,
+        shutout: stat?.shutout ?? 0,
+        goals: stat?.goals ?? 0,
+        assists: stat?.assists ?? 0,
+        points: stat?.points ?? 0,
+        pim: stat?.pim ?? 0,
+      };
+    });
+}
+
+// Public player-profile display — only the skater's actual in-net
+// appearances (no padding to recent team games, since filling in for a
+// goalie is an occasional event, not a recurring role), newest first.
+// `teamId` is the skater's own team (same as their roster entry), used
+// only to work out which side of each game — home or away net — they
+// were in.
+export function inNetGamesFor(playerName: string, teamId: string): GoalieGameRow[] {
+  const rows: GoalieGameRow[] = [];
+  for (const stat of inNetAppearances) {
+    if (stat.playerName !== playerName) continue;
+    const game = games.find((g) => g.id === stat.gameId);
+    if (!game) continue;
+    const home = game.homeTeamId === teamId;
+    rows.push({
+      gameId: game.id,
+      date: game.date,
+      opponentTeamId: home ? game.awayTeamId : game.homeTeamId,
+      home,
+      gs: stat.gs,
+      dec: stat.dec,
+      shotsAgainst: stat.shotsAgainst,
+      goalsAgainst: stat.goalsAgainst,
+      shutout: stat.shutout ?? 0,
+      goals: stat.goals ?? 0,
+      assists: stat.assists ?? 0,
+      points: stat.points ?? 0,
+      pim: stat.pim,
+    });
+  }
+  return rows.sort((a, b) => b.date.localeCompare(a.date));
 }

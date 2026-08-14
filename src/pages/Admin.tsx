@@ -4,6 +4,7 @@ import { clearToken, getToken, setToken, verifyToken } from "@/admin/github";
 import AdminSchedule from "@/admin/AdminSchedule";
 import AdminSkaterLogs from "@/admin/AdminSkaterLogs";
 import AdminGoalieLogs from "@/admin/AdminGoalieLogs";
+import AdminInNet from "@/admin/AdminInNet";
 import AdminRosters from "@/admin/AdminRosters";
 import AdminAccolades from "@/admin/AdminAccolades";
 import AdminHistory from "@/admin/AdminHistory";
@@ -12,6 +13,7 @@ const TAB_OPTIONS = [
   { value: "schedule", label: "SCHEDULE" },
   { value: "skaters", label: "SKATER LOGS" },
   { value: "goalies", label: "GOALIE LOGS" },
+  { value: "innet", label: "IN NET" },
   { value: "rosters", label: "ROSTERS" },
   { value: "accolades", label: "ACCOLADES" },
   { value: "history", label: "HISTORY" },
@@ -126,6 +128,7 @@ export default function Admin() {
       {tab === "schedule" && <AdminSchedule />}
       {tab === "skaters" && <AdminSkaterLogs />}
       {tab === "goalies" && <AdminGoalieLogs />}
+      {tab === "innet" && <AdminInNet />}
       {tab === "rosters" && <AdminRosters />}
       {tab === "accolades" && <AdminAccolades />}
       {tab === "history" && <AdminHistory />}
