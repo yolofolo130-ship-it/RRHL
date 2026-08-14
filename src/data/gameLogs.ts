@@ -227,7 +227,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "lilballerjimmy", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Reject", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Reject", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Reject", gameId: "g09", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Reject", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Jazzmir", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -525,7 +525,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
 
   // ---------- UTAH MAMMOTHS ----------
   { playerName: "Sleepy", gameId: "g05", gs: 1, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Sleepy", gameId: "g09", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g09", gs: 1, dec: "W", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g11", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g20", gs: 1, dec: "L", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
@@ -557,7 +557,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
 
   // ---------- DALLAS STARS ----------
   { playerName: "Jollyllama", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Jollyllama", gameId: "g09", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Jollyllama", gameId: "g09", gs: 0, dec: "L", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Jollyllama", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Jollyllama", gameId: "g18", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
 
