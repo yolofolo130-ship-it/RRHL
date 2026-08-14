@@ -148,6 +148,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Kdog2020", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Kdog2020", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Kdog2020", gameId: "g13", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Kdog2020", gameId: "g19", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Boolit", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Boolit", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -485,6 +486,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Wapw", gameId: "g04", gs: 1, dec: "OTL", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 12, goalsAgainst: 4, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
   { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 42, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g19", gs: 1, dec: "L", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
   { playerName: "Fellow", gameId: "g02", gs: 1, dec: "W", shotsAgainst: 13, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
@@ -622,6 +624,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Baseball3122", gameId: "g11", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Cron", gameId: "g15", gs: 1, dec: "OTL", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Ehhabhd", gameId: "g17", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Idk67", gameId: "g19", gs: 1, dec: "W", shotsAgainst: 3, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
