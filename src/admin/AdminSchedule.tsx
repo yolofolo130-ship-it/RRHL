@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
 import AdminSaveError from "@/admin/AdminSaveError";
 import {
@@ -79,16 +79,6 @@ export default function AdminSchedule() {
   const [featuredError, setFeaturedError] = useState<string | null>(null);
   const [statsLines, setStatsLines] = useState<string[] | null>(null);
   const [statsSha, setStatsSha] = useState<string | null>(null);
-  const [expandedGames, setExpandedGames] = useState<Set<string>>(new Set());
-
-  const toggleExpanded = (gameId: string) => {
-    setExpandedGames((prev) => {
-      const next = new Set(prev);
-      if (next.has(gameId)) next.delete(gameId);
-      else next.add(gameId);
-      return next;
-    });
-  };
 
   const load = () => {
     setLoading(true);
@@ -270,7 +260,7 @@ export default function AdminSchedule() {
       </div>
 
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1750px] border-collapse text-sm font-admin-mono">
+        <table className="w-full min-w-[1500px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-3 py-3 text-left font-semibold">DATE</th>
@@ -284,7 +274,6 @@ export default function AdminSchedule() {
               <th className="px-3 py-3 text-left font-semibold">WG</th>
               <th className="px-3 py-3 text-left font-semibold">LG</th>
               <th className="px-3 py-3 text-left font-semibold">POTG</th>
-              <th className="px-3 py-3 text-left font-semibold">STATS</th>
             </tr>
           </thead>
           <tbody>
@@ -293,11 +282,8 @@ export default function AdminSchedule() {
               const rowGoalies = goaliesForGame(row.homeTeamId, row.awayTeamId);
               const rowSkaters = skatersForGame(row.homeTeamId, row.awayTeamId);
               const rowPlayers = allPlayersForGame(row.homeTeamId, row.awayTeamId);
-              const hasHonors = Boolean(row.wg || row.lg || row.potg);
-              const isExpanded = expandedGames.has(row.id);
               return (
-                <Fragment key={row.id}>
-                <tr className="border-b border-line/60 last:border-b-0">
+                <tr key={row.id} className="border-b border-line/60 last:border-b-0">
                   <td className="px-3 py-3">
                     <input
                       type="date"
@@ -446,34 +432,7 @@ export default function AdminSchedule() {
                       ))}
                     </select>
                   </td>
-                  <td className="px-3 py-3">
-                    {hasHonors && (
-                      <button
-                        type="button"
-                        onClick={() => toggleExpanded(row.id)}
-                        className="border border-line px-2 py-1 text-[11px] font-semibold tracking-[0.1em] text-ink-1 transition-colors hover:border-line-strong hover:text-ink-0"
-                      >
-                        {isExpanded ? "HIDE STATS" : "ADD STATS"}
-                      </button>
-                    )}
-                  </td>
                 </tr>
-                {isExpanded && hasHonors && (
-                  <tr className="border-b border-line/60 last:border-b-0">
-                    <td colSpan={12} className="bg-bg-1/40 px-4 py-4">
-                      <GameStatsPanel
-                        game={row}
-                        statsLines={statsLines}
-                        statsSha={statsSha}
-                        onSaved={(nextLines, newSha) => {
-                          setStatsLines(nextLines);
-                          setStatsSha(newSha);
-                        }}
-                      />
-                    </td>
-                  </tr>
-                )}
-                </Fragment>
               );
             })}
           </tbody>
@@ -493,6 +452,19 @@ export default function AdminSchedule() {
           {saveError && <AdminSaveError error={saveError} onRetry={load} />}
         </div>
       )}
+
+      <div className="mt-6 border border-dashed border-line bg-bg-1/50 p-4">
+        <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-ink-2">GAME STATS</p>
+        <AllGameStatsSection
+          rows={rows}
+          statsLines={statsLines}
+          statsSha={statsSha}
+          onSaved={(nextLines, newSha) => {
+            setStatsLines(nextLines);
+            setStatsSha(newSha);
+          }}
+        />
+      </div>
 
       <div className="mt-6 border border-dashed border-line bg-bg-1/50 p-4">
         <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-ink-2">ADD NEW GAME</p>
@@ -622,6 +594,28 @@ function goalsAgainstFor(game: Row, teamId: string): number {
   return (isHome ? game.awayScore : game.homeScore) ?? 0;
 }
 
+type FlatStatEntry = StatEntry & { gameId: string; gameLabel: string; roles: string[] };
+
+function gameLabelFor(game: Row): string {
+  const away = getTeamById(game.awayTeamId);
+  const home = getTeamById(game.homeTeamId);
+  return `Week ${game.week} — ${away?.abbr ?? game.awayTeamId} @ ${home?.abbr ?? game.homeTeamId} (${game.date})`;
+}
+
+function buildAllStatEntries(rows: Row[], statsLines: string[]): FlatStatEntry[] {
+  const flat: FlatStatEntry[] = [];
+  for (const game of rows) {
+    if (game.status !== "final") continue;
+    const roles = rolesForGame(game);
+    if (roles.size === 0) continue;
+    const gameLabel = gameLabelFor(game);
+    for (const entry of buildStatEntries(game, statsLines, roles)) {
+      flat.push({ ...entry, gameId: game.id, gameLabel, roles: roles.get(entry.fields.playerName) ?? [] });
+    }
+  }
+  return flat;
+}
+
 function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, string[]>): StatEntry[] {
   const entries: StatEntry[] = [];
   for (const [name, playerRoles] of roles) {
@@ -695,41 +689,49 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
   return entries;
 }
 
-interface GameStatsPanelProps {
-  game: Row;
+interface AllGameStatsSectionProps {
+  rows: Row[];
   statsLines: string[] | null;
   statsSha: string | null;
   onSaved: (nextLines: string[], newSha: string) => void;
 }
 
-function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelProps) {
-  const roles = rolesForGame(game);
-  const [entries, setEntries] = useState<StatEntry[]>([]);
+function AllGameStatsSection({ rows, statsLines, statsSha, onSaved }: AllGameStatsSectionProps) {
+  const [entries, setEntries] = useState<FlatStatEntry[]>([]);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  // Only the fields that actually change what's shown here — keying off
+  // `rows` directly would rebuild (and silently discard any in-progress
+  // edits in) every game's stats whenever ANY row changes, even something
+  // unrelated like a date typo two games away.
+  const honorsSignature = rows
+    .filter((r) => r.status === "final" && (r.wg || r.lg || r.potg))
+    .map((r) => `${r.id}:${r.wg ?? ""}:${r.lg ?? ""}:${r.potg ?? ""}:${r.overtime ? 1 : 0}:${r.homeScore ?? ""}:${r.awayScore ?? ""}`)
+    .join("|");
+
   useEffect(() => {
     if (!statsLines) return;
-    setEntries(buildStatEntries(game, statsLines, rolesForGame(game)));
+    setEntries(buildAllStatEntries(rows, statsLines));
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [statsLines, game.id, game.wg, game.lg, game.potg, game.overtime]);
+  }, [statsLines, honorsSignature]);
 
-  const updateEntry = (name: string, patch: Partial<SkaterStatFields & GoalieStatFields>) => {
+  const updateEntry = (gameId: string, name: string, patch: Partial<SkaterStatFields & GoalieStatFields>) => {
     setEntries((es) =>
       es.map((e) => {
-        if (e.fields.playerName !== name) return e;
+        if (e.gameId !== gameId || e.fields.playerName !== name) return e;
         const fields = { ...e.fields, ...patch } as SkaterStatFields & GoalieStatFields;
         // Points isn't shown as its own field here — keep it in sync
         // with goals + assists so gameLogs.ts still stores a real number.
         if (e.kind === "skater") fields.points = fields.goals + fields.assists;
-        return { ...e, fields } as StatEntry;
+        return { ...e, fields } as FlatStatEntry;
       }),
     );
   };
 
   const save = async () => {
-    if (!statsLines || !statsSha) return;
+    if (!statsLines || !statsSha || entries.length === 0) return;
     setSaving(true);
     setError(null);
     try {
@@ -749,9 +751,12 @@ function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelP
         const { start, end } = findArrayRange(nextLines, markerForKind(entry.kind));
         const newLine =
           entry.kind === "skater" ? stringifySkaterStatLine(entry.fields) : stringifyGoalieStatLine(entry.fields);
+        // Grouped near this player's OTHER entries in that array (matching
+        // playerName only, not gameId — there's by definition no existing
+        // line for this exact player+game yet, or lineIndex wouldn't be -1).
         nextLines = upsertLine(nextLines, -1, newLine, (kv) => kv.playerName === entry.fields.playerName, start, end);
       }
-      const newSha = await commitFile(STATS_PATH, nextLines.join("\n"), statsSha, `Log stats for ${game.id}`);
+      const newSha = await commitFile(STATS_PATH, nextLines.join("\n"), statsSha, "Log game stats");
       onSaved(nextLines, newSha);
       setSaved(true);
       setTimeout(() => setSaved(false), 2000);
@@ -762,54 +767,86 @@ function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelP
     }
   };
 
+  const grouped = useMemo(() => {
+    const map = new Map<string, { gameLabel: string; items: FlatStatEntry[] }>();
+    for (const entry of entries) {
+      const group = map.get(entry.gameId) ?? { gameLabel: entry.gameLabel, items: [] };
+      group.items.push(entry);
+      map.set(entry.gameId, group);
+    }
+    return Array.from(map.values());
+  }, [entries]);
+
   if (!statsLines) return <p className="text-xs text-ink-2">Loading stats…</p>;
 
+  if (grouped.length === 0) {
+    return <p className="text-sm text-ink-2">No final games have a WG/LG/POTG set yet.</p>;
+  }
+
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex flex-wrap gap-3">
-        {entries.map((entry) => (
-          <div key={entry.fields.playerName} className="border border-line bg-bg-2 p-3">
-            <p className="mb-2 text-xs font-semibold tracking-[0.1em] text-ink-1">
-              {entry.fields.playerName}{" "}
-              <span className="text-ink-3">({roles.get(entry.fields.playerName)?.join(" • ")})</span>
-              {entry.kind === "in-net" && (
-                <span className="ml-1.5 text-[10px] font-semibold tracking-[0.1em] text-amber-400">
-                  EMERGENCY GOALIE
-                </span>
-              )}
-            </p>
-            {entry.kind !== "skater" ? (
-              <div className="flex flex-wrap gap-2">
-                <StatInput
-                  label="SAVES"
-                  value={entry.fields.shotsAgainst - entry.fields.goalsAgainst}
-                  onChange={(v) => updateEntry(entry.fields.playerName, { shotsAgainst: v + entry.fields.goalsAgainst })}
-                />
-                <StatInput label="GOALS" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
-                {entry.fields.shutout === 1 && (
-                  <span className="flex flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.1em] text-ink-3">
-                    SO
-                    <span className="flex h-[30px] w-14 items-center justify-center border border-line bg-bg-1 text-sm text-ink-0">✓</span>
-                  </span>
+    <div className="flex flex-col gap-5">
+      {grouped.map(({ gameLabel, items }) => (
+        <div key={items[0].gameId}>
+          <p className="mb-2 text-[11px] font-semibold tracking-[0.1em] text-ink-2">{gameLabel}</p>
+          <div className="flex flex-wrap gap-3">
+            {items.map((entry) => (
+              <div key={`${entry.gameId}-${entry.fields.playerName}`} className="border border-line bg-bg-2 p-3">
+                <p className="mb-2 text-xs font-semibold tracking-[0.1em] text-ink-1">
+                  {entry.fields.playerName} <span className="text-ink-3">({entry.roles.join(" • ")})</span>
+                  {entry.kind === "in-net" && (
+                    <span className="ml-1.5 text-[10px] font-semibold tracking-[0.1em] text-amber-400">
+                      EMERGENCY GOALIE
+                    </span>
+                  )}
+                </p>
+                {entry.kind !== "skater" ? (
+                  <div className="flex flex-wrap gap-2">
+                    <StatInput
+                      label="SAVES"
+                      value={entry.fields.shotsAgainst - entry.fields.goalsAgainst}
+                      onChange={(v) =>
+                        updateEntry(entry.gameId, entry.fields.playerName, { shotsAgainst: v + entry.fields.goalsAgainst })
+                      }
+                    />
+                    <StatInput
+                      label="GOALS"
+                      value={entry.fields.goals}
+                      onChange={(v) => updateEntry(entry.gameId, entry.fields.playerName, { goals: v })}
+                    />
+                    {entry.fields.shutout === 1 && (
+                      <span className="flex flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.1em] text-ink-3">
+                        SO
+                        <span className="flex h-[30px] w-14 items-center justify-center border border-line bg-bg-1 text-sm text-ink-0">✓</span>
+                      </span>
+                    )}
+                  </div>
+                ) : (
+                  <div className="flex flex-wrap gap-2">
+                    <StatInput
+                      label="GOALS"
+                      value={entry.fields.goals}
+                      onChange={(v) => updateEntry(entry.gameId, entry.fields.playerName, { goals: v })}
+                    />
+                    <StatInput
+                      label="ASSISTS"
+                      value={entry.fields.assists}
+                      onChange={(v) => updateEntry(entry.gameId, entry.fields.playerName, { assists: v })}
+                    />
+                  </div>
                 )}
               </div>
-            ) : (
-              <div className="flex flex-wrap gap-2">
-                <StatInput label="GOALS" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
-                <StatInput label="ASSISTS" value={entry.fields.assists} onChange={(v) => updateEntry(entry.fields.playerName, { assists: v })} />
-              </div>
-            )}
+            ))}
           </div>
-        ))}
-      </div>
+        </div>
+      ))}
       <div className="flex items-center gap-3">
         <button
           type="button"
           onClick={save}
           disabled={saving}
-          className="border border-line-strong bg-white px-4 py-2 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          className="border border-line-strong bg-white px-5 py-2.5 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
         >
-          {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE STATS"}
+          {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE ALL STATS"}
         </button>
         {error && <AdminSaveError error={error} onRetry={() => setError(null)} />}
       </div>
