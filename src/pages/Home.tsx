@@ -21,6 +21,7 @@ import {
   playerSlug,
   topBySavePct,
   topByGaa,
+  getHeadshotByName,
 } from "@/data/players";
 import { formatLongDate, formatSavePct } from "@/utils/format";
 
@@ -269,6 +270,7 @@ function LeaderCard({
       <ul className="mt-3 flex flex-col gap-3">
         {rows.map((row, index) => {
           const team = getTeamById(row.teamId);
+          const headshot = getHeadshotByName(row.name);
           return (
             <li key={row.id}>
               <Link
@@ -277,7 +279,15 @@ function LeaderCard({
               >
                 <div className="flex items-center gap-2.5 min-w-0">
                   <span className="w-4 shrink-0 text-xs text-ink-3">{index + 1}</span>
-                  {team && <TeamLogo team={team} className="h-5 w-5 shrink-0" />}
+                  {headshot ? (
+                    <img
+                      src={headshot}
+                      alt=""
+                      className="h-5 w-5 shrink-0 rounded-full border border-line object-cover"
+                    />
+                  ) : (
+                    team && <TeamLogo team={team} className="h-5 w-5 shrink-0" />
+                  )}
                   <span className="truncate text-sm text-ink-1">{row.name}</span>
                 </div>
                 <span className="shrink-0 font-display text-lg font-semibold text-ink-0">
