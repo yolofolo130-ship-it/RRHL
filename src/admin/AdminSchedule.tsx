@@ -10,10 +10,11 @@ import {
   nextIdNumber,
   type GameFields,
 } from "@/admin/lines";
-import { teams } from "@/data/teams";
+import { teams, getTeamById } from "@/data/teams";
 
 const PATH = "src/data/schedule.ts";
 const OPEN_MARKER = "export const games";
+const FEATURED_MARKER = "export const featuredGameId";
 const STATUS_OPTIONS = ["upcoming", "live", "final", "postponed"];
 
 interface Row extends GameFields {
@@ -50,6 +51,11 @@ export default function AdminSchedule() {
   const [newGame, setNewGame] = useState<NewGameForm>(EMPTY_NEW_GAME);
   const [adding, setAdding] = useState(false);
   const [addError, setAddError] = useState<string | null>(null);
+  const [featuredGameId, setFeaturedGameId] = useState("");
+  const [featuredLineIndex, setFeaturedLineIndex] = useState(-1);
+  const [savingFeatured, setSavingFeatured] = useState(false);
+  const [savedFeatured, setSavedFeatured] = useState(false);
+  const [featuredError, setFeaturedError] = useState<string | null>(null);
 
   const load = () => {
     setLoading(true);
@@ -81,6 +87,11 @@ export default function AdminSchedule() {
         setRows(parsed);
         const maxWeek = parsed.reduce((max, r) => Math.max(max, r.week), 0);
         setNewGame((f) => ({ ...f, week: maxWeek + 1 }));
+
+        const featuredIdx = ls.findIndex((l) => l.includes(FEATURED_MARKER));
+        setFeaturedLineIndex(featuredIdx);
+        const featuredMatch = featuredIdx !== -1 ? ls[featuredIdx].match(/"([^"]+)"/) : null;
+        setFeaturedGameId(featuredMatch?.[1] ?? "");
       })
       .catch((e) => setLoadError(String(e.message ?? e)))
       .finally(() => setLoading(false));
@@ -154,11 +165,65 @@ export default function AdminSchedule() {
     }
   };
 
+  const saveFeatured = async () => {
+    if (!lines || !sha || featuredLineIndex === -1 || !featuredGameId) return;
+    setSavingFeatured(true);
+    setFeaturedError(null);
+    try {
+      const nextLines = [...lines];
+      nextLines[featuredLineIndex] = `export const featuredGameId = "${featuredGameId}";`;
+      const newSha = await commitFile(
+        PATH,
+        nextLines.join("\n"),
+        sha,
+        `Set Main Event to ${featuredGameId}`,
+      );
+      setLines(nextLines);
+      setSha(newSha);
+      setSavedFeatured(true);
+      setTimeout(() => setSavedFeatured(false), 2000);
+    } catch (e: any) {
+      setFeaturedError(String(e.message ?? e));
+    } finally {
+      setSavingFeatured(false);
+    }
+  };
+
   if (loading) return <p className="text-sm text-ink-2">Loading schedule…</p>;
   if (loadError) return <p className="text-sm text-red-400">{loadError}</p>;
 
   return (
     <div>
+      <div className="mb-6 border border-dashed border-line bg-bg-1/50 p-4">
+        <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-ink-2">MAIN EVENT</p>
+        <div className="flex flex-wrap items-center gap-2">
+          <select
+            value={featuredGameId}
+            onChange={(e) => setFeaturedGameId(e.target.value)}
+            className="min-w-[16rem] flex-1 border border-line bg-bg-1 px-3 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+          >
+            {rows.map((r) => {
+              const away = getTeamById(r.awayTeamId);
+              const home = getTeamById(r.homeTeamId);
+              return (
+                <option key={r.id} value={r.id}>
+                  Week {r.week} — {away?.abbr ?? r.awayTeamId} @ {home?.abbr ?? r.homeTeamId} ({r.date})
+                </option>
+              );
+            })}
+          </select>
+          <button
+            type="button"
+            onClick={saveFeatured}
+            disabled={savingFeatured}
+            className="border border-line-strong bg-white px-4 py-2 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {savingFeatured ? "SAVING…" : savedFeatured ? "SAVED ✓" : "SET MAIN EVENT"}
+          </button>
+        </div>
+        {featuredError && <AdminSaveError error={featuredError} onRetry={load} className="mt-2" />}
+      </div>
+
       <div className="overflow-x-auto border border-line bg-bg-2">
         <table className="w-full min-w-[1100px] border-collapse text-sm font-admin-mono">
           <thead>

@@ -88,3 +88,61 @@ export async function commitFile(
   });
   return data.content.sha as string;
 }
+
+// Reads a File (e.g. from an <input type="file">) as base64, for uploading
+// as a binary file's content. Distinct from encodeBase64Utf8 above — that
+// one is for encoding *text* we already hold as a JS string, this one
+// never turns the bytes into a string at all, so it's safe for images.
+export function fileToBase64(file: File): Promise<string> {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = () => {
+      const result = reader.result as string;
+      // readAsDataURL yields "data:<mime>;base64,<content>" — keep just
+      // the part after the comma.
+      resolve(result.slice(result.indexOf(",") + 1));
+    };
+    reader.onerror = () => reject(reader.error ?? new Error("Failed to read file."));
+    reader.readAsDataURL(file);
+  });
+}
+
+// Null if the file doesn't exist yet (vs. throwing, like getFile does) —
+// used to decide whether a binary upload is a create or an overwrite.
+export async function getFileShaIfExists(path: string): Promise<string | null> {
+  const token = getToken();
+  if (!token) throw new Error("Not signed in.");
+  const res = await fetch(
+    `https://api.github.com/repos/${OWNER}/${REPO}/contents/${path}?ref=${BRANCH}`,
+    { headers: { Authorization: `Bearer ${token}`, Accept: "application/vnd.github+json" } },
+  );
+  if (res.status === 404) return null;
+  if (!res.ok) {
+    const body = await res.text().catch(() => "");
+    throw new Error(`GitHub API ${res.status} ${res.statusText}: ${body}`);
+  }
+  const data = await res.json();
+  return data.sha as string;
+}
+
+// Commits a binary file (already base64-encoded, e.g. via fileToBase64).
+// sha is omitted for a brand-new file and required to overwrite an
+// existing one — same optimistic-concurrency rule as commitFile.
+export async function commitBinaryFile(
+  path: string,
+  base64Content: string,
+  sha: string | undefined,
+  message: string,
+): Promise<string> {
+  const data = await api(`/repos/${OWNER}/${REPO}/contents/${path}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      message,
+      content: base64Content,
+      ...(sha ? { sha } : {}),
+      branch: BRANCH,
+    }),
+  });
+  return data.content.sha as string;
+}

@@ -342,3 +342,63 @@ export function upsertLine(
   next.splice(arrayEndIndex, 0, newLine);
   return next;
 }
+
+// ---------- players.ts headshot uploads ----------
+//
+// setLineField (above) always quotes its value, which is exactly right
+// for real primitives but wrong for a field like `headshot` whose value
+// is a bare imported identifier (e.g. `headshot: mjHeadshot`, not
+// `headshot: "mjHeadshot"`). This is the one place that's allowed to
+// write such a field, since it's also the one place minting the import
+// it points to.
+export function setLineFieldRaw(line: string, key: string, rawValue: string | undefined): string {
+  const { prefix, inner, suffix } = splitEntryLine(line);
+  const tokens = splitTopLevelTokens(inner);
+  const existingIndex = tokens.findIndex((t) => tokenKey(t) === key);
+
+  if (rawValue === undefined) {
+    if (existingIndex === -1) return line;
+    tokens.splice(existingIndex, 1);
+    return prefix + tokens.join(", ") + suffix;
+  }
+
+  const newToken = `${key}: ${rawValue}`;
+  if (existingIndex !== -1) tokens[existingIndex] = newToken;
+  else tokens.push(newToken);
+  return prefix + tokens.join(", ") + suffix;
+}
+
+// Finds an existing `import varName from "..."` line by variable name and
+// replaces its source path (handles re-uploading a headshot with a
+// different file extension than before); otherwise inserts a new import
+// line right after the last existing import in the file, before the
+// first blank line/declaration that follows the import block.
+export function upsertImportLine(lines: string[], varName: string, importPath: string): string[] {
+  const newImportLine = `import ${varName} from "${importPath}";`;
+  const existingIndex = lines.findIndex((l) => {
+    const m = l.match(/^import\s+(\w+)\s+from\s+"[^"]+"\s*;?\s*$/);
+    return m?.[1] === varName;
+  });
+  if (existingIndex !== -1) {
+    const next = [...lines];
+    next[existingIndex] = newImportLine;
+    return next;
+  }
+  // Blank lines between import groups (there's one before the image
+  // imports in players.ts) don't end the import block — only the first
+  // real comment/code line after at least one import does.
+  let lastImportIndex = -1;
+  for (let i = 0; i < lines.length; i++) {
+    const trimmed = lines[i].trim();
+    if (trimmed.startsWith("import ")) lastImportIndex = i;
+    else if (trimmed === "") continue;
+    else if (lastImportIndex !== -1) break;
+  }
+  const next = [...lines];
+  if (lastImportIndex === -1) {
+    next.unshift(newImportLine);
+  } else {
+    next.splice(lastImportIndex + 1, 0, newImportLine);
+  }
+  return next;
+}

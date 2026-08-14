@@ -7,6 +7,7 @@ import AdminSkaterLogs from "@/admin/AdminSkaterLogs";
 import AdminGoalieLogs from "@/admin/AdminGoalieLogs";
 import AdminInNet from "@/admin/AdminInNet";
 import AdminRosters from "@/admin/AdminRosters";
+import AdminHeadshots from "@/admin/AdminHeadshots";
 import AdminAccolades from "@/admin/AdminAccolades";
 import AdminHistory from "@/admin/AdminHistory";
 
@@ -60,6 +61,12 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Rosters",
         description: "Players, jersey numbers, ratings, and trades.",
         Component: AdminRosters,
+      },
+      {
+        value: "headshots",
+        label: "Headshots",
+        description: "Upload or replace a player's profile photo.",
+        Component: AdminHeadshots,
       },
     ],
   },
