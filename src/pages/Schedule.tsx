@@ -4,6 +4,7 @@ import Tabs from "@/components/Tabs";
 import GameCard from "@/components/GameCard";
 import { teams, getTeamById } from "@/data/teams";
 import { games } from "@/data/schedule";
+import { weekBanners } from "@/data/weekBanners";
 import { formatLongDate } from "@/utils/format";
 
 const CONFERENCE_OPTIONS = [
@@ -44,14 +45,28 @@ export default function Schedule() {
       .sort((a, b) => a.date.localeCompare(b.date) || a.time.localeCompare(b.time));
   }, [conference, teamId, week]);
 
-  const gamesByDate = useMemo(() => {
-    const map = new Map<string, typeof filteredGames>();
+  const gamesByWeek = useMemo(() => {
+    const weekMap = new Map<number, typeof filteredGames>();
     for (const game of filteredGames) {
-      const list = map.get(game.date) ?? [];
+      const list = weekMap.get(game.week) ?? [];
       list.push(game);
-      map.set(game.date, list);
+      weekMap.set(game.week, list);
     }
-    return Array.from(map.entries());
+    return Array.from(weekMap.entries())
+      .sort((a, b) => a[0] - b[0])
+      .map(([weekNumber, weekGames]) => {
+        const dateMap = new Map<string, typeof filteredGames>();
+        for (const game of weekGames) {
+          const list = dateMap.get(game.date) ?? [];
+          list.push(game);
+          dateMap.set(game.date, list);
+        }
+        return {
+          week: weekNumber,
+          banner: weekBanners.find((b) => b.week === weekNumber)?.banner,
+          dates: Array.from(dateMap.entries()),
+        };
+      });
   }, [filteredGames]);
 
   return (
@@ -89,20 +104,37 @@ export default function Schedule() {
           </select>
         </div>
 
-        <div className="mt-10 flex flex-col gap-10">
-          {gamesByDate.length === 0 && (
+        <div className="mt-10 flex flex-col gap-14">
+          {gamesByWeek.length === 0 && (
             <p className="border border-line bg-bg-2 px-6 py-10 text-center text-sm text-ink-2">
               No games match these filters.
             </p>
           )}
-          {gamesByDate.map(([date, dateGames]) => (
-            <div key={date}>
-              <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-ink-3">
-                {formatLongDate(date).toUpperCase()}
-              </p>
-              <div className="flex flex-col gap-4">
-                {dateGames.map((game) => (
-                  <GameCard key={game.id} game={game} />
+          {gamesByWeek.map(({ week: weekNumber, banner, dates }) => (
+            <div key={weekNumber}>
+              {banner ? (
+                <img
+                  src={banner}
+                  alt={`Week ${weekNumber}`}
+                  className="mb-6 h-40 w-full border border-line object-cover sm:h-56"
+                />
+              ) : (
+                <p className="mb-6 text-xs font-semibold tracking-[0.25em] text-ink-3">
+                  WEEK {weekNumber}
+                </p>
+              )}
+              <div className="flex flex-col gap-10">
+                {dates.map(([date, dateGames]) => (
+                  <div key={date}>
+                    <p className="mb-4 text-xs font-semibold tracking-[0.25em] text-ink-3">
+                      {formatLongDate(date).toUpperCase()}
+                    </p>
+                    <div className="flex flex-col gap-4">
+                      {dateGames.map((game) => (
+                        <GameCard key={game.id} game={game} />
+                      ))}
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
