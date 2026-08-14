@@ -25,7 +25,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
 
   { playerName: "Full", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Full", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "Full", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Full", gameId: "g12", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Fishbowl", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Fishbowl", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -49,7 +49,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
 
   // ---------- PITTSBURGH PENGUINS ----------
   { playerName: "Chrisx", gameId: "g02", goals: 4, assists: 1, points: 5, pim: 0, ppg: 0, shg: 0, shots: 6, shifts: 0 },
-  { playerName: "Chrisx", gameId: "g07", goals: 3, assists: 3, points: 4, pim: 0, ppg: 0, shg: 0, shots: 5, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g07", goals: 3, assists: 3, points: 6, pim: 0, ppg: 0, shg: 0, shots: 5, shifts: 0 },
   { playerName: "Chrisx", gameId: "g12", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
   { playerName: "Chrisx", gameId: "g17", goals: 2, assists: 3, points: 5, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
 
@@ -485,13 +485,13 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   // ---------- CAROLINA HURRICANES ----------
   { playerName: "Wapw", gameId: "g04", gs: 1, dec: "OTL", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 12, goalsAgainst: 4, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
-  { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 42, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 43, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Wapw", gameId: "g19", gs: 1, dec: "L", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
   { playerName: "Fellow", gameId: "g02", gs: 1, dec: "W", shotsAgainst: 13, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Fellow", gameId: "g07", gs: 1, dec: "W", shotsAgainst: 7, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Fellow", gameId: "g12", gs: 1, dec: "OTL", shotsAgainst: 8, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Fellow", gameId: "g12", gs: 1, dec: "OTL", shotsAgainst: 9, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Fellow", gameId: "g17", gs: 1, dec: "W", shotsAgainst: 16, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   { playerName: "ElMosquito", gameId: "g02", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
@@ -512,7 +512,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
 
   // ---------- BOSTON BRUINS ----------
   { playerName: "Apx11o", gameId: "g05", gs: 0, dec: "OTL", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Apx11o", gameId: "g07", gs: 1, dec: "L", shotsAgainst: 4, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Apx11o", gameId: "g07", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Apx11o", gameId: "g13", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   { playerName: "Sparkles", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
@@ -625,6 +625,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Cron", gameId: "g15", gs: 1, dec: "OTL", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Ehhabhd", gameId: "g17", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Idk67", gameId: "g19", gs: 1, dec: "W", shotsAgainst: 3, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Bungee", gameId: "g02", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
