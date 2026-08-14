@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
 import AdminSaveError from "@/admin/AdminSaveError";
 import {
@@ -6,9 +6,13 @@ import {
   isEntryLine,
   parseLineKV,
   stringifyGameLine,
+  stringifySkaterStatLine,
+  stringifyGoalieStatLine,
   upsertLine,
   nextIdNumber,
   type GameFields,
+  type SkaterStatFields,
+  type GoalieStatFields,
 } from "@/admin/lines";
 import { teams, getTeamById } from "@/data/teams";
 import { skaters, goalies } from "@/data/players";
@@ -17,6 +21,10 @@ const PATH = "src/data/schedule.ts";
 const OPEN_MARKER = "export const games";
 const FEATURED_MARKER = "export const featuredGameId";
 const STATUS_OPTIONS = ["upcoming", "live", "final", "postponed"];
+
+const STATS_PATH = "src/data/gameLogs.ts";
+const SKATER_MARKER = "export const skaterGameStatLines";
+const GOALIE_MARKER = "export const goalieGameStatLines";
 
 interface Row extends GameFields {
   lineIndex: number;
@@ -64,12 +72,27 @@ export default function AdminSchedule() {
   const [savingFeatured, setSavingFeatured] = useState(false);
   const [savedFeatured, setSavedFeatured] = useState(false);
   const [featuredError, setFeaturedError] = useState<string | null>(null);
+  const [statsLines, setStatsLines] = useState<string[] | null>(null);
+  const [statsSha, setStatsSha] = useState<string | null>(null);
+  const [expandedGames, setExpandedGames] = useState<Set<string>>(new Set());
+
+  const toggleExpanded = (gameId: string) => {
+    setExpandedGames((prev) => {
+      const next = new Set(prev);
+      if (next.has(gameId)) next.delete(gameId);
+      else next.add(gameId);
+      return next;
+    });
+  };
 
   const load = () => {
     setLoading(true);
     setLoadError(null);
-    getFile(PATH)
-      .then(({ content, sha }) => {
+    Promise.all([getFile(PATH), getFile(STATS_PATH)])
+      .then(([scheduleFile, statsFile]) => {
+        const { content, sha } = scheduleFile;
+        setStatsLines(statsFile.content.split("\n"));
+        setStatsSha(statsFile.sha);
         const ls = content.split("\n");
         const { start, end } = findArrayRange(ls, OPEN_MARKER);
         const parsed: Row[] = [];
@@ -242,7 +265,7 @@ export default function AdminSchedule() {
       </div>
 
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1600px] border-collapse text-sm font-admin-mono">
+        <table className="w-full min-w-[1750px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-3 py-3 text-left font-semibold">DATE</th>
@@ -256,6 +279,7 @@ export default function AdminSchedule() {
               <th className="px-3 py-3 text-left font-semibold">WG</th>
               <th className="px-3 py-3 text-left font-semibold">LG</th>
               <th className="px-3 py-3 text-left font-semibold">POTG</th>
+              <th className="px-3 py-3 text-left font-semibold">STATS</th>
             </tr>
           </thead>
           <tbody>
@@ -263,8 +287,11 @@ export default function AdminSchedule() {
               const sameTeams = row.homeTeamId === row.awayTeamId;
               const rowGoalies = goaliesForGame(row.homeTeamId, row.awayTeamId);
               const rowPlayers = allPlayersForGame(row.homeTeamId, row.awayTeamId);
+              const hasHonors = Boolean(row.wg || row.lg || row.potg);
+              const isExpanded = expandedGames.has(row.id);
               return (
-                <tr key={row.id} className="border-b border-line/60 last:border-b-0">
+                <Fragment key={row.id}>
+                <tr className="border-b border-line/60 last:border-b-0">
                   <td className="px-3 py-3">
                     <input
                       type="date"
@@ -395,7 +422,34 @@ export default function AdminSchedule() {
                       ))}
                     </select>
                   </td>
+                  <td className="px-3 py-3">
+                    {hasHonors && (
+                      <button
+                        type="button"
+                        onClick={() => toggleExpanded(row.id)}
+                        className="border border-line px-2 py-1 text-[11px] font-semibold tracking-[0.1em] text-ink-1 transition-colors hover:border-line-strong hover:text-ink-0"
+                      >
+                        {isExpanded ? "HIDE STATS" : "ADD STATS"}
+                      </button>
+                    )}
+                  </td>
                 </tr>
+                {isExpanded && hasHonors && (
+                  <tr className="border-b border-line/60 last:border-b-0">
+                    <td colSpan={12} className="bg-bg-1/40 px-4 py-4">
+                      <GameStatsPanel
+                        game={row}
+                        statsLines={statsLines}
+                        statsSha={statsSha}
+                        onSaved={(nextLines, newSha) => {
+                          setStatsLines(nextLines);
+                          setStatsSha(newSha);
+                        }}
+                      />
+                    </td>
+                  </tr>
+                )}
+                </Fragment>
               );
             })}
           </tbody>
@@ -485,5 +539,250 @@ export default function AdminSchedule() {
         {addError && <AdminSaveError error={addError} onRetry={load} className="mt-2" />}
       </div>
     </div>
+  );
+}
+
+// ---------- inline per-game stats (WG / LG / POTG) ----------
+//
+// Lets the admin log a stat line for a game's WG/LG/POTG right where
+// they set those roles, instead of hopping over to the Skater/Goalie
+// Logs tabs and re-finding the same player + game. Writes straight to
+// gameLogs.ts, reusing the same stringify/upsert helpers those tabs use.
+
+type StatEntry =
+  | { kind: "goalie"; lineIndex: number; fields: GoalieStatFields }
+  | { kind: "skater"; lineIndex: number; fields: SkaterStatFields };
+
+function rolesForGame(game: Row): Map<string, string[]> {
+  const roles = new Map<string, string[]>();
+  const add = (name: string | undefined, role: string) => {
+    if (!name) return;
+    roles.set(name, [...(roles.get(name) ?? []), role]);
+  };
+  add(game.wg, "WG");
+  add(game.lg, "LG");
+  add(game.potg, "POTG");
+  return roles;
+}
+
+function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, string[]>): StatEntry[] {
+  const entries: StatEntry[] = [];
+  for (const [name, playerRoles] of roles) {
+    const isGoalie = goalies.some((g) => g.name === name);
+    const marker = isGoalie ? GOALIE_MARKER : SKATER_MARKER;
+    const { start, end } = findArrayRange(statsLines, marker);
+    let lineIndex = -1;
+    let existing: Record<string, unknown> = {};
+    for (let i = start + 1; i < end; i++) {
+      if (!isEntryLine(statsLines[i])) continue;
+      const kv = parseLineKV(statsLines[i]);
+      if (kv.playerName === name && kv.gameId === game.id) {
+        lineIndex = i;
+        existing = kv;
+        break;
+      }
+    }
+    if (isGoalie) {
+      const isWinner = playerRoles.includes("WG");
+      const isLoser = playerRoles.includes("LG");
+      entries.push({
+        kind: "goalie",
+        lineIndex,
+        fields: {
+          playerName: name,
+          gameId: game.id,
+          gs: (existing.gs as number) ?? 1,
+          dec:
+            (existing.dec as "W" | "L" | "OTL" | undefined) ??
+            (isWinner ? "W" : isLoser ? (game.overtime ? "OTL" : "L") : undefined),
+          shotsAgainst: (existing.shotsAgainst as number) ?? 0,
+          goalsAgainst: (existing.goalsAgainst as number) ?? 0,
+          shutout: (existing.shutout as number) ?? 0,
+          goals: (existing.goals as number) ?? 0,
+          assists: (existing.assists as number) ?? 0,
+          points: (existing.points as number) ?? 0,
+          pim: (existing.pim as number) ?? 0,
+        },
+      });
+    } else {
+      entries.push({
+        kind: "skater",
+        lineIndex,
+        fields: {
+          playerName: name,
+          gameId: game.id,
+          goals: (existing.goals as number) ?? 0,
+          assists: (existing.assists as number) ?? 0,
+          points: (existing.points as number) ?? 0,
+          pim: (existing.pim as number) ?? 0,
+          ppg: (existing.ppg as number) ?? 0,
+          shg: (existing.shg as number) ?? 0,
+          shots: (existing.shots as number) ?? 0,
+          shifts: (existing.shifts as number) ?? 0,
+        },
+      });
+    }
+  }
+  return entries;
+}
+
+interface GameStatsPanelProps {
+  game: Row;
+  statsLines: string[] | null;
+  statsSha: string | null;
+  onSaved: (nextLines: string[], newSha: string) => void;
+}
+
+function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelProps) {
+  const roles = rolesForGame(game);
+  const [entries, setEntries] = useState<StatEntry[]>([]);
+  const [saving, setSaving] = useState(false);
+  const [saved, setSaved] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  useEffect(() => {
+    if (!statsLines) return;
+    setEntries(buildStatEntries(game, statsLines, rolesForGame(game)));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [statsLines, game.id, game.wg, game.lg, game.potg, game.overtime]);
+
+  const updateEntry = (name: string, patch: Partial<SkaterStatFields & GoalieStatFields>) => {
+    setEntries((es) =>
+      es.map((e) => (e.fields.playerName === name ? ({ ...e, fields: { ...e.fields, ...patch } } as StatEntry) : e)),
+    );
+  };
+
+  const save = async () => {
+    if (!statsLines || !statsSha) return;
+    setSaving(true);
+    setError(null);
+    try {
+      let nextLines = [...statsLines];
+      // Replace existing lines first — safe in any order, doesn't shift indices.
+      for (const entry of entries) {
+        if (entry.lineIndex === -1) continue;
+        nextLines[entry.lineIndex] =
+          entry.kind === "goalie" ? stringifyGoalieStatLine(entry.fields) : stringifySkaterStatLine(entry.fields);
+      }
+      // Insert brand-new lines one at a time, recomputing each array's range
+      // right before inserting — a skater insert can shift the goalie array
+      // (or vice versa) further down the file, so a stale range would land
+      // the next insert in the wrong spot.
+      for (const entry of entries) {
+        if (entry.lineIndex !== -1) continue;
+        const marker = entry.kind === "goalie" ? GOALIE_MARKER : SKATER_MARKER;
+        const { start, end } = findArrayRange(nextLines, marker);
+        const newLine =
+          entry.kind === "goalie" ? stringifyGoalieStatLine(entry.fields) : stringifySkaterStatLine(entry.fields);
+        nextLines = upsertLine(nextLines, -1, newLine, (kv) => kv.playerName === entry.fields.playerName, start, end);
+      }
+      const newSha = await commitFile(STATS_PATH, nextLines.join("\n"), statsSha, `Log stats for ${game.id}`);
+      onSaved(nextLines, newSha);
+      setSaved(true);
+      setTimeout(() => setSaved(false), 2000);
+    } catch (e: any) {
+      setError(String(e.message ?? e));
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  if (!statsLines) return <p className="text-xs text-ink-2">Loading stats…</p>;
+
+  return (
+    <div className="flex flex-col gap-4">
+      <div className="flex flex-wrap gap-3">
+        {entries.map((entry) => (
+          <div key={entry.fields.playerName} className="border border-line bg-bg-2 p-3">
+            <p className="mb-2 text-xs font-semibold tracking-[0.1em] text-ink-1">
+              {entry.fields.playerName}{" "}
+              <span className="text-ink-3">({roles.get(entry.fields.playerName)?.join(" • ")})</span>
+            </p>
+            {entry.kind === "goalie" ? (
+              <div className="flex flex-wrap gap-2">
+                <StatInput label="GS" value={entry.fields.gs} onChange={(v) => updateEntry(entry.fields.playerName, { gs: v })} />
+                <DecInput value={entry.fields.dec} onChange={(v) => updateEntry(entry.fields.playerName, { dec: v })} />
+                <StatInput label="SA" value={entry.fields.shotsAgainst} onChange={(v) => updateEntry(entry.fields.playerName, { shotsAgainst: v })} />
+                <StatInput label="GA" value={entry.fields.goalsAgainst} onChange={(v) => updateEntry(entry.fields.playerName, { goalsAgainst: v })} />
+                <StatInput label="SO" value={entry.fields.shutout} onChange={(v) => updateEntry(entry.fields.playerName, { shutout: v })} />
+                <StatInput label="G" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
+                <StatInput label="A" value={entry.fields.assists} onChange={(v) => updateEntry(entry.fields.playerName, { assists: v })} />
+                <StatInput label="PIM" value={entry.fields.pim} onChange={(v) => updateEntry(entry.fields.playerName, { pim: v })} />
+              </div>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                <StatInput label="G" value={entry.fields.goals} onChange={(v) => updateEntry(entry.fields.playerName, { goals: v })} />
+                <StatInput label="A" value={entry.fields.assists} onChange={(v) => updateEntry(entry.fields.playerName, { assists: v })} />
+                <StatInput label="P" value={entry.fields.points} onChange={(v) => updateEntry(entry.fields.playerName, { points: v })} />
+                <StatInput label="PIM" value={entry.fields.pim} onChange={(v) => updateEntry(entry.fields.playerName, { pim: v })} />
+                <StatInput label="PPG" value={entry.fields.ppg} onChange={(v) => updateEntry(entry.fields.playerName, { ppg: v })} />
+                <StatInput label="SHG" value={entry.fields.shg} onChange={(v) => updateEntry(entry.fields.playerName, { shg: v })} />
+                <StatInput label="SHOTS" value={entry.fields.shots} onChange={(v) => updateEntry(entry.fields.playerName, { shots: v })} />
+                <StatInput label="SHIFTS" value={entry.fields.shifts} onChange={(v) => updateEntry(entry.fields.playerName, { shifts: v })} />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+      <div className="flex items-center gap-3">
+        <button
+          type="button"
+          onClick={save}
+          disabled={saving}
+          className="border border-line-strong bg-white px-4 py-2 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+        >
+          {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE STATS"}
+        </button>
+        {error && <AdminSaveError error={error} onRetry={() => setError(null)} />}
+      </div>
+    </div>
+  );
+}
+
+function StatInput({
+  label,
+  value,
+  onChange,
+}: {
+  label: string;
+  value: number;
+  onChange: (v: number) => void;
+}) {
+  return (
+    <label className="flex flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.1em] text-ink-3">
+      {label}
+      <input
+        type="number"
+        value={value}
+        onChange={(e) => onChange(Number(e.target.value))}
+        className="w-14 border border-line bg-bg-1 px-1.5 py-1 text-center text-sm text-ink-0 outline-none focus:border-line-strong"
+      />
+    </label>
+  );
+}
+
+function DecInput({
+  value,
+  onChange,
+}: {
+  value: "W" | "L" | "OTL" | undefined;
+  onChange: (v: "W" | "L" | "OTL" | undefined) => void;
+}) {
+  const DEC_OPTIONS = ["", "W", "L", "OTL"] as const;
+  return (
+    <label className="flex flex-col items-center gap-1 text-[10px] font-semibold tracking-[0.1em] text-ink-3">
+      DEC
+      <select
+        value={value ?? ""}
+        onChange={(e) => onChange(e.target.value === "" ? undefined : (e.target.value as "W" | "L" | "OTL"))}
+        className="border border-line bg-bg-1 px-1.5 py-1 text-sm text-ink-0 outline-none focus:border-line-strong"
+      >
+        {DEC_OPTIONS.map((d) => (
+          <option key={d} value={d}>
+            {d || "—"}
+          </option>
+        ))}
+      </select>
+    </label>
   );
 }
