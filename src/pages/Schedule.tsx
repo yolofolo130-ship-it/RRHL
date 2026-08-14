@@ -116,7 +116,7 @@ export default function Schedule() {
                 <img
                   src={banner}
                   alt={`Week ${weekNumber}`}
-                  className="mb-6 h-auto w-full border border-line"
+                  className="mx-auto mb-6 h-auto w-full max-w-md border border-line"
                 />
               ) : (
                 <p className="mb-6 text-xs font-semibold tracking-[0.25em] text-ink-3">
