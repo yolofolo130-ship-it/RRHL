@@ -25,6 +25,7 @@ const STATUS_OPTIONS = ["upcoming", "live", "final", "postponed"];
 const STATS_PATH = "src/data/gameLogs.ts";
 const SKATER_MARKER = "export const skaterGameStatLines";
 const GOALIE_MARKER = "export const goalieGameStatLines";
+const INNET_MARKER = "export const inNetAppearances";
 
 interface Row extends GameFields {
   lineIndex: number;
@@ -41,6 +42,10 @@ interface NewGameForm {
 
 function goaliesForGame(homeTeamId: string, awayTeamId: string) {
   return goalies.filter((g) => g.teamId === homeTeamId || g.teamId === awayTeamId);
+}
+
+function skatersForGame(homeTeamId: string, awayTeamId: string) {
+  return skaters.filter((s) => s.teamId === homeTeamId || s.teamId === awayTeamId);
 }
 
 function allPlayersForGame(homeTeamId: string, awayTeamId: string) {
@@ -286,6 +291,7 @@ export default function AdminSchedule() {
             {rows.map((row) => {
               const sameTeams = row.homeTeamId === row.awayTeamId;
               const rowGoalies = goaliesForGame(row.homeTeamId, row.awayTeamId);
+              const rowSkaters = skatersForGame(row.homeTeamId, row.awayTeamId);
               const rowPlayers = allPlayersForGame(row.homeTeamId, row.awayTeamId);
               const hasHonors = Boolean(row.wg || row.lg || row.potg);
               const isExpanded = expandedGames.has(row.id);
@@ -387,11 +393,20 @@ export default function AdminSchedule() {
                       className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
                     >
                       <option value="">—</option>
-                      {rowGoalies.map((g) => (
-                        <option key={g.id} value={g.name}>
-                          {g.name}
-                        </option>
-                      ))}
+                      <optgroup label="Goalies">
+                        {rowGoalies.map((g) => (
+                          <option key={g.id} value={g.name}>
+                            {g.name}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Skaters (emergency goalie)">
+                        {rowSkaters.map((s) => (
+                          <option key={s.id} value={s.name}>
+                            {s.name}
+                          </option>
+                        ))}
+                      </optgroup>
                     </select>
                   </td>
                   <td className="px-3 py-3">
@@ -401,11 +416,20 @@ export default function AdminSchedule() {
                       className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
                     >
                       <option value="">—</option>
-                      {rowGoalies.map((g) => (
-                        <option key={g.id} value={g.name}>
-                          {g.name}
-                        </option>
-                      ))}
+                      <optgroup label="Goalies">
+                        {rowGoalies.map((g) => (
+                          <option key={g.id} value={g.name}>
+                            {g.name}
+                          </option>
+                        ))}
+                      </optgroup>
+                      <optgroup label="Skaters (emergency goalie)">
+                        {rowSkaters.map((s) => (
+                          <option key={s.id} value={s.name}>
+                            {s.name}
+                          </option>
+                        ))}
+                      </optgroup>
                     </select>
                   </td>
                   <td className="px-3 py-3">
@@ -545,13 +569,30 @@ export default function AdminSchedule() {
 // ---------- inline per-game stats (WG / LG / POTG) ----------
 //
 // Lets the admin log a stat line for a game's WG/LG/POTG right where
-// they set those roles, instead of hopping over to the Skater/Goalie
-// Logs tabs and re-finding the same player + game. Writes straight to
-// gameLogs.ts, reusing the same stringify/upsert helpers those tabs use.
+// they set those roles, instead of hopping over to the Skater/Goalie/
+// In Net Logs tabs and re-finding the same player + game. Writes
+// straight to gameLogs.ts, reusing the same stringify/upsert helpers
+// those tabs use.
+//
+// WG/LG can be either a natural goalie OR a skater who filled in as
+// emergency goalie for that game — the two are told apart by whether
+// the name matches the goalie roster: a natural goalie's line goes in
+// goalieGameStatLines, an emergency one goes in inNetAppearances
+// (same GoalieStatFields shape, just a separate array so the skater
+// doesn't turn into a full goalie roster entry). POTG-only skaters
+// (holding no WG/LG role) get a normal skater-shaped line instead.
+
+type StatKind = "goalie" | "in-net" | "skater";
 
 type StatEntry =
-  | { kind: "goalie"; lineIndex: number; fields: GoalieStatFields }
+  | { kind: "goalie" | "in-net"; lineIndex: number; fields: GoalieStatFields }
   | { kind: "skater"; lineIndex: number; fields: SkaterStatFields };
+
+function markerForKind(kind: StatKind): string {
+  if (kind === "goalie") return GOALIE_MARKER;
+  if (kind === "in-net") return INNET_MARKER;
+  return SKATER_MARKER;
+}
 
 function rolesForGame(game: Row): Map<string, string[]> {
   const roles = new Map<string, string[]>();
@@ -568,8 +609,10 @@ function rolesForGame(game: Row): Map<string, string[]> {
 function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, string[]>): StatEntry[] {
   const entries: StatEntry[] = [];
   for (const [name, playerRoles] of roles) {
-    const isGoalie = goalies.some((g) => g.name === name);
-    const marker = isGoalie ? GOALIE_MARKER : SKATER_MARKER;
+    const isNaturalGoalie = goalies.some((g) => g.name === name);
+    const isGoalieRole = playerRoles.includes("WG") || playerRoles.includes("LG");
+    const kind: StatKind = isNaturalGoalie ? "goalie" : isGoalieRole ? "in-net" : "skater";
+    const marker = markerForKind(kind);
     const { start, end } = findArrayRange(statsLines, marker);
     let lineIndex = -1;
     let existing: Record<string, unknown> = {};
@@ -582,11 +625,11 @@ function buildStatEntries(game: Row, statsLines: string[], roles: Map<string, st
         break;
       }
     }
-    if (isGoalie) {
+    if (kind === "goalie" || kind === "in-net") {
       const isWinner = playerRoles.includes("WG");
       const isLoser = playerRoles.includes("LG");
       entries.push({
-        kind: "goalie",
+        kind,
         lineIndex,
         fields: {
           playerName: name,
@@ -662,18 +705,17 @@ function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelP
       for (const entry of entries) {
         if (entry.lineIndex === -1) continue;
         nextLines[entry.lineIndex] =
-          entry.kind === "goalie" ? stringifyGoalieStatLine(entry.fields) : stringifySkaterStatLine(entry.fields);
+          entry.kind === "skater" ? stringifySkaterStatLine(entry.fields) : stringifyGoalieStatLine(entry.fields);
       }
       // Insert brand-new lines one at a time, recomputing each array's range
-      // right before inserting — a skater insert can shift the goalie array
-      // (or vice versa) further down the file, so a stale range would land
-      // the next insert in the wrong spot.
+      // right before inserting — an insert into one array can shift the
+      // others further down the file, so a stale range would land the next
+      // insert in the wrong spot.
       for (const entry of entries) {
         if (entry.lineIndex !== -1) continue;
-        const marker = entry.kind === "goalie" ? GOALIE_MARKER : SKATER_MARKER;
-        const { start, end } = findArrayRange(nextLines, marker);
+        const { start, end } = findArrayRange(nextLines, markerForKind(entry.kind));
         const newLine =
-          entry.kind === "goalie" ? stringifyGoalieStatLine(entry.fields) : stringifySkaterStatLine(entry.fields);
+          entry.kind === "skater" ? stringifySkaterStatLine(entry.fields) : stringifyGoalieStatLine(entry.fields);
         nextLines = upsertLine(nextLines, -1, newLine, (kv) => kv.playerName === entry.fields.playerName, start, end);
       }
       const newSha = await commitFile(STATS_PATH, nextLines.join("\n"), statsSha, `Log stats for ${game.id}`);
@@ -697,8 +739,13 @@ function GameStatsPanel({ game, statsLines, statsSha, onSaved }: GameStatsPanelP
             <p className="mb-2 text-xs font-semibold tracking-[0.1em] text-ink-1">
               {entry.fields.playerName}{" "}
               <span className="text-ink-3">({roles.get(entry.fields.playerName)?.join(" • ")})</span>
+              {entry.kind === "in-net" && (
+                <span className="ml-1.5 text-[10px] font-semibold tracking-[0.1em] text-amber-400">
+                  EMERGENCY GOALIE
+                </span>
+              )}
             </p>
-            {entry.kind === "goalie" ? (
+            {entry.kind !== "skater" ? (
               <div className="flex flex-wrap gap-2">
                 <StatInput label="GS" value={entry.fields.gs} onChange={(v) => updateEntry(entry.fields.playerName, { gs: v })} />
                 <DecInput value={entry.fields.dec} onChange={(v) => updateEntry(entry.fields.playerName, { dec: v })} />
