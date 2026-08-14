@@ -73,7 +73,9 @@ export default function GameCard({ game }: GameCardProps) {
 
       {hasHonors && (
         <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-line/60 pt-3">
-          {game.wg && <GameHonor label="WG" name={game.wg} gameId={game.id} />}
+          {game.wg && (
+            <GameHonor label="WG" name={game.wg} gameId={game.id} showSummary={game.wg !== game.potg} />
+          )}
           {game.lg && <GameHonor label="LG" name={game.lg} gameId={game.id} />}
           {game.potg && <GameHonor label="POTG" name={game.potg} gameId={game.id} />}
         </div>
@@ -82,10 +84,20 @@ export default function GameCard({ game }: GameCardProps) {
   );
 }
 
-function GameHonor({ label, name, gameId }: { label: string; name: string; gameId: string }) {
+function GameHonor({
+  label,
+  name,
+  gameId,
+  showSummary = true,
+}: {
+  label: string;
+  name: string;
+  gameId: string;
+  showSummary?: boolean;
+}) {
   const headshot = getHeadshotByName(name);
   const slug = getPlayerSlugByName(name);
-  const summary = gameStatSummary(name, gameId);
+  const summary = showSummary ? gameStatSummary(name, gameId) : undefined;
   const content = (
     <>
       <span className="text-[10px] font-semibold tracking-[0.1em] text-ink-3 sm:text-xs">{label}:</span>

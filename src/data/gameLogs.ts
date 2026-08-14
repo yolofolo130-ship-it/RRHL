@@ -681,10 +681,12 @@ export function inNetGamesFor(playerName: string, teamId: string): GoalieGameRow
   return rows.sort((a, b) => b.date.localeCompare(a.date));
 }
 
-// Short "3G", "24 SV, SO" style summary for a game's WG/LG/POTG line on
-// the public Schedule page — checks skater stats first, then goalie,
-// then in-net (a name only ever has a real line in one of the three).
+// Short "3G", "SO" style summary for a game's WG/LG/POTG line on the
+// public Schedule page — checks skater stats first, then goalie, then
+// in-net (a name only ever has a real line in one of the three).
 // Undefined if nothing's been logged yet or everything's still at 0.
+// Deliberately no save count for goalies — just the shutout badge and
+// any goals they scored, since saves aren't tracked as a headline stat.
 export function gameStatSummary(playerName: string, gameId: string): string | undefined {
   const skaterStat = skaterGameStatLines.find((s) => s.playerName === playerName && s.gameId === gameId);
   if (skaterStat) {
@@ -698,9 +700,7 @@ export function gameStatSummary(playerName: string, gameId: string): string | un
     goalieGameStatLines.find((s) => s.playerName === playerName && s.gameId === gameId) ??
     inNetAppearances.find((s) => s.playerName === playerName && s.gameId === gameId);
   if (goalieStat) {
-    const saves = goalieStat.shotsAgainst - goalieStat.goalsAgainst;
     const parts: string[] = [];
-    if (saves) parts.push(`${saves} SV`);
     if (goalieStat.shutout) parts.push("SO");
     if (goalieStat.goals) parts.push(`${goalieStat.goals}G`);
     return parts.length > 0 ? parts.join(", ") : undefined;
