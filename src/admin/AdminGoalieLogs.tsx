@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
+import AdminSaveError from "@/admin/AdminSaveError";
 import {
   findArrayRange,
   isEntryLine,
@@ -302,7 +303,7 @@ export default function AdminGoalieLogs() {
           >
             {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE ALL"}
           </button>
-          {saveError && <p className="text-xs text-red-400">{saveError}</p>}
+          {saveError && <AdminSaveError error={saveError} onRetry={load} />}
         </div>
       )}
     </div>

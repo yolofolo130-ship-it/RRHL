@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
+import AdminSaveError from "@/admin/AdminSaveError";
 import {
   findArrayRange,
   isEntryLine,
@@ -471,7 +472,7 @@ export default function AdminRosters() {
           >
             {savingSkaters ? "SAVING…" : savedSkaters ? "SAVED ✓" : "SAVE ALL SKATERS"}
           </button>
-          {skaterSaveError && <p className="text-xs text-red-400">{skaterSaveError}</p>}
+          {skaterSaveError && <AdminSaveError error={skaterSaveError} onRetry={load} />}
         </div>
       )}
 
@@ -513,7 +514,7 @@ export default function AdminRosters() {
             {addingSkater ? "ADDING…" : "ADD SKATER"}
           </button>
         </div>
-        {addSkaterError && <p className="mt-2 text-xs text-red-400">{addSkaterError}</p>}
+        {addSkaterError && <AdminSaveError error={addSkaterError} onRetry={load} className="mt-2" />}
       </div>
 
       <p className="mb-3 mt-10 text-xs font-semibold tracking-[0.2em] text-ink-2">GOALIES</p>
@@ -600,7 +601,7 @@ export default function AdminRosters() {
           >
             {savingGoalies ? "SAVING…" : savedGoalies ? "SAVED ✓" : "SAVE ALL GOALIES"}
           </button>
-          {goalieSaveError && <p className="text-xs text-red-400">{goalieSaveError}</p>}
+          {goalieSaveError && <AdminSaveError error={goalieSaveError} onRetry={load} />}
         </div>
       )}
 
@@ -631,7 +632,7 @@ export default function AdminRosters() {
             {addingGoalie ? "ADDING…" : "ADD GOALIE"}
           </button>
         </div>
-        {addGoalieError && <p className="mt-2 text-xs text-red-400">{addGoalieError}</p>}
+        {addGoalieError && <AdminSaveError error={addGoalieError} onRetry={load} className="mt-2" />}
       </div>
     </div>
   );

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
+import AdminSaveError from "@/admin/AdminSaveError";
 import {
   findArrayRange,
   isEntryLine,
@@ -45,7 +46,9 @@ function ChampionshipRosterSection() {
   const [adding, setAdding] = useState(false);
   const [ok, setOk] = useState(false);
 
-  useEffect(() => {
+  const load = () => {
+    setLoading(true);
+    setError(null);
     getFile(CHAMP_ROSTER_PATH)
       .then(({ content, sha }) => {
         setLines(content.split("\n"));
@@ -53,7 +56,9 @@ function ChampionshipRosterSection() {
       })
       .catch((e) => setError(String(e.message ?? e)))
       .finally(() => setLoading(false));
-  }, []);
+  };
+
+  useEffect(load, []);
 
   const add = async () => {
     if (!lines || !sha || !season.trim() || !playerName.trim()) return;
@@ -123,7 +128,7 @@ function ChampionshipRosterSection() {
       >
         {adding ? "ADDING…" : ok ? "ADDED" : "ADD TO ROSTER"}
       </button>
-      {error && <p className="w-full text-xs text-red-400">{error}</p>}
+      {error && <AdminSaveError error={error} onRetry={load} className="w-full" />}
     </div>
   );
 }
@@ -142,7 +147,9 @@ function StanleyCupSection() {
   const [adding, setAdding] = useState(false);
   const [ok, setOk] = useState(false);
 
-  useEffect(() => {
+  const load = () => {
+    setLoading(true);
+    setError(null);
     getFile(TEAM_HISTORY_PATH)
       .then(({ content, sha }) => {
         setLines(content.split("\n"));
@@ -150,7 +157,9 @@ function StanleyCupSection() {
       })
       .catch((e) => setError(String(e.message ?? e)))
       .finally(() => setLoading(false));
-  }, []);
+  };
+
+  useEffect(load, []);
 
   const add = async () => {
     if (!lines || !sha || !season.trim() || !seriesScore.trim() || teamId === opponentTeamId) return;
@@ -256,7 +265,7 @@ function StanleyCupSection() {
       {teamId === opponentTeamId && (
         <p className="w-full text-xs text-red-400">Champion and runner-up can't be the same team.</p>
       )}
-      {error && <p className="w-full text-xs text-red-400">{error}</p>}
+      {error && <AdminSaveError error={error} onRetry={load} className="w-full" />}
     </div>
   );
 }
@@ -384,7 +393,7 @@ function HallOfFameSection() {
 
   return (
     <div>
-      {error && <p className="mb-3 text-xs text-red-400">{error}</p>}
+      {error && <AdminSaveError error={error} onRetry={load} className="mb-3" />}
       {rows.length > 0 && (
         <div className="mb-4 overflow-x-auto border border-line bg-bg-2">
           <table className="w-full min-w-[600px] border-collapse text-sm">
@@ -531,12 +540,14 @@ function RecordBookSection() {
   const [lines, setLines] = useState<string[] | null>(null);
   const [rows, setRows] = useState<RecordRow[]>([]);
   const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const [loadError, setLoadError] = useState<string | null>(null);
+  const [saveError, setSaveError] = useState<string | null>(null);
   const [savingKey, setSavingKey] = useState<string | null>(null);
   const [savedKey, setSavedKey] = useState<string | null>(null);
 
   const load = () => {
     setLoading(true);
+    setLoadError(null);
     getFile(RECORD_BOOK_PATH)
       .then(({ content, sha }) => {
         const ls = content.split("\n");
@@ -560,7 +571,7 @@ function RecordBookSection() {
         setSha(sha);
         setRows(parsed);
       })
-      .catch((e) => setError(String(e.message ?? e)))
+      .catch((e) => setLoadError(String(e.message ?? e)))
       .finally(() => setLoading(false));
   };
 
@@ -574,7 +585,7 @@ function RecordBookSection() {
     if (!lines || !sha) return;
     const key = `${row.lineIndex}`;
     setSavingKey(key);
-    setError(null);
+    setSaveError(null);
     try {
       let newLine = lines[row.lineIndex];
       newLine = setLineField(newLine, "holder", row.holder || undefined);
@@ -592,14 +603,14 @@ function RecordBookSection() {
       setSavedKey(key);
       setTimeout(() => setSavedKey((k) => (k === key ? null : k)), 2000);
     } catch (e: any) {
-      setError(String(e.message ?? e));
+      setSaveError(String(e.message ?? e));
     } finally {
       setSavingKey(null);
     }
   };
 
   if (loading) return <p className="text-sm text-ink-2">Loading…</p>;
-  if (error) return <p className="text-sm text-red-400">{error}</p>;
+  if (loadError) return <p className="text-sm text-red-400">{loadError}</p>;
 
   const categories = Array.from(new Set(rows.map((r) => r.category)));
 
@@ -660,6 +671,7 @@ function RecordBookSection() {
           </table>
         </div>
       ))}
+      {saveError && <AdminSaveError error={saveError} onRetry={load} />}
     </div>
   );
 }

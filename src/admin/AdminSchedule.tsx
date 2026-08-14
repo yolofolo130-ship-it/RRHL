@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
+import AdminSaveError from "@/admin/AdminSaveError";
 import { findArrayRange, isEntryLine, parseLineKV, stringifyGameLine, type GameFields } from "@/admin/lines";
 import { teams } from "@/data/teams";
 
@@ -210,7 +211,7 @@ export default function AdminSchedule() {
           >
             {saving ? "SAVING…" : saved ? "SAVED ✓" : "SAVE ALL"}
           </button>
-          {saveError && <p className="text-xs text-red-400">{saveError}</p>}
+          {saveError && <AdminSaveError error={saveError} onRetry={load} />}
         </div>
       )}
     </div>

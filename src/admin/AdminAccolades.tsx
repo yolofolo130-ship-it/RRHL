@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
+import AdminSaveError from "@/admin/AdminSaveError";
 import { findArrayRange, isEntryLine, parseLineKV, setLineField } from "@/admin/lines";
 import { slugify } from "@/utils/format";
 
@@ -21,6 +22,7 @@ export default function AdminAccolades() {
   const [accRows, setAccRows] = useState<AccoladeRow[]>([]);
   const [accLoading, setAccLoading] = useState(true);
   const [accError, setAccError] = useState<string | null>(null);
+  const [accSaveError, setAccSaveError] = useState<string | null>(null);
   const [savingId, setSavingId] = useState<string | null>(null);
   const [savedId, setSavedId] = useState<string | null>(null);
 
@@ -85,7 +87,7 @@ export default function AdminAccolades() {
   const saveWinner = async (row: AccoladeRow) => {
     if (!accLines || !accSha) return;
     setSavingId(row.id);
-    setAccError(null);
+    setAccSaveError(null);
     try {
       const newLine = setLineField(accLines[row.lineIndex], "winner", row.winner || undefined);
       const nextLines = [...accLines];
@@ -101,7 +103,7 @@ export default function AdminAccolades() {
       setSavedId(row.id);
       setTimeout(() => setSavedId((id) => (id === row.id ? null : id)), 2000);
     } catch (e: any) {
-      setAccError(String(e.message ?? e));
+      setAccSaveError(String(e.message ?? e));
     } finally {
       setSavingId(null);
     }
@@ -146,45 +148,48 @@ export default function AdminAccolades() {
       {accLoading ? (
         <p className="text-sm text-ink-2">Loading…</p>
       ) : accError ? (
-        <p className="text-sm text-red-400">{accError}</p>
+        <AdminSaveError error={accError} onRetry={loadAccolades} className="text-sm" />
       ) : (
-        <div className="overflow-x-auto border border-line bg-bg-2">
-          <table className="w-full min-w-[600px] border-collapse text-sm">
-            <thead>
-              <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
-                <th className="px-4 py-3 text-left font-semibold">AWARD</th>
-                <th className="px-3 py-3 text-left font-semibold">WINNER</th>
-                <th className="px-4 py-3 text-center font-semibold"></th>
-              </tr>
-            </thead>
-            <tbody>
-              {accRows.map((row) => (
-                <tr key={row.id} className="border-b border-line/60 last:border-b-0">
-                  <td className="px-4 py-3 text-ink-1">{row.name}</td>
-                  <td className="px-3 py-3">
-                    <input
-                      type="text"
-                      value={row.winner}
-                      onChange={(e) => updateWinner(row.id, e.target.value)}
-                      placeholder="Not yet decided"
-                      className="w-full border border-line bg-bg-1 px-2 py-1.5 text-ink-0 outline-none focus:border-line-strong"
-                    />
-                  </td>
-                  <td className="px-4 py-3 text-center">
-                    <button
-                      type="button"
-                      onClick={() => saveWinner(row)}
-                      disabled={savingId === row.id}
-                      className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
-                    >
-                      {savingId === row.id ? "…" : savedId === row.id ? "SAVED" : "SAVE"}
-                    </button>
-                  </td>
+        <>
+          <div className="overflow-x-auto border border-line bg-bg-2">
+            <table className="w-full min-w-[600px] border-collapse text-sm">
+              <thead>
+                <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
+                  <th className="px-4 py-3 text-left font-semibold">AWARD</th>
+                  <th className="px-3 py-3 text-left font-semibold">WINNER</th>
+                  <th className="px-4 py-3 text-center font-semibold"></th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
+              </thead>
+              <tbody>
+                {accRows.map((row) => (
+                  <tr key={row.id} className="border-b border-line/60 last:border-b-0">
+                    <td className="px-4 py-3 text-ink-1">{row.name}</td>
+                    <td className="px-3 py-3">
+                      <input
+                        type="text"
+                        value={row.winner}
+                        onChange={(e) => updateWinner(row.id, e.target.value)}
+                        placeholder="Not yet decided"
+                        className="w-full border border-line bg-bg-1 px-2 py-1.5 text-ink-0 outline-none focus:border-line-strong"
+                      />
+                    </td>
+                    <td className="px-4 py-3 text-center">
+                      <button
+                        type="button"
+                        onClick={() => saveWinner(row)}
+                        disabled={savingId === row.id}
+                        className="border border-line-strong bg-white px-3 py-1.5 text-xs font-semibold text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+                      >
+                        {savingId === row.id ? "…" : savedId === row.id ? "SAVED" : "SAVE"}
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          {accSaveError && <AdminSaveError error={accSaveError} onRetry={loadAccolades} className="mt-3" />}
+        </>
       )}
 
       <p className="mb-3 mt-10 text-xs font-semibold tracking-[0.2em] text-ink-2">
@@ -238,7 +243,7 @@ export default function AdminAccolades() {
           >
             {adding ? "ADDING…" : addedOk ? "ADDED" : "ADD AWARD"}
           </button>
-          {histError && <p className="w-full text-xs text-red-400">{histError}</p>}
+          {histError && <AdminSaveError error={histError} onRetry={loadHistory} className="w-full" />}
         </div>
       )}
     </div>
