@@ -32,6 +32,7 @@ function statsFor(p: ComparablePlayer): { label: string; value: string | number 
       { label: "A", value: p.assists },
       { label: "PTS", value: skaterPoints(p) },
       { label: "PIM", value: p.pim },
+      { label: "OVR", value: p.overall ?? "—" },
     ];
   }
   return [
@@ -43,6 +44,7 @@ function statsFor(p: ComparablePlayer): { label: string; value: string | number 
     { label: "GA", value: p.goalsAgainst },
     { label: "SV%", value: goalieShotsAgainst(p) > 0 ? formatSavePct(goalieSavePct(p)) : "—" },
     { label: "GAA", value: p.gp > 0 ? goalieGaa(p).toFixed(2) : "—" },
+    { label: "OVR", value: p.overall ?? "—" },
   ];
 }
 
