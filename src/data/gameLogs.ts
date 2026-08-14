@@ -341,7 +341,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "MVP", gameId: "g03", goals: 9, assists: 0, points: 9, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MVP", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MVP", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "MVP", gameId: "g16", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "MVP", gameId: "g16", goals: 4, assists: 0, points: 4, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Gabriel", gameId: "g03", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Gabriel", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -542,7 +542,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Nova", gameId: "g04", gs: 0, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Nova", gameId: "g06", gs: 0, dec: "L", shotsAgainst: 7, goalsAgainst: 7, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Nova", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Nova", gameId: "g16", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
+  { playerName: "Nova", gameId: "g16", gs: 0, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- LOS ANGELES KINGS ----------
   { playerName: "Riptide", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
