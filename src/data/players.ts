@@ -39,14 +39,14 @@ export const skaters: Skater[] = [
   { id: "tbl-8", name: "GeorgePigs", teamId: "tampa-bay-lightning", position: "RW", number: 37, gp: 0, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "tbl-9", name: "Boa", teamId: "tampa-bay-lightning", position: "RW", number: 99, gp: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
 
-  { id: "bos-1", name: "Kdog2020", teamId: "boston-bruins", position: "C", number: 12, gp: 3, goals: 7, assists: 3, pim: 0, overall: 87, flag: "USA" },
-  { id: "bos-2", name: "Boolit", teamId: "boston-bruins", position: "RW", number: 27, gp: 1, goals: 0, assists: 0, pim: 0, overall: 89, star: "Truculence", flag: "USA" },
+  { id: "bos-1", name: "Kdog2020", teamId: "boston-bruins", position: "C", number: 12, gp: 4, goals: 10, assists: 4, pim: 0, overall: 87, flag: "USA" },
+  { id: "bos-2", name: "Boolit", teamId: "boston-bruins", position: "RW", number: 27, gp: 2, goals: 0, assists: 0, pim: 0, overall: 89, star: "Truculence", flag: "USA" },
   { id: "bos-3", name: "Bounty", teamId: "boston-bruins", position: "D", number: 5, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "bos-4", name: "KingPenguin", teamId: "boston-bruins", position: "D", number: 44, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "Quick Release", flag: "USA" },
-  { id: "bos-5", name: "Huddawg", teamId: "boston-bruins", position: "C", number: 1, gp: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
+  { id: "bos-5", name: "Huddawg", teamId: "boston-bruins", position: "C", number: 1, gp: 1, goals: 1, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "bos-6", name: "Jace", teamId: "boston-bruins", position: "RW", number: 7, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
   { id: "bos-7", name: "Funko", teamId: "boston-bruins", position: "D", number: 99, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
-  { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 2, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
+  { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 3, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
 
   { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 24, gp: 4, goals: 8, assists: 3, pim: 0, overall: 93, star: "One-T", flag: "PR" },
   { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 10, gp: 4, goals: 5, assists: 6, pim: 0, overall: 91, star: "Truculence", flag: "USA" },
