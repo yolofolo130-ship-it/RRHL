@@ -486,7 +486,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Wapw", gameId: "g04", gs: 1, dec: "OTL", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 12, goalsAgainst: 4, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
   { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 43, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Wapw", gameId: "g19", gs: 1, dec: "L", shotsAgainst: 4, goalsAgainst: 4, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g19", gs: 1, dec: "L", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
   { playerName: "Fellow", gameId: "g02", gs: 1, dec: "W", shotsAgainst: 13, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
