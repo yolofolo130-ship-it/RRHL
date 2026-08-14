@@ -8,6 +8,17 @@ on:
 permissions:
   contents: write
 
+# The admin panel can fire off several commits to main in quick succession
+# (e.g. saving stats for one game after another) — each push triggers its
+# own run of this workflow, and without this, their "Deploy to gh-pages"
+# steps can overlap and race to push the same branch, so all but the
+# first lose with a git conflict. Serializing on a fixed group name (and
+# cancelling any still-queued older run once a newer commit lands, since
+# only the latest commit's build is ever worth deploying) fixes that.
+concurrency:
+  group: pages-deploy
+  cancel-in-progress: true
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
