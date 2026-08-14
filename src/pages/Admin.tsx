@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
-import Tabs from "@/components/Tabs";
+import { Link } from "react-router-dom";
+import rrhlLogo from "@/assets/logos/rrhl-logo.png";
 import { clearToken, getToken, setToken, verifyToken } from "@/admin/github";
 import AdminSchedule from "@/admin/AdminSchedule";
 import AdminSkaterLogs from "@/admin/AdminSkaterLogs";
@@ -9,15 +10,79 @@ import AdminRosters from "@/admin/AdminRosters";
 import AdminAccolades from "@/admin/AdminAccolades";
 import AdminHistory from "@/admin/AdminHistory";
 
-const TAB_OPTIONS = [
-  { value: "schedule", label: "SCHEDULE" },
-  { value: "skaters", label: "SKATER LOGS" },
-  { value: "goalies", label: "GOALIE LOGS" },
-  { value: "innet", label: "IN NET" },
-  { value: "rosters", label: "ROSTERS" },
-  { value: "accolades", label: "ACCOLADES" },
-  { value: "history", label: "HISTORY" },
+interface TabDef {
+  value: string;
+  label: string;
+  description: string;
+  Component: () => React.JSX.Element;
+}
+
+interface NavGroup {
+  label: string;
+  tabs: TabDef[];
+}
+
+const NAV_GROUPS: NavGroup[] = [
+  {
+    label: "GAME DATA",
+    tabs: [
+      {
+        value: "schedule",
+        label: "Schedule",
+        description: "Dates, times, matchups, and scores for every game.",
+        Component: AdminSchedule,
+      },
+      {
+        value: "skaters",
+        label: "Skater Logs",
+        description: "Per-game stat lines for every skater.",
+        Component: AdminSkaterLogs,
+      },
+      {
+        value: "goalies",
+        label: "Goalie Logs",
+        description: "Per-game stat lines for every goalie.",
+        Component: AdminGoalieLogs,
+      },
+      {
+        value: "innet",
+        label: "In Net",
+        description: "Skaters who filled in as emergency goalie.",
+        Component: AdminInNet,
+      },
+    ],
+  },
+  {
+    label: "ROSTERS",
+    tabs: [
+      {
+        value: "rosters",
+        label: "Rosters",
+        description: "Players, jersey numbers, ratings, and trades.",
+        Component: AdminRosters,
+      },
+    ],
+  },
+  {
+    label: "AWARDS & HISTORY",
+    tabs: [
+      {
+        value: "accolades",
+        label: "Accolades",
+        description: "Season 23 award winners and past-season awards.",
+        Component: AdminAccolades,
+      },
+      {
+        value: "history",
+        label: "History",
+        description: "Championship rosters, Stanley Cup champions, Hall of Fame, and records.",
+        Component: AdminHistory,
+      },
+    ],
+  },
 ];
+
+const ALL_TABS = NAV_GROUPS.flatMap((g) => g.tabs);
 
 export default function Admin() {
   const [login, setLogin] = useState<string | null>(null);
@@ -25,7 +90,7 @@ export default function Admin() {
   const [tokenInput, setTokenInput] = useState("");
   const [authError, setAuthError] = useState<string | null>(null);
   const [signingIn, setSigningIn] = useState(false);
-  const [tab, setTab] = useState("schedule");
+  const [tab, setTab] = useState(ALL_TABS[0].value);
 
   useEffect(() => {
     const existing = getToken();
@@ -66,7 +131,7 @@ export default function Admin() {
 
   if (checking) {
     return (
-      <div className="mx-auto max-w-[1400px] px-6 py-32 text-center lg:px-10">
+      <div className="flex min-h-screen items-center justify-center bg-bg-0">
         <p className="text-sm text-ink-2">Checking sign-in…</p>
       </div>
     );
@@ -74,8 +139,9 @@ export default function Admin() {
 
   if (!login) {
     return (
-      <div className="mx-auto flex max-w-[1400px] justify-center px-6 py-32 lg:px-10">
+      <div className="flex min-h-screen items-center justify-center bg-bg-0 px-6">
         <div className="w-full max-w-md border border-line bg-bg-2 p-8">
+          <img src={rrhlLogo} alt="" className="mb-6 h-12 w-12 object-contain opacity-90" aria-hidden />
           <p className="font-display text-2xl font-semibold uppercase tracking-wide text-ink-0">
             Admin Sign-In
           </p>
@@ -100,38 +166,127 @@ export default function Admin() {
           >
             {signingIn ? "SIGNING IN…" : "SIGN IN"}
           </button>
+          <Link
+            to="/"
+            className="mt-5 block text-center text-xs font-semibold tracking-[0.15em] text-ink-3 transition-colors hover:text-ink-1"
+          >
+            ← BACK TO SITE
+          </Link>
         </div>
       </div>
     );
   }
 
+  const active = ALL_TABS.find((t) => t.value === tab) ?? ALL_TABS[0];
+  const ActiveComponent = active.Component;
+
+  const navButtonClass = (value: string, base: string) =>
+    `${base} text-left text-xs font-semibold tracking-[0.12em] transition-colors duration-200 ${
+      value === tab
+        ? "bg-white text-black"
+        : "text-ink-2 hover:bg-bg-2 hover:text-ink-0"
+    }`;
+
   return (
-    <div className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
-      <div className="flex flex-wrap items-center justify-between gap-4 border-b border-line pb-6">
-        <div>
-          <p className="text-xs font-semibold tracking-[0.2em] text-ink-2">SIGNED IN AS</p>
-          <p className="font-display text-2xl font-semibold uppercase tracking-wide text-ink-0">
-            {login}
-          </p>
+    <div className="flex min-h-screen flex-col bg-bg-0 lg:flex-row">
+      {/* Sidebar — desktop only */}
+      <aside className="hidden shrink-0 border-r border-line bg-bg-1/40 lg:sticky lg:top-0 lg:flex lg:h-screen lg:w-64 lg:flex-col">
+        <div className="flex items-center gap-3 border-b border-line px-6 py-6">
+          <img src={rrhlLogo} alt="" className="h-8 w-8 object-contain" aria-hidden />
+          <div className="min-w-0">
+            <p className="truncate font-display text-sm font-semibold uppercase tracking-wide text-ink-0">
+              RRHL Admin
+            </p>
+            <p className="truncate text-[11px] text-ink-3">{login}</p>
+          </div>
         </div>
-        <button
-          type="button"
-          onClick={handleSignOut}
-          className="border border-line px-4 py-2 text-xs font-semibold tracking-[0.2em] text-ink-1 transition-colors hover:border-line-strong hover:text-ink-0"
-        >
-          SIGN OUT
-        </button>
+
+        <nav className="flex-1 overflow-y-auto px-4 py-6">
+          <div className="flex flex-col gap-6">
+            {NAV_GROUPS.map((group) => (
+              <div key={group.label}>
+                <p className="mb-2 px-2 text-[10px] font-semibold tracking-[0.2em] text-ink-3">
+                  {group.label}
+                </p>
+                <div className="flex flex-col gap-0.5">
+                  {group.tabs.map((t) => (
+                    <button
+                      key={t.value}
+                      type="button"
+                      onClick={() => setTab(t.value)}
+                      className={navButtonClass(t.value, "px-3 py-2.5")}
+                    >
+                      {t.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </nav>
+
+        <div className="flex flex-col gap-2 border-t border-line px-4 py-4">
+          <Link
+            to="/"
+            className="px-3 py-2 text-xs font-semibold tracking-[0.12em] text-ink-3 transition-colors hover:text-ink-1"
+          >
+            ← BACK TO SITE
+          </Link>
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="border border-line px-3 py-2.5 text-xs font-semibold tracking-[0.12em] text-ink-1 transition-colors hover:border-line-strong hover:text-ink-0"
+          >
+            SIGN OUT
+          </button>
+        </div>
+      </aside>
+
+      {/* Top bar + nav — mobile/tablet only */}
+      <div className="border-b border-line bg-bg-1/40 lg:hidden">
+        <div className="flex items-center justify-between gap-4 px-6 py-4">
+          <div className="flex items-center gap-3">
+            <img src={rrhlLogo} alt="" className="h-7 w-7 object-contain" aria-hidden />
+            <p className="font-display text-sm font-semibold uppercase tracking-wide text-ink-0">
+              RRHL Admin
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={handleSignOut}
+            className="border border-line px-3 py-1.5 text-[11px] font-semibold tracking-[0.12em] text-ink-1 transition-colors hover:border-line-strong hover:text-ink-0"
+          >
+            SIGN OUT
+          </button>
+        </div>
+        <div className="flex gap-1 overflow-x-auto px-4 pb-4">
+          {ALL_TABS.map((t) => (
+            <button
+              key={t.value}
+              type="button"
+              onClick={() => setTab(t.value)}
+              className={navButtonClass(t.value, "shrink-0 whitespace-nowrap px-3 py-2")}
+            >
+              {t.label}
+            </button>
+          ))}
+        </div>
       </div>
 
-      <Tabs options={TAB_OPTIONS} value={tab} onChange={setTab} className="mt-8 mb-8" />
-
-      {tab === "schedule" && <AdminSchedule />}
-      {tab === "skaters" && <AdminSkaterLogs />}
-      {tab === "goalies" && <AdminGoalieLogs />}
-      {tab === "innet" && <AdminInNet />}
-      {tab === "rosters" && <AdminRosters />}
-      {tab === "accolades" && <AdminAccolades />}
-      {tab === "history" && <AdminHistory />}
+      {/* Main content */}
+      <main className="min-w-0 flex-1 px-6 py-10 lg:px-10 lg:py-12">
+        <div className="mx-auto max-w-5xl">
+          <div className="border-b border-line pb-6">
+            <p className="font-display text-2xl font-semibold uppercase tracking-wide text-ink-0">
+              {active.label}
+            </p>
+            <p className="mt-1 text-sm text-ink-2">{active.description}</p>
+          </div>
+          <div className="mt-8">
+            <ActiveComponent />
+          </div>
+        </div>
+      </main>
     </div>
   );
 }
