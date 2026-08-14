@@ -262,7 +262,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Sinny", gameId: "g01", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 3, shifts: 2 },
   { playerName: "Sinny", gameId: "g10", goals: 0, assists: 1, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Sinny", gameId: "g14", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 6, shifts: 2 },
-  { playerName: "Sinny", gameId: "g20", goals: 2, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Sinny", gameId: "g20", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Butter", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Butter", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -527,6 +527,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Sleepy", gameId: "g05", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g09", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g11", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g20", gs: 1, dec: "L", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- VEGAS GOLDEN KNIGHTS ----------
   { playerName: "TGOD", gameId: "g01", gs: 1, dec: "W", shotsAgainst: 11, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
@@ -615,7 +616,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Mesh", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Mesh", gameId: "g10", gs: 0, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Mesh", gameId: "g14", gs: 0, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
-  { playerName: "Mesh", gameId: "g20", gs: 1, dec: "W", shotsAgainst: 15, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Mesh", gameId: "g20", gs: 1, dec: "W", shotsAgainst: 16, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
