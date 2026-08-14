@@ -9,6 +9,7 @@
      for data tables, closer to a normal dashboard than a fan site. */
   --font-admin-sans: "Inter", system-ui, sans-serif;
   --font-admin-mono: "JetBrains Mono", "SFMono-Regular", Menlo, monospace;
+  --font-admin-display: "Chakra Petch", "Inter", system-ui, sans-serif;
 
   --color-bg-0: #050505;
   --color-bg-1: #080808;
@@ -211,6 +212,10 @@ body {
 .font-admin-mono {
   font-family: var(--font-admin-mono);
   font-variant-numeric: tabular-nums;
+}
+
+.font-admin-display {
+  font-family: var(--font-admin-display);
 }
 
 .text-balance {

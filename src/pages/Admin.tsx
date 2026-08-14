@@ -142,7 +142,7 @@ export default function Admin() {
       <div className="flex min-h-screen items-center justify-center bg-bg-0 px-6 font-admin-sans">
         <div className="w-full max-w-md border border-line bg-bg-2 p-8">
           <img src={rrhlLogo} alt="" className="mb-6 h-12 w-12 object-contain opacity-90" aria-hidden />
-          <p className="text-xl font-semibold text-ink-0">Admin Sign-In</p>
+          <p className="font-admin-display text-xl font-semibold text-ink-0">Admin Sign-In</p>
           <p className="mt-2 text-sm text-ink-2">
             Paste a GitHub personal access token with <span className="text-ink-1">repo</span> scope
             (or a fine-grained token with Contents: Read and write on this repo). It's saved only in
@@ -192,7 +192,7 @@ export default function Admin() {
         <div className="flex items-center gap-3 border-b border-line px-6 py-6">
           <img src={rrhlLogo} alt="" className="h-8 w-8 object-contain" aria-hidden />
           <div className="min-w-0">
-            <p className="truncate text-sm font-semibold text-ink-0">RRHL Admin</p>
+            <p className="truncate font-admin-display text-sm font-semibold text-ink-0">RRHL Admin</p>
             <p className="truncate text-[11px] text-ink-3">{login}</p>
           </div>
         </div>
@@ -243,9 +243,7 @@ export default function Admin() {
         <div className="flex items-center justify-between gap-4 px-6 py-4">
           <div className="flex items-center gap-3">
             <img src={rrhlLogo} alt="" className="h-7 w-7 object-contain" aria-hidden />
-            <p className="font-display text-sm font-semibold uppercase tracking-wide text-ink-0">
-              RRHL Admin
-            </p>
+            <p className="font-admin-display text-sm font-semibold text-ink-0">RRHL Admin</p>
           </div>
           <button
             type="button"
@@ -273,7 +271,7 @@ export default function Admin() {
       <main className="min-w-0 flex-1 px-6 py-10 lg:px-10 lg:py-12">
         <div className="mx-auto max-w-5xl">
           <div className="border-b border-line pb-6">
-            <p className="text-2xl font-semibold text-ink-0">{active.label}</p>
+            <p className="font-admin-display text-2xl font-semibold text-ink-0">{active.label}</p>
             <p className="mt-1 text-sm text-ink-2">{active.description}</p>
           </div>
           <div className="mt-8">
