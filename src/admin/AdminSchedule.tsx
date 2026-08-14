@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 import { getFile, commitFile } from "@/admin/github";
 import AdminSaveError from "@/admin/AdminSaveError";
-import { findArrayRange, isEntryLine, parseLineKV, stringifyGameLine, type GameFields } from "@/admin/lines";
+import {
+  findArrayRange,
+  isEntryLine,
+  parseLineKV,
+  stringifyGameLine,
+  upsertLine,
+  nextIdNumber,
+  type GameFields,
+} from "@/admin/lines";
 import { teams } from "@/data/teams";
 
 const PATH = "src/data/schedule.ts";
@@ -12,6 +20,24 @@ interface Row extends GameFields {
   lineIndex: number;
 }
 
+interface NewGameForm {
+  week: number;
+  date: string;
+  time: string;
+  awayTeamId: string;
+  homeTeamId: string;
+  status: string;
+}
+
+const EMPTY_NEW_GAME: NewGameForm = {
+  week: 1,
+  date: "",
+  time: "",
+  awayTeamId: teams[0]?.id ?? "",
+  homeTeamId: teams[1]?.id ?? "",
+  status: "upcoming",
+};
+
 export default function AdminSchedule() {
   const [sha, setSha] = useState<string | null>(null);
   const [lines, setLines] = useState<string[] | null>(null);
@@ -21,6 +47,9 @@ export default function AdminSchedule() {
   const [saveError, setSaveError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
+  const [newGame, setNewGame] = useState<NewGameForm>(EMPTY_NEW_GAME);
+  const [adding, setAdding] = useState(false);
+  const [addError, setAddError] = useState<string | null>(null);
 
   const load = () => {
     setLoading(true);
@@ -50,6 +79,8 @@ export default function AdminSchedule() {
         setLines(ls);
         setSha(sha);
         setRows(parsed);
+        const maxWeek = parsed.reduce((max, r) => Math.max(max, r.week), 0);
+        setNewGame((f) => ({ ...f, week: maxWeek + 1 }));
       })
       .catch((e) => setLoadError(String(e.message ?? e)))
       .finally(() => setLoading(false));
@@ -79,6 +110,47 @@ export default function AdminSchedule() {
       setSaveError(String(e.message ?? e));
     } finally {
       setSaving(false);
+    }
+  };
+
+  const addGame = async () => {
+    if (!lines || !sha) return;
+    if (!newGame.date.trim() || !newGame.time.trim()) {
+      setAddError("Date and time are required.");
+      return;
+    }
+    if (newGame.homeTeamId === newGame.awayTeamId) {
+      setAddError("Home and away can't be the same team.");
+      return;
+    }
+    setAdding(true);
+    setAddError(null);
+    try {
+      const { start, end } = findArrayRange(lines, OPEN_MARKER);
+      const n = nextIdNumber(lines, start, end, /^g(\d+)$/);
+      const newLine = stringifyGameLine({
+        id: `g${String(n).padStart(2, "0")}`,
+        week: newGame.week,
+        date: newGame.date,
+        time: newGame.time,
+        homeTeamId: newGame.homeTeamId,
+        awayTeamId: newGame.awayTeamId,
+        status: newGame.status,
+      });
+      const nextLines = upsertLine(lines, -1, newLine, (kv) => kv.week === newGame.week, start, end);
+      const newSha = await commitFile(
+        PATH,
+        nextLines.join("\n"),
+        sha,
+        `Add Week ${newGame.week} game to schedule`,
+      );
+      setLines(nextLines);
+      setSha(newSha);
+      setNewGame((f) => ({ ...f, date: "", time: "" }));
+    } catch (e: any) {
+      setAddError(String(e.message ?? e));
+    } finally {
+      setAdding(false);
     }
   };
 
@@ -214,6 +286,75 @@ export default function AdminSchedule() {
           {saveError && <AdminSaveError error={saveError} onRetry={load} />}
         </div>
       )}
+
+      <div className="mt-6 border border-dashed border-line bg-bg-1/50 p-4">
+        <p className="mb-3 text-xs font-semibold tracking-[0.15em] text-ink-2">ADD NEW GAME</p>
+        <div className="flex flex-wrap items-center gap-2">
+          <input
+            type="number"
+            min={1}
+            value={newGame.week}
+            onChange={(e) => setNewGame((f) => ({ ...f, week: Number(e.target.value) }))}
+            className="w-20 border border-line bg-bg-1 px-2 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+            placeholder="Week"
+          />
+          <input
+            type="date"
+            value={newGame.date}
+            onChange={(e) => setNewGame((f) => ({ ...f, date: e.target.value }))}
+            className="border border-line bg-bg-1 px-2 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+          />
+          <input
+            type="text"
+            value={newGame.time}
+            onChange={(e) => setNewGame((f) => ({ ...f, time: e.target.value }))}
+            placeholder="8:10 PM"
+            className="w-24 border border-line bg-bg-1 px-2 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+          />
+          <select
+            value={newGame.awayTeamId}
+            onChange={(e) => setNewGame((f) => ({ ...f, awayTeamId: e.target.value }))}
+            className="border border-line bg-bg-1 px-2 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+          >
+            {teams.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.abbr} (away)
+              </option>
+            ))}
+          </select>
+          <select
+            value={newGame.homeTeamId}
+            onChange={(e) => setNewGame((f) => ({ ...f, homeTeamId: e.target.value }))}
+            className="border border-line bg-bg-1 px-2 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+          >
+            {teams.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.abbr} (home)
+              </option>
+            ))}
+          </select>
+          <select
+            value={newGame.status}
+            onChange={(e) => setNewGame((f) => ({ ...f, status: e.target.value }))}
+            className="border border-line bg-bg-1 px-2 py-2 text-sm text-ink-0 outline-none focus:border-line-strong"
+          >
+            {STATUS_OPTIONS.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+          <button
+            type="button"
+            onClick={addGame}
+            disabled={adding}
+            className="border border-line-strong bg-white px-4 py-2 text-xs font-semibold tracking-[0.15em] text-black transition-opacity hover:opacity-90 disabled:opacity-50"
+          >
+            {adding ? "ADDING…" : "ADD GAME"}
+          </button>
+        </div>
+        {addError && <AdminSaveError error={addError} onRetry={load} className="mt-2" />}
+      </div>
     </div>
   );
 }
