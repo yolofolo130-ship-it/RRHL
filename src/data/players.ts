@@ -9,13 +9,13 @@ import sinnyAvatar from "@/assets/players-avatars/Sinny-Avatar.webp";
 // goals/assists/saves here is enough to keep every table in sync.
 export const skaters: Skater[] = [
   { id: "car-1", name: "BNA", teamId: "carolina-hurricanes", position: "C", number: 14, gp: 1, goals: 3, assists: 2, pim: 0, overall: 85, flag: "German" },
-  { id: "car-2", name: "DoughnutZ", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 2, goals: 6, assists: 2, pim: 0, overall: 88, star: "Wheels", flag: "Ireland" },
+  { id: "car-2", name: "DoughnutZ", teamId: "carolina-hurricanes", position: "LW", number: 21, gp: 3, goals: 7, assists: 4, pim: 0, overall: 88, star: "Wheels", flag: "Ireland" },
   { id: "car-3", name: "Full", teamId: "carolina-hurricanes", position: "D", number: 4, gp: 2, goals: 1, assists: 1, pim: 0, overall: 95, xFactor: "Unstoppable", flag: "PR" },
   { id: "car-4", name: "Fishbowl", teamId: "dallas-stars", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0, overall: 83, flag: "Canada" },
-  { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
+  { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 1, goals: 3, assists: 0, pim: 0, overall: 83, flag: "USA" },
   { id: "car-6", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0, overall: 88, star: "Quick Release", flag: "USA" },
   { id: "car-7", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
-  { id: "car-8", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 0, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
+  { id: "car-8", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 1, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "car-9", name: "Cristian", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },
 
   { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 5, gp: 4, goals: 10, assists: 6, pim: 0, overall: 97, xFactor: "Backhand Beauty", flag: "USA" },
