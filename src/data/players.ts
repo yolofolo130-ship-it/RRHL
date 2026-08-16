@@ -94,8 +94,8 @@ export const skaters: Skater[] = [
   { id: "stl-4", name: "Fire", teamId: "st-louis-blues", position: "C", number: 7, gp: 0, goals: 0, assists: 0, pim: 0, overall: 93, star: "Quick Release", flag: "USA" },
   { id: "stl-5", name: "Tidy", teamId: "st-louis-blues", position: "LW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "stl-6", name: "TDLMarcus", teamId: "st-louis-blues", position: "D", number: 56, gp: 0, goals: 0, assists: 0, pim: 0, overall: 79, flag: "USA" },
-  { id: "stl-7", name: "Hogeye", teamId: "st-louis-blues", position: "C", number: 69, gp: 2, goals: 0, assists: 0, pim: 0, overall: 79, flag: "USA" },
-  { id: "stl-8", name: "AlexKiller", teamId: "st-louis-blues", position: "LW", number: 1, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "stl-7", name: "Hogeye", teamId: "st-louis-blues", position: "C", number: 69, gp: 5, goals: 4, assists: 0, pim: 0, overall: 79, flag: "USA" },
+  { id: "stl-8", name: "AlexKiller", teamId: "st-louis-blues", position: "LW", number: 1, gp: 3, goals: 0, assists: 0, pim: 0, flag: "USA" },
 
   { id: "lak-1", name: "MVP", teamId: "los-angeles-kings", position: "C", number: 9, gp: 2, goals: 13, assists: 2, pim: 0, overall: 85, flag: "USA" },
   { id: "lak-2", name: "Gabriel", teamId: "los-angeles-kings", position: "LW", number: 17, gp: 3, goals: 1, assists: 0, pim: 0, overall: 80, flag: "USA" },
