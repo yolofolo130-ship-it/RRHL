@@ -68,7 +68,10 @@ export default function TeamDetail() {
 
   const standing = conferenceStandings.find((s) => s.team.id === team.id);
   const rank = standing ? conferenceStandings.indexOf(standing) + 1 : undefined;
-  const recentGames = teamGames.filter((g) => g.status === "final").slice(-3).reverse();
+  const recentGames = teamGames
+    .filter((g) => g.status === "final" || g.status === "forfeit")
+    .slice(-3)
+    .reverse();
   const nextGame = teamGames.find((g) => g.status === "upcoming" || g.status === "live");
   const roster = skaters.filter((s) => s.teamId === team.id);
   const teamGoalies = goalies.filter((g) => g.teamId === team.id);

@@ -18,7 +18,7 @@ export interface Team {
   color: string;
 }
 
-export type GameStatus = "upcoming" | "live" | "final" | "postponed";
+export type GameStatus = "upcoming" | "live" | "final" | "postponed" | "forfeit";
 
 export interface Game {
   id: string;

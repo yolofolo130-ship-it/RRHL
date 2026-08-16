@@ -20,7 +20,7 @@ import { skaters, goalies } from "@/data/players";
 const PATH = "src/data/schedule.ts";
 const OPEN_MARKER = "export const games";
 const FEATURED_MARKER = "export const featuredGameId";
-const STATUS_OPTIONS = ["upcoming", "live", "final", "postponed"];
+const STATUS_OPTIONS = ["upcoming", "live", "final", "postponed", "forfeit"];
 
 const STATS_PATH = "src/data/gameLogs.ts";
 const SKATER_MARKER = "export const skaterGameStatLines";

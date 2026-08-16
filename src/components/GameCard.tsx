@@ -15,6 +15,7 @@ const STATUS_LABEL: Record<Game["status"], string> = {
   live: "LIVE",
   final: "FINAL",
   postponed: "POSTPONED",
+  forfeit: "FORFEIT",
 };
 
 export default function GameCard({ game }: GameCardProps) {
@@ -22,7 +23,9 @@ export default function GameCard({ game }: GameCardProps) {
   const away = getTeamById(game.awayTeamId);
   if (!home || !away) return null;
 
-  const isFinal = game.status === "final";
+  // A forfeit has a definitive winner/score just like a final game — it
+  // only differs in the label shown.
+  const isFinal = game.status === "final" || game.status === "forfeit";
   const isLive = game.status === "live";
   const isPostponed = game.status === "postponed";
   const homeWon = isFinal && (game.homeScore ?? 0) > (game.awayScore ?? 0);

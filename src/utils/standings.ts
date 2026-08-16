@@ -20,14 +20,15 @@ export interface TeamStanding {
   streak: Streak | null;
 }
 
-// Current win/loss streak, newest final game first. OT losses count as a
-// loss for streak purposes (same simple W/L split shown in the table) —
-// only the outcome breaks the streak, not how it was lost.
+// Current win/loss streak, newest final (or forfeit) game first. OT
+// losses count as a loss for streak purposes (same simple W/L split
+// shown in the table) — only the outcome breaks the streak, not how it
+// was lost.
 function computeStreak(teamId: string, games: Game[]): Streak | null {
   const results = games
     .filter(
       (g) =>
-        g.status === "final" &&
+        (g.status === "final" || g.status === "forfeit") &&
         g.homeScore != null &&
         g.awayScore != null &&
         (g.homeTeamId === teamId || g.awayTeamId === teamId),
@@ -51,9 +52,11 @@ function computeStreak(teamId: string, games: Game[]): Streak | null {
 }
 
 /**
- * Standings are derived entirely from final games + overtime flags, using
- * standard rec-hockey scoring: win = 2 pts, OT/SO loss = 1 pt, loss = 0 pts.
- * Nothing here is hand-entered — update schedule.ts and this recalculates.
+ * Standings are derived entirely from final (and forfeit) games + overtime
+ * flags, using standard rec-hockey scoring: win = 2 pts, OT/SO loss = 1
+ * pt, loss = 0 pts. Nothing here is hand-entered — update schedule.ts and
+ * this recalculates. A forfeit counts exactly like a final game with its
+ * recorded score.
  *
  * `teams` must be the full league roster, not a conference subset — cross-
  * conference games need both sides resolvable or they're silently dropped.
@@ -69,7 +72,11 @@ export function computeStandings(teams: Team[], games: Game[]): TeamStanding[] {
   );
 
   for (const game of games) {
-    if (game.status !== "final" || game.homeScore == null || game.awayScore == null) {
+    if (
+      (game.status !== "final" && game.status !== "forfeit") ||
+      game.homeScore == null ||
+      game.awayScore == null
+    ) {
       continue;
     }
     const home = byId.get(game.homeTeamId);
