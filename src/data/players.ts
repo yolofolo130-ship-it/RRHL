@@ -24,7 +24,7 @@ export const skaters: Skater[] = [
   { id: "car-6", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0, overall: 88, star: "Quick Release", flag: "USA" },
   { id: "car-7", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
   { id: "car-8", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 1, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
-  { id: "car-9", name: "Cristian", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },
+  { id: "car-9", name: "Pirkyturkey", teamId: "carolina-hurricanes", position: "C", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 5, gp: 5, goals: 12, assists: 10, pim: 0, overall: 97, xFactor: "Backhand Beauty", flag: "USA", headshot: pit1Headshot },
   { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 2, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
@@ -55,6 +55,7 @@ export const skaters: Skater[] = [
   { id: "bos-6", name: "Jace", teamId: "boston-bruins", position: "RW", number: 7, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
   { id: "bos-7", name: "Funko", teamId: "boston-bruins", position: "D", number: 99, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "bos-8", name: "Idk67", teamId: "boston-bruins", position: "D", number: 67, gp: 3, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
+  { id: "bos-9", name: "ALEXOMEGA23", teamId: "boston-bruins", position: "C", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "nyr-1", name: "Jrok", teamId: "new-york-rangers", position: "C", number: 24, gp: 4, goals: 8, assists: 3, pim: 0, overall: 93, star: "One-T", flag: "PR" },
   { id: "nyr-2", name: "Bungee", teamId: "new-york-rangers", position: "D", number: 10, gp: 4, goals: 5, assists: 6, pim: 0, overall: 91, star: "Truculence", flag: "USA" },
@@ -68,7 +69,6 @@ export const skaters: Skater[] = [
   { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 4, goals: 3, assists: 5, pim: 0, overall: 93, star: "Wheels", flag: "Aruba" },
   { id: "uta-2", name: "Renuu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "One-T", flag: "USA" },
   { id: "uta-3", name: "lilballerjimmy", teamId: "utah-mammoths", position: "C", number: 2, gp: 4, goals: 3, assists: 0, pim: 0, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico", headshot: uta3Headshot },
-  { id: "uta-4", name: "Reject", teamId: "utah-mammoths", position: "LW", number: 25, gp: 3, goals: 4, assists: 2, pim: 0, overall: 70, flag: "USA" },
   { id: "uta-5", name: "Jazzmir", teamId: "utah-mammoths", position: "D", number: 31, gp: 1, goals: 0, assists: 0, pim: 0, overall: 89, star: "Quick Release", flag: "USA" },
   { id: "uta-6", name: "5starmax", teamId: "utah-mammoths", position: "D", number: 99, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "uta-7", name: "Randomcrazynoob", teamId: "utah-mammoths", position: "LW", number: 98, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
@@ -128,7 +128,6 @@ export const goalies: Goalie[] = [
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 1, gs: 1, wins: 1, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 85, flag: "Canada" },
   { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, gs: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 34, gp: 2, gs: 2, wins: 1, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
-  { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 89, gp: 2, gs: 2, wins: 1, losses: 1, otLosses: 1, saves: 20, goalsAgainst: 3, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 90, star: "Sponge", flag: "USA" },
   { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 31, gp: 4, gs: 4, wins: 3, losses: 1, otLosses: 1, saves: 61, goalsAgainst: 8, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 89, star: "Dialed In", flag: "DR" },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 3, gs: 3, wins: 3, losses: 1, otLosses: 0, saves: 49, goalsAgainst: 5, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 4, gs: 3, wins: 4, losses: 0, otLosses: 0, saves: 68, goalsAgainst: 1, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 98, xFactor: "Post to Post", flag: "USA" },
@@ -150,7 +149,7 @@ export const coaches: Coach[] = [
   { id: "tbl-ac", name: "Pechs", teamId: "tampa-bay-lightning", role: "Assistant Coach" },
 
   { id: "bos-hc", name: "Kdog2020", teamId: "boston-bruins", role: "Head Coach" },
-  { id: "bos-ac", name: "Boolit", teamId: "boston-bruins", role: "Assistant Coach" },
+  { id: "bos-ac", name: "Sparkles", teamId: "boston-bruins", role: "Assistant Coach" },
 
   { id: "nyr-hc", name: "Bungee", teamId: "new-york-rangers", role: "Head Coach" },
   { id: "nyr-ac", name: "DDino", teamId: "new-york-rangers", role: "Assistant Coach" },
