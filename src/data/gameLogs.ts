@@ -52,6 +52,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Chrisx", gameId: "g07", goals: 3, assists: 3, points: 6, pim: 0, ppg: 0, shg: 0, shots: 5, shifts: 0 },
   { playerName: "Chrisx", gameId: "g12", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
   { playerName: "Chrisx", gameId: "g17", goals: 2, assists: 3, points: 5, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g24", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "RestartedRyan", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "RestartedRyan", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -332,6 +333,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Hogeye", gameId: "g06", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Hogeye", gameId: "g13", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Hogeye", gameId: "g16", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Hogeye", gameId: "g21", goals: 4, assists: 0, points: 4, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "AlexKiller", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "AlexKiller", gameId: "g06", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
