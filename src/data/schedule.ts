@@ -30,11 +30,11 @@ export const games: Game[] = [
   { id: "g18", week: 4, date: "2026-08-07", time: "9:30 PM", homeTeamId: "dallas-stars", awayTeamId: "new-york-rangers", homeScore: 3, awayScore: 4, overtime: true, status: "final", wg: "DDino", lg: "Jollyllama", potg: "Salva" },
   { id: "g19", week: 4, date: "2026-08-13", time: "8:10 PM", homeTeamId: "carolina-hurricanes", awayTeamId: "boston-bruins", homeScore: 3, awayScore: 4, status: "final", wg: "Idk67", lg: "Wapw", potg: "Kdog2020" },
   { id: "g20", week: 4, date: "2026-08-13", time: "9:05 PM", homeTeamId: "utah-mammoths", awayTeamId: "vegas-golden-knights", homeScore: 1, awayScore: 2, status: "final", wg: "Mesh", lg: "Sleepy", potg: "Sinny" },
-  { id: "g21", week: 5, date: "2026-08-14", time: "7:55PM", homeTeamId: "st-louis-blues", awayTeamId: "dallas-stars", status: "upcoming" },
-  { id: "g22", week: 5, date: "2026-08-14", time: "9:00PM", homeTeamId: "carolina-hurricanes", awayTeamId: "vegas-golden-knights", status: "upcoming" },
-  { id: "g23", week: 5, date: "2026-08-15", time: "7:00", homeTeamId: "tampa-bay-lightning", awayTeamId: "boston-bruins", status: "upcoming" },
-  { id: "g24", week: 5, date: "2026-08-15", time: "8:20PM", homeTeamId: "los-angeles-kings", awayTeamId: "pittsburgh-penguins", status: "upcoming" },
-  { id: "g25", week: 5, date: "2026-08-15", time: "9:10PM", homeTeamId: "utah-mammoths", awayTeamId: "new-york-rangers", status: "upcoming" },
+  { id: "g21", week: 5, date: "2026-08-14", time: "7:55PM", homeTeamId: "st-louis-blues", awayTeamId: "dallas-stars", homeScore: 4, awayScore: 3, status: "final", lg: "Zyler", potg: "Hogeye" },
+  { id: "g22", week: 5, date: "2026-08-16", time: "7:30PM", homeTeamId: "carolina-hurricanes", awayTeamId: "vegas-golden-knights", status: "upcoming" },
+  { id: "g23", week: 5, date: "2026-08-15", time: "7:00PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "boston-bruins", status: "final" },
+  { id: "g24", week: 5, date: "2026-08-15", time: "8:20PM", homeTeamId: "los-angeles-kings", awayTeamId: "pittsburgh-penguins", homeScore: 1, awayScore: 4, status: "final", wg: "Fellow", potg: "Chrisx" },
+  { id: "g25", week: 5, date: "2026-08-15", time: "9:10PM", homeTeamId: "utah-mammoths", awayTeamId: "new-york-rangers", status: "final" },
 ];
 
 // Featured matchup shown prominently on the homepage.
