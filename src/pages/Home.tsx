@@ -24,6 +24,7 @@ import {
   getHeadshotByName,
 } from "@/data/players";
 import { formatLongDate, formatSavePct } from "@/utils/format";
+import { computeMilestones, type Milestone } from "@/utils/milestones";
 
 const upcomingGames = games
   .filter((g) => g.status === "upcoming" || g.status === "live")
@@ -34,6 +35,7 @@ const eastStandings = standingsForConference("east", teams, games);
 const westStandings = standingsForConference("west", teams, games);
 
 const featuredGame = games.find((g) => g.id === featuredGameId);
+const milestones = computeMilestones(skaters, goalies).slice(0, 3);
 
 export default function Home() {
   return (
@@ -152,6 +154,21 @@ export default function Home() {
           />
         </div>
       </section>
+
+      {milestones.length > 0 && (
+        <section className="mx-auto max-w-[1400px] px-6 pb-20 lg:px-10">
+          <SectionHeader
+            eyebrow="CHASING HISTORY"
+            title="Record Watch"
+            action={{ label: "VIEW RECORD BOOK", to: "/history" }}
+          />
+          <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            {milestones.map((milestone) => (
+              <MilestoneCard key={`${milestone.categoryId}-${milestone.label}`} milestone={milestone} />
+            ))}
+          </div>
+        </section>
+      )}
     </>
   );
 }
@@ -299,5 +316,65 @@ function LeaderCard({
         })}
       </ul>
     </div>
+  );
+}
+
+function MilestoneCard({ milestone }: { milestone: Milestone }) {
+  const team = getTeamById(milestone.leaderTeamId);
+  const headshot = getHeadshotByName(milestone.leaderName);
+  const pct = Math.min((milestone.current / milestone.recordValue) * 100, 100);
+
+  return (
+    <Link
+      to={`/players/${playerSlug(milestone.leaderName)}`}
+      className="group relative overflow-hidden border border-amber-400/30 bg-gradient-to-br from-amber-400/[0.08] via-bg-2 to-bg-2 p-5 transition-all duration-300 hover:border-amber-400/50"
+    >
+      <div className="flex items-center justify-between gap-3">
+        <p className="text-xs font-semibold tracking-[0.2em] text-amber-400">
+          {milestone.categoryName.toUpperCase()} &middot; {milestone.label.toUpperCase()}
+        </p>
+        {milestone.broken ? (
+          <span className="shrink-0 text-[10px] font-bold tracking-[0.15em] text-amber-400">
+            NEW RECORD
+          </span>
+        ) : milestone.tied ? (
+          <span className="shrink-0 text-[10px] font-bold tracking-[0.15em] text-amber-400">
+            TIED
+          </span>
+        ) : (
+          <span className="shrink-0 text-[10px] font-semibold tracking-[0.15em] text-ink-3">
+            {milestone.remaining} AWAY
+          </span>
+        )}
+      </div>
+
+      <div className="mt-4 flex items-center gap-3">
+        {headshot ? (
+          <img
+            src={headshot}
+            alt=""
+            className="h-11 w-11 shrink-0 rounded-full border border-line object-cover"
+          />
+        ) : (
+          team && <TeamLogo team={team} className="h-11 w-11 shrink-0" />
+        )}
+        <div className="min-w-0">
+          <p className="truncate font-display text-lg font-semibold text-ink-0">
+            {milestone.leaderName}
+          </p>
+          <p className="text-xs text-ink-2">
+            {milestone.current} of {milestone.recordValue}{" "}
+            <span className="text-ink-3">({milestone.recordHolder}, record)</span>
+          </p>
+        </div>
+      </div>
+
+      <div className="mt-4 h-1.5 w-full overflow-hidden rounded-full bg-white/10">
+        <div
+          className="h-full rounded-full bg-amber-400 transition-all duration-500"
+          style={{ width: `${pct}%` }}
+        />
+      </div>
+    </Link>
   );
 }
