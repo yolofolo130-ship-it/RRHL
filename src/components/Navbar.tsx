@@ -14,7 +14,6 @@ function DiscordIcon({ className = "h-4 w-4" }: { className?: string }) {
 
 const NAV_LINKS = [
   { label: "HOME", to: "/" },
-  { label: "NEWS", to: "/news" },
   { label: "STANDINGS", to: "/standings" },
   { label: "SCHEDULE", to: "/schedule" },
   { label: "TEAMS", to: "/teams" },
