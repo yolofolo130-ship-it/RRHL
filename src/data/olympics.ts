@@ -38,7 +38,7 @@ export const olympicTeams: OlympicTeam[] = [
     name: "USA",
     logo: usaLogo,
     headCoach: "Chrisx",
-    roster: ["TGOD", "Huddawg", "Caleb", "Sword", "Mesh"],
+    roster: ["TGOD", "Huddawg", "Caleb", "Swordtsu", "Mesh"],
   },
   {
     id: "finland",
