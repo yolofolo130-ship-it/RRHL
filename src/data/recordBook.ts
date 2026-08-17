@@ -59,7 +59,7 @@ export const recordBook: RecordCategory[] = [
     id: "goalie",
     name: "Goalie",
     records: [
-      { label: "Saves", holder: "TGOD", value: "81 saves (Season 20)", trackValue: 81, trackStat: "saves" },
+      { label: "Saves", holder: "TGOD", value: "89 saves (Season 23)", trackValue: 81, trackStat: "saves" },
       { label: "SV%", holder: "TGOD", value: ".992 SV% (Season 14)" },
       { label: "Record", holder: "TGOD", value: "10-0-0 (Season 9)" },
       { label: "Shutouts", holder: "TGOD", value: "7 shutouts (Season 5)", trackValue: 7, trackStat: "shutouts" },
