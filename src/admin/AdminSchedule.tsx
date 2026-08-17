@@ -61,6 +61,184 @@ const EMPTY_NEW_GAME: NewGameForm = {
   status: "upcoming",
 };
 
+function Field({ label, children }: { label: string; children: React.ReactNode }) {
+  return (
+    <label className="flex flex-col gap-1">
+      <span className="text-[10px] font-semibold tracking-[0.15em] text-ink-3">{label}</span>
+      {children}
+    </label>
+  );
+}
+
+const fieldInputClass =
+  "border border-line bg-bg-1 px-2 py-1.5 text-ink-0 outline-none focus:border-line-strong";
+
+function GameCardEditor({ row, onChange }: { row: Row; onChange: (patch: Partial<Row>) => void }) {
+  const sameTeams = row.homeTeamId === row.awayTeamId;
+  const rowGoalies = goaliesForGame(row.homeTeamId, row.awayTeamId);
+  const rowSkaters = skatersForGame(row.homeTeamId, row.awayTeamId);
+  const rowPlayers = allPlayersForGame(row.homeTeamId, row.awayTeamId);
+
+  return (
+    <div className="border border-line bg-bg-1/40 p-4">
+      <div className="flex flex-wrap items-end gap-3">
+        <Field label="DATE">
+          <input
+            type="date"
+            value={row.date}
+            onChange={(e) => onChange({ date: e.target.value })}
+            className={fieldInputClass}
+          />
+        </Field>
+        <Field label="TIME">
+          <input
+            type="text"
+            value={row.time}
+            onChange={(e) => onChange({ time: e.target.value })}
+            placeholder="8:10 PM"
+            className={`w-24 ${fieldInputClass}`}
+          />
+        </Field>
+        <Field label="STATUS">
+          <select
+            value={row.status}
+            onChange={(e) => onChange({ status: e.target.value })}
+            className={fieldInputClass}
+          >
+            {STATUS_OPTIONS.map((s) => (
+              <option key={s} value={s}>
+                {s}
+              </option>
+            ))}
+          </select>
+        </Field>
+        {sameTeams && <p className="pb-2 text-[10px] text-red-400">same team twice</p>}
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-end gap-3 border-t border-line/60 pt-3">
+        <Field label="AWAY">
+          <select
+            value={row.awayTeamId}
+            onChange={(e) => onChange({ awayTeamId: e.target.value })}
+            className={fieldInputClass}
+          >
+            {teams.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.abbr}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <Field label="A SCORE">
+          <input
+            type="number"
+            value={row.awayScore ?? ""}
+            onChange={(e) =>
+              onChange({ awayScore: e.target.value === "" ? undefined : Number(e.target.value) })
+            }
+            className={`w-16 text-center ${fieldInputClass}`}
+          />
+        </Field>
+        <span className="pb-2 text-ink-3">&ndash;</span>
+        <Field label="H SCORE">
+          <input
+            type="number"
+            value={row.homeScore ?? ""}
+            onChange={(e) =>
+              onChange({ homeScore: e.target.value === "" ? undefined : Number(e.target.value) })
+            }
+            className={`w-16 text-center ${fieldInputClass}`}
+          />
+        </Field>
+        <Field label="HOME">
+          <select
+            value={row.homeTeamId}
+            onChange={(e) => onChange({ homeTeamId: e.target.value })}
+            className={fieldInputClass}
+          >
+            {teams.map((t) => (
+              <option key={t.id} value={t.id}>
+                {t.abbr}
+              </option>
+            ))}
+          </select>
+        </Field>
+        <label className="flex items-center gap-2 pb-2 text-[10px] font-semibold tracking-[0.15em] text-ink-3">
+          <input
+            type="checkbox"
+            checked={row.overtime ?? false}
+            onChange={(e) => onChange({ overtime: e.target.checked })}
+          />
+          OT
+        </label>
+      </div>
+
+      <div className="mt-3 flex flex-wrap items-end gap-3 border-t border-line/60 pt-3">
+        <Field label="WG">
+          <select
+            value={row.wg ?? ""}
+            onChange={(e) => onChange({ wg: e.target.value || undefined })}
+            className={fieldInputClass}
+          >
+            <option value="">—</option>
+            <optgroup label="Goalies">
+              {rowGoalies.map((g) => (
+                <option key={g.id} value={g.name}>
+                  {g.name}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Skaters (emergency goalie)">
+              {rowSkaters.map((s) => (
+                <option key={s.id} value={s.name}>
+                  {s.name}
+                </option>
+              ))}
+            </optgroup>
+          </select>
+        </Field>
+        <Field label="LG">
+          <select
+            value={row.lg ?? ""}
+            onChange={(e) => onChange({ lg: e.target.value || undefined })}
+            className={fieldInputClass}
+          >
+            <option value="">—</option>
+            <optgroup label="Goalies">
+              {rowGoalies.map((g) => (
+                <option key={g.id} value={g.name}>
+                  {g.name}
+                </option>
+              ))}
+            </optgroup>
+            <optgroup label="Skaters (emergency goalie)">
+              {rowSkaters.map((s) => (
+                <option key={s.id} value={s.name}>
+                  {s.name}
+                </option>
+              ))}
+            </optgroup>
+          </select>
+        </Field>
+        <Field label="POTG">
+          <select
+            value={row.potg ?? ""}
+            onChange={(e) => onChange({ potg: e.target.value || undefined })}
+            className={fieldInputClass}
+          >
+            <option value="">—</option>
+            {rowPlayers.map((p) => (
+              <option key={p.id} value={p.name}>
+                {p.name}
+              </option>
+            ))}
+          </select>
+        </Field>
+      </div>
+    </div>
+  );
+}
+
 export default function AdminSchedule() {
   const [sha, setSha] = useState<string | null>(null);
   const [lines, setLines] = useState<string[] | null>(null);
@@ -79,6 +257,7 @@ export default function AdminSchedule() {
   const [featuredError, setFeaturedError] = useState<string | null>(null);
   const [statsLines, setStatsLines] = useState<string[] | null>(null);
   const [statsSha, setStatsSha] = useState<string | null>(null);
+  const [expandedWeeks, setExpandedWeeks] = useState<Set<number> | null>(null);
 
   const load = () => {
     setLoading(true);
@@ -117,6 +296,17 @@ export default function AdminSchedule() {
         const maxWeek = parsed.reduce((max, r) => Math.max(max, r.week), 0);
         setNewGame((f) => ({ ...f, week: maxWeek + 1 }));
 
+        // Default to just the week that still needs attention expanded —
+        // past, fully-final weeks stay collapsed so the page isn't a wall
+        // of games to scroll through. Only set once (retries shouldn't
+        // stomp on whatever the admin already expanded/collapsed).
+        setExpandedWeeks((prev) => {
+          if (prev !== null) return prev;
+          const inProgress = parsed.find((r) => r.status === "upcoming" || r.status === "live");
+          const defaultWeek = inProgress ? inProgress.week : maxWeek;
+          return new Set(defaultWeek ? [defaultWeek] : []);
+        });
+
         const featuredIdx = ls.findIndex((l) => l.includes(FEATURED_MARKER));
         const featuredMatch = featuredIdx !== -1 ? ls[featuredIdx].match(/"([^"]+)"/) : null;
         setFeaturedGameId(featuredMatch?.[1] ?? "");
@@ -130,6 +320,25 @@ export default function AdminSchedule() {
   const updateRow = (id: string, patch: Partial<Row>) => {
     setRows((rs) => rs.map((r) => (r.id === id ? { ...r, ...patch } : r)));
   };
+
+  const toggleWeek = (week: number) => {
+    setExpandedWeeks((prev) => {
+      const next = new Set(prev ?? []);
+      if (next.has(week)) next.delete(week);
+      else next.add(week);
+      return next;
+    });
+  };
+
+  const weekGroups = useMemo(() => {
+    const map = new Map<number, Row[]>();
+    for (const row of rows) {
+      const list = map.get(row.week) ?? [];
+      list.push(row);
+      map.set(row.week, list);
+    }
+    return Array.from(map.entries()).sort((a, b) => a[0] - b[0]);
+  }, [rows]);
 
   const saveAll = async () => {
     if (!lines || !sha || rows.length === 0) return;
@@ -259,184 +468,43 @@ export default function AdminSchedule() {
         {featuredError && <AdminSaveError error={featuredError} onRetry={load} className="mt-2" />}
       </div>
 
-      <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1500px] border-collapse text-sm font-admin-mono">
-          <thead>
-            <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
-              <th className="px-3 py-3 text-left font-semibold">DATE</th>
-              <th className="px-3 py-3 text-left font-semibold">TIME</th>
-              <th className="px-3 py-3 text-left font-semibold">AWAY</th>
-              <th className="px-3 py-3 text-left font-semibold">HOME</th>
-              <th className="px-2 py-3 text-center font-semibold">A SCORE</th>
-              <th className="px-2 py-3 text-center font-semibold">H SCORE</th>
-              <th className="px-2 py-3 text-center font-semibold">OT</th>
-              <th className="px-3 py-3 text-center font-semibold">STATUS</th>
-              <th className="px-3 py-3 text-left font-semibold">WG</th>
-              <th className="px-3 py-3 text-left font-semibold">LG</th>
-              <th className="px-3 py-3 text-left font-semibold">POTG</th>
-            </tr>
-          </thead>
-          <tbody>
-            {rows.map((row) => {
-              const sameTeams = row.homeTeamId === row.awayTeamId;
-              const rowGoalies = goaliesForGame(row.homeTeamId, row.awayTeamId);
-              const rowSkaters = skatersForGame(row.homeTeamId, row.awayTeamId);
-              const rowPlayers = allPlayersForGame(row.homeTeamId, row.awayTeamId);
-              return (
-                <tr key={row.id} className="border-b border-line/60 last:border-b-0">
-                  <td className="px-3 py-3">
-                    <input
-                      type="date"
-                      value={row.date}
-                      onChange={(e) => updateRow(row.id, { date: e.target.value })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    />
-                  </td>
-                  <td className="px-3 py-3">
-                    <input
-                      type="text"
-                      value={row.time}
-                      onChange={(e) => updateRow(row.id, { time: e.target.value })}
-                      placeholder="8:10 PM"
-                      className="w-24 border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    />
-                  </td>
-                  <td className="px-3 py-3">
-                    <select
-                      value={row.awayTeamId}
-                      onChange={(e) => updateRow(row.id, { awayTeamId: e.target.value })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    >
-                      {teams.map((t) => (
-                        <option key={t.id} value={t.id}>
-                          {t.abbr}
-                        </option>
-                      ))}
-                    </select>
-                  </td>
-                  <td className="px-3 py-3">
-                    <select
-                      value={row.homeTeamId}
-                      onChange={(e) => updateRow(row.id, { homeTeamId: e.target.value })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    >
-                      {teams.map((t) => (
-                        <option key={t.id} value={t.id}>
-                          {t.abbr}
-                        </option>
-                      ))}
-                    </select>
-                  </td>
-                  <td className="px-2 py-3 text-center">
-                    <input
-                      type="number"
-                      value={row.awayScore ?? ""}
-                      onChange={(e) =>
-                        updateRow(row.id, {
-                          awayScore: e.target.value === "" ? undefined : Number(e.target.value),
-                        })
-                      }
-                      className="w-14 border border-line bg-bg-1 px-2 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
-                    />
-                  </td>
-                  <td className="px-2 py-3 text-center">
-                    <input
-                      type="number"
-                      value={row.homeScore ?? ""}
-                      onChange={(e) =>
-                        updateRow(row.id, {
-                          homeScore: e.target.value === "" ? undefined : Number(e.target.value),
-                        })
-                      }
-                      className="w-14 border border-line bg-bg-1 px-2 py-1 text-center text-ink-0 outline-none focus:border-line-strong"
-                    />
-                  </td>
-                  <td className="px-2 py-3 text-center">
-                    <input
-                      type="checkbox"
-                      checked={row.overtime ?? false}
-                      onChange={(e) => updateRow(row.id, { overtime: e.target.checked })}
-                    />
-                  </td>
-                  <td className="px-3 py-3 text-center">
-                    <select
-                      value={row.status}
-                      onChange={(e) => updateRow(row.id, { status: e.target.value })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    >
-                      {STATUS_OPTIONS.map((s) => (
-                        <option key={s} value={s}>
-                          {s}
-                        </option>
-                      ))}
-                    </select>
-                    {sameTeams && <p className="mt-1 text-[10px] text-red-400">same team twice</p>}
-                  </td>
-                  <td className="px-3 py-3">
-                    <select
-                      value={row.wg ?? ""}
-                      onChange={(e) => updateRow(row.id, { wg: e.target.value || undefined })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    >
-                      <option value="">—</option>
-                      <optgroup label="Goalies">
-                        {rowGoalies.map((g) => (
-                          <option key={g.id} value={g.name}>
-                            {g.name}
-                          </option>
-                        ))}
-                      </optgroup>
-                      <optgroup label="Skaters (emergency goalie)">
-                        {rowSkaters.map((s) => (
-                          <option key={s.id} value={s.name}>
-                            {s.name}
-                          </option>
-                        ))}
-                      </optgroup>
-                    </select>
-                  </td>
-                  <td className="px-3 py-3">
-                    <select
-                      value={row.lg ?? ""}
-                      onChange={(e) => updateRow(row.id, { lg: e.target.value || undefined })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    >
-                      <option value="">—</option>
-                      <optgroup label="Goalies">
-                        {rowGoalies.map((g) => (
-                          <option key={g.id} value={g.name}>
-                            {g.name}
-                          </option>
-                        ))}
-                      </optgroup>
-                      <optgroup label="Skaters (emergency goalie)">
-                        {rowSkaters.map((s) => (
-                          <option key={s.id} value={s.name}>
-                            {s.name}
-                          </option>
-                        ))}
-                      </optgroup>
-                    </select>
-                  </td>
-                  <td className="px-3 py-3">
-                    <select
-                      value={row.potg ?? ""}
-                      onChange={(e) => updateRow(row.id, { potg: e.target.value || undefined })}
-                      className="border border-line bg-bg-1 px-2 py-1 text-ink-0 outline-none focus:border-line-strong"
-                    >
-                      <option value="">—</option>
-                      {rowPlayers.map((p) => (
-                        <option key={p.id} value={p.name}>
-                          {p.name}
-                        </option>
-                      ))}
-                    </select>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </table>
+      <div className="flex flex-col gap-3">
+        {weekGroups.map(([week, weekRows]) => {
+          const expanded = expandedWeeks?.has(week) ?? false;
+          const finalCount = weekRows.filter((r) => r.status === "final" || r.status === "forfeit").length;
+          return (
+            <div key={week} className="border border-line bg-bg-2">
+              <button
+                type="button"
+                onClick={() => toggleWeek(week)}
+                className="flex w-full items-center justify-between gap-3 px-4 py-3 text-left"
+              >
+                <span className="flex items-center gap-3">
+                  <span className="font-admin-display text-sm font-semibold text-ink-0">
+                    WEEK {week}
+                  </span>
+                  <span className="text-xs text-ink-3">
+                    {weekRows.length} game{weekRows.length === 1 ? "" : "s"} &middot; {finalCount} final
+                  </span>
+                </span>
+                <span
+                  className={`text-ink-3 transition-transform duration-200 ${expanded ? "rotate-180" : ""}`}
+                  aria-hidden
+                >
+                  ▾
+                </span>
+              </button>
+
+              {expanded && (
+                <div className="flex flex-col gap-3 border-t border-line p-4">
+                  {weekRows.map((row) => (
+                    <GameCardEditor key={row.id} row={row} onChange={(patch) => updateRow(row.id, patch)} />
+                  ))}
+                </div>
+              )}
+            </div>
+          );
+        })}
       </div>
 
       {rows.length > 0 && (
