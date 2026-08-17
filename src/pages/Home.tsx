@@ -25,7 +25,6 @@ import {
 } from "@/data/players";
 import { formatLongDate, formatSavePct } from "@/utils/format";
 import { computeMilestones, type Milestone } from "@/utils/milestones";
-import { newsPosts } from "@/data/news";
 
 const upcomingGames = games
   .filter((g) => g.status === "upcoming" || g.status === "live")
@@ -37,40 +36,11 @@ const westStandings = standingsForConference("west", teams, games);
 
 const featuredGame = games.find((g) => g.id === featuredGameId);
 const milestones = computeMilestones(skaters, goalies).slice(0, 3);
-const latestNews = [...newsPosts].sort((a, b) => b.date.localeCompare(a.date)).slice(0, 3);
 
 export default function Home() {
   return (
     <>
       <Hero />
-
-      {latestNews.length > 0 && (
-        <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
-          <SectionHeader eyebrow="AROUND THE LEAGUE" title="Latest News" action={{ label: "VIEW ALL NEWS", to: "/news" }} />
-          <div className="mt-8 grid gap-4 sm:grid-cols-3">
-            {latestNews.map((post) => (
-              <Link
-                key={post.id}
-                to="/news"
-                className="group flex flex-col overflow-hidden border border-line bg-bg-2 transition-colors duration-300 hover:border-line-strong"
-              >
-                {post.image && (
-                  <img src={post.image} alt="" className="h-36 w-full border-b border-line object-cover" />
-                )}
-                <div className="flex flex-1 flex-col p-5">
-                  <p className="text-[10px] font-semibold tracking-[0.2em] text-ink-3">
-                    {formatLongDate(post.date).toUpperCase()}
-                  </p>
-                  <p className="mt-2 font-display text-lg font-semibold uppercase leading-snug tracking-wide text-ink-0 group-hover:text-white">
-                    {post.title}
-                  </p>
-                  <p className="mt-2 line-clamp-3 text-xs leading-relaxed text-ink-2">{post.body}</p>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </section>
-      )}
 
       <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <SectionHeader

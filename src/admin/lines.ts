@@ -150,8 +150,8 @@ function splitTopLevelTokens(inner: string): string[] {
       // A quote is escaped only if it's preceded by an ODD run of
       // backslashes (`\"` escapes it, `\\"` doesn't — that's an escaped
       // backslash followed by a real quote). Counting the run instead of
-      // just checking one character back matters once a field can contain
-      // literal backslashes, like news post title/body can.
+      // just checking one character back matters for any field whose
+      // value could legitimately contain a literal backslash.
       let run = 0;
       let j = i - 1;
       while (j >= 0 && inner[j] === "\\") {
@@ -385,106 +385,6 @@ export function setLineFieldRaw(line: string, key: string, rawValue: string | un
   if (existingIndex !== -1) tokens[existingIndex] = newToken;
   else tokens.push(newToken);
   return prefix + tokens.join(", ") + suffix;
-}
-
-// ---------- news.ts posts ----------
-//
-// Title/body are free-text prose — unlike every other field this file
-// edits, they can contain quotes, colons, commas, and line breaks. The
-// quote/comma/colon part is already safe: parseLineKV's regex matches a
-// whole `"..."` token (including any colons/commas inside it) as one
-// unit, same as it always has. Line breaks are the real problem — a
-// literal newline inside a double-quoted JS string is a syntax error,
-// and would also split one entry across two physical lines, breaking
-// every line-index-based helper in this file. So these two escape a
-// title/body to/from a form safe to embed in a single-line string
-// literal (`\n` for real newlines, `\"` / `\\` for quotes/backslashes),
-// character-by-character rather than chained .replace() calls so an
-// escape sequence produced by one step can't be re-interpreted by the
-// next.
-
-function escapeNewsText(s: string): string {
-  let out = "";
-  for (const ch of s) {
-    if (ch === "\\") out += "\\\\";
-    else if (ch === '"') out += '\\"';
-    else if (ch === "\n") out += "\\n";
-    else if (ch === "\r") continue;
-    else out += ch;
-  }
-  return out;
-}
-
-function unescapeNewsText(s: string): string {
-  let out = "";
-  for (let i = 0; i < s.length; i++) {
-    if (s[i] === "\\" && i + 1 < s.length) {
-      const next = s[i + 1];
-      if (next === "n") {
-        out += "\n";
-        i++;
-        continue;
-      }
-      if (next === '"' || next === "\\") {
-        out += next;
-        i++;
-        continue;
-      }
-    }
-    out += s[i];
-  }
-  return out;
-}
-
-// Sets a free-text field (title/body) on an existing entry line, escaping
-// newlines/quotes/backslashes so the result stays valid on one line.
-// Preserves every other token verbatim — including a bare `image: xyz`
-// import reference, which plain reconstruction would silently drop.
-export function setLineFieldText(line: string, key: string, value: string): string {
-  const { prefix, inner, suffix } = splitEntryLine(line);
-  const tokens = splitTopLevelTokens(inner);
-  const existingIndex = tokens.findIndex((t) => tokenKey(t) === key);
-  const newToken = `${key}: "${escapeNewsText(value)}"`;
-  if (existingIndex !== -1) tokens[existingIndex] = newToken;
-  else tokens.push(newToken);
-  return prefix + tokens.join(", ") + suffix;
-}
-
-// Reads back a field written by setLineFieldText. Can't reuse parseLineKV
-// for this — its raw capture leaves `\n`/`\"` as literal two-character
-// sequences rather than unescaping them, which is fine for values that
-// are never edited as prose but wrong for title/body round-tripping into
-// a textarea.
-export function getLineFieldText(line: string, key: string): string | undefined {
-  const { inner } = splitEntryLine(line);
-  const tokens = splitTopLevelTokens(inner);
-  const token = tokens.find((t) => tokenKey(t) === key);
-  if (!token) return undefined;
-  const raw = token.slice(token.indexOf(":") + 1).trim();
-  if (!raw.startsWith('"') || !raw.endsWith('"')) return undefined;
-  return unescapeNewsText(raw.slice(1, -1));
-}
-
-export interface NewNewsPostFields {
-  id: string;
-  date: string;
-  title: string;
-  body: string;
-  /** Bare imported identifier, e.g. "newsImg3" — left unquoted. */
-  image?: string;
-  sourceKey?: string;
-}
-
-export function stringifyNewNewsPostLine(f: NewNewsPostFields): string {
-  const parts = [
-    `id: "${f.id}"`,
-    `date: "${f.date}"`,
-    `title: "${escapeNewsText(f.title)}"`,
-    `body: "${escapeNewsText(f.body)}"`,
-  ];
-  if (f.image) parts.push(`image: ${f.image}`);
-  if (f.sourceKey) parts.push(`sourceKey: "${f.sourceKey}"`);
-  return `  { ${parts.join(", ")} },`;
 }
 
 // Finds an existing `import varName from "..."` line by variable name and
