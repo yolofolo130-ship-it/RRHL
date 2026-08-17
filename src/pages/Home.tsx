@@ -25,6 +25,7 @@ import {
 } from "@/data/players";
 import { formatLongDate, formatSavePct } from "@/utils/format";
 import { computeMilestones, type Milestone } from "@/utils/milestones";
+import { olympicTeams } from "@/data/olympics";
 
 const upcomingGames = games
   .filter((g) => g.status === "upcoming" || g.status === "live")
@@ -41,6 +42,26 @@ export default function Home() {
   return (
     <>
       <Hero />
+
+      <section className="mx-auto max-w-[1400px] px-6 pt-20 lg:px-10">
+        <Link
+          to="/olympics"
+          className="group relative flex flex-col items-center gap-5 overflow-hidden border border-line-strong bg-bg-2 px-6 py-8 text-center transition-colors duration-300 hover:border-white sm:flex-row sm:justify-between sm:text-left"
+        >
+          <div>
+            <p className="text-xs font-semibold tracking-[0.3em] text-ink-2">RRHL PRESENTS</p>
+            <p className="font-display mt-1 text-3xl font-bold uppercase tracking-wide text-ink-0">
+              The Olympics
+            </p>
+            <p className="mt-1 text-sm text-ink-2">Four national rosters are set — see who's playing.</p>
+          </div>
+          <div className="flex shrink-0 items-center gap-3">
+            {olympicTeams.map((team) => (
+              <img key={team.id} src={team.logo} alt={team.name} className="h-12 w-12 object-contain" />
+            ))}
+          </div>
+        </Link>
+      </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-20 lg:px-10">
         <SectionHeader
