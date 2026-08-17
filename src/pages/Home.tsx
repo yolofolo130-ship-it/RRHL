@@ -362,6 +362,10 @@ function MilestoneCard({ milestone }: { milestone: Milestone }) {
           <span className="shrink-0 text-[10px] font-bold tracking-[0.15em] text-amber-400">
             TIED
           </span>
+        ) : milestone.isRecordHolder ? (
+          <span className="shrink-0 text-[10px] font-semibold tracking-[0.15em] text-ink-3">
+            RECORD HOLDER
+          </span>
         ) : (
           <span className="shrink-0 text-[10px] font-semibold tracking-[0.15em] text-ink-3">
             {milestone.remaining} AWAY

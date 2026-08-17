@@ -14,8 +14,11 @@ export interface Milestone {
   current: number;
   /** How many more the current leader needs — 0 once tied or broken. */
   remaining: number;
+  /** True only when someone OTHER than the record holder has caught up to the record. */
   tied: boolean;
   broken: boolean;
+  /** The record holder themself is this stat's current-season leader. */
+  isRecordHolder: boolean;
 }
 
 function currentLeader(
@@ -67,6 +70,7 @@ export function computeMilestones(skaters: Skater[], goalies: Goalie[]): Milesto
       if (!leader) continue;
 
       const remaining = Math.max(entry.trackValue - leader.value, 0);
+      const isRecordHolder = leader.name === entry.holder;
       milestones.push({
         categoryId: category.id,
         categoryName: category.name,
@@ -78,8 +82,11 @@ export function computeMilestones(skaters: Skater[], goalies: Goalie[]): Milesto
         leaderTeamId: leader.teamId,
         current: leader.value,
         remaining,
-        tied: leader.value === entry.trackValue,
+        // The record holder sitting on their own number isn't a "tie" —
+        // that only means something once someone ELSE catches up to it.
+        tied: !isRecordHolder && leader.value === entry.trackValue,
         broken: leader.value > entry.trackValue,
+        isRecordHolder,
       });
     }
   }
