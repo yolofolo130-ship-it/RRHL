@@ -43,4 +43,4 @@ export const games: Game[] = [
 ];
 
 // Featured matchup shown prominently on the homepage.
-export const featuredGameId = "g25";
+export const featuredGameId = "g27";
