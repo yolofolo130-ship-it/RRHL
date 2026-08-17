@@ -9,6 +9,7 @@ import Standings from "@/pages/Standings";
 import Schedule from "@/pages/Schedule";
 import Teams from "@/pages/Teams";
 import TeamDetail from "@/pages/TeamDetail";
+import HeadToHead from "@/pages/HeadToHead";
 import Stats from "@/pages/Stats";
 import Players from "@/pages/Players";
 import PlayerDetail from "@/pages/PlayerDetail";
@@ -50,6 +51,7 @@ export default function App() {
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/teams/:teamId" element={<TeamDetail />} />
+          <Route path="/head-to-head" element={<HeadToHead />} />
           <Route path="/stats" element={<Stats />} />
           <Route path="/players" element={<Players />} />
           <Route path="/players/:playerSlug" element={<PlayerDetail />} />

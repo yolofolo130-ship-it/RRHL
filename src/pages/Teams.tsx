@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
 import SectionHeader from "@/components/SectionHeader";
 import TeamCard from "@/components/TeamCard";
@@ -12,6 +13,16 @@ export default function Teams() {
   return (
     <>
       <PageHeader eyebrow="TEN CLUBS, ONE CUP" title="Teams" />
+
+      <section className="mx-auto px-6 pt-14 lg:px-10">
+        <Link
+          to="/head-to-head"
+          className="group inline-flex items-center gap-2 border border-line px-5 py-2.5 text-xs font-semibold tracking-[0.2em] text-ink-1 transition-all duration-300 hover:border-line-strong hover:bg-white hover:text-black"
+        >
+          COMPARE TWO TEAMS
+          <span className="transition-transform duration-300 group-hover:translate-x-1">&rarr;</span>
+        </Link>
+      </section>
 
       <section className="mx-auto px-6 py-14 lg:px-10">
         <SectionHeader eyebrow="CONFERENCE" title="Eastern Conference" />

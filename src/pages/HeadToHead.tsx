@@ -1,0 +1,116 @@
+import { useMemo, useState } from "react";
+import PageHeader from "@/components/PageHeader";
+import GameCard from "@/components/GameCard";
+import TeamLogo from "@/components/TeamLogo";
+import { teams, getTeamById } from "@/data/teams";
+import { games } from "@/data/schedule";
+import { computeHeadToHead, type HeadToHeadRecord } from "@/utils/headToHead";
+
+function RecordSide({
+  team,
+  record,
+  leads,
+}: {
+  team: NonNullable<ReturnType<typeof getTeamById>>;
+  record: HeadToHeadRecord;
+  leads: boolean;
+}) {
+  return (
+    <div className="flex flex-1 flex-col items-center gap-3 text-center">
+      <TeamLogo team={team} className={`h-16 w-16 sm:h-20 sm:w-20 ${leads ? "" : "opacity-70"}`} />
+      <p className="font-display text-lg font-semibold uppercase tracking-wide text-ink-0 sm:text-xl">
+        {team.name}
+      </p>
+      <p className="font-display text-4xl font-bold text-ink-0 sm:text-5xl">
+        {record.w}-{record.l}-{record.otl}
+      </p>
+      <p className="text-[10px] font-semibold tracking-[0.2em] text-ink-3">
+        {record.gf} GF &middot; {record.ga} GA
+      </p>
+    </div>
+  );
+}
+
+export default function HeadToHead() {
+  const [teamAId, setTeamAId] = useState(teams[0]?.id ?? "");
+  const [teamBId, setTeamBId] = useState(teams[1]?.id ?? "");
+
+  const teamA = getTeamById(teamAId);
+  const teamB = getTeamById(teamBId);
+  const sameTeam = teamAId === teamBId;
+
+  const result = useMemo(
+    () => (sameTeam ? null : computeHeadToHead(teamAId, teamBId, games)),
+    [teamAId, teamBId, sameTeam],
+  );
+
+  return (
+    <>
+      <PageHeader eyebrow="TALE OF THE TAPE" title="Head-to-Head" />
+
+      <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
+        <div className="flex flex-wrap items-center justify-center gap-4">
+          <select
+            value={teamAId}
+            onChange={(e) => setTeamAId(e.target.value)}
+            className="border border-line bg-bg-2 px-4 py-2.5 text-xs font-semibold tracking-[0.15em] text-ink-1 outline-none transition-colors focus:border-line-strong"
+          >
+            {teams.map((team) => (
+              <option key={team.id} value={team.id}>
+                {team.name.toUpperCase()}
+              </option>
+            ))}
+          </select>
+
+          <span className="text-xs font-semibold tracking-[0.2em] text-ink-3">VS</span>
+
+          <select
+            value={teamBId}
+            onChange={(e) => setTeamBId(e.target.value)}
+            className="border border-line bg-bg-2 px-4 py-2.5 text-xs font-semibold tracking-[0.15em] text-ink-1 outline-none transition-colors focus:border-line-strong"
+          >
+            {teams.map((team) => (
+              <option key={team.id} value={team.id}>
+                {team.name.toUpperCase()}
+              </option>
+            ))}
+          </select>
+        </div>
+
+        {sameTeam || !teamA || !teamB ? (
+          <p className="mt-10 border border-line bg-bg-2 px-6 py-10 text-center text-sm text-ink-2">
+            Pick two different teams to compare.
+          </p>
+        ) : (
+          <>
+            <div className="mt-10 flex items-center gap-6 border border-line bg-bg-2 p-8 sm:gap-10 sm:p-10">
+              <RecordSide team={teamA} record={result!.teamA} leads={result!.teamA.w > result!.teamB.w} />
+              <span className="font-display shrink-0 text-2xl font-bold text-ink-3 sm:text-3xl">
+                &ndash;
+              </span>
+              <RecordSide team={teamB} record={result!.teamB} leads={result!.teamB.w > result!.teamA.w} />
+            </div>
+            <p className="mt-4 text-center text-xs tracking-wide text-ink-3">
+              Current season only &mdash; past seasons aren&apos;t archived into head-to-head yet.
+            </p>
+
+            <div className="mt-12">
+              <p className="mb-4 text-xs font-semibold tracking-[0.2em] text-ink-2">
+                MEETINGS THIS SEASON
+              </p>
+              <div className="flex flex-col gap-4">
+                {result!.games.length === 0 ? (
+                  <p className="border border-line bg-bg-2 px-6 py-10 text-center text-sm text-ink-2">
+                    These teams haven&apos;t played each other yet this season.
+                  </p>
+                ) : (
+                  result!.games.map((game) => <GameCard key={game.id} game={game} />)
+                )}
+              </div>
+            </div>
+          </>
+        )}
+      </section>
+    </>
+  );
+}
