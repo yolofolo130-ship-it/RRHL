@@ -5,6 +5,7 @@ import MusicPlayer from "@/components/MusicPlayer";
 import FloatingLogo from "@/components/FloatingLogo";
 import PageTransition from "@/components/PageTransition";
 import Home from "@/pages/Home";
+import News from "@/pages/News";
 import Standings from "@/pages/Standings";
 import PowerRankings from "@/pages/PowerRankings";
 import Schedule from "@/pages/Schedule";
@@ -48,6 +49,7 @@ export default function App() {
         <Route path="/admin" element={<Admin />} />
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
+          <Route path="/news" element={<News />} />
           <Route path="/standings" element={<Standings />} />
           <Route path="/power-rankings" element={<PowerRankings />} />
           <Route path="/schedule" element={<Schedule />} />

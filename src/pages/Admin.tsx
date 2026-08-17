@@ -10,6 +10,7 @@ import AdminRosters from "@/admin/AdminRosters";
 import AdminHeadshots from "@/admin/AdminHeadshots";
 import AdminAccolades from "@/admin/AdminAccolades";
 import AdminHistory from "@/admin/AdminHistory";
+import AdminNews from "@/admin/AdminNews";
 
 interface TabDef {
   value: string;
@@ -67,6 +68,17 @@ const NAV_GROUPS: NavGroup[] = [
         label: "Headshots",
         description: "Upload or replace a player's profile photo.",
         Component: AdminHeadshots,
+      },
+    ],
+  },
+  {
+    label: "CONTENT",
+    tabs: [
+      {
+        value: "news",
+        label: "News",
+        description: "League news posts — auto-suggested from final games, or written from scratch.",
+        Component: AdminNews,
       },
     ],
   },
