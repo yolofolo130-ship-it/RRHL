@@ -6,6 +6,7 @@ import FloatingLogo from "@/components/FloatingLogo";
 import PageTransition from "@/components/PageTransition";
 import Home from "@/pages/Home";
 import Standings from "@/pages/Standings";
+import PowerRankings from "@/pages/PowerRankings";
 import Schedule from "@/pages/Schedule";
 import Teams from "@/pages/Teams";
 import TeamDetail from "@/pages/TeamDetail";
@@ -48,6 +49,7 @@ export default function App() {
         <Route element={<Layout />}>
           <Route path="/" element={<Home />} />
           <Route path="/standings" element={<Standings />} />
+          <Route path="/power-rankings" element={<PowerRankings />} />
           <Route path="/schedule" element={<Schedule />} />
           <Route path="/teams" element={<Teams />} />
           <Route path="/teams/:teamId" element={<TeamDetail />} />
