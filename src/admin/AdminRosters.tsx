@@ -220,6 +220,7 @@ export default function AdminRosters() {
   const [addGoalieError, setAddGoalieError] = useState<string | null>(null);
   const [retiringId, setRetiringId] = useState<string | null>(null);
   const [retireError, setRetireError] = useState<string | null>(null);
+  const [retiredName, setRetiredName] = useState<string | null>(null);
 
   const load = () => {
     setLoading(true);
@@ -344,6 +345,8 @@ export default function AdminRosters() {
 
       setLines(nextPlayersLines);
       setSha(newPlayersSha);
+      setRetiredName(row.name);
+      setTimeout(() => setRetiredName((n) => (n === row.name ? null : n)), 4000);
     } catch (e: any) {
       setRetireError(String(e.message ?? e));
     } finally {
@@ -518,6 +521,11 @@ export default function AdminRosters() {
           </tbody>
         </table>
       </div>
+      {retiredName && (
+        <p className="mt-3 text-xs font-semibold tracking-[0.1em] text-emerald-400">
+          {retiredName.toUpperCase()} RELEASED TO FREE AGENCY ✓
+        </p>
+      )}
       {retireError && <AdminSaveError error={retireError} onRetry={load} className="mt-3" />}
       {skaterRows.length > 0 && (
         <div className="mt-4 flex items-center gap-3">
@@ -659,6 +667,11 @@ export default function AdminRosters() {
           </tbody>
         </table>
       </div>
+      {retiredName && (
+        <p className="mt-3 text-xs font-semibold tracking-[0.1em] text-emerald-400">
+          {retiredName.toUpperCase()} RELEASED TO FREE AGENCY ✓
+        </p>
+      )}
       {retireError && <AdminSaveError error={retireError} onRetry={load} className="mt-3" />}
       {goalieRows.length > 0 && (
         <div className="mt-4 flex items-center gap-3">
