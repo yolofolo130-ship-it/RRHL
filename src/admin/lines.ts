@@ -297,6 +297,30 @@ export function stringifyNewGoalieLine(f: NewGoalieFields): string {
   return `  { ${parts.join(", ")} },`;
 }
 
+// ---------- formerPlayers.ts entries ----------
+//
+// No stat fields — formerPlayers.ts only exists so a retired player's name
+// has somewhere to link to from playerHistory.ts/championshipRosters.ts.
+// Career stats aren't preserved here; only identity/flair carries over.
+
+export interface NewFormerPlayerFields {
+  id: string;
+  name: string;
+  overall?: number;
+  xFactor?: string;
+  star?: string;
+  flag?: string;
+}
+
+export function stringifyNewFormerPlayerLine(f: NewFormerPlayerFields): string {
+  const parts = [`id: "${f.id}"`, `name: "${f.name}"`];
+  if (f.overall !== undefined) parts.push(`overall: ${f.overall}`);
+  if (f.xFactor) parts.push(`xFactor: "${f.xFactor}"`);
+  if (f.star) parts.push(`star: "${f.star}"`);
+  if (f.flag) parts.push(`flag: "${f.flag}"`);
+  return `  { ${parts.join(", ")} },`;
+}
+
 // Scans an array's entry lines for ids matching `${idRegex}` and returns
 // one past the highest numeric suffix found — e.g. existing car-1..car-8
 // yields 9. Starts at 1 if the team has no players of this kind yet.

@@ -10,14 +10,17 @@ import {
   nextIdNumber,
   stringifyNewSkaterLine,
   stringifyNewGoalieLine,
+  stringifyNewFormerPlayerLine,
   type KV,
 } from "@/admin/lines";
 import { teams } from "@/data/teams";
 import { xFactorAbilities } from "@/data/xfactors";
 import { starAbilities } from "@/data/stars";
 import { flagIcons } from "@/data/flags";
+import { slugify } from "@/utils/format";
 
 const PATH = "src/data/players.ts";
+const FORMER_PLAYERS_PATH = "src/data/formerPlayers.ts";
 const XFACTOR_OPTIONS = Object.keys(xFactorAbilities);
 const STAR_OPTIONS = Object.keys(starAbilities);
 const FLAG_OPTIONS = Object.keys(flagIcons);
@@ -215,6 +218,8 @@ export default function AdminRosters() {
   const [addingGoalie, setAddingGoalie] = useState(false);
   const [addSkaterError, setAddSkaterError] = useState<string | null>(null);
   const [addGoalieError, setAddGoalieError] = useState<string | null>(null);
+  const [retiringId, setRetiringId] = useState<string | null>(null);
+  const [retireError, setRetireError] = useState<string | null>(null);
 
   const load = () => {
     setLoading(true);
@@ -296,6 +301,54 @@ export default function AdminRosters() {
   };
 
   const currentTeam = teams.find((t) => t.id === teamId);
+
+  // Moves a player from players.ts (skaters or goalies) to
+  // formerPlayers.ts — two separate commits, since each GitHub Contents
+  // API write only touches one file. Only identity/flair (overall,
+  // xFactor, star, flag) carries over; formerPlayers.ts has no stat
+  // fields, and a bare `headshot: xyz` import reference can't be safely
+  // moved between files by this line-based editor, so a retired player's
+  // headshot won't follow them — re-upload it later if needed.
+  const retirePlayer = async (row: Row) => {
+    if (!lines || !sha) return;
+    if (!window.confirm(`Move ${row.name} to Former Players? They'll be removed from the active roster.`)) {
+      return;
+    }
+    setRetiringId(row.id);
+    setRetireError(null);
+    try {
+      const nextPlayersLines = [...lines];
+      nextPlayersLines.splice(row.lineIndex, 1);
+      const newPlayersSha = await commitFile(
+        PATH,
+        nextPlayersLines.join("\n"),
+        sha,
+        `Retire ${row.name} to Former Players`,
+      );
+
+      const { content: fpContent, sha: fpSha } = await getFile(FORMER_PLAYERS_PATH);
+      const fpLines = fpContent.split("\n");
+      const { end } = findArrayRange(fpLines, "export const formerPlayers");
+      const newFpLine = stringifyNewFormerPlayerLine({
+        id: `fp-${slugify(row.name)}`,
+        name: row.name,
+        overall: row.values.overall as number | undefined,
+        xFactor: row.values.xFactor as string | undefined,
+        star: row.values.star as string | undefined,
+        flag: row.values.flag as string | undefined,
+      });
+      const nextFpLines = [...fpLines];
+      nextFpLines.splice(end, 0, newFpLine);
+      await commitFile(FORMER_PLAYERS_PATH, nextFpLines.join("\n"), fpSha, `Add ${row.name} to former players`);
+
+      setLines(nextPlayersLines);
+      setSha(newPlayersSha);
+    } catch (e: any) {
+      setRetireError(String(e.message ?? e));
+    } finally {
+      setRetiringId(null);
+    }
+  };
 
   const addSkater = async () => {
     if (!lines || !sha || !currentTeam) return;
@@ -390,7 +443,7 @@ export default function AdminRosters() {
 
       <p className="mb-3 mt-8 text-xs font-semibold tracking-[0.2em] text-ink-2">SKATERS</p>
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[900px] border-collapse text-sm font-admin-mono">
+        <table className="w-full min-w-[980px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
@@ -405,6 +458,7 @@ export default function AdminRosters() {
               <th className="px-2 py-3 text-center font-semibold">X-FACTOR</th>
               <th className="px-2 py-3 text-center font-semibold">STAR</th>
               <th className="px-2 py-3 text-center font-semibold">FLAG</th>
+              <th className="px-2 py-3 text-center font-semibold"></th>
             </tr>
           </thead>
           <tbody>
@@ -448,11 +502,22 @@ export default function AdminRosters() {
                   values={row.values}
                   onChange={(key, value) => updateField(setSkaterRows, row.id, key, value)}
                 />
+                <td className="px-2 py-3 text-center">
+                  <button
+                    type="button"
+                    onClick={() => retirePlayer(row)}
+                    disabled={retiringId === row.id}
+                    className="whitespace-nowrap border border-line px-2 py-1 text-[10px] font-semibold tracking-[0.1em] text-ink-2 transition-colors hover:border-red-400/60 hover:text-red-300 disabled:opacity-50"
+                  >
+                    {retiringId === row.id ? "…" : "RETIRE"}
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {retireError && <AdminSaveError error={retireError} onRetry={load} className="mt-3" />}
       {skaterRows.length > 0 && (
         <div className="mt-4 flex items-center gap-3">
           <button
@@ -519,7 +584,7 @@ export default function AdminRosters() {
 
       <p className="mb-3 mt-10 text-xs font-semibold tracking-[0.2em] text-ink-2">GOALIES</p>
       <div className="overflow-x-auto border border-line bg-bg-2">
-        <table className="w-full min-w-[1100px] border-collapse text-sm font-admin-mono">
+        <table className="w-full min-w-[1180px] border-collapse text-sm font-admin-mono">
           <thead>
             <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
               <th className="px-4 py-3 text-left font-semibold">PLAYER</th>
@@ -534,6 +599,7 @@ export default function AdminRosters() {
               <th className="px-2 py-3 text-center font-semibold">X-FACTOR</th>
               <th className="px-2 py-3 text-center font-semibold">STAR</th>
               <th className="px-2 py-3 text-center font-semibold">FLAG</th>
+              <th className="px-2 py-3 text-center font-semibold"></th>
             </tr>
           </thead>
           <tbody>
@@ -577,11 +643,22 @@ export default function AdminRosters() {
                   values={row.values}
                   onChange={(key, value) => updateField(setGoalieRows, row.id, key, value)}
                 />
+                <td className="px-2 py-3 text-center">
+                  <button
+                    type="button"
+                    onClick={() => retirePlayer(row)}
+                    disabled={retiringId === row.id}
+                    className="whitespace-nowrap border border-line px-2 py-1 text-[10px] font-semibold tracking-[0.1em] text-ink-2 transition-colors hover:border-red-400/60 hover:text-red-300 disabled:opacity-50"
+                  >
+                    {retiringId === row.id ? "…" : "RETIRE"}
+                  </button>
+                </td>
               </tr>
             ))}
           </tbody>
         </table>
       </div>
+      {retireError && <AdminSaveError error={retireError} onRetry={load} className="mt-3" />}
       {goalieRows.length > 0 && (
         <div className="mt-4 flex items-center gap-3">
           <button
