@@ -35,7 +35,7 @@ export const games: Game[] = [
   { id: "g23", week: 5, date: "2026-08-15", time: "7:00PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "boston-bruins", homeScore: 0, awayScore: 1, status: "forfeit" },
   { id: "g24", week: 5, date: "2026-08-15", time: "8:20PM", homeTeamId: "los-angeles-kings", awayTeamId: "pittsburgh-penguins", homeScore: 1, awayScore: 4, status: "final", wg: "Fellow", potg: "Chrisx" },
   { id: "g25", week: 5, date: "2026-08-15", time: "9:10PM", homeTeamId: "utah-mammoths", awayTeamId: "new-york-rangers", homeScore: 1, awayScore: 0, status: "forfeit" },
-  { id: "g26", week: 6, date: "2026-08-17", time: "7:25PM", homeTeamId: "los-angeles-kings", awayTeamId: "boston-bruins", homeScore: 0, awayScore: 5, status: "final", wg: "Boolit", lg: "BDot" },
+  { id: "g26", week: 6, date: "2026-08-17", time: "7:25PM", homeTeamId: "los-angeles-kings", awayTeamId: "boston-bruins", homeScore: 0, awayScore: 5, status: "final", wg: "Boolit", lg: "BDot", potg: "Sparkles" },
   { id: "g27", week: 6, date: "2026-08-17", time: "8:30PM", homeTeamId: "vegas-golden-knights", awayTeamId: "pittsburgh-penguins", homeScore: 4, awayScore: 3, status: "final", wg: "Mesh", lg: "Fellow", potg: "Butter" },
   { id: "g28", week: 6, date: "2026-08-18", time: "6:55PM", homeTeamId: "carolina-hurricanes", awayTeamId: "new-york-rangers", status: "upcoming" },
   { id: "g29", week: 6, date: "2026-08-18", time: "7:40PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "dallas-stars", status: "upcoming" },
