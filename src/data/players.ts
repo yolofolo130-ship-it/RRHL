@@ -111,7 +111,7 @@ export const skaters: Skater[] = [
 
   { id: "dal-1", name: "Santi", teamId: "dallas-stars", position: "C", number: 1, gp: 4, goals: 4, assists: 3, pim: 0, overall: 83, flag: "Mexico" },
   { id: "dal-2", name: "Uzi", teamId: "dallas-stars", position: "RW", number: 19, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
-  { id: "dal-3", name: "TickleTimmy", teamId: "dallas-stars", position: "LW", number: 16, gp: 1, goals: 1, assists: 1, pim: 0, flag: "USA" },
+  { id: "dal-3", name: "TickleTimmy", teamId: "new-york-rangers", position: "LW", number: 16, gp: 1, goals: 1, assists: 1, pim: 0, flag: "USA" },
   { id: "dal-4", name: "Alex", teamId: "dallas-stars", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0, overall: 78, flag: "USA" },
   { id: "dal-5", name: "Courtney", teamId: "dallas-stars", position: "D", number: 68, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-6", name: "Zyler", teamId: "dallas-stars", position: "RW", number: 62, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
