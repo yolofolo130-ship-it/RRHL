@@ -105,7 +105,7 @@ export const skaters: Skater[] = [
   { id: "lak-4", name: "2Tone", teamId: "los-angeles-kings", position: "D", number: 26, gp: 1, goals: 0, assists: 0, pim: 0, overall: 85, flag: "USA" },
   { id: "lak-5", name: "Duck", teamId: "los-angeles-kings", position: "D", number: 27, gp: 0, goals: 0, assists: 0, pim: 0, overall: 88, star: "Wheels", flag: "USA" },
   { id: "lak-6", name: "JosuxRR", teamId: "los-angeles-kings", position: "RW", number: 37, gp: 2, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
-  { id: "lak-7", name: "Kranky", teamId: "los-angeles-kings", position: "RW", number: 89, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
+  { id: "lak-7", name: "Kranky", teamId: "boston-bruins", position: "RW", number: 89, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
   { id: "lak-8", name: "StefonB", teamId: "los-angeles-kings", position: "RW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
   { id: "lak-9", name: "Evv-76", teamId: "los-angeles-kings", position: "D", number: 1, gp: 0, goals: 0, assists: 0, pim: 0, overall: 75, flag: "USA" },
   { id: "lak-10", name: "BDot", teamId: "los-angeles-kings", position: "C", number: 42, gp: 0, goals: 0, assists: 0, pim: 0, overall: 79, flag: "USA" },
