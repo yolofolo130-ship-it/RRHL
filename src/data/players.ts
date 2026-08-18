@@ -34,7 +34,7 @@ export const skaters: Skater[] = [
   { id: "pit-5", name: "chicharito9260", teamId: "st-louis-blues", position: "D", number: 99, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "pit-6", name: "44worthy", teamId: "pittsburgh-penguins", position: "D", number: 69, gp: 1, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
   { id: "pit-7", name: "LBeard0320", teamId: "pittsburgh-penguins", position: "D", number: 45, gp: 2, goals: 0, assists: 0, pim: 0, overall: 76, flag: "USA" },
-  { id: "pit-8", name: "cjcrosby898999", teamId: "dallas-stars", position: "D", number: 23, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "pit-8", name: "Isagi", teamId: "dallas-stars", position: "D", number: 23, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "pit-9", name: "Arri", teamId: "pittsburgh-penguins", position: "RW", number: 24, gp: 0, goals: 0, assists: 0, pim: 0, overall: 73, flag: "USA" },
   { id: "pit-10", name: "Carterthegawd", teamId: "pittsburgh-penguins", position: "D", number: 2, gp: 3, goals: 2, assists: 0, pim: 0, overall: 86, flag: "USA", headshot: pit10Headshot },
   { id: "pit-11", name: "Anonymous Baller", teamId: "st-louis-blues", position: "LW", number: 8, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },

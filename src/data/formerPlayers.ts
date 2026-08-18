@@ -48,7 +48,6 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-evelyn", name: "Evelyn", flag: "USA" },
   { id: "fp-lilcottreau", name: "LiLCottreau", flag: "USA" },
   { id: "fp-k3", name: "K3", flag: "UK" },
-  { id: "fp-isagi", name: "Isagi", flag: "USA" },
   { id: "fp-max", name: "Max", flag: "USA" },
   { id: "fp-mcwizard", name: "McWizard", flag: "USA" },
   { id: "fp-reject", name: "Reject", flag: "USA" },

@@ -84,10 +84,10 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "LBeard0320", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "LBeard0320", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
-  { playerName: "cjcrosby898999", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "cjcrosby898999", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "cjcrosby898999", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
-  { playerName: "cjcrosby898999", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Isagi", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Isagi", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Isagi", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Isagi", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Arri", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Arri", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
