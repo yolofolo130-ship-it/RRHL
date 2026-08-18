@@ -302,16 +302,17 @@ export default function AdminRosters() {
 
   const currentTeam = teams.find((t) => t.id === teamId);
 
-  // Moves a player from players.ts (skaters or goalies) to
-  // formerPlayers.ts — two separate commits, since each GitHub Contents
-  // API write only touches one file. Only identity/flair (overall,
-  // xFactor, star, flag) carries over; formerPlayers.ts has no stat
-  // fields, and a bare `headshot: xyz` import reference can't be safely
-  // moved between files by this line-based editor, so a retired player's
-  // headshot won't follow them — re-upload it later if needed.
+  // Releases a player from their current team to free agency — moves them
+  // from players.ts (skaters or goalies) to formerPlayers.ts (the free
+  // agent pool) in two separate commits, since each GitHub Contents API
+  // write only touches one file. Only identity/flair (overall, xFactor,
+  // star, flag) carries over; formerPlayers.ts has no stat fields, and a
+  // bare `headshot: xyz` import reference can't be safely moved between
+  // files by this line-based editor, so a released player's headshot
+  // won't follow them — re-upload it later if needed.
   const retirePlayer = async (row: Row) => {
     if (!lines || !sha) return;
-    if (!window.confirm(`Move ${row.name} to Former Players? They'll be removed from the active roster.`)) {
+    if (!window.confirm(`Release ${row.name} to free agency? They'll be removed from the active roster.`)) {
       return;
     }
     setRetiringId(row.id);
@@ -323,7 +324,7 @@ export default function AdminRosters() {
         PATH,
         nextPlayersLines.join("\n"),
         sha,
-        `Retire ${row.name} to Former Players`,
+        `Release ${row.name} to free agency`,
       );
 
       const { content: fpContent, sha: fpSha } = await getFile(FORMER_PLAYERS_PATH);
@@ -339,7 +340,7 @@ export default function AdminRosters() {
       });
       const nextFpLines = [...fpLines];
       nextFpLines.splice(end, 0, newFpLine);
-      await commitFile(FORMER_PLAYERS_PATH, nextFpLines.join("\n"), fpSha, `Add ${row.name} to former players`);
+      await commitFile(FORMER_PLAYERS_PATH, nextFpLines.join("\n"), fpSha, `Add ${row.name} to free agents`);
 
       setLines(nextPlayersLines);
       setSha(newPlayersSha);
@@ -509,7 +510,7 @@ export default function AdminRosters() {
                     disabled={retiringId === row.id}
                     className="whitespace-nowrap border border-line px-2 py-1 text-[10px] font-semibold tracking-[0.1em] text-ink-2 transition-colors hover:border-red-400/60 hover:text-red-300 disabled:opacity-50"
                   >
-                    {retiringId === row.id ? "…" : "RETIRE"}
+                    {retiringId === row.id ? "…" : "FREE AGENT"}
                   </button>
                 </td>
               </tr>
@@ -650,7 +651,7 @@ export default function AdminRosters() {
                     disabled={retiringId === row.id}
                     className="whitespace-nowrap border border-line px-2 py-1 text-[10px] font-semibold tracking-[0.1em] text-ink-2 transition-colors hover:border-red-400/60 hover:text-red-300 disabled:opacity-50"
                   >
-                    {retiringId === row.id ? "…" : "RETIRE"}
+                    {retiringId === row.id ? "…" : "FREE AGENT"}
                   </button>
                 </td>
               </tr>
