@@ -53,6 +53,7 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-mcwizard", name: "McWizard", flag: "USA" },
   { id: "fp-reject", name: "Reject", flag: "USA" },
   { id: "fp-cristian", name: "Cristian", flag: "USA" },
+  { id: "fp-pkplis", name: "PKPlis", overall: 71, flag: "USA" },
 ];
 
 export const getFormerPlayerByName = (name: string): FormerPlayer | undefined =>
