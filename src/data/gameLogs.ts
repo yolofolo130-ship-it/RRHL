@@ -522,7 +522,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Sparkles", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Sparkles", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Sparkles", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Sparkles", gameId: "g26", gs: 1, shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 2, assists: 0, points: 2, pim: 0 },
+  { playerName: "Sparkles", gameId: "g26", gs: 1, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 2, assists: 0, points: 2, pim: 0 },
 
   // ---------- NEW YORK RANGERS ----------
   { playerName: "DDino", gameId: "g02", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
