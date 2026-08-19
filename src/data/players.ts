@@ -206,15 +206,13 @@ export const topBySaves = (count: number): Goalie[] =>
 // leaderboard (an untested goalie's 0.00 GAA isn't a "best" GAA).
 const hasFacedShots = (goalie: Goalie): boolean => goalieShotsAgainst(goalie) > 0;
 
-// A goalie needs at least half as many GP as the current games-played
-// leader to qualify for the SV%/GAA leaderboards — otherwise a one-game
-// perfect sheet could sit at #1 all season without ever being challenged
-// again. The bar rises automatically as the season goes on.
-const qualifyingGoalieGp = (): number =>
-  Math.max(1, Math.ceil(Math.max(0, ...goalies.map((g) => g.gp)) / 2));
+// Minimum games started to qualify for goalie leaderboards/awards — keeps
+// a backup or a one-off call-up from "stealing" a statistical crown off a
+// tiny sample size (e.g. a single relief appearance with a shutout).
+const QUALIFYING_GOALIE_GS = 5;
 
 export const isQualifiedGoalie = (goalie: Goalie): boolean =>
-  hasFacedShots(goalie) && goalie.gp >= qualifyingGoalieGp();
+  hasFacedShots(goalie) && goalie.gs >= QUALIFYING_GOALIE_GS;
 
 export const topBySavePct = (count: number): Goalie[] =>
   [...goalies]
