@@ -36,7 +36,7 @@ export const skaters: Skater[] = [
   { id: "pit-10", name: "Carterthegawd", teamId: "pittsburgh-penguins", position: "D", number: 2, gp: 3, goals: 2, assists: 0, pim: 0, overall: 86, flag: "USA", headshot: pit10Headshot },
   { id: "pit-12", name: "AlexKiller", teamId: "pittsburgh-penguins", position: "LW", number: 1, gp: 3, goals: 0, assists: 0, pim: 0, flag: "USA" },
 
-  { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 2, goals: 5, assists: 10, pim: 0, overall: 92, star: "Quick Release", flag: "USA", headshot: tbl1Headshot },
+  { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 3, goals: 6, assists: 10, pim: 0, overall: 92, star: "Quick Release", flag: "USA", headshot: tbl1Headshot },
   { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 5, goals: 17, assists: 3, pim: 0, overall: 87, flag: "USA" },
   { id: "tbl-3", name: "Snickers", teamId: "tampa-bay-lightning", position: "C", number: 24, gp: 2, goals: 0, assists: 0, pim: 0, overall: 87, flag: "Canada" },
   { id: "tbl-4", name: "KindSnack000", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
