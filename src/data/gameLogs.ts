@@ -109,6 +109,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Cron", gameId: "g06", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Cron", gameId: "g15", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Cron", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Cron", gameId: "g29", goals: 8, assists: 0, points: 8, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Snickers", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Snickers", gameId: "g06", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -184,6 +185,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Jrok", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Jrok", gameId: "g15", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Jrok", gameId: "g18", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Jrok", gameId: "g28", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Bungee", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Bungee", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -259,6 +261,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Mood", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Mood", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Mood", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Mood", gameId: "g30", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   // ---------- VEGAS GOLDEN KNIGHTS ----------
   { playerName: "Sinny", gameId: "g01", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 3, shifts: 2 },
@@ -491,6 +494,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Wapw", gameId: "g08", gs: 1, dec: "W", shotsAgainst: 12, goalsAgainst: 1, shutout: 0, goals: 1, assists: 1, points: 2, pim: 0 },
   { playerName: "Wapw", gameId: "g12", gs: 1, dec: "W", shotsAgainst: 39, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Wapw", gameId: "g19", gs: 1, dec: "L", shotsAgainst: 13, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Wapw", gameId: "g28", gs: 1, dec: "L", shotsAgainst: 3, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- PITTSBURGH PENGUINS ----------
   { playerName: "Fellow", gameId: "g02", gs: 1, dec: "W", shotsAgainst: 13, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
@@ -508,6 +512,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "SnugThePug", gameId: "g06", gs: 1, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "SnugThePug", gameId: "g15", gs: 0, dec: "OTL", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "SnugThePug", gameId: "g17", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "SnugThePug", gameId: "g29", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
 
   { playerName: "Pechs", gameId: "g01", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Pechs", gameId: "g06", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
@@ -529,12 +534,14 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "DDino", gameId: "g10", gs: 1, dec: "OTL", shotsAgainst: 41, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "DDino", gameId: "g15", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "DDino", gameId: "g18", gs: 0, dec: "W", shotsAgainst: 21, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "DDino", gameId: "g28", gs: 1, dec: "W", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- UTAH MAMMOTHS ----------
   { playerName: "Sleepy", gameId: "g05", gs: 1, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g09", gs: 1, dec: "W", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g11", gs: 0, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Sleepy", gameId: "g20", gs: 1, dec: "L", shotsAgainst: 2, goalsAgainst: 2, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Sleepy", gameId: "g30", gs: 1, dec: "W", shotsAgainst: 1, goalsAgainst: 1, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- VEGAS GOLDEN KNIGHTS ----------
   { playerName: "TGOD", gameId: "g01", gs: 1, dec: "W", shotsAgainst: 11, goalsAgainst: 0, shutout: 1, goals: 0, assists: 0, points: 0, pim: 0 },
@@ -550,6 +557,8 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Nova", gameId: "g06", gs: 0, dec: "L", shotsAgainst: 7, goalsAgainst: 7, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Nova", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Nova", gameId: "g16", gs: 0, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+
+  { playerName: "Bikerman111", gameId: "g30", gs: 1, dec: "L", shotsAgainst: 7, goalsAgainst: 7, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
 
   // ---------- LOS ANGELES KINGS ----------
   { playerName: "Riptide", gameId: "g03", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },

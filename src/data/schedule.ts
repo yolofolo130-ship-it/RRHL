@@ -37,9 +37,9 @@ export const games: Game[] = [
   { id: "g25", week: 5, date: "2026-08-15", time: "9:10PM", homeTeamId: "utah-mammoths", awayTeamId: "new-york-rangers", homeScore: 1, awayScore: 0, status: "forfeit" },
   { id: "g26", week: 6, date: "2026-08-17", time: "7:25PM", homeTeamId: "los-angeles-kings", awayTeamId: "boston-bruins", homeScore: 0, awayScore: 5, status: "final", wg: "Boolit", lg: "BDot", potg: "Sparkles" },
   { id: "g27", week: 6, date: "2026-08-17", time: "8:30PM", homeTeamId: "vegas-golden-knights", awayTeamId: "pittsburgh-penguins", homeScore: 4, awayScore: 3, status: "final", wg: "Mesh", lg: "Fellow", potg: "Butter" },
-  { id: "g28", week: 6, date: "2026-08-18", time: "6:55PM", homeTeamId: "carolina-hurricanes", awayTeamId: "new-york-rangers", status: "upcoming" },
-  { id: "g29", week: 6, date: "2026-08-18", time: "7:40PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "dallas-stars", status: "upcoming" },
-  { id: "g30", week: 6, date: "2026-08-18", time: "8:50PM", homeTeamId: "st-louis-blues", awayTeamId: "utah-mammoths", status: "upcoming" },
+  { id: "g28", week: 6, date: "2026-08-18", time: "6:55PM", homeTeamId: "carolina-hurricanes", awayTeamId: "new-york-rangers", homeScore: 2, awayScore: 3, status: "final", wg: "DDino", lg: "Wapw", potg: "Jrok" },
+  { id: "g29", week: 6, date: "2026-08-18", time: "7:40PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "dallas-stars", homeScore: 10, awayScore: 0, status: "final", wg: "SnugThePug", potg: "Cron" },
+  { id: "g30", week: 6, date: "2026-08-18", time: "8:50PM", homeTeamId: "st-louis-blues", awayTeamId: "utah-mammoths", homeScore: 1, awayScore: 7, status: "final", wg: "Sleepy", lg: "Bikerman111", potg: "Mood" },
 ];
 
 // Featured matchup shown prominently on the homepage.
