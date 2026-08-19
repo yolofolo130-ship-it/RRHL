@@ -28,7 +28,7 @@ export const skaters: Skater[] = [
   { id: "car-9", name: "Pirkyturkey", teamId: "carolina-hurricanes", position: "C", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
 
   { id: "pit-1", name: "Chrisx", teamId: "pittsburgh-penguins", position: "C", number: 5, gp: 5, goals: 13, assists: 11, pim: 0, overall: 97, xFactor: "Backhand Beauty", flag: "USA", headshot: pit1Headshot },
-  { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 3, gp: 2, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
+  { id: "pit-2", name: "RestartedRyan", teamId: "pittsburgh-penguins", position: "RW", number: 41, gp: 2, goals: 0, assists: 0, pim: 0, overall: 81, flag: "USA" },
   { id: "pit-3", name: "Mason", teamId: "pittsburgh-penguins", position: "RW", number: 32, gp: 5, goals: 3, assists: 2, pim: 0, overall: 83, flag: "USA" },
   { id: "pit-4", name: "Sid", teamId: "pittsburgh-penguins", position: "LW", number: 87, gp: 5, goals: 4, assists: 7, pim: 0, overall: 90, star: "Truculence", flag: "USA", headshot: pit4Headshot },
   { id: "pit-5", name: "chicharito9260", teamId: "st-louis-blues", position: "D", number: 99, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
@@ -64,9 +64,9 @@ export const skaters: Skater[] = [
   { id: "nyr-3", name: "Eli", teamId: "new-york-rangers", position: "LW", number: 7, gp: 2, goals: 1, assists: 0, pim: 0, overall: 87, flag: "USA" },
   { id: "nyr-4", name: "Sfgoofy", teamId: "new-york-rangers", position: "D", number: 23, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "nyr-5", name: "Carsonreeves", teamId: "new-york-rangers", position: "D", number: 9, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
-  { id: "nyr-6", name: "Cakelocks", teamId: "new-york-rangers", position: "RW", number: 61, gp: 0, goals: 0, assists: 0, pim: 0, overall: 77, flag: "USA" },
   { id: "nyr-7", name: "DieLit", teamId: "new-york-rangers", position: "D", number: 32, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "nyr-8", name: "Dimers", teamId: "new-york-rangers", position: "LW", number: 64, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },
+  { id: "nyr-9", name: "Zac", teamId: "new-york-rangers", position: "D", number: 51, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
 
   { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 4, goals: 3, assists: 5, pim: 0, overall: 93, star: "Wheels", flag: "Aruba" },
   { id: "uta-2", name: "Renuu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "One-T", flag: "USA" },
@@ -97,6 +97,7 @@ export const skaters: Skater[] = [
   { id: "stl-5", name: "Tidy", teamId: "st-louis-blues", position: "LW", number: 2, gp: 0, goals: 0, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "stl-6", name: "TDLMarcus", teamId: "st-louis-blues", position: "D", number: 56, gp: 0, goals: 0, assists: 0, pim: 0, overall: 79, flag: "USA" },
   { id: "stl-7", name: "Hogeye", teamId: "st-louis-blues", position: "C", number: 69, gp: 6, goals: 5, assists: 0, pim: 0, overall: 79, flag: "USA", headshot: HogeyeHeadshot },
+  { id: "stl-9", name: "Emoine", teamId: "st-louis-blues", position: "D", number: 25, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "stl-8", name: "AlexKiller", teamId: "pittsburgh-penguins", position: "LW", number: 1, gp: 3, goals: 0, assists: 0, pim: 0, flag: "USA" },
 
   { id: "lak-1", name: "MVP", teamId: "los-angeles-kings", position: "C", number: 9, gp: 3, goals: 14, assists: 2, pim: 0, overall: 85, flag: "USA" },
@@ -119,6 +120,7 @@ export const skaters: Skater[] = [
   { id: "dal-7", name: "MrSmallEyes", teamId: "dallas-stars", position: "D", number: 28, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-8", name: "Salva", teamId: "dallas-stars", position: "C", number: 31, gp: 1, goals: 3, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-10", name: "llh2206", teamId: "dallas-stars", position: "D", number: 98, gp: 0, goals: 0, assists: 0, pim: 0, overall: 70, flag: "USA" },
+  { id: "dal-11", name: "999v", teamId: "dallas-stars", position: "RW", number: 49, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   
 ];
 
@@ -126,6 +128,7 @@ export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 5, gs: 5, wins: 2, losses: 3, otLosses: 1, saves: 95, goalsAgainst: 8, shutouts: 0, goals: 1, assists: 1, pim: 0, overall: 86, flag: "Ukraine" },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 3, gp: 6, gs: 6, wins: 4, losses: 1, otLosses: 1, saves: 75, goalsAgainst: 9, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 87, flag: "Mexico", headshot: pitg1Headshot },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 4, gs: 0, wins: 4, losses: 1, otLosses: 1, saves: 0, goalsAgainst: 1, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
+  { id: "pit-g3", name: "LiLCottreau", teamId: "pittsburgh-penguins", number: 22, gp: 0, gs: 0, wins: 0, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 2, gs: 2, wins: 2, losses: 3, otLosses: 1, saves: 0, goalsAgainst: 1, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 85, flag: "Canada" },
   { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, gs: 0, wins: 1, losses: 3, otLosses: 1, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "bos-g1", name: "Apx11o", teamId: "boston-bruins", number: 34, gp: 2, gs: 2, wins: 3, losses: 1, otLosses: 1, saves: 4, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },

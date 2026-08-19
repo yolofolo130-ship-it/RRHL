@@ -38,7 +38,6 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-bryce", name: "Bryce", flag: "USA" },
   { id: "fp-nexo", name: "Nexo", flag: "USA" },
   { id: "fp-moon", name: "Moon", flag: "USA" },
-  { id: "fp-emoine", name: "Emoine", flag: "USA" },
   { id: "fp-blaze", name: "Blaze", flag: "USA" },
   { id: "fp-david", name: "David", flag: "USA" },
   { id: "fp-slixzz", name: "Slixzz", flag: "USA" },
@@ -46,12 +45,12 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-yaboicurry", name: "YaBoiCurry", flag: "USA" },
   { id: "fp-darius", name: "Darius", flag: "USA" },
   { id: "fp-evelyn", name: "Evelyn", flag: "USA" },
-  { id: "fp-lilcottreau", name: "LiLCottreau", flag: "USA" },
   { id: "fp-k3", name: "K3", flag: "UK" },
   { id: "fp-max", name: "Max", flag: "USA" },
   { id: "fp-mcwizard", name: "McWizard", flag: "USA" },
   { id: "fp-reject", name: "Reject", flag: "USA" },
   { id: "fp-cristian", name: "Cristian", flag: "USA" },
+  { id: "fp-cakelocks", name: "Cakelocks", overall: 77, flag: "USA" },
   { id: "fp-pkplis", name: "PKPlis", overall: 71, flag: "USA" },
 ];
 
