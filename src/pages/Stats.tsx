@@ -102,7 +102,7 @@ export default function Stats() {
           )}
 
           {tab === "goalies" && (
-            <table className="w-full min-w-[920px] border-collapse text-sm">
+            <table className="w-full min-w-[1040px] border-collapse text-sm">
               <thead>
                 <tr className="border-b border-line text-xs tracking-[0.15em] text-ink-3">
                   <th className="px-4 py-3 text-left font-semibold">#</th>
@@ -121,16 +121,20 @@ export default function Stats() {
                   <th className="px-3 py-3 text-center font-semibold">G</th>
                   <th className="px-3 py-3 text-center font-semibold">A</th>
                   <th className="px-3 py-3 text-center font-semibold">P</th>
-                  <th className="px-4 py-3 text-center font-semibold">PIM</th>
+                  <th className="px-3 py-3 text-center font-semibold">PIM</th>
+                  <th className="px-4 py-3 text-center font-semibold">AWARDS</th>
                 </tr>
               </thead>
               <tbody>
                 {goalieRows.map((goalie, index) => {
                   const team = getTeamById(goalie.teamId);
+                  const qualified = isQualifiedGoalie(goalie);
                   return (
                     <tr
                       key={goalie.id}
-                      className="border-b border-line/60 last:border-b-0 hover:bg-white/[0.03]"
+                      className={`border-b border-line/60 last:border-b-0 hover:bg-white/[0.03] ${
+                        qualified ? "" : "opacity-60"
+                      }`}
                     >
                       <td className="px-4 py-3 text-ink-3">{index + 1}</td>
                       <td className="px-4 py-3 font-medium text-ink-0">
@@ -166,11 +170,28 @@ export default function Stats() {
                         {goaliePoints(goalie)}
                       </td>
                       <td className="px-4 py-3 text-center text-ink-1">{goalie.pim}</td>
+                      <td className="px-4 py-3 text-center">
+                        {qualified ? (
+                          <span className="text-[10px] font-bold tracking-[0.1em] text-emerald-400">
+                            QUALIFIED
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-semibold tracking-[0.1em] text-ink-3">
+                            {Math.max(0, 5 - goalie.gs)} GS NEEDED
+                          </span>
+                        )}
+                      </td>
                     </tr>
                   );
                 })}
               </tbody>
             </table>
+          )}
+          {tab === "goalies" && (
+            <p className="border-t border-line px-5 py-3 text-[11px] tracking-wide text-ink-3">
+              Goalies need at least 5 games started to qualify for awards and the SV%/GAA leaderboards
+              — keeps a backup or a call-up from stealing a statistical crown off a tiny sample size.
+            </p>
           )}
 
           {tab === "teams" && (
