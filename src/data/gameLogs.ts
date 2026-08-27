@@ -26,6 +26,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Full", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Full", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Full", gameId: "g12", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Full", gameId: "g42", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Fishbowl", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Fishbowl", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -34,6 +35,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "AJ", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "AJ", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "AJ", gameId: "g12", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "AJ", gameId: "g34", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Nickel", gameId: "g04", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Nickel", gameId: "g08", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -53,6 +55,8 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Chrisx", gameId: "g12", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
   { playerName: "Chrisx", gameId: "g17", goals: 2, assists: 3, points: 5, pim: 0, ppg: 0, shg: 0, shots: 2, shifts: 0 },
   { playerName: "Chrisx", gameId: "g24", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g39", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Chrisx", gameId: "g41", goals: 4, assists: 0, points: 4, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "RestartedRyan", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "RestartedRyan", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -104,6 +108,8 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Swordtsu", gameId: "g06", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Swordtsu", gameId: "g15", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Swordtsu", gameId: "g17", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Swordtsu", gameId: "g35", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Swordtsu", gameId: "g38", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Cron", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Cron", gameId: "g06", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -151,6 +157,7 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Kdog2020", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Kdog2020", gameId: "g13", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Kdog2020", gameId: "g19", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Kdog2020", gameId: "g43", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Boolit", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Boolit", gameId: "g07", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -186,11 +193,13 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Jrok", gameId: "g15", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Jrok", gameId: "g18", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Jrok", gameId: "g28", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Jrok", gameId: "g45", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Bungee", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Bungee", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Bungee", gameId: "g15", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Bungee", gameId: "g18", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Bungee", gameId: "g31", goals: 1, assists: 1, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Eli", gameId: "g02", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Eli", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -221,6 +230,8 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "MJ", gameId: "g05", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MJ", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "MJ", gameId: "g11", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "MJ", gameId: "g32", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "MJ", gameId: "g40", goals: 4, assists: 0, points: 4, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Renuu", gameId: "g05", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Renuu", gameId: "g09", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -268,16 +279,19 @@ export const skaterGameStatLines: SkaterGameStatLine[] = [
   { playerName: "Sinny", gameId: "g10", goals: 0, assists: 1, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Sinny", gameId: "g14", goals: 3, assists: 0, points: 3, pim: 0, ppg: 0, shg: 0, shots: 6, shifts: 2 },
   { playerName: "Sinny", gameId: "g20", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Sinny", gameId: "g33", goals: 2, assists: 1, points: 3, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Butter", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Butter", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Butter", gameId: "g14", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Butter", gameId: "g27", goals: 4, assists: 0, points: 4, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Butter", gameId: "g44", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Siah", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Siah", gameId: "g10", goals: 1, assists: 0, points: 1, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Siah", gameId: "g14", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Siah", gameId: "g22", goals: 2, assists: 0, points: 2, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
+  { playerName: "Siah", gameId: "g36", goals: 6, assists: 0, points: 6, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
 
   { playerName: "Mesh", gameId: "g01", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
   { playerName: "Mesh", gameId: "g10", goals: 0, assists: 0, points: 0, pim: 0, ppg: 0, shg: 0, shots: 0, shifts: 0 },
@@ -527,7 +541,7 @@ export const goalieGameStatLines: GoalieGameStatLine[] = [
   { playerName: "Sparkles", gameId: "g05", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Sparkles", gameId: "g07", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
   { playerName: "Sparkles", gameId: "g13", gs: 0, shotsAgainst: 0, goalsAgainst: 0, pim: 0 },
-  { playerName: "Sparkles", gameId: "g26", gs: 1, shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 2, assists: 0, points: 2, pim: 0 },
+  { playerName: "Sparkles", gameId: "g26", gs: 1, shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 2, assists: 0, points: 2, pim: 0 },
 
   // ---------- NEW YORK RANGERS ----------
   { playerName: "DDino", gameId: "g02", gs: 0, dec: "L", shotsAgainst: 0, goalsAgainst: 0, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
@@ -640,6 +654,7 @@ export const inNetAppearances: InNetAppearance[] = [
   { playerName: "Ehhabhd", gameId: "g17", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Idk67", gameId: "g19", gs: 1, dec: "W", shotsAgainst: 3, goalsAgainst: 3, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
   { playerName: "Bungee", gameId: "g02", gs: 1, dec: "L", shotsAgainst: 5, goalsAgainst: 5, shutout: 0, goals: 0, assists: 0, points: 0, pim: 0 },
+  { playerName: "Bungee", gameId: "g37", gs: 1, dec: "W", shotsAgainst: 0, goalsAgainst: 0, shutout: 1, goals: 1, assists: 0, points: 0, pim: 0 },
 ];
 
 // Admin-panel skeleton only — same "last N team games" shape as
