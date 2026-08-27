@@ -34,4 +34,11 @@ export const hallOfFame: HallOfFameEntry[] = [
     teamId: "carolina-hurricanes",
     headshot: miniSneakiHof,
   },
+  {
+    id: "hof-boolit",
+    playerName: "Boolit",
+    note: "Retired as a Boston Bruin in Season 23.",
+    accolades: "S16 Jack Adams Trophy Winner 🎧; S16 Stanley Cup MVP 🏆; S16 Stanley Cup Champion 🏆; S20 James Norris Trophy Winner 🥇; S20 Jack Adams Trophy Winner 🎧",
+    teamId: "boston-bruins",
+  },
 ];

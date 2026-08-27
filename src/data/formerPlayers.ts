@@ -43,15 +43,18 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-slixzz", name: "Slixzz", flag: "USA" },
   { id: "fp-wyatt", name: "Wyatt", flag: "USA" },
   { id: "fp-yaboicurry", name: "YaBoiCurry", flag: "USA" },
-  { id: "fp-darius", name: "Darius", flag: "USA" },
-  { id: "fp-evelyn", name: "Evelyn", flag: "USA" },
   { id: "fp-k3", name: "K3", flag: "UK" },
   { id: "fp-max", name: "Max", flag: "USA" },
   { id: "fp-mcwizard", name: "McWizard", flag: "USA" },
   { id: "fp-reject", name: "Reject", flag: "USA" },
   { id: "fp-cristian", name: "Cristian", flag: "USA" },
-  { id: "fp-cakelocks", name: "Cakelocks", overall: 77, flag: "USA" },
   { id: "fp-pkplis", name: "PKPlis", overall: 71, flag: "USA" },
+  { id: "fp-boolit", name: "Boolit", overall: 89, star: "Truculence", flag: "USA" },
+  { id: "fp-evantheguy", name: "EvanTheGuy", overall: 86, flag: "USA" },
+  { id: "fp-josuxrr", name: "JosuxRR", overall: 74, flag: "USA" },
+  { id: "fp-dredgen", name: "Dredgen" },
+  { id: "fp-kuni", name: "Kuni" },
+  { id: "fp-birdo", name: "Birdo" },
 ];
 
 export const getFormerPlayerByName = (name: string): FormerPlayer | undefined =>
