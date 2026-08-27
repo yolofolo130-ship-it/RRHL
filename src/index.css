@@ -40,6 +40,7 @@
   --animate-logo-drift: logo-drift 12s ease-in-out infinite;
   --animate-logo-fall: logo-fall 7s linear infinite;
   --animate-logo-float: logo-float 50s ease-in-out infinite;
+  --animate-leaf-fall: leaf-fall 12s ease-in-out infinite;
 
   @keyframes fade-up {
     from {
@@ -160,6 +161,31 @@
     }
     100% {
       transform: translate(0, 0) rotate(0deg);
+    }
+  }
+  @keyframes leaf-fall {
+    0% {
+      transform: translate(0, -10vh) rotate(0deg);
+      opacity: 0;
+    }
+    8% {
+      opacity: var(--leaf-opacity, 0.55);
+    }
+    25% {
+      transform: translate(var(--sway, 24px), 25vh) rotate(90deg);
+    }
+    50% {
+      transform: translate(calc(var(--sway, 24px) * -1), 55vh) rotate(190deg);
+    }
+    75% {
+      transform: translate(var(--sway, 24px), 85vh) rotate(280deg);
+    }
+    92% {
+      opacity: var(--leaf-opacity, 0.55);
+    }
+    100% {
+      transform: translate(0, 110vh) rotate(360deg);
+      opacity: 0;
     }
   }
 }

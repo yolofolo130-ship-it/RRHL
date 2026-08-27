@@ -3,6 +3,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import MusicPlayer from "@/components/MusicPlayer";
 import FloatingLogo from "@/components/FloatingLogo";
+import FallingLeaves from "@/components/FallingLeaves";
 import PageTransition from "@/components/PageTransition";
 import Home from "@/pages/Home";
 import Olympics from "@/pages/Olympics";
@@ -26,6 +27,7 @@ function Layout() {
   return (
     <>
       <FloatingLogo />
+      <FallingLeaves />
       <Navbar />
       {/* flex-1 (not on mobile) stretches main to push the footer to the
           bottom of the viewport on short pages — good on desktop, but on
