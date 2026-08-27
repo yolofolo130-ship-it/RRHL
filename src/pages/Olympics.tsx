@@ -60,11 +60,11 @@ export default function Olympics() {
         <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">TEAMS</p>
         <div className="grid gap-5 sm:grid-cols-2">
           {olympicTeams.map((team) => (
-            <Link
+            <div
               key={team.id}
-              to={`/olympics/${team.id}`}
-              className="group flex items-center gap-5 border border-line bg-bg-2 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
+              className="group relative flex items-center gap-5 border border-line bg-bg-2 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-line-strong"
             >
+              <Link to={`/olympics/${team.id}`} className="absolute inset-0 z-0" aria-label={`${team.name} team page`} />
               <img src={team.logo} alt={`${team.name} logo`} className="h-20 w-20 shrink-0 object-contain" />
               <div className="min-w-0">
                 <p className="font-display text-2xl font-semibold uppercase tracking-wide text-ink-0">
@@ -73,12 +73,12 @@ export default function Olympics() {
                 <p className="mt-1 text-xs font-semibold tracking-[0.15em] text-ink-3">
                   {team.roster.length} PLAYERS
                 </p>
-                <div className="mt-3 text-sm">
+                <div className="relative z-10 mt-3 text-sm">
                   <span className="text-xs text-ink-3">HEAD COACH </span>
                   <CoachLine name={team.headCoach} />
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
       </section>
