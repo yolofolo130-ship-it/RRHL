@@ -1,5 +1,6 @@
 import carberHof from "@/assets/hall-of-fame/Carber-HOF.webp";
 import miniSneakiHof from "@/assets/hall-of-fame/MiniSneaki.webp";
+import boolitHof from "@/assets/hall-of-fame/Boolit-HOF.webp";
 
 export interface HallOfFameEntry {
   id: string;
@@ -40,5 +41,6 @@ export const hallOfFame: HallOfFameEntry[] = [
     note: "Retired as a Boston Bruin in Season 23.",
     accolades: "S16 Jack Adams Trophy Winner 🎧; S16 Stanley Cup MVP 🏆; S16 Stanley Cup Champion 🏆; S20 James Norris Trophy Winner 🥇; S20 Jack Adams Trophy Winner 🎧",
     teamId: "boston-bruins",
+    headshot: boolitHof,
   },
 ];
