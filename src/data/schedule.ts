@@ -42,7 +42,7 @@ export const games: Game[] = [
   { id: "g30", week: 6, date: "2026-08-18", time: "8:50PM", homeTeamId: "st-louis-blues", awayTeamId: "utah-mammoths", homeScore: 1, awayScore: 7, status: "final", wg: "Sleepy", lg: "Bikerman111", potg: "Mood" },
 
   // ---------- Week 7 ----------
-  { id: "g31", week: 7, date: "2026-08-19", time: "7:00PM", homeTeamId: "new-york-rangers", awayTeamId: "st-louis-blues", homeScore: 2, awayScore: 0, status: "final", wg: "DDino", lg: "Nova", potg: "Jrok" },
+  { id: "g31", week: 7, date: "2026-08-19", time: "7:00PM", homeTeamId: "new-york-rangers", awayTeamId: "st-louis-blues", homeScore: 2, awayScore: 0, status: "final", wg: "DDino", lg: "Nova", potg: "Bungee" },
   { id: "g32", week: 7, date: "2026-08-19", time: "8:15PM", homeTeamId: "utah-mammoths", awayTeamId: "pittsburgh-penguins", homeScore: 3, awayScore: 2, status: "final", wg: "Sleepy", lg: "ElMosquito", potg: "MJ" },
   { id: "g33", week: 7, date: "2026-08-19", time: "9:00PM", homeTeamId: "boston-bruins", awayTeamId: "vegas-golden-knights", homeScore: 1, awayScore: 3, status: "final", wg: "TGOD", lg: "Idk67", potg: "Sinny" },
   { id: "g34", week: 7, date: "2026-08-20", time: "7:40PM", homeTeamId: "dallas-stars", awayTeamId: "carolina-hurricanes", homeScore: 1, awayScore: 8, status: "final", wg: "BNA", lg: "Isagi", potg: "AJ" },
