@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import PageHeader from "@/components/PageHeader";
-import { olympicTeams } from "@/data/olympics";
+import { olympicTeams, olympicBracket } from "@/data/olympics";
 import { getPlayerBySlug, playerSlug, getHeadshotByName } from "@/data/players";
+import OlympicGameCard from "@/components/OlympicGameCard";
 
 function CoachLine({ name }: { name: string }) {
   const slug = playerSlug(name);
@@ -36,11 +37,28 @@ export default function Olympics() {
 
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         <p className="max-w-2xl text-sm leading-relaxed text-ink-2">
-          Four national teams, drawn from across the league. Schedule and bracket are still being
-          finalized — for now, here are the rosters.
+          Four national teams, drawn from across the league, competing in a single-elimination
+          bracket for gold.
         </p>
 
-        <div className="mt-8 grid gap-5 sm:grid-cols-2">
+        <p className="mb-4 mt-12 text-xs font-semibold tracking-[0.2em] text-ink-2">MEDAL BRACKET</p>
+        <div className="grid gap-5 sm:grid-cols-2">
+          {olympicBracket
+            .filter((g) => g.round === "semifinal")
+            .map((g) => (
+              <OlympicGameCard key={g.id} game={g} />
+            ))}
+        </div>
+        <div className="mx-auto mt-5 max-w-md">
+          {olympicBracket
+            .filter((g) => g.round === "final")
+            .map((g) => (
+              <OlympicGameCard key={g.id} game={g} />
+            ))}
+        </div>
+
+        <p className="mb-4 mt-14 text-xs font-semibold tracking-[0.2em] text-ink-2">TEAMS</p>
+        <div className="grid gap-5 sm:grid-cols-2">
           {olympicTeams.map((team) => (
             <Link
               key={team.id}

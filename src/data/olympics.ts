@@ -51,3 +51,76 @@ export const olympicTeams: OlympicTeam[] = [
 
 export const getOlympicTeamById = (id: string): OlympicTeam | undefined =>
   olympicTeams.find((t) => t.id === id);
+
+// Single-elimination bracket: two semifinals feed a straight final (no
+// bronze-medal game). A slot is either a fixed team (teamAId/teamBId) or,
+// once the format is known but the team isn't yet, filled by the winner of
+// an earlier game via advancesFromA/advancesFromB.
+export interface OlympicGame {
+  id: string;
+  round: "semifinal" | "final";
+  date: string;
+  time: string;
+  teamAId?: string;
+  teamBId?: string;
+  advancesFromA?: string;
+  advancesFromB?: string;
+  teamAScore?: number;
+  teamBScore?: number;
+  overtime?: boolean;
+  status: "upcoming" | "final";
+}
+
+export const olympicBracket: OlympicGame[] = [
+  {
+    id: "ol-sf1",
+    round: "semifinal",
+    date: "2026-08-25",
+    time: "8:30 PM",
+    teamAId: "sweden",
+    teamBId: "soviet-union",
+    teamAScore: 2,
+    teamBScore: 1,
+    overtime: true,
+    status: "final",
+  },
+  {
+    id: "ol-sf2",
+    round: "semifinal",
+    date: "2026-08-27",
+    time: "8:30 PM",
+    teamAId: "finland",
+    teamBId: "usa",
+    status: "upcoming",
+  },
+  {
+    id: "ol-final",
+    round: "final",
+    date: "2026-08-28",
+    time: "8:30 PM",
+    teamAId: "sweden",
+    advancesFromB: "ol-sf2",
+    status: "upcoming",
+  },
+];
+
+export const getOlympicGameById = (id: string): OlympicGame | undefined =>
+  olympicBracket.find((g) => g.id === id);
+
+export const getOlympicGameWinnerId = (game: OlympicGame): string | undefined => {
+  if (game.status !== "final" || game.teamAScore == null || game.teamBScore == null) return undefined;
+  return game.teamAScore > game.teamBScore ? game.teamAId : game.teamBId;
+};
+
+const resolveSlot = (teamId: string | undefined, advancesFrom: string | undefined): string | undefined => {
+  if (teamId) return teamId;
+  if (!advancesFrom) return undefined;
+  const source = getOlympicGameById(advancesFrom);
+  return source ? getOlympicGameWinnerId(source) : undefined;
+};
+
+export const getOlympicGameTeamAId = (game: OlympicGame): string | undefined =>
+  resolveSlot(game.teamAId, game.advancesFromA);
+
+export const getOlympicGameTeamBId = (game: OlympicGame): string | undefined =>
+  resolveSlot(game.teamBId, game.advancesFromB);
