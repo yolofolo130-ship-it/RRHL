@@ -15,6 +15,7 @@ import HogeyeHeadshot from "@/assets/players-avatars/Hogeye-Avatar.png";
 import MJHeadshot from "@/assets/players-avatars/MJ-Avatar.png";
 import MeshHeadshot from "@/assets/players-avatars/Mesh-Avatar.png";
 import SiahHeadshot from "@/assets/players-avatars/Siah-Avatar.png";
+import ButterHeadshot from "@/assets/players-avatars/Butter-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -84,7 +85,7 @@ export const skaters: Skater[] = [
   { id: "uta-11", name: "Rudolph", teamId: "utah-mammoths", position: "C", number: 12, gp: 0, goals: 0, assists: 0, pim: 0, overall: 74, flag: "USA" },
 
   { id: "vgk-1", name: "Sinny", teamId: "vegas-golden-knights", position: "RW", number: 77, gp: 6, goals: 9, assists: 10, pim: 2, overall: 94, xFactor: "Ankle Breaker", flag: "DR", headshot: sinnyAvatar },
-  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 8, goals: 10, assists: 12, pim: 0, overall: 86, flag: "Canada" },
+  { id: "vgk-2", name: "Butter", teamId: "vegas-golden-knights", position: "LW", number: 13, gp: 8, goals: 10, assists: 12, pim: 0, overall: 86, flag: "Canada", headshot: ButterHeadshot },
   { id: "vgk-3", name: "Siah", teamId: "vegas-golden-knights", position: "C", number: 8, gp: 4, goals: 10, assists: 4, pim: 2, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico", headshot: SiahHeadshot },
   { id: "vgk-4", name: "Mesh", teamId: "vegas-golden-knights", position: "C", number: 16, gp: 6, goals: 2, assists: 9, pim: 0, overall: 87, flag: "Jamaica", headshot: MeshHeadshot },
   { id: "vgk-5", name: "Caleb", teamId: "vegas-golden-knights", position: "D", number: 9, gp: 7, goals: 2, assists: 9, pim: 0, overall: 88, star: "Truculence", flag: "USA" },
