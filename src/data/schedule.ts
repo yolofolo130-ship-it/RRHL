@@ -61,7 +61,14 @@ export const games: Game[] = [
   { id: "g43", week: 9, date: "2026-08-24", time: "6:55 PM", homeTeamId: "dallas-stars", awayTeamId: "boston-bruins", homeScore: 0, awayScore: 10, status: "final", potg: "Kdog2020" },
   { id: "g44", week: 9, date: "2026-08-24", time: "8:00 PM", homeTeamId: "los-angeles-kings", awayTeamId: "vegas-golden-knights", homeScore: 1, awayScore: 4, status: "final", wg: "King", lg: "Bikerman111", potg: "Butter" },
   { id: "g45", week: 9, date: "2026-08-24", time: "8:55 PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "new-york-rangers", homeScore: 1, awayScore: 2, status: "final", wg: "DDino", lg: "SnugThePug", potg: "Jrok" },
+
+  // ---------- Week 10 ----------
+  { id: "g46", week: 10, date: "2026-08-31", time: "7:20 PM", homeTeamId: "dallas-stars", awayTeamId: "los-angeles-kings", status: "upcoming" },
+  { id: "g47", week: 10, date: "2026-08-31", time: "8:30 PM", homeTeamId: "new-york-rangers", awayTeamId: "pittsburgh-penguins", status: "upcoming" },
+  { id: "g48", week: 10, date: "2026-09-01", time: "7:00 PM", homeTeamId: "st-louis-blues", awayTeamId: "carolina-hurricanes", status: "upcoming" },
+  { id: "g49", week: 10, date: "2026-09-01", time: "8:05 PM", homeTeamId: "tampa-bay-lightning", awayTeamId: "vegas-golden-knights", status: "upcoming" },
+  { id: "g50", week: 10, date: "2026-09-01", time: "9:00 PM", homeTeamId: "utah-mammoths", awayTeamId: "boston-bruins", status: "upcoming" },
 ];
 
 // Featured matchup shown prominently on the homepage.
-export const featuredGameId = "g45";
+export const featuredGameId = "g47";
