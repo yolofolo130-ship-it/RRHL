@@ -16,9 +16,25 @@ export default function Players() {
       <section className="mx-auto max-w-[1400px] px-6 py-14 lg:px-10">
         <div className="flex flex-col gap-14">
           {teams.map((team) => {
-            const teamSkaters = skaters.filter((s) => s.teamId === team.id);
-            const teamGoalies = goalies.filter((g) => g.teamId === team.id);
+            const teamSkaters = [...skaters.filter((s) => s.teamId === team.id)].sort(
+              (a, b) => (b.overall ?? 0) - (a.overall ?? 0),
+            );
+            const teamGoalies = [...goalies.filter((g) => g.teamId === team.id)].sort(
+              (a, b) => (b.overall ?? 0) - (a.overall ?? 0),
+            );
             if (teamSkaters.length === 0 && teamGoalies.length === 0) return null;
+
+            // Skaters and goalies are tracked as two separate arrays but
+            // shown as one roster grid, highest OVR first regardless of
+            // position — so the two sorted lists get merged here rather
+            // than rendered as back-to-back sections.
+            const rosterByOverall: Array<
+              | { kind: "skater"; player: (typeof teamSkaters)[number] }
+              | { kind: "goalie"; player: (typeof teamGoalies)[number] }
+            > = [
+              ...teamSkaters.map((player) => ({ kind: "skater" as const, player })),
+              ...teamGoalies.map((player) => ({ kind: "goalie" as const, player })),
+            ].sort((a, b) => (b.player.overall ?? 0) - (a.player.overall ?? 0));
 
             return (
               <div key={team.id}>
@@ -29,7 +45,7 @@ export default function Players() {
                   </p>
                 </div>
                 <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-                  {teamSkaters.map((player) => (
+                  {rosterByOverall.map(({ kind, player }) => (
                     <Link
                       key={player.id}
                       to={`/players/${playerSlug(player.name)}`}
@@ -51,34 +67,9 @@ export default function Players() {
                           <ChampionBadge seasons={championshipSeasonsFor(player.name)} />
                         </p>
                         <p className="truncate text-xs text-ink-2">
-                          {player.position} &middot; {skaterPoints(player)} PTS
-                        </p>
-                      </div>
-                    </Link>
-                  ))}
-                  {teamGoalies.map((goalie) => (
-                    <Link
-                      key={goalie.id}
-                      to={`/players/${playerSlug(goalie.name)}`}
-                      className="flex items-center gap-4 border border-line bg-bg-2 p-5 transition-colors duration-300 hover:border-line-strong"
-                    >
-                      <span className="flex shrink-0 items-center gap-2">
-                        {goalie.headshot && (
-                          <img
-                            src={goalie.headshot}
-                            alt=""
-                            className="h-10 w-10 rounded-full border border-line object-cover"
-                          />
-                        )}
-                        <OverallBadge overall={goalie.overall ?? 70} />
-                      </span>
-                      <div className="min-w-0">
-                        <p className="flex items-center gap-1.5 font-display text-lg font-semibold uppercase tracking-wide text-ink-0">
-                          <span className="min-w-0 truncate">{goalie.name}</span>
-                          <ChampionBadge seasons={championshipSeasonsFor(goalie.name)} />
-                        </p>
-                        <p className="truncate text-xs text-ink-2">
-                          G &middot; {goalie.wins}-{goalie.losses}-{goalie.otLosses}
+                          {kind === "skater"
+                            ? `${player.position} · ${skaterPoints(player)} PTS`
+                            : `G · ${player.wins}-${player.losses}-${player.otLosses}`}
                         </p>
                       </div>
                     </Link>
