@@ -12,6 +12,7 @@ import tbl1Headshot from "@/assets/players-avatars/Swordtsu-Avatar.png";
 import car3Headshot from "@/assets/players-avatars/Full-Avatar.png";
 import uta3Headshot from "@/assets/players-avatars/lilballerjimmy-Avatar.png";
 import HogeyeHeadshot from "@/assets/players-avatars/Hogeye-Avatar.png";
+import MJHeadshot from "@/assets/players-avatars/MJ-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -69,7 +70,7 @@ export const skaters: Skater[] = [
   { id: "nyr-10", name: "TickleTimmy", teamId: "new-york-rangers", position: "LW", number: 16, gp: 1, goals: 1, assists: 1, pim: 0, flag: "USA" },
   { id: "nyr-11", name: "Banana", teamId: "new-york-rangers", position: "LW", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
 
-  { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 8, goals: 11, assists: 12, pim: 0, overall: 93, star: "Wheels", flag: "Aruba" },
+  { id: "uta-1", name: "MJ", teamId: "utah-mammoths", position: "C", number: 16, gp: 8, goals: 11, assists: 12, pim: 0, overall: 93, star: "Wheels", flag: "Aruba", headshot: MJHeadshot },
   { id: "uta-2", name: "Renuu", teamId: "utah-mammoths", position: "RW", number: 20, gp: 0, goals: 0, assists: 0, pim: 0, overall: 91, star: "One-T", flag: "USA" },
   { id: "uta-3", name: "lilballerjimmy", teamId: "utah-mammoths", position: "C", number: 2, gp: 4, goals: 3, assists: 0, pim: 0, overall: 94, xFactor: "Backhand Beauty", flag: "Mexico", headshot: uta3Headshot },
   { id: "uta-5", name: "Jazzmir", teamId: "utah-mammoths", position: "D", number: 31, gp: 1, goals: 0, assists: 0, pim: 0, overall: 89, star: "Quick Release", flag: "USA" },
