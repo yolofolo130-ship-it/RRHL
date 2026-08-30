@@ -18,6 +18,7 @@ import SiahHeadshot from "@/assets/players-avatars/Siah-Avatar.png";
 import ButterHeadshot from "@/assets/players-avatars/Butter-Avatar.png";
 import CronHeadshot from "@/assets/players-avatars/Cron-Avatar.png";
 import CalebHeadshot from "@/assets/players-avatars/Caleb-Avatar.png";
+import TGODHeadshot from "@/assets/players-avatars/TGOD-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -148,7 +149,7 @@ export const goalies: Goalie[] = [
   { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 31, gp: 6, gs: 6, wins: 6, losses: 2, otLosses: 1, saves: 134, goalsAgainst: 11, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 89, star: "Dialed In", flag: "DR" },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 5, gs: 5, wins: 7, losses: 2, otLosses: 0, saves: 70, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
   { id: "uta-g2", name: "Apx11o", teamId: "utah-mammoths", number: 34, gp: 3, gs: 2, wins: 0, losses: 8, otLosses: 1, saves: 4, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
-  { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 7, gs: 6, wins: 9, losses: 0, otLosses: 0, saves: 114, goalsAgainst: 3, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 98, xFactor: "Post to Post", flag: "USA" },
+  { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 7, gs: 6, wins: 9, losses: 0, otLosses: 0, saves: 114, goalsAgainst: 3, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 98, xFactor: "Post to Post", flag: "USA", headshot: TGODHeadshot },
   { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, gs: 1, wins: 9, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, gs: 2, wins: 2, losses: 7, otLosses: 0, saves: 6, goalsAgainst: 13, shutouts: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "lak-g1", name: "Riptide", teamId: "los-angeles-kings", number: 32, gp: 1, gs: 1, wins: 3, losses: 6, otLosses: 0, saves: 1, goalsAgainst: 5, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
