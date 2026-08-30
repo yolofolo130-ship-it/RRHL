@@ -69,6 +69,13 @@ export interface OlympicGame {
   teamBScore?: number;
   overtime?: boolean;
   status: "upcoming" | "final";
+  /** Winning/losing goalie's name — resolved against players.ts for a headshot/link where possible, plain text otherwise (Olympic-only participants won't resolve). */
+  wg?: string;
+  lg?: string;
+  /** Player of the game, same resolution as wg/lg. */
+  potg?: string;
+  /** Free-text stat note shown next to potg, e.g. "10 goals" — there's no Olympic-specific game log to compute this from. */
+  potgNote?: string;
 }
 
 export const olympicBracket: OlympicGame[] = [
@@ -91,7 +98,13 @@ export const olympicBracket: OlympicGame[] = [
     time: "8:30 PM",
     teamAId: "finland",
     teamBId: "usa",
-    status: "upcoming",
+    teamAScore: 1,
+    teamBScore: 0,
+    status: "final",
+    wg: "Evil Nightmare Pickle Bird",
+    lg: "Evilchicken",
+    potg: "Not Bald",
+    potgNote: "1 goal",
   },
   {
     id: "ol-final",
@@ -100,7 +113,11 @@ export const olympicBracket: OlympicGame[] = [
     time: "8:30 PM",
     teamAId: "sweden",
     advancesFromB: "ol-sf2",
-    status: "upcoming",
+    teamAScore: 10,
+    teamBScore: 6,
+    status: "final",
+    potg: "MJ",
+    potgNote: "10 goals",
   },
 ];
 

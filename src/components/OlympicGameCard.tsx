@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import type { OlympicGame } from "@/data/olympics";
 import { getOlympicTeamById, getOlympicGameTeamAId, getOlympicGameTeamBId } from "@/data/olympics";
+import { getHeadshotByName, getPlayerSlugByName } from "@/data/players";
 import TeamLogo from "./TeamLogo";
 import { formatShortDate } from "@/utils/format";
 
@@ -18,6 +19,7 @@ export default function OlympicGameCard({ game }: OlympicGameCardProps) {
   const aWon = isFinal && (game.teamAScore ?? 0) > (game.teamBScore ?? 0);
   const bWon = isFinal && (game.teamBScore ?? 0) > (game.teamAScore ?? 0);
   const isChampionship = game.round === "final";
+  const hasHonors = isFinal && (game.wg || game.lg || game.potg);
 
   return (
     <div
@@ -49,7 +51,47 @@ export default function OlympicGameCard({ game }: OlympicGameCardProps) {
           {isFinal ? "FINAL" : "UPCOMING"}
         </span>
       </div>
+
+      {hasHonors && (
+        <div className="mt-3 flex flex-wrap items-center justify-center gap-x-5 gap-y-2 border-t border-line/60 pt-3">
+          {game.wg && <OlympicHonor label="WG" name={game.wg} />}
+          {game.lg && <OlympicHonor label="LG" name={game.lg} />}
+          {game.potg && <OlympicHonor label="POTG" name={game.potg} note={game.potgNote} />}
+        </div>
+      )}
     </div>
+  );
+}
+
+function OlympicHonor({ label, name, note }: { label: string; name: string; note?: string }) {
+  const headshot = getHeadshotByName(name);
+  const slug = getPlayerSlugByName(name);
+  const content = (
+    <>
+      <span className="text-[10px] font-semibold tracking-[0.1em] text-ink-3 sm:text-xs">{label}:</span>
+      {headshot && (
+        <img
+          src={headshot}
+          alt=""
+          className="h-5 w-5 shrink-0 rounded-full border border-line object-cover sm:h-6 sm:w-6"
+        />
+      )}
+      <span className="text-xs font-semibold text-ink-1 sm:text-sm">{name}</span>
+      {note && <span className="text-[10px] text-ink-3 sm:text-xs">{note}</span>}
+    </>
+  );
+
+  if (!slug) {
+    return <span className="inline-flex items-center gap-1.5">{content}</span>;
+  }
+
+  return (
+    <Link
+      to={`/players/${slug}`}
+      className="inline-flex items-center gap-1.5 transition-colors duration-300 hover:text-white"
+    >
+      {content}
+    </Link>
   );
 }
 
