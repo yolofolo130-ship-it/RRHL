@@ -16,6 +16,7 @@ import MJHeadshot from "@/assets/players-avatars/MJ-Avatar.png";
 import MeshHeadshot from "@/assets/players-avatars/Mesh-Avatar.png";
 import SiahHeadshot from "@/assets/players-avatars/Siah-Avatar.png";
 import ButterHeadshot from "@/assets/players-avatars/Butter-Avatar.png";
+import CronHeadshot from "@/assets/players-avatars/Cron-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -42,7 +43,7 @@ export const skaters: Skater[] = [
   { id: "pit-12", name: "AlexKiller", teamId: "pittsburgh-penguins", position: "LW", number: 1, gp: 3, goals: 0, assists: 0, pim: 0, flag: "USA" },
 
   { id: "tbl-1", name: "Swordtsu", teamId: "tampa-bay-lightning", position: "C", number: 11, gp: 6, goals: 14, assists: 10, pim: 0, overall: 92, star: "Quick Release", flag: "USA", headshot: tbl1Headshot },
-  { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 8, goals: 21, assists: 10, pim: 0, overall: 87, flag: "USA" },
+  { id: "tbl-2", name: "Cron", teamId: "tampa-bay-lightning", position: "LW", number: 19, gp: 8, goals: 21, assists: 10, pim: 0, overall: 87, flag: "USA", headshot: CronHeadshot },
   { id: "tbl-4", name: "KindSnack000", teamId: "tampa-bay-lightning", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
   { id: "tbl-5", name: "LillianTheGreat", teamId: "tampa-bay-lightning", position: "D", number: 6, gp: 1, goals: 0, assists: 0, pim: 0, overall: 88, star: "Truculence", flag: "USA" },
   { id: "tbl-6", name: "UncNotFrog", teamId: "tampa-bay-lightning", position: "D", number: 4, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
