@@ -117,8 +117,6 @@ export const skaters: Skater[] = [
   { id: "dal-1", name: "Santi", teamId: "dallas-stars", position: "C", number: 1, gp: 6, goals: 5, assists: 3, pim: 0, overall: 83, flag: "Mexico" },
   { id: "dal-2", name: "Uzi", teamId: "dallas-stars", position: "RW", number: 19, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-3", name: "Ice", teamId: "dallas-stars", position: "D", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
-  { id: "dal-4", name: "Alex", teamId: "dallas-stars", position: "D", number: 3, gp: 0, goals: 0, assists: 0, pim: 0, overall: 78, flag: "USA" },
-  { id: "dal-5", name: "Courtney", teamId: "dallas-stars", position: "D", number: 68, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-6", name: "Zyler", teamId: "dallas-stars", position: "RW", number: 62, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-7", name: "MrSmallEyes", teamId: "dallas-stars", position: "D", number: 28, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-8", name: "Salva", teamId: "dallas-stars", position: "C", number: 31, gp: 1, goals: 3, assists: 0, pim: 0, flag: "USA" },
@@ -127,6 +125,9 @@ export const skaters: Skater[] = [
   { id: "dal-11", name: "999v", teamId: "dallas-stars", position: "RW", number: 49, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "dal-12", name: "Fishbowl", teamId: "dallas-stars", position: "D", number: 55, gp: 1, goals: 0, assists: 0, pim: 0, overall: 83, flag: "Canada" },
   { id: "dal-13", name: "Isagi", teamId: "dallas-stars", position: "D", number: 23, gp: 1, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "dal-14", name: "Wigga Pig", teamId: "dallas-stars", position: "D", number: 69, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "dal-15", name: "Nexo", teamId: "dallas-stars", position: "LW", number: 17, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
+  { id: "dal-16", name: "Millennia", teamId: "dallas-stars", position: "RW", number: 85, gp: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   
 ];
 
@@ -134,13 +135,13 @@ export const goalies: Goalie[] = [
   { id: "car-g1", name: "Wapw", teamId: "carolina-hurricanes", number: 23, gp: 5, gs: 5, wins: 4, losses: 3, otLosses: 2, saves: 95, goalsAgainst: 8, shutouts: 0, goals: 1, assists: 1, pim: 0, overall: 86, flag: "Ukraine" },
   { id: "pit-g1", name: "Fellow", teamId: "pittsburgh-penguins", number: 3, gp: 7, gs: 6, wins: 6, losses: 2, otLosses: 1, saves: 75, goalsAgainst: 9, shutouts: 1, goals: 2, assists: 1, pim: 0, overall: 87, flag: "Mexico", headshot: pitg1Headshot },
   { id: "pit-g2", name: "ElMosquito", teamId: "pittsburgh-penguins", number: 64, gp: 5, gs: 1, wins: 6, losses: 2, otLosses: 1, saves: 0, goalsAgainst: 1, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
-  { id: "pit-g3", name: "LiLCottreau", teamId: "pittsburgh-penguins", number: 22, gp: 0, gs: 0, wins: 6, losses: 2, otLosses: 1, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
   { id: "pit-g4", name: "ArdenB", teamId: "pittsburgh-penguins", number: 85, gp: 2, gs: 2, wins: 6, losses: 2, otLosses: 1, saves: 21, goalsAgainst: 0, shutouts: 2, goals: 0, assists: 0, pim: 0 },
   { id: "tbl-g1", name: "SnugThePug", teamId: "tampa-bay-lightning", number: 33, gp: 5, gs: 3, wins: 4, losses: 4, otLosses: 1, saves: 13, goalsAgainst: 2, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 85, flag: "Canada" },
   { id: "tbl-g2", name: "Pechs", teamId: "tampa-bay-lightning", number: 57, gp: 0, gs: 0, wins: 4, losses: 4, otLosses: 1, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 94, xFactor: "Post to Post", flag: "USA" },
   { id: "bos-g2", name: "Sparkles", teamId: "boston-bruins", number: 20, gp: 3, gs: 3, wins: 5, losses: 3, otLosses: 1, saves: 20, goalsAgainst: 2, shutouts: 0, goals: 4, assists: 2, pim: 0, star: "Sponge", flag: "USA" },
   { id: "nyr-g1", name: "DDino", teamId: "new-york-rangers", number: 31, gp: 6, gs: 6, wins: 6, losses: 2, otLosses: 1, saves: 134, goalsAgainst: 11, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 89, star: "Dialed In", flag: "DR" },
   { id: "uta-g1", name: "Sleepy", teamId: "utah-mammoths", number: 33, gp: 5, gs: 5, wins: 7, losses: 2, otLosses: 0, saves: 70, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 83, flag: "USA" },
+  { id: "uta-g2", name: "Apx11o", teamId: "utah-mammoths", number: 34, gp: 3, gs: 2, wins: 0, losses: 8, otLosses: 1, saves: 4, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
   { id: "vgk-g1", name: "TGOD", teamId: "vegas-golden-knights", number: 10, gp: 7, gs: 6, wins: 9, losses: 0, otLosses: 0, saves: 114, goalsAgainst: 3, shutouts: 1, goals: 0, assists: 0, pim: 0, overall: 98, xFactor: "Post to Post", flag: "USA" },
   { id: "vgk-g2", name: "King", teamId: "vegas-golden-knights", number: 4, gp: 1, gs: 1, wins: 9, losses: 0, otLosses: 0, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 86, flag: "USA" },
   { id: "stl-g1", name: "Nova", teamId: "st-louis-blues", number: 40, gp: 2, gs: 2, wins: 2, losses: 7, otLosses: 0, saves: 6, goalsAgainst: 13, shutouts: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
@@ -148,7 +149,6 @@ export const goalies: Goalie[] = [
   { id: "lak-g2", name: "TheHolyHippo", teamId: "los-angeles-kings", number: 22, gp: 2, gs: 2, wins: 3, losses: 6, otLosses: 0, saves: 0, goalsAgainst: 0, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 90, star: "Warrior", flag: "USA" },
   { id: "lak-g3", name: "Bikerman111", teamId: "los-angeles-kings", number: 86, gp: 3, gs: 1, wins: 3, losses: 6, otLosses: 0, saves: 0, goalsAgainst: 10, shutouts: 0, goals: 1, assists: 3, pim: 0, flag: "USA" },
   { id: "dal-g1", name: "Jollyllama", teamId: "dallas-stars", number: 39, gp: 2, gs: 2, wins: 0, losses: 8, otLosses: 1, saves: 0, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, flag: "USA" },
-  { id: "dal-g2", name: "Apx11o", teamId: "dallas-stars", number: 34, gp: 3, gs: 2, wins: 0, losses: 8, otLosses: 1, saves: 4, goalsAgainst: 6, shutouts: 0, goals: 0, assists: 0, pim: 0, overall: 80, flag: "USA" },
 ];
 
 export const coaches: Coach[] = [

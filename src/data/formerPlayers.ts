@@ -36,7 +36,6 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-repent", name: "Repent", flag: "USA" },
   { id: "fp-beasty", name: "Beasty", flag: "USA" },
   { id: "fp-bryce", name: "Bryce", flag: "USA" },
-  { id: "fp-nexo", name: "Nexo", flag: "USA" },
   { id: "fp-moon", name: "Moon", flag: "USA" },
   { id: "fp-blaze", name: "Blaze", flag: "USA" },
   { id: "fp-david", name: "David", flag: "USA" },
@@ -55,6 +54,9 @@ export const formerPlayers: FormerPlayer[] = [
   { id: "fp-dredgen", name: "Dredgen" },
   { id: "fp-kuni", name: "Kuni" },
   { id: "fp-birdo", name: "Birdo" },
+  { id: "fp-alex", name: "Alex", overall: 78, flag: "USA" },
+  { id: "fp-courtney", name: "Courtney", flag: "USA" },
+  { id: "fp-lilcottreau", name: "LiLCottreau", flag: "USA" },
 ];
 
 export const getFormerPlayerByName = (name: string): FormerPlayer | undefined =>
