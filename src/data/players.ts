@@ -19,6 +19,7 @@ import ButterHeadshot from "@/assets/players-avatars/Butter-Avatar.png";
 import CronHeadshot from "@/assets/players-avatars/Cron-Avatar.png";
 import CalebHeadshot from "@/assets/players-avatars/Caleb-Avatar.png";
 import TGODHeadshot from "@/assets/players-avatars/TGOD-Avatar.png";
+import PeachHeadshot from "@/assets/players-avatars/Peach-Avatar.png";
 
 // Placeholder rosters — replace with real players at any time. Points,
 // save percentage, and GAA are always calculated, never stored, so editing
@@ -30,7 +31,7 @@ export const skaters: Skater[] = [
   { id: "car-4", name: "Spad", teamId: "carolina-hurricanes", position: "D", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
   { id: "car-5", name: "AJ", teamId: "carolina-hurricanes", position: "D", number: 32, gp: 4, goals: 7, assists: 2, pim: 0, overall: 83, flag: "USA" },
   { id: "car-6", name: "Nickel", teamId: "carolina-hurricanes", position: "LW", number: 11, gp: 2, goals: 4, assists: 0, pim: 0, overall: 88, star: "Quick Release", flag: "USA" },
-  { id: "car-7", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA" },
+  { id: "car-7", name: "Peach", teamId: "carolina-hurricanes", position: "LW", number: 10, gp: 0, goals: 0, assists: 0, pim: 0, overall: 84, flag: "USA", headshot: PeachHeadshot },
   { id: "car-8", name: "Badmilk", teamId: "carolina-hurricanes", position: "LW", number: 6, gp: 3, goals: 1, assists: 0, pim: 0, overall: 82, flag: "USA" },
   { id: "car-9", name: "Pirkyturkey", teamId: "carolina-hurricanes", position: "C", number: 0, gp: 0, goals: 0, assists: 0, pim: 0 },
 
