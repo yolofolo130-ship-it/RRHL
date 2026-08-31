@@ -104,7 +104,7 @@ export default function HallOfFameModal({ entry, onClose }: HallOfFameModalProps
             <img
               src={entry.headshot}
               alt={entry.playerName}
-              className="h-32 w-32 rounded-2xl border border-[var(--accent)]/50 object-cover shadow-[0_0_24px_-6px_var(--accent)]"
+              className="h-32 w-32 rounded-2xl border border-[var(--accent)]/50 object-cover object-top shadow-[0_0_24px_-6px_var(--accent)]"
             />
           ) : (
             <div className="flex h-32 w-32 items-center justify-center border border-[var(--accent)]/50 bg-bg-3 font-display text-4xl font-semibold text-ink-1">

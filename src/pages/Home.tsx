@@ -321,7 +321,7 @@ function LeaderCard({
                     <img
                       src={headshot}
                       alt=""
-                      className="h-5 w-5 shrink-0 rounded-full border border-line object-cover"
+                      className="h-5 w-5 shrink-0 rounded-full border border-line object-cover object-top"
                     />
                   ) : (
                     team && <TeamLogo team={team} className="h-5 w-5 shrink-0" />
@@ -378,7 +378,7 @@ function MilestoneCard({ milestone }: { milestone: Milestone }) {
           <img
             src={headshot}
             alt=""
-            className="h-11 w-11 shrink-0 rounded-full border border-line object-cover"
+            className="h-11 w-11 shrink-0 rounded-full border border-line object-cover object-top"
           />
         ) : (
           team && <TeamLogo team={team} className="h-11 w-11 shrink-0" />

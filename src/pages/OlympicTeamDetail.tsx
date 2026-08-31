@@ -15,7 +15,7 @@ function ResolvedPersonRow({ name }: { name: string }) {
   const row = (
     <div className="flex items-center gap-4 border border-line bg-bg-2 p-4 transition-colors duration-300 hover:border-line-strong">
       {headshot ? (
-        <img src={headshot} alt="" className="h-12 w-12 shrink-0 rounded-full border border-line object-cover" />
+        <img src={headshot} alt="" className="h-12 w-12 shrink-0 rounded-full border border-line object-cover object-top" />
       ) : (
         <span className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-line bg-bg-3 font-display text-sm font-semibold text-ink-1">
           {name.charAt(0).toUpperCase()}

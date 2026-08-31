@@ -12,7 +12,7 @@ function CoachLine({ name }: { name: string }) {
   const content = (
     <span className="inline-flex items-center gap-2">
       {headshot ? (
-        <img src={headshot} alt="" className="h-6 w-6 shrink-0 rounded-full border border-line object-cover" />
+        <img src={headshot} alt="" className="h-6 w-6 shrink-0 rounded-full border border-line object-cover object-top" />
       ) : (
         <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full border border-line bg-bg-3 text-[10px] font-semibold text-ink-1">
           {name.charAt(0).toUpperCase()}

@@ -185,7 +185,7 @@ export default function TeamDetail() {
                           <img
                             src={headshot}
                             alt=""
-                            className="h-14 w-14 shrink-0 rounded-full border border-line object-cover"
+                            className="h-14 w-14 shrink-0 rounded-full border border-line object-cover object-top"
                           />
                         ) : (
                           <TeamLogo team={team} className="h-12 w-12 shrink-0 opacity-70" />

@@ -118,7 +118,7 @@ function TeamLeadersCard({ team }: { team: Team }) {
               <img
                 src={getHeadshotByName(pointsLeader.name)}
                 alt=""
-                className="h-10 w-10 shrink-0 rounded-full border border-line object-cover"
+                className="h-10 w-10 shrink-0 rounded-full border border-line object-cover object-top"
               />
             ) : (
               <TeamLogo team={team} className="h-9 w-9 shrink-0 opacity-70" />
@@ -141,7 +141,7 @@ function TeamLeadersCard({ team }: { team: Team }) {
               <img
                 src={getHeadshotByName(topGoalie.name)}
                 alt=""
-                className="h-10 w-10 shrink-0 rounded-full border border-line object-cover"
+                className="h-10 w-10 shrink-0 rounded-full border border-line object-cover object-top"
               />
             ) : (
               <TeamLogo team={team} className="h-9 w-9 shrink-0 opacity-70" />

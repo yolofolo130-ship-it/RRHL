@@ -109,7 +109,7 @@ function GameHonor({
           key={headshot}
           src={headshot}
           alt=""
-          className="h-5 w-5 shrink-0 animate-fade-in rounded-full border border-line object-cover sm:h-6 sm:w-6"
+          className="h-5 w-5 shrink-0 animate-fade-in rounded-full border border-line object-cover object-top sm:h-6 sm:w-6"
         />
       )}
       <span className="text-xs font-semibold text-ink-1 sm:text-sm">{name}</span>

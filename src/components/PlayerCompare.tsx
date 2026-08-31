@@ -88,7 +88,7 @@ function PlayerAvatar({ player, size = "h-9 w-9" }: { player: ComparablePlayer; 
   const headshot = getHeadshotByName(player.name);
   const team = getTeamById(player.teamId);
   if (headshot) {
-    return <img src={headshot} alt="" className={`${size} shrink-0 rounded-full border border-line object-cover`} />;
+    return <img src={headshot} alt="" className={`${size} shrink-0 rounded-full border border-line object-cover object-top`} />;
   }
   if (team) {
     return <TeamLogo team={team} className={`${size} shrink-0 opacity-70`} />;

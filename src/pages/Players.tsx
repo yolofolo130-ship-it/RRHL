@@ -56,7 +56,7 @@ export default function Players() {
                           <img
                             src={player.headshot}
                             alt=""
-                            className="h-10 w-10 rounded-full border border-line object-cover"
+                            className="h-10 w-10 rounded-full border border-line object-cover object-top"
                           />
                         )}
                         <OverallBadge overall={player.overall ?? 70} />
@@ -97,7 +97,7 @@ export default function Players() {
                       <img
                         src={player.headshot}
                         alt=""
-                        className="h-10 w-10 shrink-0 rounded-full border border-line object-cover"
+                        className="h-10 w-10 shrink-0 rounded-full border border-line object-cover object-top"
                       />
                     )}
                     <div className="min-w-0">
